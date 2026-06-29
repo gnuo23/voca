@@ -70,6 +70,37 @@ export type DeckPayload = {
   description: string;
 };
 
+export type VocabImportStatus =
+  | "OK"
+  | "ERROR"
+  | "DUPLICATE_IN_DECK"
+  | "DUPLICATE_IN_IMPORT";
+
+export type VocabImportItem = {
+  lineNumber: number;
+  word: string | null;
+  partOfSpeech: string | null;
+  meaningVi: string | null;
+  status: VocabImportStatus;
+  message: string | null;
+};
+
+export type VocabImportError = {
+  lineNumber: number;
+  message: string;
+};
+
+export type VocabImportPreview = {
+  items: VocabImportItem[];
+  errors: VocabImportError[];
+};
+
+export type VocabImportConfirm = {
+  importedCount: number;
+  items: VocabImportItem[];
+  errors: VocabImportError[];
+};
+
 export async function getHealth(): Promise<HealthResponse> {
   const response = await fetch(`${API_BASE_URL}/health`, {
     cache: "no-store"
@@ -165,6 +196,30 @@ export async function deleteDeck(token: string, deckId: string): Promise<void> {
   await apiRequest<void>(`/api/decks/${deckId}`, {
     method: "DELETE",
     token
+  });
+}
+
+export async function previewVocabImport(
+  token: string,
+  deckId: string,
+  rawText: string
+): Promise<VocabImportPreview> {
+  return apiRequest<VocabImportPreview>("/api/vocab/import/preview", {
+    method: "POST",
+    token,
+    body: JSON.stringify({ deckId: Number(deckId), rawText })
+  });
+}
+
+export async function confirmVocabImport(
+  token: string,
+  deckId: string,
+  rawText: string
+): Promise<VocabImportConfirm> {
+  return apiRequest<VocabImportConfirm>("/api/vocab/import/confirm", {
+    method: "POST",
+    token,
+    body: JSON.stringify({ deckId: Number(deckId), rawText })
   });
 }
 

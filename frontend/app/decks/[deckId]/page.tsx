@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DeckForm } from "@/components/decks/DeckForm";
+import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
 import { Deck, deleteDeck, getDeck, getStoredToken, updateDeck } from "@/lib/api";
 
 export default function DeckDetailPage() {
@@ -36,6 +37,15 @@ export default function DeckDetailPage() {
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not delete deck");
     }
+  }
+
+  async function refreshDeck() {
+    if (!token) {
+      return;
+    }
+
+    const refreshed = await getDeck(token, params.deckId);
+    setDeck(refreshed);
   }
 
   return (
@@ -85,6 +95,14 @@ export default function DeckDetailPage() {
         {saved && <p className="form-success">Deck saved.</p>}
         {error && <p className="form-error">{error}</p>}
       </section>
+
+      {deck && token && (
+        <VocabImportPanel
+          token={token}
+          deckId={params.deckId}
+          onImported={refreshDeck}
+        />
+      )}
     </AppShell>
   );
 }

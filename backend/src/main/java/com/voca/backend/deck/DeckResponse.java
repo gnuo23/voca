@@ -14,11 +14,15 @@ public record DeckResponse(
 ) {
 
     public static DeckResponse from(Deck deck) {
+        return from(deck, 0);
+    }
+
+    public static DeckResponse from(Deck deck, long totalWords) {
         return new DeckResponse(
                 deck.getId(),
                 deck.getName(),
                 deck.getDescription(),
-                0,
+                Math.toIntExact(totalWords),
                 0,
                 0,
                 deck.getCreatedAt(),

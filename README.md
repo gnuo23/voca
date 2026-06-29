@@ -10,6 +10,7 @@ Phase 0 project skeleton with:
 - Docker Compose
 - JWT auth with user profile
 - Vocabulary deck CRUD with ownership checks
+- Vocabulary list import preview and confirm
 
 ## Run With Docker Compose
 
@@ -43,11 +44,26 @@ Deck endpoints:
 - `PUT /api/decks/{deckId}`
 - `DELETE /api/decks/{deckId}`
 
+Vocabulary import endpoints:
+
+- `POST /api/vocab/import/preview`
+- `POST /api/vocab/import/confirm`
+
 Frontend routes:
 
 - `/decks`
 - `/decks/new`
 - `/decks/{deckId}`
+
+Supported vocabulary import line formats:
+
+- `word`
+- `word ; meaning`
+- `word ; (pos) meaning`
+- `word - meaning`
+- `word: meaning`
+- `word | pos | meaning`
+- `multi word phrase ; (n) meaning`
 
 ## Run Locally
 
