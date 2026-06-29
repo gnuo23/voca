@@ -220,6 +220,14 @@ textarea {
   background: var(--brand-dark);
 }
 
+.danger-button {
+  background: var(--danger);
+}
+
+.danger-button:hover {
+  background: #861d14;
+}
+
 .button:disabled {
   cursor: not-allowed;
   opacity: 0.7;
@@ -267,6 +275,63 @@ textarea {
 
 .profile-card {
   max-width: 780px;
+}
+
+.deck-list {
+  display: grid;
+  gap: 14px;
+}
+
+.deck-card {
+  display: grid;
+  gap: 16px;
+}
+
+.deck-card h2,
+.deck-edit-card h2,
+.empty-state h2,
+.card h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.deck-card p,
+.empty-state p,
+.card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.progress-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.progress-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f7f8f5;
+  padding: 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.empty-state {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 28px;
+}
+
+.deck-edit-card {
+  margin-top: 16px;
 }
 
 .form-grid {

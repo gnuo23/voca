@@ -26,13 +26,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Home size={18} aria-hidden="true" />
             Dashboard
           </Link>
+          <Link className={pathname.startsWith("/decks") ? "active" : ""} href="/decks">
+            <Layers size={18} aria-hidden="true" />
+            My Decks
+          </Link>
           <Link href="/dashboard">
             <BookOpen size={18} aria-hidden="true" />
             Vocabulary
-          </Link>
-          <Link href="/dashboard">
-            <Layers size={18} aria-hidden="true" />
-            Decks
           </Link>
           <Link className={pathname === "/profile" ? "active" : ""} href="/profile">
             <UserRound size={18} aria-hidden="true" />

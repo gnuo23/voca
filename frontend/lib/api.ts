@@ -54,6 +54,22 @@ export type UpdateProfilePayload = {
   dailyGoal: number;
 };
 
+export type Deck = {
+  id: number;
+  name: string;
+  description: string | null;
+  totalWords: number;
+  learnedWords: number;
+  dueWords: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeckPayload = {
+  name: string;
+  description: string;
+};
+
 export async function getHealth(): Promise<HealthResponse> {
   const response = await fetch(`${API_BASE_URL}/health`, {
     cache: "no-store"
@@ -113,6 +129,45 @@ export async function updateProfile(
   });
 }
 
+export async function listDecks(token: string): Promise<Deck[]> {
+  return apiRequest<Deck[]>("/api/decks", {
+    token
+  });
+}
+
+export async function createDeck(token: string, payload: DeckPayload): Promise<Deck> {
+  return apiRequest<Deck>("/api/decks", {
+    method: "POST",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function getDeck(token: string, deckId: string): Promise<Deck> {
+  return apiRequest<Deck>(`/api/decks/${deckId}`, {
+    token
+  });
+}
+
+export async function updateDeck(
+  token: string,
+  deckId: string,
+  payload: DeckPayload
+): Promise<Deck> {
+  return apiRequest<Deck>(`/api/decks/${deckId}`, {
+    method: "PUT",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function deleteDeck(token: string, deckId: string): Promise<void> {
+  await apiRequest<void>(`/api/decks/${deckId}`, {
+    method: "DELETE",
+    token
+  });
+}
+
 type ApiRequestOptions = RequestInit & {
   token?: string;
 };
@@ -140,6 +195,10 @@ async function apiRequest<T>(path: string, options: ApiRequestOptions = {}): Pro
       // Keep the status-based fallback.
     }
     throw new Error(message);
+  }
+
+  if (response.status === 204) {
+    return undefined as T;
   }
 
   return response.json();

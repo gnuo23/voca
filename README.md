@@ -9,6 +9,7 @@ Phase 0 project skeleton with:
 - Next.js frontend
 - Docker Compose
 - JWT auth with user profile
+- Vocabulary deck CRUD with ownership checks
 
 ## Run With Docker Compose
 
@@ -33,6 +34,20 @@ Auth endpoints:
 - `POST /api/auth/login`
 - `GET /api/auth/me`
 - `PUT /api/users/me`
+
+Deck endpoints:
+
+- `POST /api/decks`
+- `GET /api/decks`
+- `GET /api/decks/{deckId}`
+- `PUT /api/decks/{deckId}`
+- `DELETE /api/decks/{deckId}`
+
+Frontend routes:
+
+- `/decks`
+- `/decks/new`
+- `/decks/{deckId}`
 
 ## Run Locally
 
