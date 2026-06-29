@@ -18,13 +18,17 @@ public record DeckResponse(
     }
 
     public static DeckResponse from(Deck deck, long totalWords) {
+        return from(deck, totalWords, 0, 0);
+    }
+
+    public static DeckResponse from(Deck deck, long totalWords, long learnedWords, long dueWords) {
         return new DeckResponse(
                 deck.getId(),
                 deck.getName(),
                 deck.getDescription(),
                 Math.toIntExact(totalWords),
-                0,
-                0,
+                Math.toIntExact(learnedWords),
+                Math.toIntExact(dueWords),
                 deck.getCreatedAt(),
                 deck.getUpdatedAt()
         );

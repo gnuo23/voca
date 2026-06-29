@@ -101,6 +101,230 @@ export type VocabImportConfirm = {
   errors: VocabImportError[];
 };
 
+export type VocabProgressStatus = "NEW" | "LEARNING" | "REVIEW" | "DIFFICULT" | "MASTERED";
+
+export type VocabMarkAction = "KNOWN" | "UNKNOWN" | "DIFFICULT";
+
+export type VocabItem = {
+  id: number;
+  deckId: number;
+  word: string;
+  partOfSpeech: string | null;
+  meaningVi: string | null;
+  ipa: string | null;
+  pronunciationHint: string | null;
+  exampleEn: string | null;
+  exampleVi: string | null;
+  topic: string | null;
+  level: string | null;
+  synonyms: string[];
+  antonyms: string[];
+  collocations: string[];
+  enrichedAt: string | null;
+  audioUrl: string | null;
+  audioUsUrl: string | null;
+  audioUkUrl: string | null;
+  audioAccent: string | null;
+  audioSource: string | null;
+  audioRefreshedAt: string | null;
+  progressStatus: VocabProgressStatus;
+  knownCount: number;
+  unknownCount: number;
+  difficultCount: number;
+  lastMarkedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type VocabItemPayload = {
+  word: string;
+  partOfSpeech: string;
+  meaningVi: string;
+};
+
+export type VocabAudio = {
+  vocabId: number;
+  word: string;
+  audioUrl: string | null;
+  audioUsUrl: string | null;
+  audioUkUrl: string | null;
+  audioAccent: string | null;
+  audioSource: string | null;
+  audioRefreshedAt: string | null;
+};
+
+export type EnrichmentJobStatus = "PENDING" | "PROCESSING" | "DONE" | "FAILED";
+
+export type EnrichmentJob = {
+  id: number;
+  status: EnrichmentJobStatus;
+  totalItems: number;
+  processedItems: number;
+  failedItems: number;
+  errorMessage: string | null;
+  createdAt: string;
+  updatedAt: string;
+  completedAt: string | null;
+};
+
+export type QuizQuestionType = "CHOOSE_MEANING" | "FILL_IN_BLANK";
+
+export type QuizQuestion = {
+  id: number;
+  deckId: number;
+  vocabId: number;
+  type: QuizQuestionType;
+  prompt: string;
+  options: string[];
+  explanation: string | null;
+  createdAt: string;
+};
+
+export type QuizGenerateResponse = {
+  deckId: number;
+  questionCount: number;
+  questions: QuizQuestion[];
+};
+
+export type QuizAttempt = {
+  id: number;
+  deckId: number;
+  totalQuestions: number;
+  answeredCount: number;
+  correctCount: number;
+  completed: boolean;
+  completedAt: string | null;
+  createdAt: string;
+  questions: QuizQuestion[];
+};
+
+export type QuizAnswer = {
+  questionId: number;
+  answer: string;
+  correctAnswer: string;
+  correct: boolean;
+  explanation: string;
+  answeredAt: string;
+};
+
+export type QuizResult = {
+  attemptId: number;
+  deckId: number;
+  totalQuestions: number;
+  answeredCount: number;
+  correctCount: number;
+  scorePercent: number;
+  completed: boolean;
+  completedAt: string | null;
+  answers: QuizAnswer[];
+};
+
+export type ReviewQuality = "AGAIN" | "HARD" | "GOOD" | "EASY";
+
+export type ReviewScheduleBucket =
+  | "NEW"
+  | "OVERDUE"
+  | "DUE_NOW"
+  | "TODAY"
+  | "TOMORROW"
+  | "THIS_WEEK"
+  | "LATER";
+
+export type ReviewItem = {
+  vocabId: number;
+  deckId: number;
+  word: string;
+  partOfSpeech: string | null;
+  meaningVi: string | null;
+  ipaUs: string | null;
+  exampleEn: string | null;
+  exampleVi: string | null;
+  status: VocabProgressStatus;
+  nextReviewAt: string | null;
+  wrongCount: number;
+  correctCount: number;
+  lapseCount: number;
+};
+
+export type ReviewTodayResponse = {
+  items: ReviewItem[];
+  totalDue: number;
+};
+
+export type ReviewScheduleItem = {
+  vocabId: number;
+  deckId: number;
+  deckName: string;
+  word: string;
+  partOfSpeech: string | null;
+  meaningVi: string | null;
+  status: VocabProgressStatus;
+  bucket: ReviewScheduleBucket;
+  lastReviewedAt: string | null;
+  nextReviewAt: string | null;
+  minutesUntilReview: number;
+  correctCount: number;
+  wrongCount: number;
+  lapseCount: number;
+  repetitionCount: number;
+};
+
+export type ReviewScheduleResponse = {
+  items: ReviewScheduleItem[];
+  totalItems: number;
+  dueNow: number;
+  overdue: number;
+  upcoming: number;
+  newItems: number;
+};
+
+export type ReviewProgress = {
+  vocabId: number;
+  status: VocabProgressStatus;
+  quality: ReviewQuality;
+  correctCount: number;
+  wrongCount: number;
+  streakCorrectCount: number;
+  easeFactor: number;
+  intervalDays: number;
+  repetitionCount: number;
+  lapseCount: number;
+  lastReviewedAt: string;
+  nextReviewAt: string;
+};
+
+export type HardWord = {
+  vocabId: number;
+  word: string;
+  meaningVi: string | null;
+  wrongCount: number;
+  lapseCount: number;
+  status: VocabProgressStatus;
+};
+
+export type DeckProgress = {
+  deckId: number;
+  deckName: string;
+  totalWords: number;
+  newCount: number;
+  learningCount: number;
+  reviewCount: number;
+  difficultCount: number;
+  masteredCount: number;
+  progressScore: number;
+};
+
+export type DashboardMetrics = {
+  wordsLearnedToday: number;
+  wordsReviewedToday: number;
+  wordsToReview: number;
+  overdueWords: number;
+  accuracy: number;
+  streakDays: number;
+  hardWords: HardWord[];
+  deckProgress: DeckProgress[];
+};
+
 export async function getHealth(): Promise<HealthResponse> {
   const response = await fetch(`${API_BASE_URL}/health`, {
     cache: "no-store"
@@ -220,6 +444,166 @@ export async function confirmVocabImport(
     method: "POST",
     token,
     body: JSON.stringify({ deckId: Number(deckId), rawText })
+  });
+}
+
+export async function listDeckVocab(token: string, deckId: string): Promise<VocabItem[]> {
+  return apiRequest<VocabItem[]>(`/api/decks/${deckId}/vocab`, {
+    token
+  });
+}
+
+export async function getVocabItem(token: string, vocabId: number): Promise<VocabItem> {
+  return apiRequest<VocabItem>(`/api/vocab/${vocabId}`, {
+    token
+  });
+}
+
+export async function getVocabAudio(token: string, vocabId: number): Promise<VocabAudio> {
+  return apiRequest<VocabAudio>(`/api/vocab/${vocabId}/audio`, {
+    token
+  });
+}
+
+export async function refreshVocabAudio(token: string, vocabId: number): Promise<VocabAudio> {
+  return apiRequest<VocabAudio>(`/api/vocab/${vocabId}/refresh-audio`, {
+    method: "POST",
+    token
+  });
+}
+
+export async function updateVocabItem(
+  token: string,
+  vocabId: number,
+  payload: VocabItemPayload
+): Promise<VocabItem> {
+  return apiRequest<VocabItem>(`/api/vocab/${vocabId}`, {
+    method: "PUT",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function deleteVocabItem(token: string, vocabId: number): Promise<void> {
+  await apiRequest<void>(`/api/vocab/${vocabId}`, {
+    method: "DELETE",
+    token
+  });
+}
+
+export async function markVocabItem(
+  token: string,
+  vocabId: number,
+  action: VocabMarkAction
+): Promise<VocabItem> {
+  return apiRequest<VocabItem>(`/api/vocab/${vocabId}/mark`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ action })
+  });
+}
+
+export async function enrichVocabItem(token: string, vocabId: number): Promise<EnrichmentJob> {
+  return apiRequest<EnrichmentJob>(`/api/vocab/${vocabId}/enrich`, {
+    method: "POST",
+    token
+  });
+}
+
+export async function enrichDeck(token: string, deckId: string): Promise<EnrichmentJob> {
+  return apiRequest<EnrichmentJob>(`/api/decks/${deckId}/enrich`, {
+    method: "POST",
+    token
+  });
+}
+
+export async function getEnrichmentJob(token: string, jobId: number): Promise<EnrichmentJob> {
+  return apiRequest<EnrichmentJob>(`/api/enrich/jobs/${jobId}`, {
+    token
+  });
+}
+
+export async function generateQuiz(token: string, deckId: string): Promise<QuizGenerateResponse> {
+  return apiRequest<QuizGenerateResponse>(`/api/decks/${deckId}/quiz/generate`, {
+    method: "POST",
+    token
+  });
+}
+
+export async function createQuizAttempt(
+  token: string,
+  deckId: string,
+  questionIds: number[]
+): Promise<QuizAttempt> {
+  return apiRequest<QuizAttempt>("/api/quiz-attempts", {
+    method: "POST",
+    token,
+    body: JSON.stringify({ deckId: Number(deckId), questionIds })
+  });
+}
+
+export async function answerQuizQuestion(
+  token: string,
+  attemptId: number,
+  questionId: number,
+  answer: string,
+  responseTimeMs?: number
+): Promise<QuizAnswer> {
+  return apiRequest<QuizAnswer>(`/api/quiz-attempts/${attemptId}/answer`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ questionId, answer, responseTimeMs })
+  });
+}
+
+export async function getQuizResult(token: string, attemptId: number): Promise<QuizResult> {
+  return apiRequest<QuizResult>(`/api/quiz-attempts/${attemptId}/result`, {
+    token
+  });
+}
+
+export async function getDashboardMetrics(token: string): Promise<DashboardMetrics> {
+  return apiRequest<DashboardMetrics>("/api/dashboard", {
+    token
+  });
+}
+
+export async function getTodayReview(token: string): Promise<ReviewTodayResponse> {
+  return apiRequest<ReviewTodayResponse>("/api/review/today", {
+    token
+  });
+}
+
+export async function getReviewSchedule(
+  token: string,
+  params: { deckId?: string; status?: VocabProgressStatus | ""; limit?: number } = {}
+): Promise<ReviewScheduleResponse> {
+  const searchParams = new URLSearchParams();
+  if (params.deckId) {
+    searchParams.set("deckId", params.deckId);
+  }
+  if (params.status) {
+    searchParams.set("status", params.status);
+  }
+  if (params.limit) {
+    searchParams.set("limit", String(params.limit));
+  }
+  const query = searchParams.toString();
+  return apiRequest<ReviewScheduleResponse>(`/api/review/schedule${query ? `?${query}` : ""}`, {
+    token
+  });
+}
+
+export async function submitReviewResult(
+  token: string,
+  vocabId: number,
+  quality: ReviewQuality,
+  responseTimeMs?: number
+): Promise<ReviewProgress> {
+  return apiRequest<ReviewProgress>(`/api/review/${vocabId}/result`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ quality, responseTimeMs, source: "FLASHCARD" })
   });
 }
 

@@ -11,6 +11,8 @@ Phase 0 project skeleton with:
 - JWT auth with user profile
 - Vocabulary deck CRUD with ownership checks
 - Vocabulary list import preview and confirm
+- Vocabulary item CRUD and flashcard study progress
+- AI vocabulary enrichment jobs with batch processing
 
 ## Run With Docker Compose
 
@@ -49,11 +51,32 @@ Vocabulary import endpoints:
 - `POST /api/vocab/import/preview`
 - `POST /api/vocab/import/confirm`
 
+Vocabulary item endpoints:
+
+- `GET /api/decks/{deckId}/vocab`
+- `GET /api/vocab/{vocabId}`
+- `PUT /api/vocab/{vocabId}`
+- `DELETE /api/vocab/{vocabId}`
+- `POST /api/vocab/{vocabId}/mark`
+
+AI enrichment endpoints:
+
+- `POST /api/vocab/{vocabId}/enrich`
+- `POST /api/decks/{deckId}/enrich`
+- `GET /api/enrich/jobs/{jobId}`
+
 Frontend routes:
 
 - `/decks`
 - `/decks/new`
-- `/decks/{deckId}`
+- `/decks/{deckId}` with vocabulary list, edit/delete actions, import, and flashcard study mode
+
+AI configuration:
+
+- Default provider: `APP_AI_PROVIDER=local`
+- OpenAI provider: `APP_AI_PROVIDER=openai`, `OPENAI_API_KEY=...`, optional `OPENAI_MODEL=...`
+- Gemini provider: `APP_AI_PROVIDER=gemini`, `GEMINI_API_KEY=...`, optional `GEMINI_MODEL=...`
+- Batch/retry: `APP_AI_BATCH_SIZE=20`, `APP_AI_MAX_RETRIES=3`
 
 Supported vocabulary import line formats:
 

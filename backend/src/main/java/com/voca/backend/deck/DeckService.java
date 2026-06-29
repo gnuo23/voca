@@ -2,7 +2,9 @@ package com.voca.backend.deck;
 
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
+import com.voca.backend.vocab.UserProgressRepository;
 import com.voca.backend.vocab.VocabItemRepository;
+import com.voca.backend.vocab.VocabProgressStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DeckService {
@@ -17,15 +20,18 @@ public class DeckService {
     private final DeckRepository deckRepository;
     private final UserService userService;
     private final VocabItemRepository vocabItemRepository;
+    private final UserProgressRepository userProgressRepository;
 
     public DeckService(
             DeckRepository deckRepository,
             UserService userService,
-            VocabItemRepository vocabItemRepository
+            VocabItemRepository vocabItemRepository,
+            UserProgressRepository userProgressRepository
     ) {
         this.deckRepository = deckRepository;
         this.userService = userService;
         this.vocabItemRepository = vocabItemRepository;
+        this.userProgressRepository = userProgressRepository;
     }
 
     @Transactional
@@ -36,7 +42,7 @@ public class DeckService {
         deck.setOwner(owner);
         apply(deck, request);
 
-        return toResponse(deckRepository.save(deck));
+        return toResponse(deckRepository.save(deck), owner);
     }
 
     @Transactional(readOnly = true)
@@ -44,20 +50,22 @@ public class DeckService {
         User owner = userService.currentUser(authentication);
         return deckRepository.findAllByOwnerIdOrderByUpdatedAtDesc(owner.getId())
                 .stream()
-                .map(this::toResponse)
+                .map(deck -> toResponse(deck, owner))
                 .toList();
     }
 
     @Transactional(readOnly = true)
     public DeckResponse get(Authentication authentication, Long deckId) {
-        return toResponse(findOwnedDeck(authentication, deckId));
+        User owner = userService.currentUser(authentication);
+        Deck deck = findOwnedDeck(owner, deckId);
+        return toResponse(deck, owner);
     }
 
     @Transactional
     public DeckResponse update(Authentication authentication, Long deckId, DeckRequest request) {
         Deck deck = findOwnedDeck(authentication, deckId);
         apply(deck, request);
-        return toResponse(deck);
+        return toResponse(deck, deck.getOwner());
     }
 
     @Transactional
@@ -69,6 +77,11 @@ public class DeckService {
     @Transactional(readOnly = true)
     public Deck findOwnedDeck(Authentication authentication, Long deckId) {
         User owner = userService.currentUser(authentication);
+        return findOwnedDeck(owner, deckId);
+    }
+
+    @Transactional(readOnly = true)
+    public Deck findOwnedDeck(User owner, Long deckId) {
         return deckRepository.findByIdAndOwnerId(deckId, owner.getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deck not found"));
     }
@@ -78,7 +91,17 @@ public class DeckService {
         deck.setDescription(request.description() == null ? null : request.description().trim());
     }
 
-    private DeckResponse toResponse(Deck deck) {
-        return DeckResponse.from(deck, vocabItemRepository.countByDeckId(deck.getId()));
+    private DeckResponse toResponse(Deck deck, User owner) {
+        long totalWords = vocabItemRepository.countByDeckId(deck.getId());
+        List<Long> vocabIds = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
+                .stream()
+                .map(item -> item.getId())
+                .toList();
+        long learnedWords = vocabIds.isEmpty() ? 0 : userProgressRepository.findAllByUserIdAndVocabItemIdIn(owner.getId(), vocabIds)
+                .stream()
+                .filter(progress -> Set.of(VocabProgressStatus.REVIEW, VocabProgressStatus.MASTERED).contains(progress.getStatus()))
+                .count();
+        long dueWords = totalWords - learnedWords;
+        return DeckResponse.from(deck, totalWords, learnedWords, dueWords);
     }
 }

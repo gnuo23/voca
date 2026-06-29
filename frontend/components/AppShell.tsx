@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { BookOpen, Home, Layers, LogOut, UserRound } from "lucide-react";
+import { CalendarClock, Home, Layers, LogOut, Repeat2, UserRound } from "lucide-react";
 import { clearToken } from "@/lib/api";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -30,9 +30,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Layers size={18} aria-hidden="true" />
             My Decks
           </Link>
-          <Link href="/dashboard">
-            <BookOpen size={18} aria-hidden="true" />
-            Vocabulary
+          <Link className={pathname === "/review" ? "active" : ""} href="/review">
+            <Repeat2 size={18} aria-hidden="true" />
+            Review
+          </Link>
+          <Link className={pathname === "/review/schedule" ? "active" : ""} href="/review/schedule">
+            <CalendarClock size={18} aria-hidden="true" />
+            Schedule
           </Link>
           <Link className={pathname === "/profile" ? "active" : ""} href="/profile">
             <UserRound size={18} aria-hidden="true" />

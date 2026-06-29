@@ -11,3 +11,7 @@ app:
   jwt:
     secret: test-secret-test-secret-test-secret-test-secret-test-secret
     expiration-minutes: 60
+  ai:
+    provider: local
+    batch-size: 2
+    max-retries: 3

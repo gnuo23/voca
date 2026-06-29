@@ -5,7 +5,9 @@ import { useParams, useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DeckForm } from "@/components/decks/DeckForm";
+import { QuizPanel } from "@/components/quiz/QuizPanel";
 import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
+import { VocabStudyPanel } from "@/components/vocab/VocabStudyPanel";
 import { Deck, deleteDeck, getDeck, getStoredToken, updateDeck } from "@/lib/api";
 
 export default function DeckDetailPage() {
@@ -15,6 +17,7 @@ export default function DeckDetailPage() {
   const [deck, setDeck] = useState<Deck | null>(null);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
+  const [vocabRefreshKey, setVocabRefreshKey] = useState(0);
 
   useEffect(() => {
     const storedToken = getStoredToken();
@@ -46,6 +49,11 @@ export default function DeckDetailPage() {
 
     const refreshed = await getDeck(token, params.deckId);
     setDeck(refreshed);
+  }
+
+  async function handleImported() {
+    await refreshDeck();
+    setVocabRefreshKey((value) => value + 1);
   }
 
   return (
@@ -97,10 +105,28 @@ export default function DeckDetailPage() {
       </section>
 
       {deck && token && (
+        <VocabStudyPanel
+          token={token}
+          deckId={params.deckId}
+          refreshDeck={refreshDeck}
+          refreshKey={vocabRefreshKey}
+        />
+      )}
+
+      {deck && token && (
+        <QuizPanel
+          token={token}
+          deckId={params.deckId}
+          totalWords={deck.totalWords}
+          refreshDeck={refreshDeck}
+        />
+      )}
+
+      {deck && token && (
         <VocabImportPanel
           token={token}
           deckId={params.deckId}
-          onImported={refreshDeck}
+          onImported={handleImported}
         />
       )}
     </AppShell>
