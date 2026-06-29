@@ -23,7 +23,9 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class QuizService {
@@ -78,16 +80,18 @@ public class QuizService {
         List<VocabItem> shuffledItems = new ArrayList<>(items);
         Collections.shuffle(shuffledItems);
 
+        java.util.Random random = new java.util.Random();
         for (VocabItem item : shuffledItems) {
             if (generated.size() >= QUESTION_LIMIT) {
                 break;
             }
-            generated.add(buildChooseMeaning(deck, user, item, items));
-
-            if (generated.size() >= QUESTION_LIMIT) {
-                break;
+            int typeChoice = random.nextInt(4);
+            switch (typeChoice) {
+                case 0 -> generated.add(buildChooseMeaning(deck, user, item, items));
+                case 1 -> generated.add(buildFillInBlank(deck, user, item));
+                case 2 -> generated.add(buildTrueFalse(deck, user, item, items));
+                case 3 -> generated.add(buildMatching(deck, user, item, items));
             }
-            generated.add(buildFillInBlank(deck, user, item));
         }
 
         List<Question> saved = questionRepository.saveAll(generated.stream().limit(QUESTION_LIMIT).toList());
@@ -201,6 +205,81 @@ public class QuizService {
         return question;
     }
 
+    private Question buildTrueFalse(Deck deck, User user, VocabItem item, List<VocabItem> allItems) {
+        java.util.Random random = new java.util.Random();
+        boolean isTrue = random.nextBoolean();
+        String prompt;
+        String correctAnswer;
+        String explanation;
+        
+        if (isTrue) {
+            prompt = "True or False: \"" + item.getWord() + "\" means \"" + item.getMeaningVi() + "\".";
+            correctAnswer = "True";
+            explanation = "Correct! \"" + item.getWord() + "\" indeed means \"" + item.getMeaningVi() + "\".";
+        } else {
+            List<VocabItem> distractors = allItems.stream()
+                    .filter(candidate -> !candidate.getId().equals(item.getId()))
+                    .toList();
+            String wrongMeaning = distractors.isEmpty() ? "something else" : distractors.get(random.nextInt(distractors.size())).getMeaningVi();
+            prompt = "True or False: \"" + item.getWord() + "\" means \"" + wrongMeaning + "\".";
+            correctAnswer = "False";
+            explanation = "False! \"" + item.getWord() + "\" actually means \"" + item.getMeaningVi() + "\" (not \"" + wrongMeaning + "\").";
+        }
+
+        Question question = baseQuestion(deck, user, item, QuestionType.TRUE_FALSE);
+        question.setPrompt(prompt);
+        question.setCorrectAnswer(correctAnswer);
+        question.setOptionsJson(writeOptions(List.of("True", "False")));
+        question.setExplanation(explanation);
+        return question;
+    }
+
+    private Question buildMatching(Deck deck, User user, VocabItem item, List<VocabItem> allItems) {
+        java.util.Random random = new java.util.Random();
+        List<VocabItem> pool = new ArrayList<>(allItems);
+        pool.removeIf(v -> v.getId().equals(item.getId()));
+        Collections.shuffle(pool);
+        
+        List<VocabItem> matchingItems = new ArrayList<>();
+        matchingItems.add(item);
+        matchingItems.addAll(pool.stream().limit(4).toList());
+        Collections.shuffle(matchingItems);
+
+        List<String> words = matchingItems.stream().map(VocabItem::getWord).toList();
+        List<String> meanings = new ArrayList<>(matchingItems.stream().map(VocabItem::getMeaningVi).toList());
+        Collections.shuffle(meanings);
+
+        String promptText = "Match the following words with their meanings.";
+        
+        Map<String, String> mapping = matchingItems.stream()
+                .collect(Collectors.toMap(VocabItem::getWord, VocabItem::getMeaningVi));
+        
+        String correctAnswerJson;
+        try {
+            correctAnswerJson = objectMapper.writeValueAsString(mapping);
+        } catch (Exception ex) {
+            correctAnswerJson = "{}";
+        }
+
+        Map<String, List<String>> optionsMap = Map.of(
+                "words", words,
+                "meanings", meanings
+        );
+        String optionsJsonStr;
+        try {
+            optionsJsonStr = objectMapper.writeValueAsString(optionsMap);
+        } catch (Exception ex) {
+            optionsJsonStr = "{}";
+        }
+
+        Question question = baseQuestion(deck, user, item, QuestionType.MATCHING);
+        question.setPrompt(promptText);
+        question.setCorrectAnswer(correctAnswerJson);
+        question.setOptionsJson(optionsJsonStr);
+        question.setExplanation("Matching completed successfully.");
+        return question;
+    }
+
     private Question baseQuestion(Deck deck, User user, VocabItem item, QuestionType type) {
         Question question = new Question();
         question.setDeck(deck);
@@ -252,7 +331,23 @@ public class QuizService {
         if (question.getType() == QuestionType.FILL_IN_BLANK) {
             return normalizeForAnswer(answer).equals(normalizeForAnswer(question.getCorrectAnswer()));
         }
-        return answer.trim().equals(question.getCorrectAnswer());
+        if (question.getType() == QuestionType.MATCHING) {
+            try {
+                Map<String, String> userPairs = objectMapper.readValue(answer, new TypeReference<Map<String, String>>() {});
+                Map<String, String> correctPairs = objectMapper.readValue(question.getCorrectAnswer(), new TypeReference<Map<String, String>>() {});
+                if (userPairs.size() != correctPairs.size()) return false;
+                for (Map.Entry<String, String> entry : correctPairs.entrySet()) {
+                    String userVal = userPairs.get(entry.getKey());
+                    if (userVal == null || !normalizeForAnswer(userVal).equals(normalizeForAnswer(entry.getValue()))) {
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Exception ex) {
+                return false;
+            }
+        }
+        return answer.trim().equalsIgnoreCase(question.getCorrectAnswer().trim());
     }
 
     private QuizAttemptResponse toAttemptResponse(QuizAttempt attempt, int answeredCount, List<Question> questions) {

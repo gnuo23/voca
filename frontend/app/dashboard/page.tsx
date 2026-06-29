@@ -2,9 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Activity, AlertTriangle, BookOpen, CalendarClock, Gauge, Layers, Target } from "lucide-react";
+import { Activity, AlertTriangle, BookOpen, CalendarClock, Flame, Gauge, Layers, Target, Zap } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DashboardMetrics, getCurrentUser, getDashboardMetrics, getHealth, getStoredToken, UserProfile } from "@/lib/api";
+
+function getGreeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 12) return "Good morning";
+  if (hour < 17) return "Good afternoon";
+  return "Good evening";
+}
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -36,51 +43,51 @@ export default function DashboardPage() {
     <AppShell>
       <header className="topbar">
         <div>
-          <h1>Dashboard</h1>
-          <p>{user ? `${user.displayName} · ${user.englishLevel.replaceAll("_", " ")}` : "Loading profile"}</p>
+          <h1>{getGreeting()}{user ? `, ${user.displayName}` : ""} 👋</h1>
+          <p>{user ? `${user.englishLevel.replaceAll("_", " ")} level · Your learning overview` : "Loading profile…"}</p>
         </div>
         <span className="status">
-          <Activity size={18} aria-hidden="true" />
+          <Activity size={16} aria-hidden="true" />
           API {health}
         </span>
       </header>
 
       <section className="grid" aria-label="Learning metrics">
         <article className="card">
-          <Gauge size={22} aria-hidden="true" />
+          <Gauge size={20} aria-hidden="true" style={{ color: "var(--primary)" }} />
           <div className="metric">{metrics?.wordsToReview ?? 0}</div>
           <p>Words to review</p>
         </article>
         <article className="card">
-          <BookOpen size={22} aria-hidden="true" />
+          <BookOpen size={20} aria-hidden="true" style={{ color: "var(--accent)" }} />
           <div className="metric">{metrics?.wordsReviewedToday ?? 0}</div>
           <p>Reviewed today</p>
         </article>
         <article className="card">
-          <Layers size={22} aria-hidden="true" />
+          <Zap size={20} aria-hidden="true" style={{ color: "var(--warning)" }} />
+          <div className="metric">{metrics?.wordsLearnedToday ?? 0}</div>
+          <p>Learned today</p>
+        </article>
+        <article className="card">
+          <Layers size={20} aria-hidden="true" style={{ color: "var(--success)" }} />
           <div className="metric">{metrics?.accuracy ?? 0}%</div>
           <p>Accuracy</p>
         </article>
         <article className="card">
-          <CalendarClock size={22} aria-hidden="true" />
-          <div className="metric">{metrics?.overdueWords ?? 0}</div>
-          <p>Overdue words</p>
-        </article>
-        <article className="card">
-          <Target size={22} aria-hidden="true" />
+          <Target size={20} aria-hidden="true" style={{ color: "var(--primary)" }} />
           <div className="metric">{metrics?.streakDays ?? 0}</div>
           <p>Streak days</p>
         </article>
         <article className="card">
-          <AlertTriangle size={22} aria-hidden="true" />
-          <div className="metric">{metrics?.hardWords.length ?? 0}</div>
-          <p>Hard words</p>
+          <CalendarClock size={20} aria-hidden="true" style={{ color: "var(--danger)" }} />
+          <div className="metric">{metrics?.overdueWords ?? 0}</div>
+          <p>Overdue</p>
         </article>
       </section>
 
       <section className="dashboard-grid">
         <article className="card dashboard-panel">
-          <h2>Deck Progress</h2>
+          <h2>📊 Deck Progress</h2>
           <div className="deck-progress-list">
             {(metrics?.deckProgress ?? []).map((deck) => (
               <div key={deck.deckId} className="deck-progress-row">
@@ -94,20 +101,24 @@ export default function DashboardPage() {
                 </div>
               </div>
             ))}
-            {metrics?.deckProgress.length === 0 && <p className="form-muted">No deck progress yet.</p>}
+            {metrics?.deckProgress.length === 0 && <p className="form-muted">No deck progress yet. Create a deck to get started!</p>}
           </div>
         </article>
 
         <article className="card dashboard-panel">
-          <h2>Hard Words</h2>
+          <h2>🔥 Hard Words</h2>
           <div className="hard-word-list">
             {(metrics?.hardWords ?? []).map((word) => (
               <div key={word.vocabId} className="hard-word-row">
                 <strong>{word.word}</strong>
-                <p>{word.meaningVi || "-"} · wrong {word.wrongCount} · lapses {word.lapseCount}</p>
+                <p>
+                  {word.meaningVi || "—"} ·{" "}
+                  <Flame size={12} aria-hidden="true" style={{ display: "inline", verticalAlign: "middle", color: "var(--danger)" }} />{" "}
+                  {word.wrongCount} wrong · {word.lapseCount} lapses
+                </p>
               </div>
             ))}
-            {metrics?.hardWords.length === 0 && <p className="form-muted">No hard words yet.</p>}
+            {metrics?.hardWords.length === 0 && <p className="form-muted">No hard words yet. Keep learning!</p>}
           </div>
         </article>
       </section>
