@@ -8,6 +8,7 @@ Phase 0 project skeleton with:
 - Swagger/OpenAPI
 - Next.js frontend
 - Docker Compose
+- JWT auth with user profile
 
 ## Run With Docker Compose
 
@@ -24,8 +25,14 @@ Services:
 
 Default credentials:
 
-- Backend basic auth: `admin` / `admin`
 - Database: `voca` / `voca`, database `voca`
+
+Auth endpoints:
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/auth/me`
+- `PUT /api/users/me`
 
 ## Run Locally
 

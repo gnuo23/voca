@@ -12,10 +12,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  security:
-    user:
-      name: ${APP_BASIC_AUTH_USERNAME:admin}
-      password: ${APP_BASIC_AUTH_PASSWORD:admin}
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET:change-me-change-me-change-me-change-me-change-me-change-me}
+    expiration-minutes: ${APP_JWT_EXPIRATION_MINUTES:1440}
 
 server:
   port: ${SERVER_PORT:8080}

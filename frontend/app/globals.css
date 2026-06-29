@@ -32,7 +32,9 @@ a {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -72,7 +74,8 @@ input {
   margin-top: 30px;
 }
 
-.nav a {
+.nav a,
+.nav-button {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -80,6 +83,14 @@ input {
   border-radius: 8px;
   padding: 0 10px;
   color: var(--muted);
+}
+
+.nav-button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
 }
 
 .nav a.active {
@@ -169,12 +180,25 @@ input {
   font-weight: 700;
 }
 
-.field input {
+.field input,
+.field select,
+.field textarea {
   width: 100%;
-  min-height: 44px;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0 12px;
+  background: #fff;
+}
+
+.field input,
+.field select {
+  min-height: 44px;
+}
+
+.field textarea {
+  min-height: 92px;
+  padding-top: 12px;
+  resize: vertical;
 }
 
 .button {
@@ -196,6 +220,39 @@ input {
   background: var(--brand-dark);
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.auth-switch {
+  margin-top: 18px;
+  color: var(--brand-dark);
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-error,
+.form-success {
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 10px 12px;
+}
+
+.form-error {
+  background: #fff1f0;
+  color: var(--danger);
+}
+
+.form-success {
+  background: #e8f2ee;
+  color: var(--brand-dark);
+}
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -206,6 +263,20 @@ input {
   background: #fff;
   padding: 0 12px;
   color: var(--muted);
+}
+
+.profile-card {
+  max-width: 780px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field.wide {
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 820px) {
@@ -219,6 +290,10 @@ input {
   }
 
   .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
     grid-template-columns: 1fr;
   }
 }

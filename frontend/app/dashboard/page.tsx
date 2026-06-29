@@ -1,73 +1,62 @@
-import Link from "next/link";
-import { Activity, BookOpen, Gauge, Home, Layers, LogOut } from "lucide-react";
-import { getHealth } from "@/lib/api";
+"use client";
 
-export default async function DashboardPage() {
-  let health = "Unavailable";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Activity, BookOpen, Gauge, Layers } from "lucide-react";
+import { AppShell } from "@/components/AppShell";
+import { getCurrentUser, getHealth, getStoredToken, UserProfile } from "@/lib/api";
 
-  try {
-    const response = await getHealth();
-    health = response.status;
-  } catch {
-    health = "Offline";
-  }
+export default function DashboardPage() {
+  const router = useRouter();
+  const [health, setHealth] = useState("Checking");
+  const [user, setUser] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    const token = getStoredToken();
+    if (!token) {
+      router.push("/login");
+      return;
+    }
+
+    getHealth()
+      .then((response) => setHealth(response.status))
+      .catch(() => setHealth("Offline"));
+
+    getCurrentUser(token)
+      .then(setUser)
+      .catch(() => router.push("/login"));
+  }, [router]);
 
   return (
-    <div className="shell">
-      <aside className="sidebar">
-        <div className="brand">
-          <span className="brand-mark">V</span>
-          <span>Voca</span>
+    <AppShell>
+      <header className="topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <p>{user ? `${user.displayName} · ${user.englishLevel.replaceAll("_", " ")}` : "Loading profile"}</p>
         </div>
-        <nav className="nav" aria-label="Main navigation">
-          <Link className="active" href="/dashboard">
-            <Home size={18} aria-hidden="true" />
-            Dashboard
-          </Link>
-          <Link href="/dashboard">
-            <BookOpen size={18} aria-hidden="true" />
-            Vocabulary
-          </Link>
-          <Link href="/dashboard">
-            <Layers size={18} aria-hidden="true" />
-            Decks
-          </Link>
-          <Link href="/login">
-            <LogOut size={18} aria-hidden="true" />
-            Sign out
-          </Link>
-        </nav>
-      </aside>
-      <main className="main">
-        <header className="topbar">
-          <div>
-            <h1>Dashboard</h1>
-            <p>Track learning activity and API connectivity.</p>
-          </div>
-          <span className="status">
-            <Activity size={18} aria-hidden="true" />
-            API {health}
-          </span>
-        </header>
+        <span className="status">
+          <Activity size={18} aria-hidden="true" />
+          API {health}
+        </span>
+      </header>
 
-        <section className="grid" aria-label="Learning metrics">
-          <article className="card">
-            <Gauge size={22} aria-hidden="true" />
-            <div className="metric">0</div>
-            <p>Words due today</p>
-          </article>
-          <article className="card">
-            <BookOpen size={22} aria-hidden="true" />
-            <div className="metric">0</div>
-            <p>Words learned</p>
-          </article>
-          <article className="card">
-            <Layers size={22} aria-hidden="true" />
-            <div className="metric">0</div>
-            <p>Active decks</p>
-          </article>
-        </section>
-      </main>
-    </div>
+      <section className="grid" aria-label="Learning metrics">
+        <article className="card">
+          <Gauge size={22} aria-hidden="true" />
+          <div className="metric">{user?.dailyGoal ?? 0}</div>
+          <p>Daily word goal</p>
+        </article>
+        <article className="card">
+          <BookOpen size={22} aria-hidden="true" />
+          <div className="metric">0</div>
+          <p>Words learned</p>
+        </article>
+        <article className="card">
+          <Layers size={22} aria-hidden="true" />
+          <div className="metric">0</div>
+          <p>Active decks</p>
+        </article>
+      </section>
+    </AppShell>
   );
 }

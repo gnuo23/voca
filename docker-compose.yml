@@ -27,8 +27,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/voca
       SPRING_DATASOURCE_USERNAME: voca
       SPRING_DATASOURCE_PASSWORD: voca
-      APP_BASIC_AUTH_USERNAME: admin
-      APP_BASIC_AUTH_PASSWORD: admin
+      APP_JWT_SECRET: change-me-change-me-change-me-change-me-change-me-change-me
     ports:
       - "8080:8080"
 
@@ -40,7 +39,7 @@ services:
       - backend
     environment:
       API_BASE_URL: http://backend:8080
-      NEXT_PUBLIC_API_BASE_URL: http://backend:8080
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8080
     ports:
       - "3000:3000"
 

@@ -6,3 +6,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+    open-in-view: false
+app:
+  jwt:
+    secret: test-secret-test-secret-test-secret-test-secret-test-secret
+    expiration-minutes: 60
