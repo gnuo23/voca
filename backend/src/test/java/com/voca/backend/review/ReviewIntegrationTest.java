@@ -106,7 +106,7 @@ class ReviewIntegrationTest {
                 .andExpect(jsonPath("$.vocabId").value(vocabId))
                 .andExpect(jsonPath("$.status").value("REVIEW"))
                 .andExpect(jsonPath("$.quality").value("GOOD"))
-                .andExpect(jsonPath("$.intervalDays").value(0))
+                .andExpect(jsonPath("$.intervalDays").value(1))
                 .andExpect(jsonPath("$.nextReviewAt", startsWith("2026-")));
     }
 
@@ -153,6 +153,7 @@ class ReviewIntegrationTest {
         submitReview(token, hardVocabId, new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD));
         submitReview(token, hardVocabId, new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD));
         submitReview(token, hardVocabId, new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD));
+        submitReview(token, hardVocabId, new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD));
         submitReview(token, goodVocabId, new ReviewResultRequest(ReviewQuality.GOOD, null, 4200, ReviewSource.FLASHCARD));
 
         mockMvc.perform(get("/api/dashboard")
@@ -160,7 +161,7 @@ class ReviewIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.wordsLearnedToday").value(2))
                 .andExpect(jsonPath("$.wordsReviewedToday").value(2))
-                .andExpect(jsonPath("$.accuracy").value(25.0))
+                .andExpect(jsonPath("$.accuracy").value(20.0))
                 .andExpect(jsonPath("$.hardWords", hasSize(1)))
                 .andExpect(jsonPath("$.hardWords[0].word").value("absent"))
                 .andExpect(jsonPath("$.deckProgress[0].totalWords").value(2))

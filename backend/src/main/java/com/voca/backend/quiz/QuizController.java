@@ -41,6 +41,24 @@ public class QuizController {
         return quizService.createManualAttempt(authentication, deckId, request);
     }
 
+    @PostMapping("/api/decks/{deckId}/quiz/import/preview")
+    public QuizImportPreviewResponse previewImport(
+            Authentication authentication,
+            @PathVariable Long deckId,
+            @RequestBody QuizImportRequest request
+    ) {
+        return quizService.previewImport(authentication, deckId, request);
+    }
+
+    @PostMapping("/api/decks/{deckId}/quiz/import/attempt")
+    public QuizAttemptResponse createImportAttempt(
+            Authentication authentication,
+            @PathVariable Long deckId,
+            @RequestBody QuizImportRequest request
+    ) {
+        return quizService.createImportAttempt(authentication, deckId, request);
+    }
+
     @PostMapping("/api/quiz-attempts/{attemptId}/answer")
     public QuizAnswerResponse answer(
             Authentication authentication,

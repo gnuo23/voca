@@ -32,7 +32,7 @@ export function LearnPanel({ token, deckId, totalWords, refreshDeck }: LearnPane
   const [gradingMode, setGradingMode] = useState<LearnGradingMode>("ACCENT_INSENSITIVE");
   const [questionTypes, setQuestionTypes] = useState<Record<LearnQuestionType, boolean>>({
     MCQ: true,
-    TRUE_FALSE: true,
+    TRUE_FALSE: false,
     WRITTEN: true
   });
   const [session, setSession] = useState<LearnSession | null>(null);

@@ -5,7 +5,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CalendarClock, Check, RotateCcw, Send, X } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { getStoredToken, getTodayReview, ReviewItem, submitReviewAnswer } from "@/lib/api";
+import { getStoredToken, getTodayReview, ReviewItem, submitReviewAnswer, submitReviewResult } from "@/lib/api";
+
+type ReviewFeedback = "correct" | "pendingIncorrect" | "incorrect";
 
 export default function ReviewPage() {
   const router = useRouter();
@@ -13,9 +15,10 @@ export default function ReviewPage() {
   const [items, setItems] = useState<ReviewItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startedAt, setStartedAt] = useState(Date.now());
+  const [responseTimeMs, setResponseTimeMs] = useState<number | null>(null);
   const [reviewed, setReviewed] = useState(0);
   const [answer, setAnswer] = useState("");
-  const [feedback, setFeedback] = useState<boolean | null>(null);
+  const [feedback, setFeedback] = useState<ReviewFeedback | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,11 +50,17 @@ export default function ReviewPage() {
       return;
     }
     const correct = isMeaningCorrect(submitted, currentCard.meaningVi ?? "");
+    const elapsedMs = Date.now() - startedAt;
+    setResponseTimeMs(elapsedMs);
     setError("");
+    if (!correct) {
+      setFeedback("pendingIncorrect");
+      return;
+    }
     setIsLoading(true);
     try {
-      await submitReviewAnswer(token, currentCard.vocabId, correct, Date.now() - startedAt);
-      setFeedback(correct);
+      await submitReviewAnswer(token, currentCard.vocabId, true, elapsedMs);
+      setFeedback("correct");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not submit review");
     } finally {
@@ -64,10 +73,18 @@ export default function ReviewPage() {
       return;
     }
     setError("");
+    setResponseTimeMs(Date.now() - startedAt);
+    setFeedback("pendingIncorrect");
+  }
+
+  async function markPending(correct: boolean) {
+    if (!currentCard) {
+      return;
+    }
     setIsLoading(true);
     try {
-      await submitReviewAnswer(token, currentCard.vocabId, false, Date.now() - startedAt);
-      setFeedback(false);
+      await submitReviewResult(token, currentCard.vocabId, correct ? "GOOD" : "AGAIN", responseTimeMs ?? Date.now() - startedAt);
+      setFeedback(correct ? "correct" : "incorrect");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not submit review");
     } finally {
@@ -79,6 +96,7 @@ export default function ReviewPage() {
     setReviewed((value) => value + 1);
     setCurrentIndex((index) => index + 1);
     setStartedAt(Date.now());
+    setResponseTimeMs(null);
     setAnswer("");
     setFeedback(null);
   }
@@ -104,6 +122,7 @@ export default function ReviewPage() {
               setCurrentIndex(0);
               setReviewed(0);
               setStartedAt(Date.now());
+              setResponseTimeMs(null);
               setAnswer("");
               setFeedback(null);
             }}
@@ -138,11 +157,12 @@ export default function ReviewPage() {
                 />
               </div>
             ) : (
-              <div className={`quiz-feedback ${feedback ? "correct" : "incorrect"}`}>
+              <div className={`quiz-feedback ${feedback === "correct" ? "correct" : "incorrect"}`}>
                 <strong>
-                  {feedback ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
-                  {feedback ? "Correct" : "Needs review"}
+                  {feedback === "correct" ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
+                  {feedback === "correct" ? "Correct" : feedback === "pendingIncorrect" ? "Check your answer" : "Needs review"}
                 </strong>
+                {feedback === "pendingIncorrect" && answer.trim() && <p>Your answer: {answer.trim()}</p>}
                 <p>Correct answer: {currentCard.meaningVi || "-"}</p>
                 {currentCard.exampleEn && <p>{currentCard.exampleEn}</p>}
                 {currentCard.exampleVi && <p>{currentCard.exampleVi}</p>}
@@ -156,16 +176,28 @@ export default function ReviewPage() {
                 <Send size={18} aria-hidden="true" />
                 Check
               </button>
+            ) : feedback === "pendingIncorrect" ? (
+              <button className="button" type="button" onClick={() => markPending(true)} disabled={isLoading}>
+                <Check size={18} aria-hidden="true" />
+                Tôi đã trả lời đúng
+              </button>
             ) : (
               <button className="button" type="button" onClick={nextCard}>
                 <Check size={18} aria-hidden="true" />
                 Next
               </button>
             )}
-            <button className="button secondary-button" type="button" onClick={reveal} disabled={feedback !== null || isLoading}>
-              <X size={18} aria-hidden="true" />
-              Reveal
-            </button>
+            {feedback === "pendingIncorrect" ? (
+              <button className="button secondary-button" type="button" onClick={() => markPending(false)} disabled={isLoading}>
+                <X size={18} aria-hidden="true" />
+                Đánh dấu sai
+              </button>
+            ) : (
+              <button className="button secondary-button" type="button" onClick={reveal} disabled={feedback !== null || isLoading}>
+                <X size={18} aria-hidden="true" />
+                Reveal
+              </button>
+            )}
           </div>
         </section>
       )}

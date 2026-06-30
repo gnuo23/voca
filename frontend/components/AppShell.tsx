@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { CalendarClock, Home, Layers, LogOut, Menu, Repeat2, UserRound, X } from "lucide-react";
+import { AlertTriangle, CalendarClock, Home, Layers, LogOut, Menu, Repeat2, UserRound, X } from "lucide-react";
 import { clearToken } from "@/lib/api";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -34,6 +34,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     { href: "/dashboard", label: "Dashboard", icon: Home },
     { href: "/decks", label: "My Decks", icon: Layers },
     { href: "/review", label: "Review", icon: Repeat2, exact: true },
+    { href: "/difficult", label: "Difficult", icon: AlertTriangle, exact: true },
     { href: "/review/schedule", label: "Schedule", icon: CalendarClock, exact: true },
     { href: "/profile", label: "Profile", icon: UserRound, exact: true },
   ];

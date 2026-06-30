@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.voca.backend.auth.RegisterRequest;
 import com.voca.backend.deck.DeckRepository;
 import com.voca.backend.deck.DeckRequest;
+import com.voca.backend.quiz.QuestionRepository;
+import com.voca.backend.quiz.QuizAnswerRepository;
+import com.voca.backend.quiz.QuizAttemptRepository;
 import com.voca.backend.user.EnglishLevel;
 import com.voca.backend.user.UserRepository;
 import com.voca.backend.vocab.UserProgress;
@@ -51,6 +54,15 @@ class LearnIntegrationTest {
     UserProgressRepository userProgressRepository;
 
     @Autowired
+    QuizAnswerRepository quizAnswerRepository;
+
+    @Autowired
+    QuizAttemptRepository quizAttemptRepository;
+
+    @Autowired
+    QuestionRepository questionRepository;
+
+    @Autowired
     VocabItemRepository vocabItemRepository;
 
     @Autowired
@@ -65,6 +77,9 @@ class LearnIntegrationTest {
         learnSessionItemRepository.deleteAll();
         learnSessionRepository.deleteAll();
         userProgressRepository.deleteAll();
+        quizAnswerRepository.deleteAll();
+        quizAttemptRepository.deleteAll();
+        questionRepository.deleteAll();
         vocabItemRepository.deleteAll();
         deckRepository.deleteAll();
         userRepository.deleteAll();
@@ -141,7 +156,7 @@ class LearnIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.correct").value(true))
                 .andExpect(jsonPath("$.verdict").value("CORRECT"))
-                .andExpect(jsonPath("$.newStage").value("SEEN"));
+                .andExpect(jsonPath("$.newStage").value("LEARNING"));
 
         UserProgress afterOverride = userProgressRepository.findAllByVocabItemId(vocabId).getFirst();
         org.assertj.core.api.Assertions.assertThat(afterOverride.getCorrectCount()).isEqualTo(1);
@@ -216,7 +231,7 @@ class LearnIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.correct").value(true))
                 .andExpect(jsonPath("$.verdict").value("CORRECT"))
-                .andExpect(jsonPath("$.newStage").value("SEEN"));
+                .andExpect(jsonPath("$.newStage").value("LEARNING"));
     }
 
     @Test

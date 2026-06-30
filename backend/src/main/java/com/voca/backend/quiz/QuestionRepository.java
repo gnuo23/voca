@@ -10,5 +10,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     List<Question> findAllByIdInAndOwnerId(Collection<Long> ids, Long ownerId);
 
+    List<Question> findAllByDeckIdAndOwnerIdAndVocabItemIdIn(Long deckId, Long ownerId, Collection<Long> vocabItemIds);
+
     Optional<Question> findByIdAndOwnerId(Long id, Long ownerId);
 }

@@ -214,6 +214,32 @@ export type QuizGenerateResponse = {
   questions: QuizQuestion[];
 };
 
+export type QuizImportStatus = "OK" | "SKIPPED" | "ERROR";
+
+export type QuizImportItem = {
+  lineNumber: number;
+  vocabId: number | null;
+  word: string | null;
+  meaning: string | null;
+  prompt: string | null;
+  questionTypes: QuizQuestionType[];
+  status: QuizImportStatus;
+  message: string | null;
+};
+
+export type QuizImportPreview = {
+  items: QuizImportItem[];
+  validCount: number;
+  skippedCount: number;
+  errorCount: number;
+};
+
+export type QuizImportPayload = {
+  rawText: string;
+  questionTypes?: QuizQuestionType[];
+  limit?: number;
+};
+
 export type QuizAttempt = {
   id: number;
   deckId: number;
@@ -304,6 +330,7 @@ export type LearnQuestion = {
   prompt: string;
   options: string[] | null;
   trueFalseStatement: string | null;
+  hint: string | null;
   stage: LearnItemStage | null;
   progress: LearnProgress;
 };
@@ -678,6 +705,30 @@ export async function createManualQuizAttempt(
   payload: ManualQuizPayload
 ): Promise<QuizAttempt> {
   return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/manual-attempt`, {
+    method: "POST",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function previewQuizImport(
+  token: string,
+  deckId: string,
+  payload: QuizImportPayload
+): Promise<QuizImportPreview> {
+  return apiRequest<QuizImportPreview>(`/api/decks/${deckId}/quiz/import/preview`, {
+    method: "POST",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function createQuizImportAttempt(
+  token: string,
+  deckId: string,
+  payload: QuizImportPayload
+): Promise<QuizAttempt> {
+  return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/import/attempt`, {
     method: "POST",
     token,
     body: JSON.stringify(payload)

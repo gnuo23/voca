@@ -77,27 +77,22 @@ public class QuizService {
                 .filter(item -> hasText(item.getMeaningVi()))
                 .toList();
 
-        if (items.size() < 2) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need at least 2 vocabulary items with meanings to generate a quiz");
+        if (items.size() < 4) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need at least 4 vocabulary items with meanings to generate a quiz");
         }
 
         List<Question> generated = new ArrayList<>();
         List<VocabItem> shuffledItems = new ArrayList<>(items);
         Collections.shuffle(shuffledItems);
 
-        java.util.Random random = new java.util.Random();
-        for (VocabItem item : shuffledItems) {
+        for (int index = 0; index < shuffledItems.size(); index++) {
             if (generated.size() >= QUESTION_LIMIT) {
                 break;
             }
-            int typeChoice = random.nextInt(5);
-            switch (typeChoice) {
-                case 0 -> generated.add(buildChooseMeaning(deck, user, item, items));
-                case 1 -> generated.add(buildFillInBlank(deck, user, item));
-                case 2 -> generated.add(buildClozeChoice(deck, user, item, items));
-                case 3 -> generated.add(buildTrueFalse(deck, user, item, items));
-                case 4 -> generated.add(buildMatching(deck, user, item, items));
-            }
+            VocabItem item = shuffledItems.get(index);
+            generated.add(index % 2 == 0
+                    ? buildClozeChoice(deck, user, item, items)
+                    : buildChooseMeaning(deck, user, item, items));
         }
 
         List<Question> saved = questionRepository.saveAll(generated.stream().limit(QUESTION_LIMIT).toList());
@@ -152,6 +147,69 @@ public class QuizService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Manual quiz must include at least one question");
         }
 
+        List<Question> savedQuestions = questionRepository.saveAll(questions);
+        QuizAttempt attempt = new QuizAttempt();
+        attempt.setDeck(deck);
+        attempt.setUser(user);
+        attempt.setTotalQuestions(savedQuestions.size());
+        QuizAttempt savedAttempt = quizAttemptRepository.save(attempt);
+
+        return toAttemptResponse(savedAttempt, 0, savedQuestions);
+    }
+
+    @Transactional(readOnly = true)
+    public QuizImportPreviewResponse previewImport(Authentication authentication, Long deckId, QuizImportRequest request) {
+        User user = userService.currentUser(authentication);
+        deckService.findOwnedDeck(user, deckId);
+        List<VocabItem> deckItems = vocabItemRepository.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(deckId, user.getId())
+                .stream()
+                .filter(item -> hasText(item.getMeaningVi()))
+                .toList();
+
+        return buildImportPreview(deckItems, request);
+    }
+
+    @Transactional
+    public QuizAttemptResponse createImportAttempt(Authentication authentication, Long deckId, QuizImportRequest request) {
+        User user = userService.currentUser(authentication);
+        Deck deck = deckService.findOwnedDeck(user, deckId);
+        List<VocabItem> deckItems = vocabItemRepository.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(deckId, user.getId())
+                .stream()
+                .filter(item -> hasText(item.getMeaningVi()))
+                .toList();
+        QuizImportPreviewResponse preview = buildImportPreview(deckItems, request);
+        List<QuestionType> requestedTypes = normalizeImportQuestionTypes(request == null ? null : request.questionTypes());
+        Map<Long, VocabItem> deckItemById = deckItems.stream().collect(Collectors.toMap(VocabItem::getId, item -> item));
+        List<QuizTerm> deckTerms = deckItems.stream()
+                .map(item -> new QuizTerm(item, item.getWord(), item.getMeaningVi()))
+                .toList();
+        List<QuizTerm> terms = preview.items().stream()
+                .filter(item -> item.status() == QuizImportStatus.OK)
+                .map(item -> deckItemById.get(item.vocabId()))
+                .filter(item -> item != null)
+                .map(item -> new QuizTerm(item, item.getWord(), item.getMeaningVi()))
+                .toList();
+
+        if (terms.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No matching vocabulary lines found for quiz import");
+        }
+        if (requestedTypes.stream().anyMatch(type -> type == QuestionType.CHOOSE_MEANING || type == QuestionType.CLOZE_CHOICE)
+                && deckTerms.size() < 4) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need at least 4 deck vocabulary items for 4-option quiz questions");
+        }
+
+        Map<Long, String> promptByVocabId = preview.items().stream()
+                .filter(item -> item.status() == QuizImportStatus.OK && hasText(item.prompt()))
+                .collect(Collectors.toMap(QuizImportItemResponse::vocabId, QuizImportItemResponse::prompt, (left, right) -> left));
+        List<Question> questions = buildImportedQuestions(deck, user, terms, deckTerms, requestedTypes, promptByVocabId);
+        int requestedLimit = request == null || request.limit() == null ? questions.size() : Math.max(1, request.limit());
+        Collections.shuffle(questions);
+        questions = questions.stream().limit(requestedLimit).toList();
+        if (questions.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Quiz import did not create any questions");
+        }
+
+        overwriteImportedQuizQuestions(deck, user, terms);
         List<Question> savedQuestions = questionRepository.saveAll(questions);
         QuizAttempt attempt = new QuizAttempt();
         attempt.setDeck(deck);
@@ -506,6 +564,206 @@ public class QuizService {
         return question;
     }
 
+    private QuizImportPreviewResponse buildImportPreview(List<VocabItem> deckItems, QuizImportRequest request) {
+        String rawText = request == null || request.rawText() == null ? "" : request.rawText();
+        List<QuestionType> questionTypes = normalizeImportQuestionTypes(request == null ? null : request.questionTypes());
+        Map<String, VocabItem> byWord = vocabByNormalizedWord(deckItems);
+        Set<Long> seenVocabIds = new LinkedHashSet<>();
+        List<QuizImportItemResponse> items = new ArrayList<>();
+
+        String[] lines = rawText.replace("\r\n", "\n").replace('\r', '\n').split("\n", -1);
+        for (int index = 0; index < lines.length; index++) {
+            int lineNumber = index + 1;
+            String line = lines[index].trim();
+            if (line.isEmpty()) {
+                continue;
+            }
+
+            ParsedQuizImportLine parsed = parseQuizImportLine(lineNumber, line);
+            if (parsed.error() != null) {
+                items.add(new QuizImportItemResponse(
+                        lineNumber,
+                        null,
+                        parsed.word(),
+                        null,
+                        parsed.prompt(),
+                        questionTypes,
+                        QuizImportStatus.ERROR,
+                        parsed.error()
+                ));
+                continue;
+            }
+
+            VocabItem deckItem = byWord.get(normalizeWord(parsed.word()));
+            if (deckItem == null) {
+                items.add(new QuizImportItemResponse(
+                        lineNumber,
+                        null,
+                        parsed.word(),
+                        null,
+                        parsed.prompt(),
+                        questionTypes,
+                        QuizImportStatus.SKIPPED,
+                        "Word is not in this deck"
+                ));
+                continue;
+            }
+            if (!seenVocabIds.add(deckItem.getId())) {
+                items.add(new QuizImportItemResponse(
+                        lineNumber,
+                        deckItem.getId(),
+                        deckItem.getWord(),
+                        null,
+                        parsed.prompt(),
+                        questionTypes,
+                        QuizImportStatus.SKIPPED,
+                        "Duplicate word in quiz import"
+                ));
+                continue;
+            }
+
+            items.add(new QuizImportItemResponse(
+                    lineNumber,
+                    deckItem.getId(),
+                    deckItem.getWord(),
+                    null,
+                    parsed.prompt(),
+                    questionTypes,
+                    QuizImportStatus.OK,
+                    null
+            ));
+        }
+
+        if (items.isEmpty()) {
+            items.add(new QuizImportItemResponse(
+                    1,
+                    null,
+                    null,
+                    null,
+                    null,
+                    questionTypes,
+                    QuizImportStatus.ERROR,
+                    "No quiz lines found"
+            ));
+        }
+
+        int validCount = (int) items.stream().filter(item -> item.status() == QuizImportStatus.OK).count();
+        int skippedCount = (int) items.stream().filter(item -> item.status() == QuizImportStatus.SKIPPED).count();
+        int errorCount = (int) items.stream().filter(item -> item.status() == QuizImportStatus.ERROR).count();
+        return new QuizImportPreviewResponse(items, validCount, skippedCount, errorCount);
+    }
+
+    private ParsedQuizImportLine parseQuizImportLine(int lineNumber, String line) {
+        String[] parts = line.split("\\s*--\\s*", -1);
+        if (parts.length < 2 || parts.length > 3) {
+            return new ParsedQuizImportLine(lineNumber, null, null, null, "Use format: word -- sentence or word -- meaning -- sentence");
+        }
+
+        String word = cleanImportText(parts[0], 255);
+        String meaning = parts.length == 3 ? cleanImportText(parts[1], 1000) : null;
+        String prompt = cleanImportText(parts.length == 3 ? parts[2] : parts[1], 1000);
+        if (!hasText(word)) {
+            return new ParsedQuizImportLine(lineNumber, word, meaning, prompt, "Missing word");
+        }
+        if (!hasText(prompt)) {
+            return new ParsedQuizImportLine(lineNumber, word, meaning, prompt, "Missing sentence");
+        }
+
+        return new ParsedQuizImportLine(lineNumber, word, meaning, prompt, null);
+    }
+
+    private List<Question> buildImportedQuestions(
+            Deck deck,
+            User user,
+            List<QuizTerm> terms,
+            List<QuizTerm> deckTerms,
+            List<QuestionType> questionTypes,
+            Map<Long, String> promptByVocabId
+    ) {
+        List<Question> questions = new ArrayList<>();
+        List<QuestionType> perWordTypes = questionTypes.stream()
+                .filter(type -> type != QuestionType.MATCHING)
+                .toList();
+        for (QuizTerm term : terms) {
+            for (QuestionType type : perWordTypes) {
+                questions.add(switch (type) {
+                    case CHOOSE_MEANING -> buildChooseMeaning(deck, user, term, deckTerms);
+                    case FILL_IN_BLANK -> buildFillInBlank(deck, user, term);
+                    case CLOZE_CHOICE -> buildImportedClozeChoice(deck, user, term, deckTerms, promptByVocabId.get(term.vocabItem().getId()));
+                    case TRUE_FALSE -> buildTrueFalse(deck, user, term, terms, questions.size());
+                    case MATCHING -> throw new IllegalStateException("Matching is grouped separately");
+                });
+            }
+        }
+
+        if (questionTypes.contains(QuestionType.MATCHING)) {
+            for (int index = 0; index < terms.size(); index += 5) {
+                List<QuizTerm> chunk = terms.subList(index, Math.min(index + 5, terms.size()));
+                if (chunk.size() >= 2) {
+                    questions.add(buildMatching(deck, user, chunk.get(0), chunk, 0));
+                }
+            }
+        }
+        return questions;
+    }
+
+    private void overwriteImportedQuizQuestions(Deck deck, User user, List<QuizTerm> terms) {
+        Set<Long> vocabIds = terms.stream()
+                .map(term -> term.vocabItem().getId())
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+        if (vocabIds.isEmpty()) {
+            return;
+        }
+
+        List<Question> existingQuestions = questionRepository.findAllByDeckIdAndOwnerIdAndVocabItemIdIn(
+                deck.getId(),
+                user.getId(),
+                vocabIds
+        );
+        if (existingQuestions.isEmpty()) {
+            return;
+        }
+
+        List<Long> questionIds = existingQuestions.stream().map(Question::getId).toList();
+        quizAnswerRepository.deleteByQuestionIdIn(questionIds);
+        questionRepository.deleteAll(existingQuestions);
+    }
+
+    private Question buildImportedClozeChoice(Deck deck, User user, QuizTerm term, List<QuizTerm> allTerms, String prompt) {
+        Question question = buildClozeChoice(deck, user, term, allTerms);
+        String cleanedPrompt = cleanImportText(prompt, 1000);
+        if (hasText(cleanedPrompt)) {
+            String blanked = cleanedPrompt.contains("____")
+                    ? cleanedPrompt
+                    : cleanedPrompt.replaceAll("(?i)\\b" + java.util.regex.Pattern.quote(term.word()) + "\\b", "____");
+            if (!blanked.equals(cleanedPrompt) || cleanedPrompt.contains("____")) {
+                question.setPrompt("Choose the word that completes the sentence: " + blanked);
+            }
+        }
+        return question;
+    }
+
+    private List<QuestionType> normalizeImportQuestionTypes(List<QuestionType> questionTypes) {
+        if (questionTypes == null || questionTypes.isEmpty()) {
+            return List.of(QuestionType.CLOZE_CHOICE, QuestionType.CHOOSE_MEANING);
+        }
+        EnumSet<QuestionType> seen = EnumSet.noneOf(QuestionType.class);
+        List<QuestionType> normalized = questionTypes.stream()
+                .filter(type -> type != null && type != QuestionType.TRUE_FALSE && seen.add(type))
+                .toList();
+        return normalized.isEmpty()
+                ? List.of(QuestionType.CLOZE_CHOICE, QuestionType.CHOOSE_MEANING)
+                : normalized;
+    }
+
+    private String cleanImportText(String value, int maxLength) {
+        if (!hasText(value)) {
+            return null;
+        }
+        String cleaned = value.trim().replaceAll("\\s+", " ");
+        return cleaned.length() > maxLength ? cleaned.substring(0, maxLength) : cleaned;
+    }
+
     private Question baseQuestion(Deck deck, User user, VocabItem item, QuestionType type) {
         Question question = new Question();
         question.setDeck(deck);
@@ -846,5 +1104,8 @@ public class QuizService {
     }
 
     private record QuizTerm(VocabItem vocabItem, String word, String meaning) {
+    }
+
+    private record ParsedQuizImportLine(int lineNumber, String word, String meaning, String prompt, String error) {
     }
 }

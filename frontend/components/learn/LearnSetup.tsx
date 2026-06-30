@@ -33,7 +33,6 @@ export function LearnSetup({
   const [grading, setGrading] = useState<LearnGradingMode>("ACCENT_INSENSITIVE");
   const [questionTypes, setQuestionTypes] = useState<LearnQuestionType[]>([
     "MCQ",
-    "TRUE_FALSE",
     "WRITTEN",
   ]);
 

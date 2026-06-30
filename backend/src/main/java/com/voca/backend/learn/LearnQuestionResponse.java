@@ -11,6 +11,7 @@ public record LearnQuestionResponse(
         String prompt,
         List<String> options,
         String trueFalseStatement,
+        String hint,
         LearnItemStage stage,
         Progress progress
 ) {

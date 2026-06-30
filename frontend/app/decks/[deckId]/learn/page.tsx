@@ -23,6 +23,51 @@ import {
   overrideLearnAnswer,
 } from "@/lib/api";
 
+type StoredLearnState = {
+  version: 1;
+  session: LearnSession;
+  question: LearnQuestionData | null;
+  questionTurn: number;
+  progress: LearnProgress | null;
+  pendingNext: boolean;
+  savedAt: number;
+};
+
+function learnStorageKey(deckId: string) {
+  return `voca.learn.${deckId}.active`;
+}
+
+function readStoredLearnState(deckId: string): StoredLearnState | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(learnStorageKey(deckId));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<StoredLearnState>;
+    if (parsed.version !== 1 || !parsed.session) return null;
+    return parsed as StoredLearnState;
+  } catch {
+    window.localStorage.removeItem(learnStorageKey(deckId));
+    return null;
+  }
+}
+
+function writeStoredLearnState(deckId: string, state: Omit<StoredLearnState, "version" | "savedAt">) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(
+    learnStorageKey(deckId),
+    JSON.stringify({
+      version: 1,
+      savedAt: Date.now(),
+      ...state,
+    })
+  );
+}
+
+function clearStoredLearnState(deckId: string) {
+  if (typeof window === "undefined") return;
+  window.localStorage.removeItem(learnStorageKey(deckId));
+}
+
 export default function LearnPage() {
   const params = useParams();
   const router = useRouter();
@@ -38,6 +83,7 @@ export default function LearnPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const questionStartedAt = useRef<number>(0);
+  const restoredSessionRef = useRef(false);
 
   // Auth + fetch deck on mount
   useEffect(() => {
@@ -51,6 +97,59 @@ export default function LearnPage() {
       .then(setDeck)
       .catch((err) => setError(err.message || "Failed to load deck"));
   }, [deckId, router]);
+
+  // Restore the current Learn run when returning to this deck. If the user
+  // left after answering but before pressing Continue, continue from next.
+  useEffect(() => {
+    if (!token || restoredSessionRef.current) return;
+    restoredSessionRef.current = true;
+
+    const stored = readStoredLearnState(deckId);
+    if (!stored) return;
+
+    setSession(stored.session);
+    setProgress(stored.progress ?? stored.question?.progress ?? null);
+    setQuestionTurn(stored.questionTurn);
+
+    if (stored.pendingNext) {
+      setIsLoading(true);
+      getNextLearnQuestion(token, stored.session.id)
+        .then((nextQuestion) => {
+          if (!nextQuestion.sessionItemId) {
+            clearStoredLearnState(deckId);
+            return getLearnSessionResult(token, stored.session.id).then(setResult);
+          }
+          setQuestion(nextQuestion);
+          setProgress(nextQuestion.progress);
+          setQuestionTurn((current) => current + 1);
+          writeStoredLearnState(deckId, {
+            session: stored.session,
+            question: nextQuestion,
+            questionTurn: stored.questionTurn + 1,
+            progress: nextQuestion.progress,
+            pendingNext: false,
+          });
+        })
+        .catch((err: unknown) => {
+          clearStoredLearnState(deckId);
+          setSession(null);
+          setQuestion(null);
+          setProgress(null);
+          setError(err instanceof Error ? err.message : "Failed to resume session");
+        })
+        .finally(() => setIsLoading(false));
+      return;
+    }
+
+    if (stored.question?.sessionItemId) {
+      setQuestion(stored.question);
+      setProgress(stored.question.progress);
+      return;
+    }
+
+    clearStoredLearnState(deckId);
+    setSession(null);
+  }, [token, deckId]);
 
   // Record when a new question is displayed
   useEffect(() => {
@@ -82,6 +181,13 @@ export default function LearnPage() {
         setQuestion(firstQuestion);
         setQuestionTurn((current) => current + 1);
         setProgress(firstQuestion.progress);
+        writeStoredLearnState(deckId, {
+          session: newSession,
+          question: firstQuestion.sessionItemId ? firstQuestion : null,
+          questionTurn: questionTurn + 1,
+          progress: firstQuestion.progress,
+          pendingNext: false,
+        });
       } catch (err: unknown) {
         setError(err instanceof Error ? err.message : "Failed to start session");
       } finally {
@@ -110,12 +216,21 @@ export default function LearnPage() {
 
         // If no remaining terms, fetch result
         if (result.progress.remainingTerms === 0) {
+          clearStoredLearnState(deckId);
           try {
             const sessionResult = await getLearnSessionResult(token, session.id);
             setResult(sessionResult);
           } catch (err: unknown) {
             setError(err instanceof Error ? err.message : "Failed to load results");
           }
+        } else {
+          writeStoredLearnState(deckId, {
+            session,
+            question: null,
+            questionTurn,
+            progress: result.progress,
+            pendingNext: true,
+          });
         }
 
         return result;
@@ -138,21 +253,34 @@ export default function LearnPage() {
       setQuestion(nextQuestion);
       setQuestionTurn((current) => current + 1);
       setProgress(nextQuestion.progress);
+      if (nextQuestion.sessionItemId) {
+        writeStoredLearnState(deckId, {
+          session,
+          question: nextQuestion,
+          questionTurn: questionTurn + 1,
+          progress: nextQuestion.progress,
+          pendingNext: false,
+        });
+      } else {
+        clearStoredLearnState(deckId);
+      }
     } catch (err: unknown) {
+      clearStoredLearnState(deckId);
       setError(err instanceof Error ? err.message : "Failed to load next question");
     } finally {
       setIsLoading(false);
     }
-  }, [token, session, result]);
+  }, [token, session, result, deckId, questionTurn]);
 
   const handleRestart = useCallback(() => {
+    clearStoredLearnState(deckId);
     setSession(null);
     setQuestion(null);
     setQuestionTurn(0);
     setResult(null);
     setProgress(null);
     setError(null);
-  }, []);
+  }, [deckId]);
 
   const handleBack = useCallback(() => {
     router.push(`/decks/${deckId}`);
@@ -168,12 +296,21 @@ export default function LearnPage() {
 
         // Check if session is complete after override
         if (overrideResult.progress.remainingTerms === 0) {
+          clearStoredLearnState(deckId);
           try {
             const sessionResult = await getLearnSessionResult(token, session.id);
             setResult(sessionResult);
           } catch (err: unknown) {
             setError(err instanceof Error ? err.message : "Failed to load results");
           }
+        } else {
+          writeStoredLearnState(deckId, {
+            session,
+            question: null,
+            questionTurn,
+            progress: overrideResult.progress,
+            pendingNext: true,
+          });
         }
 
         return overrideResult;
@@ -182,7 +319,7 @@ export default function LearnPage() {
         return null;
       }
     },
-    [token, session]
+    [token, session, deckId, questionTurn]
   );
 
   // Build segmented progress bar data

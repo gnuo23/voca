@@ -1,17 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Braces, Check, CircleHelp, ListChecks, Send, X } from "lucide-react";
+import { Braces, Check, CircleHelp, Eye, ListChecks, Send, X } from "lucide-react";
 import {
   answerQuizQuestion,
   createQuizAttempt,
+  createQuizImportAttempt,
   createManualQuizAttempt,
   generateQuiz,
   getQuizResult,
+  previewQuizImport,
   QuizAnswer,
   QuizAttempt,
   ManualQuizPayload,
+  QuizImportPreview,
   QuizQuestion,
+  QuizQuestionType,
   QuizResult
 } from "@/lib/api";
 
@@ -31,6 +35,10 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
     { "word": "accumulate", "meaning": "tich luy" }
   ]
 }`;
+  const bulkSample = `absent -- He was ____ from class yesterday.
+accumulate -- Dust can accumulate on the shelf.
+adhere -- Please adhere to the safety rules.
+adjacent -- The hotel is adjacent to the station.`;
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null);
   const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -42,6 +50,11 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
   const [error, setError] = useState("");
   const [showManualJson, setShowManualJson] = useState(false);
   const [manualJson, setManualJson] = useState(manualSample);
+  const [showBulkImport, setShowBulkImport] = useState(false);
+  const [bulkText, setBulkText] = useState("");
+  const [bulkPreview, setBulkPreview] = useState<QuizImportPreview | null>(null);
+  const [bulkTypes, setBulkTypes] = useState<QuizQuestionType[]>(["CLOZE_CHOICE", "CHOOSE_MEANING"]);
+  const [bulkLimit, setBulkLimit] = useState(10);
 
   const currentQuestion = useMemo(() => {
     if (!attempt || attempt.questions.length === 0) {
@@ -94,6 +107,43 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
       } else {
         setError(err instanceof Error ? err.message : "Could not start manual quiz");
       }
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function previewBulkQuiz() {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const nextPreview = await previewQuizImport(token, deckId, {
+        rawText: bulkText,
+        questionTypes: bulkTypes
+      });
+      setBulkPreview(nextPreview);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not preview quiz import");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function startBulkQuiz() {
+    setIsLoading(true);
+    setError("");
+    resetRunState();
+
+    try {
+      const nextAttempt = await createQuizImportAttempt(token, deckId, {
+        rawText: bulkText,
+        questionTypes: bulkTypes,
+        limit: bulkLimit
+      });
+      setAttempt(nextAttempt);
+      setShowBulkImport(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not start imported quiz");
     } finally {
       setIsLoading(false);
     }
@@ -159,10 +209,10 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
       <div className="section-heading">
         <div>
           <h2>Quiz</h2>
-          <p>{attempt ? `${answeredCount}/${attempt.totalQuestions} answered` : "10 rule-based questions"}</p>
+          <p>{attempt ? `${answeredCount}/${attempt.totalQuestions} answered` : "One 4-option question per word"}</p>
         </div>
         <div className="button-row">
-          <button className="button" type="button" onClick={startQuiz} disabled={isLoading || totalWords < 2}>
+          <button className="button" type="button" onClick={startQuiz} disabled={isLoading || totalWords < 4}>
             <ListChecks size={18} aria-hidden="true" />
             {attempt ? "New Quiz" : "Start Quiz"}
           </button>
@@ -175,11 +225,20 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
             <Braces size={18} aria-hidden="true" />
             Manual JSON
           </button>
+          <button
+            className="button secondary-button"
+            type="button"
+            onClick={() => setShowBulkImport((current) => !current)}
+            disabled={isLoading || totalWords < 4}
+          >
+            <Eye size={18} aria-hidden="true" />
+            Bulk Quiz
+          </button>
         </div>
       </div>
 
       {error && <p className="form-error">{error}</p>}
-      {totalWords < 2 && <p className="form-muted">Need at least 2 vocabulary items with meanings.</p>}
+      {totalWords < 4 && <p className="form-muted">Need at least 4 vocabulary items with meanings for 4 answer choices.</p>}
 
       {showManualJson && (
         <div className="quiz-manual-panel">
@@ -202,6 +261,115 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
               Reset Sample
             </button>
           </div>
+        </div>
+      )}
+
+      {showBulkImport && (
+        <div className="quiz-manual-panel">
+          <div className="field">
+            <label htmlFor="bulk-quiz-text">Bulk quiz lines</label>
+            <textarea
+              id="bulk-quiz-text"
+              className="quiz-json-input"
+              value={bulkText}
+              onChange={(event) => {
+                setBulkText(event.target.value);
+                setBulkPreview(null);
+              }}
+              placeholder={bulkSample}
+              spellCheck={false}
+            />
+          </div>
+
+          <div className="quiz-type-row">
+            <label>
+              Questions
+              <input
+                className="quiz-count-input"
+                type="number"
+                min={1}
+                max={100}
+                value={bulkLimit}
+                onChange={(event) => setBulkLimit(Math.max(1, Number(event.target.value) || 1))}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={bulkTypes.includes("CLOZE_CHOICE")}
+                onChange={() => setBulkTypes((current) => toggleQuizType(current, "CLOZE_CHOICE"))}
+              />
+              Fill blank
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={bulkTypes.includes("CHOOSE_MEANING")}
+                onChange={() => setBulkTypes((current) => toggleQuizType(current, "CHOOSE_MEANING"))}
+              />
+              Choose meaning
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={bulkTypes.includes("MATCHING")}
+                onChange={() => setBulkTypes((current) => toggleQuizType(current, "MATCHING"))}
+              />
+              Matching
+            </label>
+          </div>
+
+          <div className="button-row">
+            <button className="button" type="button" onClick={previewBulkQuiz} disabled={isLoading || bulkText.trim().length === 0 || bulkTypes.length === 0}>
+              <Eye size={18} aria-hidden="true" />
+              Preview
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={startBulkQuiz}
+              disabled={isLoading || !bulkPreview || bulkPreview.validCount === 0 || bulkTypes.length === 0}
+            >
+              <ListChecks size={18} aria-hidden="true" />
+              Start {bulkLimit} Quiz
+            </button>
+            <button className="button secondary-button" type="button" onClick={() => setBulkText(bulkSample)} disabled={isLoading}>
+              Reset Sample
+            </button>
+          </div>
+
+          {bulkPreview && (
+            <div className="preview-wrap">
+              <p className="form-muted">
+                {bulkPreview.validCount} ready, {bulkPreview.skippedCount} skipped, {bulkPreview.errorCount} error{bulkPreview.errorCount === 1 ? "" : "s"}.
+              </p>
+              <table className="preview-table">
+                <thead>
+                  <tr>
+                    <th>Line</th>
+                    <th>Word</th>
+                    <th>Sentence</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bulkPreview.items.map((item) => (
+                    <tr key={`${item.lineNumber}-${item.word ?? "line"}`}>
+                      <td>{item.lineNumber}</td>
+                      <td>{item.word || "-"}</td>
+                      <td>{item.prompt || "-"}</td>
+                      <td>
+                        <span className={`status-pill ${item.status === "OK" ? "ok" : item.status === "ERROR" ? "bad" : "neutral"}`}>
+                          {item.status}
+                        </span>
+                        {item.message && <span className="status-message">{item.message}</span>}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 
@@ -352,4 +520,11 @@ function matchingOptions(question: QuizQuestion) {
     return null;
   }
   return question.options;
+}
+
+function toggleQuizType(current: QuizQuestionType[], type: QuizQuestionType) {
+  if (current.includes(type)) {
+    return current.filter((item) => item !== type);
+  }
+  return [...current, type];
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Check, X, Send, ChevronRight, HelpCircle, AlertTriangle } from "lucide-react";
-import { LearnQuestion as LearnQuestionData, LearnAnswer, LearnQuestionType, LearnVerdict } from "@/lib/api";
+import { Check, X, Send, ChevronRight, HelpCircle, AlertTriangle, Volume2 } from "lucide-react";
+import { LearnQuestion as LearnQuestionData, LearnAnswer, LearnVerdict } from "@/lib/api";
 import { computeDiff, DiffSegment } from "@/lib/diffUtil";
 
 type LearnQuestionProps = {
@@ -13,28 +13,6 @@ type LearnQuestionProps = {
   isLoading: boolean;
 };
 
-function stageLabel(stage: string | null): string {
-  if (!stage) return "";
-  switch (stage) {
-    case "NEW":
-      return "New";
-    case "SEEN":
-      return "Seen";
-    case "LEARNING":
-      return "Learning";
-    case "FAMILIAR":
-      return "Familiar";
-    case "NOT_STUDIED":
-      return "New";
-    case "STILL_LEARNING":
-      return "Learning";
-    case "MASTERED":
-      return "Mastered";
-    default:
-      return stage.charAt(0).toUpperCase() + stage.slice(1).toLowerCase();
-  }
-}
-
 /** Resolve the feedback class for the question card border/bg */
 function feedbackCardClass(feedback: LearnAnswer | null): string {
   if (!feedback) return "";
@@ -44,11 +22,69 @@ function feedbackCardClass(feedback: LearnAnswer | null): string {
   return "is-incorrect";
 }
 
+function quotedPromptValue(prompt: string): string | null {
+  const match = prompt.match(/[:"“]\s*["“]?([^"”]+)["”]?\.?$/);
+  return match?.[1]?.trim() || null;
+}
+
+function isMeaningPrompt(question: LearnQuestionData): boolean {
+  const prompt = question.trueFalseStatement ?? question.prompt;
+  return /meaning:/i.test(prompt) || /for this meaning/i.test(prompt);
+}
+
 /** Get the question type label for display */
-function questionTypeLabel(type: LearnQuestionType | null): string {
-  if (type === "MCQ") return "Định nghĩa";
+function questionTypeLabel(question: LearnQuestionData): string {
+  if (question.questionType === "MCQ") return isMeaningPrompt(question) ? "Định nghĩa" : "Từ vựng";
+  if (question.questionType === "WRITTEN") return isMeaningPrompt(question) ? "Định nghĩa" : "Từ vựng";
+  const type = question.questionType;
   if (type === "TRUE_FALSE") return "Đúng / Sai";
   return "Viết đáp án";
+}
+
+function displayQuestionPrompt(question: LearnQuestionData): string {
+  if (question.trueFalseStatement) return question.trueFalseStatement;
+  return quotedPromptValue(question.prompt) ?? question.prompt;
+}
+
+function normalizeLetters(value: string | null | undefined): string {
+  return (value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z]/g, "");
+}
+
+function hasSharedLetter(userAnswer: string | null | undefined, correctAnswer: string | null | undefined): boolean {
+  const userLetters = new Set(normalizeLetters(userAnswer).split(""));
+  return normalizeLetters(correctAnswer)
+    .split("")
+    .some((letter) => userLetters.has(letter));
+}
+
+function playEnglishPronunciation(text: string) {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.92;
+  window.speechSynthesis.speak(utterance);
+}
+
+function PronounceButton({ text, className = "" }: { text: string; className?: string }) {
+  return (
+    <button
+      type="button"
+      className={`learn-audio-btn ${className}`}
+      onClick={(event) => {
+        event.stopPropagation();
+        playEnglishPronunciation(text);
+      }}
+      aria-label={`Nghe phát âm ${text}`}
+      title={`Nghe phát âm ${text}`}
+    >
+      <Volume2 size={18} aria-hidden="true" />
+    </button>
+  );
 }
 
 /** Render diff segments as spans with appropriate CSS classes */
@@ -173,7 +209,7 @@ export function LearnQuestion({
         if (feedback) {
           e.preventDefault();
           handleAdvance();
-        } else if (question.questionType === "WRITTEN" && isInput && answer.trim()) {
+        } else if (question.questionType === "WRITTEN" && isInput) {
           e.preventDefault();
           handleSubmit(answer);
         }
@@ -210,16 +246,25 @@ export function LearnQuestion({
     ? (feedback.verdict ?? (feedback.correct ? "CORRECT" : "INCORRECT"))
     : null;
 
-  const displayPrompt =
-    question.questionType === "TRUE_FALSE" && question.trueFalseStatement
-      ? question.trueFalseStatement
-      : question.prompt;
+  const displayPrompt = displayQuestionPrompt(question);
+  const promptAudioText =
+    question.questionType !== "TRUE_FALSE" && !isMeaningPrompt(question) && question.word
+      ? question.word
+      : null;
 
   // Compute diff for CLOSE / INCORRECT written answers
+  const showSimpleWrittenAnswer = Boolean(
+    feedback &&
+    question.questionType === "WRITTEN" &&
+    verdict !== "CORRECT" &&
+    (!normalizeLetters(feedback.userAnswer) || !hasSharedLetter(feedback.userAnswer, feedback.correctAnswer))
+  );
+
   const showDiff =
     feedback &&
     question.questionType === "WRITTEN" &&
     verdict !== "CORRECT" &&
+    !showSimpleWrittenAnswer &&
     feedback.userAnswer &&
     feedback.correctAnswer;
 
@@ -234,188 +279,220 @@ export function LearnQuestion({
 
   return (
     <div className="learn-q-container">
-      {/* Question Card — shows the prompt/definition */}
       <div className={`learn-question-card ${cardClass}`}>
-        <span className="learn-q-type-label">{questionTypeLabel(question.questionType)}</span>
-        <div className="learn-prompt">{displayPrompt}</div>
-      </div>
+        <span className="learn-q-type-label">{questionTypeLabel(question)}</span>
+        <div className="learn-prompt-row">
+          <div className="learn-prompt">{displayPrompt}</div>
+          {promptAudioText && <PronounceButton text={promptAudioText} className="learn-prompt-audio-btn" />}
+        </div>
 
-      {/* Answer Section */}
-      <div className="learn-answer-section">
-        {/* Section header */}
-        {(question.questionType === "MCQ" || question.questionType === "TRUE_FALSE") && (
-          <div className="learn-answer-header">
-            <span className="learn-answer-title">
-              {question.questionType === "TRUE_FALSE" ? "Chọn đúng hay sai" : "Chọn đáp án đúng"}
-            </span>
-            {feedback && !feedback.correct && (
-              <span className="learn-retry-badge">Hãy thử lại lần nữa</span>
-            )}
-            {feedback && feedback.correct && (
-              <span className="learn-correct-badge">Chính xác!</span>
-            )}
-          </div>
-        )}
-
-        {question.questionType === "WRITTEN" && !feedback && (
-          <div className="learn-answer-header">
-            <span className="learn-answer-title">Nhập đáp án của bạn</span>
-          </div>
-        )}
-
-        {/* MCQ or TRUE_FALSE */}
-        {(question.questionType === "MCQ" || question.questionType === "TRUE_FALSE") &&
-          question.options && (
-            <div className="learn-options-grid-2col">
-              {question.options.map((option, idx) => {
-                let optionClass = "learn-option-card";
-                if (feedback) {
-                  if (option === feedback.correctAnswer) {
-                    optionClass += " correct-highlight";
-                  } else if (option === selectedOption && !feedback.correct) {
-                    optionClass += " wrong-highlight";
-                  }
-                }
-                return (
-                  <button
-                    key={option}
-                    type="button"
-                    className={optionClass}
-                    onClick={() => handleSubmit(option)}
-                    disabled={!!feedback || submitting || isLoading}
-                  >
-                    <span className="learn-option-number">{idx + 1}</span>
-                    <span className="learn-option-text">{option}</span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
-        {/* WRITTEN — input + submit + don't know */}
-        {question.questionType === "WRITTEN" && !feedback && (
-          <div className="learn-written-field">
-            <input
-              ref={inputRef}
-              type="text"
-              className="learn-written-input"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              placeholder="Nhập đáp án…"
-              disabled={submitting || isLoading}
-              autoComplete="off"
-            />
-            <div className="learn-written-actions">
-              <button
-                type="button"
-                className="button"
-                onClick={() => handleSubmit(answer)}
-                disabled={!answer.trim() || submitting || isLoading}
-              >
-                <Send size={16} />
-              </button>
-              <button
-                type="button"
-                className="learn-dont-know-btn"
-                onClick={handleDontKnow}
-                disabled={submitting || isLoading}
-              >
-                <HelpCircle size={16} />
-                Không biết
-              </button>
-            </div>
-            <div className="learn-kbd-hint">
-              <kbd>Enter</kbd> gửi · <kbd>Ctrl+Enter</kbd> không biết
-            </div>
-          </div>
-        )}
-
-        {/* Feedback */}
-        {feedback && (
-          <div
-            className={`learn-feedback ${
-              verdict === "CORRECT" ? "correct" : verdict === "CLOSE" ? "close" : "incorrect"
-            }`}
-          >
-            <span className={`learn-feedback-icon ${verdict === "CLOSE" ? "close-icon" : ""}`}>
-              {verdict === "CORRECT" ? (
-                <Check size={18} />
-              ) : verdict === "CLOSE" ? (
-                <AlertTriangle size={18} />
-              ) : (
-                <X size={18} />
+        {/* Answer Section */}
+        <div className="learn-answer-section">
+          {/* Section header */}
+          {(question.questionType === "MCQ" || question.questionType === "TRUE_FALSE") && (
+            <div className="learn-answer-header">
+              <span className="learn-answer-title">
+                {question.questionType === "TRUE_FALSE" ? "Chọn đúng hay sai" : "Chọn đáp án đúng"}
+              </span>
+              {feedback && !feedback.correct && (
+                <span className="learn-retry-badge">Hãy thử lại lần nữa</span>
               )}
-            </span>
-            {verdict === "CORRECT"
-              ? "Chính xác!"
-              : verdict === "CLOSE"
-                ? "Gần đúng!"
-                : "Sai rồi"}
-
-            {/* Similarity badge for CLOSE */}
-            {verdict === "CLOSE" && similarityPercent !== null && (
-              <span className="learn-similarity-badge">{similarityPercent}%</span>
-            )}
-          </div>
-        )}
-
-        {/* Diff display for CLOSE / INCORRECT written */}
-        {feedback && diff && (
-          <div className="learn-diff-row">
-            {feedback.userAnswer && (
-              <div className="learn-diff-column">
-                <span className="learn-diff-label">Câu trả lời của bạn</span>
-                <DiffDisplay segments={diff.userDiff} />
-              </div>
-            )}
-            <div className="learn-diff-column">
-              <span className="learn-diff-label">Đáp án đúng</span>
-              <DiffDisplay segments={diff.correctDiff} />
-            </div>
-          </div>
-        )}
-
-        {/* Non-written incorrect: just show correct answer */}
-        {feedback &&
-          !feedback.correct &&
-          question.questionType !== "WRITTEN" &&
-          verdict !== "CLOSE" && (
-            <div className="learn-feedback-answer">
-              Đáp án đúng: {feedback.correctAnswer}
+              {feedback && feedback.correct && (
+                <span className="learn-correct-badge">Chính xác!</span>
+              )}
             </div>
           )}
 
-        {/* Quizlet-style manual override for written answers the system marked wrong */}
-        {feedback && question.questionType === "WRITTEN" && verdict !== "CORRECT" && onOverride && (
-          <div className="learn-override-row">
-            <button
-              type="button"
-              className="learn-override-btn accept"
-              onClick={handleOverride}
-              disabled={overriding}
-            >
-              <Check size={16} />
-              {overriding ? "Đang cập nhật…" : "Tôi đã đúng"}
-            </button>
-            <button
-              type="button"
-              className="learn-override-btn reject"
-              onClick={handleAdvance}
-            >
-              <X size={16} />
-              Đánh dấu sai
-            </button>
-          </div>
-        )}
+          {question.questionType === "WRITTEN" && !feedback && (
+            <div className="learn-answer-header">
+              <span className="learn-answer-title">Nhập đáp án của bạn</span>
+            </div>
+          )}
 
-        {/* Action row — Continue button */}
-        {feedback && verdict !== "CLOSE" && (
-          <div className="learn-action-row">
-            <button type="button" className="button learn-continue-btn" onClick={handleAdvance}>
-              Tiếp tục <ChevronRight size={16} />
-            </button>
-          </div>
-        )}
+          {/* MCQ or TRUE_FALSE */}
+          {(question.questionType === "MCQ" || question.questionType === "TRUE_FALSE") &&
+            question.options && (
+              <>
+                <div className="learn-options-grid-2col">
+                  {question.options.map((option, idx) => {
+                    let optionClass = "learn-option-card";
+                    const isDisabled = !!feedback || submitting || isLoading;
+                    const showOptionAudio = question.questionType === "MCQ" && isMeaningPrompt(question);
+                    if (feedback) {
+                      if (option === feedback.correctAnswer) {
+                        optionClass += " correct-highlight";
+                      } else if (option === selectedOption && !feedback.correct) {
+                        optionClass += " wrong-highlight";
+                      }
+                    }
+                    if (isDisabled) {
+                      optionClass += " is-disabled";
+                    }
+                    return (
+                      <div
+                        key={option}
+                        className={optionClass}
+                      >
+                        <button
+                          type="button"
+                          className="learn-option-select"
+                          onClick={() => handleSubmit(option)}
+                          disabled={isDisabled}
+                        >
+                          <span className="learn-option-number">{idx + 1}</span>
+                          <span className="learn-option-text">{option}</span>
+                        </button>
+                        {showOptionAudio && <PronounceButton text={option} className="learn-option-audio-btn" />}
+                      </div>
+                    );
+                  })}
+                </div>
+                {!feedback && (
+                  <div className="learn-choice-dont-know-row">
+                      <button
+                        type="button"
+                        className="learn-choice-dont-know-btn"
+                        onClick={handleDontKnow}
+                        disabled={submitting || isLoading}
+                      >
+                        <HelpCircle size={16} aria-hidden="true" />
+                        Bạn không biết
+                      </button>
+                  </div>
+                )}
+              </>
+            )}
+
+          {/* WRITTEN — input + submit + don't know */}
+          {question.questionType === "WRITTEN" && !feedback && (
+            <div className="learn-written-field">
+              <input
+                ref={inputRef}
+                type="text"
+                className="learn-written-input"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                placeholder="Nhập đáp án…"
+                disabled={submitting || isLoading}
+                autoComplete="off"
+              />
+              {question.hint && (
+                <div className="learn-written-hint">
+                  Hint: <span>{question.hint}</span>
+                </div>
+              )}
+              <div className="learn-written-actions">
+                <button
+                  type="button"
+                  className="button"
+                  onClick={() => handleSubmit(answer)}
+                  disabled={submitting || isLoading}
+                >
+                  <Send size={16} />
+                </button>
+                <button
+                  type="button"
+                  className="learn-dont-know-btn"
+                  onClick={handleDontKnow}
+                  disabled={submitting || isLoading}
+                >
+                  <HelpCircle size={16} />
+                  Không biết
+                </button>
+              </div>
+              <div className="learn-kbd-hint">
+                <kbd>Enter</kbd> gửi · <kbd>Ctrl+Enter</kbd> không biết
+              </div>
+            </div>
+          )}
+
+          {/* Feedback */}
+          {feedback && (
+            <div
+              className={`learn-feedback ${
+                verdict === "CORRECT" ? "correct" : verdict === "CLOSE" ? "close" : "incorrect"
+              }`}
+            >
+              <span className={`learn-feedback-icon ${verdict === "CLOSE" ? "close-icon" : ""}`}>
+                {verdict === "CORRECT" ? (
+                  <Check size={18} />
+                ) : verdict === "CLOSE" ? (
+                  <AlertTriangle size={18} />
+                ) : (
+                  <X size={18} />
+                )}
+              </span>
+              {verdict === "CORRECT"
+                ? "Chính xác!"
+                : verdict === "CLOSE"
+                  ? "Gần đúng!"
+                  : "Sai rồi"}
+
+              {/* Similarity badge for CLOSE */}
+              {verdict === "CLOSE" && similarityPercent !== null && (
+                <span className="learn-similarity-badge">{similarityPercent}%</span>
+              )}
+            </div>
+          )}
+
+          {/* Diff display for CLOSE / INCORRECT written */}
+          {feedback && diff && (
+            <div className="learn-diff-row">
+              {feedback.userAnswer && (
+                <div className="learn-diff-column">
+                  <span className="learn-diff-label">Câu trả lời của bạn</span>
+                  <DiffDisplay segments={diff.userDiff} />
+                </div>
+              )}
+              <div className="learn-diff-column">
+                <span className="learn-diff-label">Đáp án đúng</span>
+                <DiffDisplay segments={diff.correctDiff} />
+              </div>
+            </div>
+          )}
+
+          {/* Non-written incorrect: just show correct answer */}
+          {feedback &&
+            !feedback.correct &&
+            (question.questionType !== "WRITTEN" || showSimpleWrittenAnswer) &&
+            verdict !== "CLOSE" && (
+              <div className="learn-feedback-answer">
+                Đáp án đúng: {feedback.correctAnswer}
+              </div>
+          )}
+
+          {/* Quizlet-style manual override for written answers the system marked wrong */}
+          {feedback && question.questionType === "WRITTEN" && verdict !== "CORRECT" && !showSimpleWrittenAnswer && onOverride && (
+            <div className="learn-override-row">
+              <button
+                type="button"
+                className="learn-override-btn accept"
+                onClick={handleOverride}
+                disabled={overriding}
+              >
+                <Check size={16} />
+                {overriding ? "Đang cập nhật…" : "Tôi đã đúng"}
+              </button>
+              <button
+                type="button"
+                className="learn-override-btn reject"
+                onClick={handleAdvance}
+              >
+                <X size={16} />
+                Đánh dấu sai
+              </button>
+            </div>
+          )}
+
+          {/* Action row — Continue button */}
+          {feedback && verdict !== "CLOSE" && (
+            <div className="learn-action-row">
+              <button type="button" className="button learn-continue-btn" onClick={handleAdvance}>
+                Tiếp tục <ChevronRight size={16} />
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

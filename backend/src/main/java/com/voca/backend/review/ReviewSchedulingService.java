@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 @Service
 public class ReviewSchedulingService {
 
-    private static final int AGAIN_REVIEW_MINUTES = 3;
-    private static final int HARD_REVIEW_MINUTES = 30;
-    private static final int GOOD_FIRST_REVIEW_HOURS = 4;
-    private static final int GOOD_SECOND_REVIEW_HOURS = 12;
-    private static final int MASTERED_INTERVAL_DAYS = 14;
+    private static final int AGAIN_REVIEW_MINUTES = 10;
+    private static final int GOOD_FIRST_REVIEW_DAYS = 1;
+    private static final int GOOD_SECOND_REVIEW_DAYS = 3;
+    private static final int GOOD_THIRD_REVIEW_DAYS = 7;
+    private static final int EASY_FIRST_REVIEW_DAYS = 4;
+    private static final int MASTERED_INTERVAL_DAYS = 21;
 
     public UserProgress apply(UserProgress progress, ReviewQuality quality, Integer responseTimeMs, LocalDateTime now) {
         switch (quality) {
@@ -54,7 +55,7 @@ public class ReviewSchedulingService {
         progress.setEaseFactor(Math.max(1.3, progress.getEaseFactor() - 0.2));
         progress.setIntervalDays(0);
         progress.setNextReviewAt(now.plusMinutes(AGAIN_REVIEW_MINUTES));
-        progress.setStatus(progress.getLapseCount() >= 3 ? VocabProgressStatus.DIFFICULT : VocabProgressStatus.LEARNING);
+        progress.setStatus(progress.getLapseCount() >= 4 ? VocabProgressStatus.DIFFICULT : VocabProgressStatus.LEARNING);
         progress.incrementUnknownCount();
     }
 
@@ -63,9 +64,11 @@ public class ReviewSchedulingService {
         progress.setStreakCorrectCount(progress.getStreakCorrectCount() + 1);
         progress.setRepetitionCount(progress.getRepetitionCount() + 1);
         progress.setEaseFactor(Math.max(1.3, progress.getEaseFactor() - 0.15));
-        progress.setIntervalDays(0);
-        progress.setNextReviewAt(now.plusMinutes(HARD_REVIEW_MINUTES));
-        progress.setStatus(VocabProgressStatus.LEARNING);
+        int baseInterval = Math.max(1, progress.getIntervalDays());
+        int nextInterval = Math.max(1, (int) Math.round(baseInterval * 0.5));
+        progress.setIntervalDays(nextInterval);
+        progress.setNextReviewAt(now.plusDays(nextInterval));
+        progress.setStatus(VocabProgressStatus.REVIEW);
         progress.incrementDifficultCount();
     }
 
@@ -76,19 +79,19 @@ public class ReviewSchedulingService {
 
         int nextInterval;
         if (progress.getRepetitionCount() == 1) {
-            progress.setIntervalDays(0);
-            progress.setNextReviewAt(now.plusHours(GOOD_FIRST_REVIEW_HOURS));
+            progress.setIntervalDays(GOOD_FIRST_REVIEW_DAYS);
+            progress.setNextReviewAt(now.plusDays(GOOD_FIRST_REVIEW_DAYS));
             progress.setStatus(VocabProgressStatus.REVIEW);
             progress.incrementKnownCount();
             return;
         } else if (progress.getRepetitionCount() == 2) {
-            progress.setIntervalDays(0);
-            progress.setNextReviewAt(now.plusHours(GOOD_SECOND_REVIEW_HOURS));
+            progress.setIntervalDays(GOOD_SECOND_REVIEW_DAYS);
+            progress.setNextReviewAt(now.plusDays(GOOD_SECOND_REVIEW_DAYS));
             progress.setStatus(VocabProgressStatus.REVIEW);
             progress.incrementKnownCount();
             return;
         } else if (progress.getRepetitionCount() == 3) {
-            nextInterval = 1;
+            nextInterval = GOOD_THIRD_REVIEW_DAYS;
         } else {
             double multiplier = Math.max(1.5, progress.getEaseFactor() * 0.75);
             nextInterval = Math.max(1, (int) Math.round(Math.max(1, progress.getIntervalDays()) * multiplier));
@@ -105,8 +108,9 @@ public class ReviewSchedulingService {
         progress.setStreakCorrectCount(progress.getStreakCorrectCount() + 1);
         progress.setRepetitionCount(progress.getRepetitionCount() + 1);
         progress.setEaseFactor(Math.min(3.0, progress.getEaseFactor() + 0.15));
-        int baseInterval = progress.getIntervalDays() <= 0 ? 1 : progress.getIntervalDays();
-        int nextInterval = Math.max(1, (int) Math.round(baseInterval * Math.min(2.0, progress.getEaseFactor())));
+        int nextInterval = progress.getIntervalDays() <= 0
+                ? EASY_FIRST_REVIEW_DAYS
+                : Math.max(1, (int) Math.round(progress.getIntervalDays() * Math.min(2.0, progress.getEaseFactor())));
         progress.setIntervalDays(nextInterval);
         progress.setNextReviewAt(now.plusDays(nextInterval));
         progress.setStatus(nextInterval >= MASTERED_INTERVAL_DAYS ? VocabProgressStatus.MASTERED : VocabProgressStatus.REVIEW);

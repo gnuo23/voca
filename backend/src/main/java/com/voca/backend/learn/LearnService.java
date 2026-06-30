@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
 public class LearnService {
 
     private static final int INTRO_BATCH_SIZE = 6;
-    private static final String DEFAULT_QUESTION_TYPES = "MCQ,TRUE_FALSE,WRITTEN";
+    private static final String DEFAULT_QUESTION_TYPES = "MCQ,WRITTEN";
 
     private final LearnSessionRepository sessionRepo;
     private final LearnSessionItemRepository sessionItemRepo;
@@ -152,7 +152,7 @@ public class LearnService {
         if (progress.remainingTerms() == 0) {
             completeSession(session, progress);
             return new LearnQuestionResponse(
-                    null, null, null, null, null, "Session complete!", null, null, null,
+                    null, null, null, null, null, "Session complete!", null, null, null, null,
                     progress
             );
         }
@@ -173,6 +173,7 @@ public class LearnService {
                 generated.prompt(),
                 generated.options(),
                 generated.trueFalseStatement(),
+                answerHint(generated),
                 normalizeStage(currentItem.getStage()),
                 progress
         );
@@ -516,13 +517,14 @@ public class LearnService {
     }
 
     private LearnQuestionType selectQuestionType(LearnSession session, LearnSessionItem item) {
+        Set<LearnQuestionType> enabled = enabledQuestionTypes(session);
         LearnItemStage stage = normalizeStage(item.getStage());
         // Step 1 (NEW): MCQ for recognition
         if (stage == LearnItemStage.NEW || stage == LearnItemStage.SEEN) {
-            return LearnQuestionType.MCQ;
+            return seededChoice(session, item, enabled, LearnQuestionType.MCQ, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN);
         }
         // Steps 2 & 3 (LEARNING, FAMILIAR): Written for recall
-        return LearnQuestionType.WRITTEN;
+        return preferWritten(enabled);
     }
 
     private LearnQuestionType seededChoice(
@@ -775,7 +777,7 @@ public class LearnService {
 
     private Set<LearnQuestionType> enabledQuestionTypes(LearnSession session) {
         if (!hasText(session.getEnabledQuestionTypes())) {
-            return EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN);
+            return EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN);
         }
 
         EnumSet<LearnQuestionType> types = EnumSet.noneOf(LearnQuestionType.class);
@@ -786,7 +788,7 @@ public class LearnService {
             }
         }
         return types.isEmpty()
-                ? EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN)
+                ? EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
                 : types;
     }
 
@@ -937,6 +939,23 @@ public class LearnService {
         } catch (NoSuchAlgorithmException ex) {
             throw new IllegalStateException("SHA-256 is not available", ex);
         }
+    }
+
+    private String answerHint(GeneratedLearnQuestion question) {
+        if (question.type() != LearnQuestionType.WRITTEN) {
+            return null;
+        }
+        String answer = question.correctAnswer() == null ? "" : question.correctAnswer().trim();
+        answer = answer.replaceFirst("^\\([^)]*\\)\\s*", "");
+        int offset = 0;
+        while (offset < answer.length()) {
+            int codePoint = answer.codePointAt(offset);
+            if (Character.isLetterOrDigit(codePoint)) {
+                return new String(Character.toChars(codePoint));
+            }
+            offset += Character.charCount(codePoint);
+        }
+        return null;
     }
 
     private Random seededQuestionRandom(Long sessionId, LearnSessionItem item) {
