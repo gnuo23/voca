@@ -31,4 +31,6 @@ public interface UserProgressRepository extends JpaRepository<UserProgress, Long
 
     void deleteAllByVocabItemId(Long vocabItemId);
 
+    void deleteAllByUserIdAndVocabItemIdIn(Long userId, Collection<Long> vocabItemIds);
+
 }

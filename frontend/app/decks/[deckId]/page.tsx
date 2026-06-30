@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { BookOpenCheck, ChevronRight, Trash2 } from "lucide-react";
+import { BookOpenCheck, ChevronRight, RotateCcw, Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DeckForm } from "@/components/decks/DeckForm";
 import { MatchGamePanel } from "@/components/match/MatchGamePanel";
 import { QuizPanel } from "@/components/quiz/QuizPanel";
 import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
 import { VocabStudyPanel } from "@/components/vocab/VocabStudyPanel";
-import { Deck, deleteDeck, getDeck, getStoredToken, updateDeck } from "@/lib/api";
+import { Deck, deleteDeck, getDeck, getStoredToken, resetDeckProgress, updateDeck } from "@/lib/api";
 
 export default function DeckDetailPage() {
   const params = useParams<{ deckId: string }>();
@@ -35,12 +35,25 @@ export default function DeckDetailPage() {
   }, [params.deckId, router]);
 
   async function handleDelete() {
+    if (!confirm("Delete this deck and all its words?")) return;
     setError("");
     try {
       await deleteDeck(token, params.deckId);
       router.push("/decks");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not delete deck");
+    }
+  }
+
+  async function handleReset() {
+    if (!confirm("Reset all learning progress for this deck? Words will remain but progress goes back to 0.")) return;
+    setError("");
+    try {
+      const updated = await resetDeckProgress(token, params.deckId);
+      setDeck(updated);
+      setVocabRefreshKey((v) => v + 1);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not reset progress");
     }
   }
 
@@ -65,10 +78,16 @@ export default function DeckDetailPage() {
           <h1>{deck?.name ?? "Deck Detail"}</h1>
           <p>{deck ? `${deck.totalWords} words · ${deck.learnedWords} learned · ${deck.dueWords} due` : "Loading deck"}</p>
         </div>
-        <button className="button danger-button" type="button" onClick={handleDelete} disabled={!deck}>
-          <Trash2 size={18} aria-hidden="true" />
-          Delete
-        </button>
+        <div className="button-row">
+          <button className="button" type="button" onClick={handleReset} disabled={!deck}>
+            <RotateCcw size={18} aria-hidden="true" />
+            Reset Progress
+          </button>
+          <button className="button danger-button" type="button" onClick={handleDelete} disabled={!deck}>
+            <Trash2 size={18} aria-hidden="true" />
+            Delete
+          </button>
+        </div>
       </header>
 
       <section className="grid">

@@ -217,11 +217,10 @@ export function LearnPanel({ token, deckId, totalWords, refreshDeck }: LearnPane
 
       {progress && (
         <div className="learn-stage-row" aria-label="Learn progress">
-          <span className="status-pill neutral">New {progress.newTerms}</span>
-          <span className="status-pill neutral">Seen {progress.seenTerms}</span>
-          <span className="status-pill neutral">Learning {progress.learningTerms}</span>
-          <span className="status-pill neutral">Familiar {progress.familiarTerms}</span>
-          <span className="status-pill ok">Complete {progress.masteredTerms}</span>
+          <span className="status-pill neutral">Step 1: {progress.newTerms + progress.seenTerms}</span>
+          <span className="status-pill neutral">Step 2: {progress.learningTerms}</span>
+          <span className="status-pill neutral">Step 3: {progress.familiarTerms}</span>
+          <span className="status-pill ok">Complete: {progress.masteredTerms}</span>
         </div>
       )}
 
@@ -323,8 +322,11 @@ function learnQuestionLabel(type: LearnQuestion["questionType"]) {
 }
 
 function stageLabel(stage: LearnQuestion["stage"]) {
-  if (!stage) return "New";
-  if (stage === "NOT_STUDIED") return "New";
-  if (stage === "STILL_LEARNING") return "Learning";
-  return stage.replaceAll("_", " ").toLowerCase().replace(/^\w/, (value) => value.toUpperCase());
+  if (!stage || stage === "NOT_STUDIED" || stage === "NEW") return "Step 1";
+  if (stage === "STILL_LEARNING" || stage === "LEARNING") return "Step 2";
+  if (stage === "SEEN") return "Step 1";
+  if (stage === "FAMILIAR") return "Step 3";
+  if (stage === "MASTERED") return "Done";
+  const s = stage as string;
+  return s.replaceAll("_", " ").toLowerCase().replace(/^\w/, (value) => value.toUpperCase());
 }

@@ -420,22 +420,24 @@ public class LearnService {
                 .filter(item -> !isFinishedItem(session, item))
                 .toList();
 
-        long introducedCount = items.stream()
+        long activeIntroducedCount = candidates.stream()
                 .filter(item -> normalizeStage(item.getStage()) != LearnItemStage.NEW)
                 .count();
         boolean hasIntroducedCandidates = candidates.stream()
                 .anyMatch(item -> normalizeStage(item.getStage()) != LearnItemStage.NEW);
-        boolean canIntroduceNew = introducedCount < INTRO_BATCH_SIZE || !hasIntroducedCandidates;
+        boolean canIntroduceNew = activeIntroducedCount < INTRO_BATCH_SIZE || !hasIntroducedCandidates;
 
-        LocalDateTime newestAnswer = candidates.stream()
+        List<LocalDateTime> recentAnswerTimes = candidates.stream()
                 .map(LearnSessionItem::getLastAnsweredAt)
                 .filter(value -> value != null)
-                .max(LocalDateTime::compareTo)
-                .orElse(null);
+                .distinct()
+                .sorted((a, b) -> b.compareTo(a))
+                .limit(2)
+                .toList();
 
         List<LearnSessionItem> eligible = candidates.stream()
                 .filter(item -> canIntroduceNew || normalizeStage(item.getStage()) != LearnItemStage.NEW)
-                .filter(item -> candidates.size() == 1 || item.getLastAnsweredAt() == null || !item.getLastAnsweredAt().equals(newestAnswer))
+                .filter(item -> candidates.size() <= 2 || item.getLastAnsweredAt() == null || !recentAnswerTimes.contains(item.getLastAnsweredAt()))
                 .toList();
 
         if (eligible.isEmpty()) {
@@ -456,7 +458,8 @@ public class LearnService {
             case NEW -> 1;
             case MASTERED, NOT_STUDIED, STILL_LEARNING -> 0;
         };
-        return item.getPriority() + stageWeight + (item.getIncorrectAttempts() * 3) - item.getCorrectStreak();
+        int errorBoost = item.getIncorrectAttempts() >= 2 ? item.getIncorrectAttempts() * 5 : item.getIncorrectAttempts() * 3;
+        return item.getPriority() + stageWeight + errorBoost - item.getCorrectStreak();
     }
 
     private GeneratedLearnQuestion generateQuestion(LearnSession session, LearnSessionItem item, List<VocabItem> allDeckItems) {
@@ -513,24 +516,13 @@ public class LearnService {
     }
 
     private LearnQuestionType selectQuestionType(LearnSession session, LearnSessionItem item) {
-        Set<LearnQuestionType> enabled = enabledQuestionTypes(session);
         LearnItemStage stage = normalizeStage(item.getStage());
-
-        if (stage == LearnItemStage.FAMILIAR) {
-            return preferWritten(enabled);
+        // Step 1 (NEW): MCQ for recognition
+        if (stage == LearnItemStage.NEW || stage == LearnItemStage.SEEN) {
+            return LearnQuestionType.MCQ;
         }
-        if (stage == LearnItemStage.LEARNING) {
-            if (enabled.contains(LearnQuestionType.WRITTEN) && item.getCorrectStreak() > 0) {
-                return LearnQuestionType.WRITTEN;
-            }
-            return seededChoice(session, item, enabled, LearnQuestionType.TRUE_FALSE, LearnQuestionType.MCQ, LearnQuestionType.WRITTEN);
-        }
-        if (stage == LearnItemStage.SEEN) {
-            return seededChoice(session, item, enabled, LearnQuestionType.TRUE_FALSE, LearnQuestionType.MCQ, LearnQuestionType.WRITTEN);
-        }
-        return enabled.contains(LearnQuestionType.MCQ)
-                ? LearnQuestionType.MCQ
-                : seededChoice(session, item, enabled, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN, LearnQuestionType.MCQ);
+        // Steps 2 & 3 (LEARNING, FAMILIAR): Written for recall
+        return LearnQuestionType.WRITTEN;
     }
 
     private LearnQuestionType seededChoice(
@@ -574,9 +566,12 @@ public class LearnService {
         if (session.getAnswerDirection() == LearnAnswerDirection.MEANING_TO_WORD) {
             return LearnAnswerDirection.MEANING_TO_WORD;
         }
-        return seededQuestionRandom(session.getId() + 13, item).nextBoolean()
-                ? LearnAnswerDirection.WORD_TO_MEANING
-                : LearnAnswerDirection.MEANING_TO_WORD;
+        // BOTH: English→Vietnamese while learning, Vietnamese→English as final confirmation
+        LearnItemStage stage = normalizeStage(item.getStage());
+        if (stage == LearnItemStage.FAMILIAR) {
+            return LearnAnswerDirection.MEANING_TO_WORD;
+        }
+        return LearnAnswerDirection.WORD_TO_MEANING;
     }
 
     private TrueFalseQuestion buildTrueFalseQuestion(
@@ -609,28 +604,19 @@ public class LearnService {
 
     private LearnItemStage nextCorrectStage(LearnSession session, LearnSessionItem item, LearnQuestionType answeredType) {
         LearnItemStage stage = normalizeStage(item.getStage());
-        boolean writtenEnabled = enabledQuestionTypes(session).contains(LearnQuestionType.WRITTEN);
-
+        // 3-step progression: MCQ → Written EN→VI → Written VI→EN → Pass
         return switch (stage) {
-            case NEW -> LearnItemStage.SEEN;
-            case SEEN -> LearnItemStage.LEARNING;
-            case LEARNING -> !writtenEnabled || answeredType == LearnQuestionType.WRITTEN || session.getGoal() == LearnGoal.QUICK_REVIEW
-                    ? LearnItemStage.FAMILIAR
-                    : LearnItemStage.LEARNING;
-            case FAMILIAR -> !writtenEnabled || answeredType == LearnQuestionType.WRITTEN || session.getGoal() == LearnGoal.LEARN_ALL
-                    ? LearnItemStage.MASTERED
-                    : LearnItemStage.FAMILIAR;
+            case NEW, SEEN -> LearnItemStage.LEARNING;      // Step 1 done → Step 2
+            case LEARNING -> LearnItemStage.FAMILIAR;       // Step 2 done → Step 3
+            case FAMILIAR -> LearnItemStage.MASTERED;       // Step 3 done → Pass!
             case MASTERED -> LearnItemStage.MASTERED;
             case NOT_STUDIED, STILL_LEARNING -> LearnItemStage.LEARNING;
         };
     }
 
     private LearnItemStage nextIncorrectStage(LearnItemStage currentStage) {
-        return switch (normalizeStage(currentStage)) {
-            case MASTERED, FAMILIAR -> LearnItemStage.LEARNING;
-            case LEARNING -> LearnItemStage.SEEN;
-            case SEEN, NEW, NOT_STUDIED, STILL_LEARNING -> LearnItemStage.NEW;
-        };
+        // Wrong at any step → back to Step 1
+        return LearnItemStage.NEW;
     }
 
     private LearnItemStage inferStageBeforeOverride(LearnItemStage currentStage) {

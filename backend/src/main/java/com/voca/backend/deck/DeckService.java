@@ -86,6 +86,20 @@ public class DeckService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deck not found"));
     }
 
+    @Transactional
+    public DeckResponse resetDeckProgress(Authentication authentication, Long deckId) {
+        User owner = userService.currentUser(authentication);
+        Deck deck = findOwnedDeck(owner, deckId);
+        List<Long> vocabIds = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
+                .stream()
+                .map(item -> item.getId())
+                .toList();
+        if (!vocabIds.isEmpty()) {
+            userProgressRepository.deleteAllByUserIdAndVocabItemIdIn(owner.getId(), vocabIds);
+        }
+        return toResponse(deck, owner);
+    }
+
     private void apply(Deck deck, DeckRequest request) {
         deck.setName(request.name().trim());
         deck.setDescription(request.description() == null ? null : request.description().trim());

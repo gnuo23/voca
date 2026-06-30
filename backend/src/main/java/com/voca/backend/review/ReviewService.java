@@ -94,6 +94,7 @@ public class ReviewService {
 
         List<ReviewCandidate> candidates = items.stream()
                 .map(item -> new ReviewCandidate(item, progressByVocabId.get(item.getId())))
+                .filter(candidate -> candidate.progress() != null && candidate.progress().getStatus() != VocabProgressStatus.NEW)
                 .filter(candidate -> status == null || progressStatus(candidate.progress()).equals(status))
                 .sorted(scheduleComparator(now))
                 .toList();
@@ -155,7 +156,10 @@ public class ReviewService {
     }
 
     private boolean isDue(UserProgress progress, LocalDateTime now) {
-        return progress == null || progress.getNextReviewAt() == null || !progress.getNextReviewAt().isAfter(now);
+        if (progress == null || progress.getStatus() == VocabProgressStatus.NEW) {
+            return false;
+        }
+        return progress.getNextReviewAt() == null || !progress.getNextReviewAt().isAfter(now);
     }
 
     private VocabProgressStatus progressStatus(UserProgress progress) {

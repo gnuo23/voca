@@ -54,4 +54,9 @@ public class DeckController {
     public void delete(Authentication authentication, @PathVariable Long deckId) {
         deckService.delete(authentication, deckId);
     }
+
+    @PostMapping("/{deckId}/reset-progress")
+    public DeckResponse resetProgress(Authentication authentication, @PathVariable Long deckId) {
+        return deckService.resetDeckProgress(authentication, deckId);
+    }
 }

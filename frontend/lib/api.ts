@@ -546,6 +546,13 @@ export async function deleteDeck(token: string, deckId: string): Promise<void> {
   });
 }
 
+export async function resetDeckProgress(token: string, deckId: string): Promise<Deck> {
+  return apiRequest<Deck>(`/api/decks/${deckId}/reset-progress`, {
+    method: "POST",
+    token
+  });
+}
+
 export async function previewVocabImport(
   token: string,
   deckId: string,
