@@ -1,23 +1,22 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Braces, Check, CircleHelp, Eye, ListChecks, Send, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Check, ChevronRight, CircleHelp, Eye, ListChecks, Send, Volume2, X } from "lucide-react";
 import {
   answerQuizQuestion,
   createQuizAttempt,
   createQuizImportAttempt,
-  createManualQuizAttempt,
   generateQuiz,
   getQuizResult,
   previewQuizImport,
   QuizAnswer,
   QuizAttempt,
-  ManualQuizPayload,
   QuizImportPreview,
   QuizQuestion,
   QuizQuestionType,
   QuizResult
 } from "@/lib/api";
+import { computeDiff, DiffSegment } from "@/lib/diffUtil";
 
 type QuizPanelProps = {
   token: string;
@@ -26,15 +25,45 @@ type QuizPanelProps = {
   refreshDeck: () => void;
 };
 
+function playEnglishPronunciation(text: string) {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.92;
+  window.speechSynthesis.speak(utterance);
+}
+
+function PronounceButton({ text, className = "" }: { text: string; className?: string }) {
+  return (
+    <button
+      type="button"
+      className={`learn-audio-btn ${className}`}
+      onClick={(event) => {
+        event.stopPropagation();
+        playEnglishPronunciation(text);
+      }}
+      aria-label={`Nghe phát âm ${text}`}
+      title={`Nghe phát âm ${text}`}
+    >
+      <Volume2 size={18} aria-hidden="true" />
+    </button>
+  );
+}
+
+function DiffDisplay({ segments }: { segments: DiffSegment[] }) {
+  return (
+    <span className="learn-diff-text">
+      {segments.map((seg, i) => (
+        <span key={i} className={`learn-diff-${seg.type}`}>
+          {seg.text}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelProps) {
-  const manualSample = `{
-  "questionTypes": ["CLOZE_CHOICE"],
-  "limit": 20,
-  "vocabPairs": [
-    { "word": "absent", "meaning": "vang mat" },
-    { "word": "accumulate", "meaning": "tich luy" }
-  ]
-}`;
   const bulkSample = `absent -- He was ____ from class yesterday.
 accumulate -- Dust can accumulate on the shelf.
 adhere -- Please adhere to the safety rules.
@@ -48,13 +77,12 @@ adjacent -- The hotel is adjacent to the station.`;
   const [result, setResult] = useState<QuizResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showManualJson, setShowManualJson] = useState(false);
-  const [manualJson, setManualJson] = useState(manualSample);
   const [showBulkImport, setShowBulkImport] = useState(false);
   const [bulkText, setBulkText] = useState("");
   const [bulkPreview, setBulkPreview] = useState<QuizImportPreview | null>(null);
   const [bulkTypes, setBulkTypes] = useState<QuizQuestionType[]>(["CLOZE_CHOICE", "CHOOSE_MEANING"]);
   const [bulkLimit, setBulkLimit] = useState(10);
+  const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const currentQuestion = useMemo(() => {
     if (!attempt || attempt.questions.length === 0) {
@@ -63,7 +91,46 @@ adjacent -- The hotel is adjacent to the station.`;
     return attempt.questions[Math.min(currentIndex, attempt.questions.length - 1)];
   }, [attempt, currentIndex]);
 
+  const currentAnswer = currentQuestion ? answers[currentQuestion.id] : null;
+  const answeredCount = Object.keys(answers).length;
+
+  // Mirror the backend's question-generation math so the user knows how many
+  // questions they'll actually get: each valid word yields one question per
+  // non-matching type, plus one matching question per group of 2-5 words.
+  const bulkEstimate = useMemo(() => {
+    if (!bulkPreview) {
+      return null;
+    }
+    const validWords = bulkPreview.validCount;
+    if (validWords === 0) {
+      return { total: 0, capped: 0, validWords: 0 };
+    }
+    const nonMatchingTypes = bulkTypes.filter((type) => type !== "MATCHING").length;
+    let matchingGroups = 0;
+    if (bulkTypes.includes("MATCHING")) {
+      for (let i = 0; i < validWords; i += 5) {
+        if (Math.min(5, validWords - i) >= 2) {
+          matchingGroups += 1;
+        }
+      }
+    }
+    const total = validWords * nonMatchingTypes + matchingGroups;
+    const capped = Math.min(total, Math.max(1, bulkLimit));
+    return { total, capped, validWords };
+  }, [bulkPreview, bulkTypes, bulkLimit]);
+
+  const rawQuestionCount = bulkEstimate?.total ?? 0;
+  const estimatedQuestionCount = bulkEstimate?.capped ?? 0;
+
+  function clearAutoAdvance() {
+    if (autoAdvanceTimer.current) {
+      clearTimeout(autoAdvanceTimer.current);
+      autoAdvanceTimer.current = null;
+    }
+  }
+
   function resetRunState() {
+    clearAutoAdvance();
     setResult(null);
     setAnswers({});
     setSelectedAnswers({});
@@ -71,6 +138,16 @@ adjacent -- The hotel is adjacent to the station.`;
     setCurrentIndex(0);
     setQuestionStartedAt(Date.now());
   }
+
+  const goNext = useCallback(() => {
+    clearAutoAdvance();
+    setCurrentIndex((index) => Math.min(index + 1, (attempt?.totalQuestions ?? 1) - 1));
+    setQuestionStartedAt(Date.now());
+  }, [attempt]);
+
+  useEffect(() => {
+    return () => clearAutoAdvance();
+  }, []);
 
   async function startQuiz() {
     setIsLoading(true);
@@ -86,27 +163,7 @@ adjacent -- The hotel is adjacent to the station.`;
       );
       setAttempt(nextAttempt);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not start quiz");
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  async function startManualQuiz() {
-    setIsLoading(true);
-    setError("");
-    resetRunState();
-
-    try {
-      const payload = JSON.parse(manualJson) as ManualQuizPayload;
-      const nextAttempt = await createManualQuizAttempt(token, deckId, payload);
-      setAttempt(nextAttempt);
-    } catch (err) {
-      if (err instanceof SyntaxError) {
-        setError("Manual quiz JSON is invalid");
-      } else {
-        setError(err instanceof Error ? err.message : "Could not start manual quiz");
-      }
+      setError(err instanceof Error ? err.message : "Không thể bắt đầu quiz");
     } finally {
       setIsLoading(false);
     }
@@ -123,7 +180,7 @@ adjacent -- The hotel is adjacent to the station.`;
       });
       setBulkPreview(nextPreview);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not preview quiz import");
+      setError(err instanceof Error ? err.message : "Không thể xem trước quiz");
     } finally {
       setIsLoading(false);
     }
@@ -143,48 +200,55 @@ adjacent -- The hotel is adjacent to the station.`;
       setAttempt(nextAttempt);
       setShowBulkImport(false);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not start imported quiz");
+      setError(err instanceof Error ? err.message : "Không thể bắt đầu quiz nhập nhanh");
     } finally {
       setIsLoading(false);
     }
   }
 
-  async function submitAnswer(question: QuizQuestion) {
-    const answer = question.type === "MATCHING"
-      ? JSON.stringify(matchingPairs[question.id] ?? {})
-      : selectedAnswers[question.id]?.trim() ?? "";
-    if (!answer) {
-      setError("Choose or enter an answer first");
-      return;
-    }
-    if (question.type === "MATCHING") {
-      const options = matchingOptions(question);
-      const pairs = matchingPairs[question.id] ?? {};
-      if (!options || options.words.some((word) => !pairs[word])) {
-        setError("Match every word before submitting");
+  const submitAnswer = useCallback(
+    async (question: QuizQuestion) => {
+      const answer = question.type === "MATCHING"
+        ? JSON.stringify(matchingPairs[question.id] ?? {})
+        : selectedAnswers[question.id]?.trim() ?? "";
+      if (!answer) {
+        setError("Hãy chọn hoặc nhập đáp án trước");
         return;
       }
-    }
-    if (!attempt) {
-      return;
-    }
-
-    setIsLoading(true);
-    setError("");
-    try {
-      const response = await answerQuizQuestion(token, attempt.id, question.id, answer, Date.now() - questionStartedAt);
-      setAnswers((current) => ({ ...current, [question.id]: response }));
-      await refreshDeck();
-      if (Object.keys(answers).length + 1 >= attempt.totalQuestions) {
-        const nextResult = await getQuizResult(token, attempt.id);
-        setResult(nextResult);
+      if (question.type === "MATCHING") {
+        const options = matchingOptions(question);
+        const pairs = matchingPairs[question.id] ?? {};
+        if (!options || options.words.some((word) => !pairs[word])) {
+          setError("Hãy nối tất cả các từ trước khi gửi");
+          return;
+        }
       }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not submit answer");
-    } finally {
-      setIsLoading(false);
-    }
-  }
+      if (!attempt) {
+        return;
+      }
+
+      setIsLoading(true);
+      setError("");
+      try {
+        const response = await answerQuizQuestion(token, attempt.id, question.id, answer, Date.now() - questionStartedAt);
+        setAnswers((current) => ({ ...current, [question.id]: response }));
+        await refreshDeck();
+        const isLast = Object.keys(answers).length + 1 >= attempt.totalQuestions;
+        if (isLast) {
+          const nextResult = await getQuizResult(token, attempt.id);
+          setResult(nextResult);
+        } else if (response.correct) {
+          clearAutoAdvance();
+          autoAdvanceTimer.current = setTimeout(() => goNext(), 1200);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Không thể gửi đáp án");
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [attempt, answers, matchingPairs, selectedAnswers, questionStartedAt, token, refreshDeck, goNext]
+  );
 
   async function loadResult() {
     if (!attempt) {
@@ -195,35 +259,73 @@ adjacent -- The hotel is adjacent to the station.`;
     try {
       setResult(await getQuizResult(token, attempt.id));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not load result");
+      setError(err instanceof Error ? err.message : "Không thể tải kết quả");
     } finally {
       setIsLoading(false);
     }
   }
 
-  const answeredCount = Object.keys(answers).length;
-  const currentAnswer = currentQuestion ? answers[currentQuestion.id] : null;
+  // Keyboard shortcuts: 1-9 to pick a choice, Enter to submit / advance.
+  useEffect(() => {
+    if (!currentQuestion || result) {
+      return;
+    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement;
+      const isInput = target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.tagName === "SELECT";
+
+      if (event.key === "Enter") {
+        if (currentAnswer) {
+          event.preventDefault();
+          if (currentIndex + 1 < (attempt?.totalQuestions ?? 0)) {
+            goNext();
+          }
+        } else if (!isInput || target.tagName === "INPUT") {
+          event.preventDefault();
+          void submitAnswer(currentQuestion);
+        }
+        return;
+      }
+
+      if (!currentAnswer && !isInput && isChoiceQuestion(currentQuestion)) {
+        const options = choiceOptions(currentQuestion);
+        const num = parseInt(event.key, 10);
+        if (num >= 1 && num <= options.length) {
+          event.preventDefault();
+          setSelectedAnswers((current) => ({ ...current, [currentQuestion.id]: options[num - 1] }));
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentQuestion, currentAnswer, currentIndex, attempt, result, goNext, submitAnswer]);
+
+  const promptAudioText =
+    currentQuestion && (currentQuestion.type === "CLOZE_CHOICE" || currentQuestion.type === "CHOOSE_MEANING")
+      ? currentQuestion.prompt
+      : null;
+
+  const writtenDiff =
+    currentQuestion &&
+    currentAnswer &&
+    !currentAnswer.correct &&
+    currentQuestion.type === "FILL_IN_BLANK" &&
+    currentAnswer.answer &&
+    currentAnswer.correctAnswer
+      ? computeDiff(currentAnswer.answer, currentAnswer.correctAnswer)
+      : null;
 
   return (
     <section className="card quiz-card">
       <div className="section-heading">
         <div>
           <h2>Quiz</h2>
-          <p>{attempt ? `${answeredCount}/${attempt.totalQuestions} answered` : "One 4-option question per word"}</p>
+          <p>{attempt ? `Đã trả lời ${answeredCount}/${attempt.totalQuestions}` : "Mỗi từ một câu trắc nghiệm 4 lựa chọn"}</p>
         </div>
         <div className="button-row">
           <button className="button" type="button" onClick={startQuiz} disabled={isLoading || totalWords < 4}>
             <ListChecks size={18} aria-hidden="true" />
-            {attempt ? "New Quiz" : "Start Quiz"}
-          </button>
-          <button
-            className="button secondary-button"
-            type="button"
-            onClick={() => setShowManualJson((current) => !current)}
-            disabled={isLoading || totalWords < 2}
-          >
-            <Braces size={18} aria-hidden="true" />
-            Manual JSON
+            {attempt ? "Quiz mới" : "Bắt đầu Quiz"}
           </button>
           <button
             className="button secondary-button"
@@ -232,42 +334,24 @@ adjacent -- The hotel is adjacent to the station.`;
             disabled={isLoading || totalWords < 4}
           >
             <Eye size={18} aria-hidden="true" />
-            Bulk Quiz
+            Quiz nhập nhanh
           </button>
         </div>
       </div>
 
       {error && <p className="form-error">{error}</p>}
-      {totalWords < 4 && <p className="form-muted">Need at least 4 vocabulary items with meanings for 4 answer choices.</p>}
-
-      {showManualJson && (
-        <div className="quiz-manual-panel">
-          <div className="field">
-            <label htmlFor="manual-quiz-json">Quiz JSON</label>
-            <textarea
-              id="manual-quiz-json"
-              className="quiz-json-input"
-              value={manualJson}
-              onChange={(event) => setManualJson(event.target.value)}
-              spellCheck={false}
-            />
-          </div>
-          <div className="button-row">
-            <button className="button" type="button" onClick={startManualQuiz} disabled={isLoading || totalWords < 2}>
-              <Braces size={18} aria-hidden="true" />
-              Start Manual Quiz
-            </button>
-            <button className="button secondary-button" type="button" onClick={() => setManualJson(manualSample)} disabled={isLoading}>
-              Reset Sample
-            </button>
-          </div>
-        </div>
-      )}
+      {totalWords < 4 && <p className="form-muted">Cần ít nhất 4 từ vựng có nghĩa để tạo 4 lựa chọn đáp án.</p>}
 
       {showBulkImport && (
         <div className="quiz-manual-panel">
+          <div className="quiz-bulk-steps">
+            <span className={`quiz-bulk-step ${bulkPreview ? "done" : "active"}`}>1 · Nhập &amp; xem trước</span>
+            <ChevronRight size={14} aria-hidden="true" />
+            <span className={`quiz-bulk-step ${bulkPreview ? "active" : ""}`}>2 · Xác nhận &amp; bắt đầu</span>
+          </div>
+
           <div className="field">
-            <label htmlFor="bulk-quiz-text">Bulk quiz lines</label>
+            <label htmlFor="bulk-quiz-text">Danh sách từ &amp; câu ví dụ</label>
             <textarea
               id="bulk-quiz-text"
               className="quiz-json-input"
@@ -279,77 +363,92 @@ adjacent -- The hotel is adjacent to the station.`;
               placeholder={bulkSample}
               spellCheck={false}
             />
+            <p className="form-muted">Mỗi dòng: <code>từ -- câu ví dụ</code> (từ phải có sẵn trong bộ thẻ này).</p>
           </div>
 
           <div className="quiz-type-row">
             <label>
-              Questions
+              Giới hạn số câu
               <input
                 className="quiz-count-input"
                 type="number"
                 min={1}
                 max={100}
                 value={bulkLimit}
-                onChange={(event) => setBulkLimit(Math.max(1, Number(event.target.value) || 1))}
+                onChange={(event) => {
+                  setBulkLimit(Math.max(1, Number(event.target.value) || 1));
+                  setBulkPreview(null);
+                }}
               />
             </label>
             <label>
               <input
                 type="checkbox"
                 checked={bulkTypes.includes("CLOZE_CHOICE")}
-                onChange={() => setBulkTypes((current) => toggleQuizType(current, "CLOZE_CHOICE"))}
+                onChange={() => {
+                  setBulkTypes((current) => toggleQuizType(current, "CLOZE_CHOICE"));
+                  setBulkPreview(null);
+                }}
               />
-              Fill blank
+              Điền từ
             </label>
             <label>
               <input
                 type="checkbox"
                 checked={bulkTypes.includes("CHOOSE_MEANING")}
-                onChange={() => setBulkTypes((current) => toggleQuizType(current, "CHOOSE_MEANING"))}
+                onChange={() => {
+                  setBulkTypes((current) => toggleQuizType(current, "CHOOSE_MEANING"));
+                  setBulkPreview(null);
+                }}
               />
-              Choose meaning
+              Chọn nghĩa
             </label>
             <label>
               <input
                 type="checkbox"
                 checked={bulkTypes.includes("MATCHING")}
-                onChange={() => setBulkTypes((current) => toggleQuizType(current, "MATCHING"))}
+                onChange={() => {
+                  setBulkTypes((current) => toggleQuizType(current, "MATCHING"));
+                  setBulkPreview(null);
+                }}
               />
-              Matching
+              Nối từ
             </label>
           </div>
+
+          {bulkTypes.length === 0 && <p className="form-muted">Chọn ít nhất một dạng câu hỏi.</p>}
 
           <div className="button-row">
             <button className="button" type="button" onClick={previewBulkQuiz} disabled={isLoading || bulkText.trim().length === 0 || bulkTypes.length === 0}>
               <Eye size={18} aria-hidden="true" />
-              Preview
+              Xem trước
             </button>
-            <button
-              className="button"
-              type="button"
-              onClick={startBulkQuiz}
-              disabled={isLoading || !bulkPreview || bulkPreview.validCount === 0 || bulkTypes.length === 0}
-            >
-              <ListChecks size={18} aria-hidden="true" />
-              Start {bulkLimit} Quiz
-            </button>
-            <button className="button secondary-button" type="button" onClick={() => setBulkText(bulkSample)} disabled={isLoading}>
-              Reset Sample
+            <button className="button secondary-button" type="button" onClick={() => { setBulkText(bulkSample); setBulkPreview(null); }} disabled={isLoading}>
+              Dùng mẫu
             </button>
           </div>
 
           {bulkPreview && (
             <div className="preview-wrap">
-              <p className="form-muted">
-                {bulkPreview.validCount} ready, {bulkPreview.skippedCount} skipped, {bulkPreview.errorCount} error{bulkPreview.errorCount === 1 ? "" : "s"}.
-              </p>
+              <div className="quiz-bulk-summary">
+                <p className="form-muted">
+                  {bulkPreview.validCount} từ hợp lệ · {bulkPreview.skippedCount} bỏ qua · {bulkPreview.errorCount} lỗi
+                </p>
+                {bulkPreview.validCount > 0 && (
+                  <p className="quiz-bulk-estimate">
+                    Sẽ tạo khoảng <strong>{estimatedQuestionCount}</strong> câu hỏi
+                    {estimatedQuestionCount >= bulkLimit && rawQuestionCount > bulkLimit ? ` (giới hạn ${bulkLimit})` : ""}.
+                  </p>
+                )}
+              </div>
+
               <table className="preview-table">
                 <thead>
                   <tr>
-                    <th>Line</th>
-                    <th>Word</th>
-                    <th>Sentence</th>
-                    <th>Status</th>
+                    <th>Dòng</th>
+                    <th>Từ</th>
+                    <th>Câu</th>
+                    <th>Trạng thái</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -360,7 +459,7 @@ adjacent -- The hotel is adjacent to the station.`;
                       <td>{item.prompt || "-"}</td>
                       <td>
                         <span className={`status-pill ${item.status === "OK" ? "ok" : item.status === "ERROR" ? "bad" : "neutral"}`}>
-                          {item.status}
+                          {item.status === "OK" ? "Hợp lệ" : item.status === "ERROR" ? "Lỗi" : "Bỏ qua"}
                         </span>
                         {item.message && <span className="status-message">{item.message}</span>}
                       </td>
@@ -368,34 +467,66 @@ adjacent -- The hotel is adjacent to the station.`;
                   ))}
                 </tbody>
               </table>
+
+              {bulkPreview.validCount > 0 ? (
+                <>
+                  <p className="form-muted quiz-bulk-warning">
+                    Lưu ý: các câu hỏi quiz cũ của những từ này sẽ được thay bằng câu mới.
+                  </p>
+                  <div className="button-row">
+                    <button className="button" type="button" onClick={startBulkQuiz} disabled={isLoading}>
+                      <ListChecks size={18} aria-hidden="true" />
+                      Xác nhận &amp; bắt đầu
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <p className="form-error">Không có từ nào hợp lệ. Hãy chỉnh lại danh sách rồi xem trước lần nữa.</p>
+              )}
             </div>
           )}
         </div>
       )}
 
-      {currentQuestion && (
+      {currentQuestion && !result && (
         <div className="quiz-runner">
           <div className="quiz-progress-row">
-            <span>Question {currentIndex + 1} / {attempt?.totalQuestions}</span>
+            <span>Câu {currentIndex + 1} / {attempt?.totalQuestions}</span>
             <span className="status-pill neutral">{questionLabel(currentQuestion.type)}</span>
           </div>
 
-          <h3>{currentQuestion.prompt}</h3>
+          <div className="learn-prompt-row">
+            <h3>{currentQuestion.prompt}</h3>
+            {promptAudioText && <PronounceButton text={promptAudioText} className="learn-prompt-audio-btn" />}
+          </div>
 
           {isChoiceQuestion(currentQuestion) ? (
             <div className="quiz-options">
-              {choiceOptions(currentQuestion).map((option, index) => (
-                <button
-                  key={option}
-                  className={`quiz-option ${selectedAnswers[currentQuestion.id] === option ? "selected" : ""}`}
-                  type="button"
-                  onClick={() => setSelectedAnswers((current) => ({ ...current, [currentQuestion.id]: option }))}
-                  disabled={Boolean(currentAnswer)}
-                >
-                  <span className="quiz-option-letter">{String.fromCharCode(65 + index)}</span>
-                  {option}
-                </button>
-              ))}
+              {choiceOptions(currentQuestion).map((option, index) => {
+                let optionClass = "quiz-option";
+                if (selectedAnswers[currentQuestion.id] === option && !currentAnswer) {
+                  optionClass += " selected";
+                }
+                if (currentAnswer) {
+                  if (option === currentAnswer.correctAnswer) {
+                    optionClass += " correct-highlight";
+                  } else if (option === selectedAnswers[currentQuestion.id] && !currentAnswer.correct) {
+                    optionClass += " wrong-highlight";
+                  }
+                }
+                return (
+                  <button
+                    key={option}
+                    className={optionClass}
+                    type="button"
+                    onClick={() => setSelectedAnswers((current) => ({ ...current, [currentQuestion.id]: option }))}
+                    disabled={Boolean(currentAnswer)}
+                  >
+                    <span className="quiz-option-letter">{index + 1}</span>
+                    {option}
+                  </button>
+                );
+              })}
             </div>
           ) : currentQuestion.type === "MATCHING" ? (
             <div className="matching-grid">
@@ -415,7 +546,7 @@ adjacent -- The hotel is adjacent to the station.`;
                     }
                     disabled={Boolean(currentAnswer)}
                   >
-                    <option value="">Choose meaning</option>
+                    <option value="">Chọn nghĩa</option>
                     {(matchingOptions(currentQuestion)?.meanings ?? []).map((meaning) => (
                       <option key={meaning} value={meaning}>{meaning}</option>
                     ))}
@@ -425,7 +556,7 @@ adjacent -- The hotel is adjacent to the station.`;
             </div>
           ) : (
             <div className="field">
-              <label htmlFor={`quiz-answer-${currentQuestion.id}`}>Answer</label>
+              <label htmlFor={`quiz-answer-${currentQuestion.id}`}>Đáp án</label>
               <input
                 id={`quiz-answer-${currentQuestion.id}`}
                 value={selectedAnswers[currentQuestion.id] ?? ""}
@@ -433,6 +564,7 @@ adjacent -- The hotel is adjacent to the station.`;
                   setSelectedAnswers((current) => ({ ...current, [currentQuestion.id]: event.target.value }))
                 }
                 disabled={Boolean(currentAnswer)}
+                autoComplete="off"
               />
             </div>
           )}
@@ -441,10 +573,23 @@ adjacent -- The hotel is adjacent to the station.`;
             <div className={`quiz-feedback ${currentAnswer.correct ? "correct" : "incorrect"}`}>
               <strong>
                 {currentAnswer.correct ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
-                {currentAnswer.correct ? "Correct" : "Incorrect"}
+                {currentAnswer.correct ? "Chính xác!" : "Sai rồi"}
               </strong>
-              <p>{currentAnswer.explanation}</p>
-              {!currentAnswer.correct && currentQuestion.type !== "MATCHING" && <p>Correct answer: {currentAnswer.correctAnswer}</p>}
+              {currentAnswer.explanation && <p>{currentAnswer.explanation}</p>}
+              {writtenDiff ? (
+                <div className="learn-diff-row">
+                  <div className="learn-diff-column">
+                    <span className="learn-diff-label">Câu trả lời của bạn</span>
+                    <DiffDisplay segments={writtenDiff.userDiff} />
+                  </div>
+                  <div className="learn-diff-column">
+                    <span className="learn-diff-label">Đáp án đúng</span>
+                    <DiffDisplay segments={writtenDiff.correctDiff} />
+                  </div>
+                </div>
+              ) : (
+                !currentAnswer.correct && currentQuestion.type !== "MATCHING" && <p>Đáp án đúng: {currentAnswer.correctAnswer}</p>
+              )}
             </div>
           )}
 
@@ -452,27 +597,29 @@ adjacent -- The hotel is adjacent to the station.`;
             {!currentAnswer ? (
               <button className="button" type="button" onClick={() => submitAnswer(currentQuestion)} disabled={isLoading}>
                 <Send size={18} aria-hidden="true" />
-                Submit
+                Gửi
               </button>
             ) : (
               <button
                 className="button"
                 type="button"
-                onClick={() => {
-                  setCurrentIndex((index) => Math.min(index + 1, (attempt?.totalQuestions ?? 1) - 1));
-                  setQuestionStartedAt(Date.now());
-                }}
+                onClick={goNext}
                 disabled={currentIndex + 1 >= (attempt?.totalQuestions ?? 0)}
               >
-                Next
+                Tiếp tục
+                <ChevronRight size={18} aria-hidden="true" />
               </button>
             )}
             {attempt && answeredCount > 0 && (
               <button className="button secondary-button" type="button" onClick={loadResult} disabled={isLoading}>
                 <CircleHelp size={18} aria-hidden="true" />
-                Result
+                Kết quả
               </button>
             )}
+          </div>
+
+          <div className="learn-kbd-hint">
+            <kbd>1</kbd>–<kbd>4</kbd> chọn đáp án · <kbd>Enter</kbd> gửi / tiếp tục
           </div>
         </div>
       )}
@@ -481,15 +628,16 @@ adjacent -- The hotel is adjacent to the station.`;
         <div className="quiz-result">
           <div>
             <span className="result-score">{result.scorePercent}%</span>
-            <p>{result.correctCount}/{result.totalQuestions} correct</p>
+            <p>{result.correctCount}/{result.totalQuestions} câu đúng</p>
           </div>
           <div className="quiz-answer-list">
             {result.answers.map((answer) => (
               <div key={answer.questionId} className="quiz-answer-row">
                 <span className={`status-pill ${answer.correct ? "ok" : "neutral"}`}>
-                  {answer.correct ? "Correct" : "Review"}
+                  {answer.correct ? "Đúng" : "Xem lại"}
                 </span>
-                <p>{answer.explanation}</p>
+                {!answer.correct && <p>Đáp án đúng: {answer.correctAnswer}</p>}
+                {answer.explanation && <p>{answer.explanation}</p>}
               </div>
             ))}
           </div>
@@ -500,11 +648,11 @@ adjacent -- The hotel is adjacent to the station.`;
 }
 
 function questionLabel(type: string) {
-  if (type === "CHOOSE_MEANING") return "Choose meaning";
-  if (type === "CLOZE_CHOICE") return "Fill blank";
-  if (type === "TRUE_FALSE") return "True / False";
-  if (type === "MATCHING") return "Matching";
-  return "Type answer";
+  if (type === "CHOOSE_MEANING") return "Chọn nghĩa";
+  if (type === "CLOZE_CHOICE") return "Điền từ";
+  if (type === "TRUE_FALSE") return "Đúng / Sai";
+  if (type === "MATCHING") return "Nối từ";
+  return "Viết đáp án";
 }
 
 function isChoiceQuestion(question: QuizQuestion) {
