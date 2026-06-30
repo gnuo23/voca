@@ -38,6 +38,21 @@ public class LearnSession {
     @Column(nullable = false)
     private LearnSessionScope scope = LearnSessionScope.ALL;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private LearnGoal goal = LearnGoal.MASTER_ALL;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "answer_direction", nullable = false)
+    private LearnAnswerDirection answerDirection = LearnAnswerDirection.BOTH;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "grading_mode", nullable = false)
+    private LearnGradingMode gradingMode = LearnGradingMode.ACCENT_INSENSITIVE;
+
+    @Column(name = "enabled_question_types", nullable = false, length = 100)
+    private String enabledQuestionTypes = "MCQ,TRUE_FALSE,WRITTEN";
+
     @Column(name = "total_terms", nullable = false)
     private int totalTerms;
 
@@ -96,6 +111,18 @@ public class LearnSession {
 
     public LearnSessionScope getScope() { return scope; }
     public void setScope(LearnSessionScope scope) { this.scope = scope; }
+
+    public LearnGoal getGoal() { return goal; }
+    public void setGoal(LearnGoal goal) { this.goal = goal; }
+
+    public LearnAnswerDirection getAnswerDirection() { return answerDirection; }
+    public void setAnswerDirection(LearnAnswerDirection answerDirection) { this.answerDirection = answerDirection; }
+
+    public LearnGradingMode getGradingMode() { return gradingMode; }
+    public void setGradingMode(LearnGradingMode gradingMode) { this.gradingMode = gradingMode; }
+
+    public String getEnabledQuestionTypes() { return enabledQuestionTypes; }
+    public void setEnabledQuestionTypes(String enabledQuestionTypes) { this.enabledQuestionTypes = enabledQuestionTypes; }
 
     public int getTotalTerms() { return totalTerms; }
     public void setTotalTerms(int totalTerms) { this.totalTerms = totalTerms; }

@@ -21,15 +21,20 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
 public class LearnService {
+
+    private static final int INTRO_BATCH_SIZE = 6;
+    private static final String DEFAULT_QUESTION_TYPES = "MCQ,TRUE_FALSE,WRITTEN";
 
     private final LearnSessionRepository sessionRepo;
     private final LearnSessionItemRepository sessionItemRepo;
@@ -66,7 +71,6 @@ public class LearnService {
         User user = userService.currentUser(auth);
         Deck deck = deckService.findOwnedDeck(user, request.deckId());
 
-        // Abandon any existing active session for this deck
         sessionRepo.findFirstByUserIdAndDeckIdAndStatusOrderByCreatedAtDesc(
                 user.getId(), deck.getId(), LearnSessionStatus.IN_PROGRESS
         ).ifPresent(session -> {
@@ -83,32 +87,12 @@ public class LearnService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need at least 2 vocabulary items with meanings to learn");
         }
 
-        LearnSessionScope scope = request.scope() != null ? request.scope() : LearnSessionScope.ALL;
+        LearnSessionScope scope = request.scope() != null ? request.scope() : LearnSessionScope.NOT_MASTERED;
+        LearnGoal goal = request.goal() != null ? request.goal() : LearnGoal.MASTER_ALL;
+        LearnAnswerDirection answerDirection = request.answerDirection() != null ? request.answerDirection() : LearnAnswerDirection.BOTH;
+        LearnGradingMode gradingMode = request.gradingMode() != null ? request.gradingMode() : LearnGradingMode.ACCENT_INSENSITIVE;
 
-        // Filter based on scope
-        List<VocabItem> targetVocabs = allVocabs;
-        if (scope != LearnSessionScope.ALL) {
-            Map<Long, UserProgress> progressMap = progressRepo.findAllByUserIdAndVocabItemIdIn(
-                    user.getId(), allVocabs.stream().map(VocabItem::getId).toList()
-            ).stream().collect(Collectors.toMap(p -> p.getVocabItem().getId(), Function.identity()));
-
-            if (scope == LearnSessionScope.NOT_MASTERED) {
-                targetVocabs = allVocabs.stream()
-                        .filter(v -> {
-                            UserProgress p = progressMap.get(v.getId());
-                            return p == null || p.getStatus() != VocabProgressStatus.MASTERED;
-                        })
-                        .toList();
-            } else if (scope == LearnSessionScope.DIFFICULT_ONLY) {
-                targetVocabs = allVocabs.stream()
-                        .filter(v -> {
-                            UserProgress p = progressMap.get(v.getId());
-                            return p != null && p.getStatus() == VocabProgressStatus.DIFFICULT;
-                        })
-                        .toList();
-            }
-        }
-
+        List<VocabItem> targetVocabs = filterByScope(user, allVocabs, scope);
         if (targetVocabs.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No vocabulary items match the chosen scope");
         }
@@ -117,12 +101,15 @@ public class LearnService {
         session.setUser(user);
         session.setDeck(deck);
         session.setScope(scope);
+        session.setGoal(goal);
+        session.setAnswerDirection(answerDirection);
+        session.setGradingMode(gradingMode);
+        session.setEnabledQuestionTypes(serializeQuestionTypes(request.questionTypes()));
         session.setTotalTerms(targetVocabs.size());
         session.setMasteredTerms(0);
         session.setStatus(LearnSessionStatus.IN_PROGRESS);
         sessionRepo.save(session);
 
-        // Mix the items initial order
         List<VocabItem> mixedVocabs = new ArrayList<>(targetVocabs);
         Collections.shuffle(mixedVocabs, rng);
 
@@ -131,12 +118,12 @@ public class LearnService {
             LearnSessionItem item = new LearnSessionItem();
             item.setSession(session);
             item.setVocabItem(mixedVocabs.get(i));
-            item.setStage(LearnItemStage.NOT_STUDIED);
+            item.setStage(LearnItemStage.NEW);
             item.setCorrectStreak(0);
             item.setTotalAttempts(0);
             item.setCorrectAttempts(0);
             item.setIncorrectAttempts(0);
-            item.setPriority(mixedVocabs.size() - i); // Maintain shuffled order as priority
+            item.setPriority(mixedVocabs.size() - i);
             sessionItems.add(item);
         }
         sessionItemRepo.saveAll(sessionItems);
@@ -154,97 +141,34 @@ public class LearnService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Learn session is not active");
         }
 
-        List<LearnSessionItem> activeItems = sessionItemRepo.findAllBySessionIdOrderByPriorityDescLastAnsweredAtAsc(session.getId())
-                .stream()
-                .filter(item -> item.getStage() != LearnItemStage.MASTERED)
-                .toList();
+        List<LearnSessionItem> items = sessionItemRepo.findAllBySessionId(session.getId());
+        normalizeItemStages(items);
 
-        if (activeItems.isEmpty()) {
-            // No remaining items to master! Mark session as completed
-            session.setStatus(LearnSessionStatus.COMPLETED);
-            session.setCompletedAt(LocalDateTime.now());
-            session.setDurationMs(Duration.between(session.getStartedAt(), session.getCompletedAt()).toMillis());
-            sessionRepo.save(session);
-
+        LearnQuestionResponse.Progress progress = progressFor(session, items);
+        if (progress.remainingTerms() == 0) {
+            completeSession(session, progress);
             return new LearnQuestionResponse(
                     null, null, null, null, "Session complete!", null, null, null,
-                    new LearnQuestionResponse.Progress(session.getTotalTerms(), session.getTotalTerms(), 0)
+                    progress
             );
         }
 
-        LearnSessionItem currentItem = activeItems.get(0);
-        VocabItem vocab = currentItem.getVocabItem();
-
-        // Determine question type based on stage and correct streak
-        LearnQuestionType type;
-        if (currentItem.getStage() == LearnItemStage.NOT_STUDIED) {
-            type = LearnQuestionType.MCQ;
-        } else if (currentItem.getCorrectStreak() == 0) {
-            // Mix MCQ and True/False for struggling items
-            type = rng.nextBoolean() ? LearnQuestionType.MCQ : LearnQuestionType.TRUE_FALSE;
-        } else {
-            type = LearnQuestionType.WRITTEN; // Near mastery, require typing
-        }
-
-        String prompt = "";
-        List<String> options = null;
-        String trueFalseStatement = null;
-
-        // Fetch deck items to generate distractors
+        LearnSessionItem currentItem = selectNextItem(session, items);
         List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(session.getDeck().getId(), user.getId())
                 .stream()
                 .filter(v -> hasText(v.getMeaningVi()))
                 .toList();
-
-        if (type == LearnQuestionType.MCQ) {
-            prompt = "Choose the correct meaning of \"" + vocab.getWord() + "\".";
-            List<String> mcqOptions = new ArrayList<>();
-            mcqOptions.add(vocab.getMeaningVi());
-
-            List<String> distractors = allDeckItems.stream()
-                    .filter(v -> !v.getId().equals(vocab.getId()))
-                    .map(VocabItem::getMeaningVi)
-                    .filter(this::hasText)
-                    .distinct()
-                    .collect(Collectors.toList());
-            Collections.shuffle(distractors);
-
-            mcqOptions.addAll(distractors.stream().limit(3).toList());
-            Collections.shuffle(mcqOptions);
-            options = mcqOptions;
-        } else if (type == LearnQuestionType.TRUE_FALSE) {
-            boolean isTrue = rng.nextBoolean();
-            if (isTrue) {
-                trueFalseStatement = "\"" + vocab.getWord() + "\" means \"" + vocab.getMeaningVi() + "\".";
-            } else {
-                List<VocabItem> distractors = allDeckItems.stream()
-                        .filter(v -> !v.getId().equals(vocab.getId()))
-                        .toList();
-                String wrongMeaning = distractors.isEmpty() ? "something else" : distractors.get(rng.nextInt(distractors.size())).getMeaningVi();
-                trueFalseStatement = "\"" + vocab.getWord() + "\" means \"" + wrongMeaning + "\".";
-            }
-            prompt = "Is this statement True or False?";
-            options = List.of("True", "False");
-        } else {
-            prompt = "Type the word for this meaning: \"" + vocab.getMeaningVi() + "\"";
-        }
-
-        int remaining = activeItems.size();
-        LearnQuestionResponse.Progress progress = new LearnQuestionResponse.Progress(
-                session.getMasteredTerms(),
-                session.getTotalTerms(),
-                remaining
-        );
+        GeneratedLearnQuestion generated = generateQuestion(session, currentItem, allDeckItems);
 
         return new LearnQuestionResponse(
                 currentItem.getId(),
-                vocab.getId(),
-                vocab.getWord(),
-                type,
-                prompt,
-                options,
-                trueFalseStatement,
-                currentItem.getStage(),
+                currentItem.getVocabItem().getId(),
+                currentItem.getVocabItem().getWord(),
+                generated.type(),
+                generated.prompt(),
+                generated.options(),
+                generated.trueFalseStatement(),
+                normalizeStage(currentItem.getStage()),
                 progress
         );
     }
@@ -266,180 +190,77 @@ public class LearnService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item does not belong to this session");
         }
 
-        if (item.getStage() == LearnItemStage.MASTERED) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item is already mastered");
+        List<LearnSessionItem> items = sessionItemRepo.findAllBySessionId(session.getId());
+        normalizeItemStages(items);
+        if (isFinishedItem(session, item)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item is already complete");
         }
 
-        VocabItem vocab = item.getVocabItem();
+        List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(session.getDeck().getId(), user.getId())
+                .stream()
+                .filter(v -> hasText(v.getMeaningVi()))
+                .toList();
+        GeneratedLearnQuestion generated = generateQuestion(session, item, allDeckItems);
 
-        // Regenerate question type representation to evaluate correctness
-        LearnQuestionType expectedType;
-        if (item.getStage() == LearnItemStage.NOT_STUDIED) {
-            expectedType = LearnQuestionType.MCQ;
-        } else if (item.getCorrectStreak() == 0) {
-            // True/False or MCQ. We can detect from submitted answer length or let the controller validate.
-            // But we can check correct answer match based on what the correct answer is.
-            // If the user's answer is "True" or "False", it must be TRUE_FALSE.
-            // Let's deduce correctness:
-            expectedType = (request.answer().equalsIgnoreCase("True") || request.answer().equalsIgnoreCase("False"))
-                    ? LearnQuestionType.TRUE_FALSE : LearnQuestionType.MCQ;
-        } else {
-            expectedType = LearnQuestionType.WRITTEN;
+        LearnQuestionType submittedType = request.questionType() == null ? generated.type() : request.questionType();
+        if (submittedType != generated.type()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Answer question type does not match the active prompt");
         }
 
-        boolean correct = false;
-        String correctAnswer = "";
-        String prompt = "";
-        String trueFalseStatement = null;
+        boolean correct = isAnswerCorrect(request.answer(), generated.correctAnswer(), generated.type(), session.getGradingMode());
 
-        if (expectedType == LearnQuestionType.WRITTEN) {
-            correctAnswer = vocab.getWord();
-            correct = normalizeForAnswer(request.answer()).equals(normalizeForAnswer(correctAnswer));
-            prompt = "Type the word for this meaning: \"" + vocab.getMeaningVi() + "\"";
-        } else if (request.answer().equalsIgnoreCase("True") || request.answer().equalsIgnoreCase("False")) {
-            // TRUE_FALSE verification: if the statement was correct, answer should be "True".
-            // Since we don't persist the question prompt, we verify correctness based on user progress.
-            // If we match meaning:
-            // Since we need to know what the statement was, we can accept if user got it correct by verifying
-            // whether the user choice matches the logical relationship of meaning.
-            // Wait, to make True/False validation 100% robust without database session state, we can include the
-            // expected statement or correct state in the client submission OR we can deduce it:
-            // If user submits "True" / "False", we can look at the answer. Let's make it simple:
-            // Since we can't easily know if the client was shown a True or False statement without saving it,
-            // we should store it OR simply check the answer.
-            // Let's store the generated correct answer in the request or just require client to send the correct evaluation?
-            // Actually, we can check if the correct answer is indeed matching the statement.
-            // Wait! The easiest and safest way is to save the current question in the database or session item,
-            // OR we can make `SubmitLearnAnswerRequest` pass the questionType and/or the statement/correct answer.
-            // If the client passes the correctAnswer or evaluations back to the server (e.g. for validation), it's simpler.
-            // But wait, to keep client simple and secure, we should avoid client determining correctness.
-            // Let's store `last_question_id` or similar in `learn_session_items`?
-            // Wait, we don't have that in DB yet. But we can deduce it dynamically if we pass a verification flag,
-            // or simply generate the same True/False deterministically, or look at how Quizlet works.
-            // Actually, let's just make MCQ and WRITTEN matching.
-            // For True/False: if user answers "True", it is correct if meaning matches. If "False", it is correct if meaning doesn't match.
-            // Wait! How do we know if we showed a correct or incorrect pair?
-            // If the user's answer is "True" or "False", we check if the answer corresponds to correct matching.
-            // Wait, if we don't store what statement was generated, we can't know.
-            // Let's check: can we just save the correctAnswer or statement in the db for the session item?
-            // Yes! But we don't want to add columns if we don't have to.
-            // Wait! We can just pass the correctAnswer in the SubmitLearnAnswerRequest as verification? No, user could cheat.
-            // But this is a vocabulary learning app, cheating is not a critical threat.
-            // Still, let's do it cleanly: we can check if the answer equals vocab.getMeaningVi() for MCQ.
-            // For True/False, we can let the client send the `correctAnswer` (either "True" or "False") in the payload,
-            // or we can generate it deterministically based on sessionId + sessionItemId + totalAnswers (as seed for RNG!).
-            // Using a seeded Random makes it 100% deterministic!
-            // Seed = sessionId + sessionItemId + item.totalAttempts.
-            // Let's do that! That is extremely elegant, stateless, and secure.
-            long seed = sessionId * 31 + item.getId() * 17 + item.getTotalAttempts();
-            Random seededRng = new Random(seed);
-
-            // Re-run the generation logic deterministically!
-            List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(session.getDeck().getId(), user.getId())
-                    .stream()
-                    .filter(v -> hasText(v.getMeaningVi()))
-                    .toList();
-
-            LearnQuestionType type;
-            if (item.getStage() == LearnItemStage.NOT_STUDIED) {
-                type = LearnQuestionType.MCQ;
-            } else if (item.getCorrectStreak() == 0) {
-                type = seededRng.nextBoolean() ? LearnQuestionType.MCQ : LearnQuestionType.TRUE_FALSE;
-            } else {
-                type = LearnQuestionType.WRITTEN;
-            }
-
-            if (type == LearnQuestionType.MCQ) {
-                correctAnswer = vocab.getMeaningVi();
-                correct = request.answer().trim().equalsIgnoreCase(correctAnswer.trim());
-                prompt = "Choose the correct meaning of \"" + vocab.getWord() + "\".";
-            } else if (type == LearnQuestionType.TRUE_FALSE) {
-                boolean isTrue = seededRng.nextBoolean();
-                correctAnswer = isTrue ? "True" : "False";
-                correct = request.answer().trim().equalsIgnoreCase(correctAnswer);
-
-                if (isTrue) {
-                    trueFalseStatement = "\"" + vocab.getWord() + "\" means \"" + vocab.getMeaningVi() + "\".";
-                } else {
-                    List<VocabItem> distractors = allDeckItems.stream()
-                            .filter(v -> !v.getId().equals(vocab.getId()))
-                            .toList();
-                    String wrongMeaning = distractors.isEmpty() ? "something else" : distractors.get(seededRng.nextInt(distractors.size())).getMeaningVi();
-                    trueFalseStatement = "\"" + vocab.getWord() + "\" means \"" + wrongMeaning + "\".";
-                }
-                prompt = trueFalseStatement;
-            } else {
-                correctAnswer = vocab.getWord();
-                correct = normalizeForAnswer(request.answer()).equals(normalizeForAnswer(correctAnswer));
-                prompt = "Type the word for this meaning: \"" + vocab.getMeaningVi() + "\"";
-            }
-        }
-
-        // Save the answer log
         LearnAnswer answer = new LearnAnswer();
         answer.setSession(session);
         answer.setSessionItem(item);
-        answer.setQuestionType(expectedType);
-        answer.setPrompt(prompt);
+        answer.setQuestionType(generated.type());
+        answer.setPrompt(generated.trueFalseStatement() != null ? generated.trueFalseStatement() : generated.prompt());
         answer.setUserAnswer(request.answer());
-        answer.setCorrectAnswer(correctAnswer);
+        answer.setCorrectAnswer(generated.correctAnswer());
         answer.setCorrect(correct);
         answer.setResponseTimeMs(request.responseTimeMs());
         answerRepo.save(answer);
 
-        // Update item progress
         item.incrementTotalAttempts();
         item.setLastAnsweredAt(LocalDateTime.now());
 
         if (correct) {
             item.incrementCorrectAttempts();
             item.setCorrectStreak(item.getCorrectStreak() + 1);
-
-            if (item.getCorrectStreak() >= 2) {
-                item.setStage(LearnItemStage.MASTERED);
-                session.incrementMasteredTerms();
-            } else {
-                item.setStage(LearnItemStage.STILL_LEARNING);
-            }
-            // Decrease priority
+            item.setStage(nextCorrectStage(session, item, generated.type()));
             item.setPriority(Math.max(0, item.getPriority() - 2));
         } else {
             item.incrementIncorrectAttempts();
             item.setCorrectStreak(0);
-            item.setStage(LearnItemStage.STILL_LEARNING);
-            // Push to top priority to show up sooner
-            item.setPriority(item.getPriority() + 3);
+            item.setStage(nextIncorrectStage(item.getStage()));
+            item.setPriority(item.getPriority() + 5);
         }
         sessionItemRepo.save(item);
 
-        // Update session counters
         session.incrementTotalAnswers();
         if (correct) {
             session.incrementCorrectAnswers();
         }
 
-        // Apply result to user's main Spaced Repetition progress
-        reviewService.applyQuizResult(user, vocab, correct, request.responseTimeMs().intValue());
+        reviewService.applyQuizResult(
+                user,
+                item.getVocabItem(),
+                correct,
+                request.responseTimeMs() == null ? null : request.responseTimeMs().intValue()
+        );
 
-        // Check if session is completed
-        if (session.getMasteredTerms() >= session.getTotalTerms()) {
-            session.setStatus(LearnSessionStatus.COMPLETED);
-            session.setCompletedAt(LocalDateTime.now());
-            session.setDurationMs(Duration.between(session.getStartedAt(), session.getCompletedAt()).toMillis());
+        items = sessionItemRepo.findAllBySessionId(session.getId());
+        LearnQuestionResponse.Progress progress = progressFor(session, items);
+        if (progress.remainingTerms() == 0) {
+            completeSession(session, progress);
+        } else {
+            session.setMasteredTerms(progress.masteredTerms());
         }
         sessionRepo.save(session);
 
-        LearnQuestionResponse.Progress progress = new LearnQuestionResponse.Progress(
-                session.getMasteredTerms(),
-                session.getTotalTerms(),
-                (int) sessionItemRepo.countBySessionIdAndStage(session.getId(), LearnItemStage.NOT_STUDIED) +
-                (int) sessionItemRepo.countBySessionIdAndStage(session.getId(), LearnItemStage.STILL_LEARNING)
-        );
-
         return new LearnAnswerResponse(
                 correct,
-                correctAnswer,
-                item.getStage(),
+                generated.correctAnswer(),
+                normalizeStage(item.getStage()),
                 item.getCorrectStreak(),
                 progress
         );
@@ -460,7 +281,7 @@ public class LearnService {
                         item.getVocabItem().getWord(),
                         item.getVocabItem().getPartOfSpeech(),
                         item.getVocabItem().getMeaningVi(),
-                        item.getStage(),
+                        normalizeStage(item.getStage()),
                         item.getCorrectAttempts(),
                         item.getIncorrectAttempts(),
                         item.getTotalAttempts()
@@ -486,13 +307,436 @@ public class LearnService {
         );
     }
 
+    private List<VocabItem> filterByScope(User user, List<VocabItem> allVocabs, LearnSessionScope scope) {
+        if (scope == LearnSessionScope.ALL) {
+            return allVocabs;
+        }
+
+        Map<Long, UserProgress> progressMap = progressRepo.findAllByUserIdAndVocabItemIdIn(
+                user.getId(), allVocabs.stream().map(VocabItem::getId).toList()
+        ).stream().collect(Collectors.toMap(p -> p.getVocabItem().getId(), Function.identity()));
+
+        if (scope == LearnSessionScope.NOT_MASTERED) {
+            return allVocabs.stream()
+                    .filter(v -> {
+                        UserProgress p = progressMap.get(v.getId());
+                        return p == null || p.getStatus() != VocabProgressStatus.MASTERED;
+                    })
+                    .toList();
+        }
+        if (scope == LearnSessionScope.DIFFICULT_ONLY) {
+            return allVocabs.stream()
+                    .filter(v -> {
+                        UserProgress p = progressMap.get(v.getId());
+                        return p != null && p.getStatus() == VocabProgressStatus.DIFFICULT;
+                    })
+                    .toList();
+        }
+        if (scope == LearnSessionScope.NEW_ONLY) {
+            return allVocabs.stream()
+                    .filter(v -> {
+                        UserProgress p = progressMap.get(v.getId());
+                        return p == null || p.getStatus() == VocabProgressStatus.NEW;
+                    })
+                    .toList();
+        }
+        return allVocabs;
+    }
+
+    private LearnSessionItem selectNextItem(LearnSession session, List<LearnSessionItem> items) {
+        List<LearnSessionItem> candidates = items.stream()
+                .filter(item -> !isFinishedItem(session, item))
+                .toList();
+
+        long introducedCount = items.stream()
+                .filter(item -> normalizeStage(item.getStage()) != LearnItemStage.NEW)
+                .count();
+        boolean hasIntroducedCandidates = candidates.stream()
+                .anyMatch(item -> normalizeStage(item.getStage()) != LearnItemStage.NEW);
+        boolean canIntroduceNew = introducedCount < INTRO_BATCH_SIZE || !hasIntroducedCandidates;
+
+        LocalDateTime newestAnswer = candidates.stream()
+                .map(LearnSessionItem::getLastAnsweredAt)
+                .filter(value -> value != null)
+                .max(LocalDateTime::compareTo)
+                .orElse(null);
+
+        List<LearnSessionItem> eligible = candidates.stream()
+                .filter(item -> canIntroduceNew || normalizeStage(item.getStage()) != LearnItemStage.NEW)
+                .filter(item -> candidates.size() == 1 || item.getLastAnsweredAt() == null || !item.getLastAnsweredAt().equals(newestAnswer))
+                .toList();
+
+        if (eligible.isEmpty()) {
+            eligible = candidates;
+        }
+
+        return eligible.stream()
+                .max((left, right) -> Integer.compare(selectionScore(left), selectionScore(right)))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "No learn items remain"));
+    }
+
+    private int selectionScore(LearnSessionItem item) {
+        LearnItemStage stage = normalizeStage(item.getStage());
+        int stageWeight = switch (stage) {
+            case FAMILIAR -> 10;
+            case LEARNING -> 8;
+            case SEEN -> 5;
+            case NEW -> 1;
+            case MASTERED, NOT_STUDIED, STILL_LEARNING -> 0;
+        };
+        return item.getPriority() + stageWeight + (item.getIncorrectAttempts() * 3) - item.getCorrectStreak();
+    }
+
+    private GeneratedLearnQuestion generateQuestion(LearnSession session, LearnSessionItem item, List<VocabItem> allDeckItems) {
+        LearnQuestionType type = selectQuestionType(session, item);
+        LearnAnswerDirection direction = selectAnswerDirection(session, item);
+        VocabItem vocab = item.getVocabItem();
+
+        if (type == LearnQuestionType.TRUE_FALSE) {
+            TrueFalseQuestion trueFalse = buildTrueFalseQuestion(session, item, direction, allDeckItems);
+            return new GeneratedLearnQuestion(
+                    type,
+                    "Is this statement True or False?",
+                    List.of("True", "False"),
+                    trueFalse.statement(),
+                    trueFalse.correctAnswer()
+            );
+        }
+
+        if (type == LearnQuestionType.MCQ) {
+            boolean wordToMeaning = direction == LearnAnswerDirection.WORD_TO_MEANING;
+            String prompt = wordToMeaning
+                    ? "Choose the correct meaning of \"" + vocab.getWord() + "\"."
+                    : "Choose the word for this meaning: \"" + vocab.getMeaningVi() + "\".";
+            String correctAnswer = wordToMeaning ? vocab.getMeaningVi() : vocab.getWord();
+            List<String> options = buildMcqOptions(session, item, allDeckItems, wordToMeaning);
+            return new GeneratedLearnQuestion(type, prompt, options, null, correctAnswer);
+        }
+
+        boolean wordToMeaning = direction == LearnAnswerDirection.WORD_TO_MEANING;
+        String prompt = wordToMeaning
+                ? "Type the meaning of \"" + vocab.getWord() + "\"."
+                : "Type the word for this meaning: \"" + vocab.getMeaningVi() + "\".";
+        String correctAnswer = wordToMeaning ? vocab.getMeaningVi() : vocab.getWord();
+        return new GeneratedLearnQuestion(type, prompt, null, null, correctAnswer);
+    }
+
+    private List<String> buildMcqOptions(LearnSession session, LearnSessionItem item, List<VocabItem> allDeckItems, boolean wordToMeaning) {
+        VocabItem vocab = item.getVocabItem();
+        String correctAnswer = wordToMeaning ? vocab.getMeaningVi() : vocab.getWord();
+
+        List<String> distractors = allDeckItems.stream()
+                .filter(v -> !v.getId().equals(vocab.getId()))
+                .map(v -> wordToMeaning ? v.getMeaningVi() : v.getWord())
+                .filter(this::hasText)
+                .distinct()
+                .collect(Collectors.toCollection(ArrayList::new));
+        Collections.shuffle(distractors, seededQuestionRandom(session.getId(), item));
+
+        List<String> options = new ArrayList<>();
+        options.add(correctAnswer);
+        options.addAll(distractors.stream().limit(3).toList());
+        Collections.shuffle(options, seededQuestionRandom(session.getId() + 7, item));
+        return options;
+    }
+
+    private LearnQuestionType selectQuestionType(LearnSession session, LearnSessionItem item) {
+        Set<LearnQuestionType> enabled = enabledQuestionTypes(session);
+        LearnItemStage stage = normalizeStage(item.getStage());
+
+        if (stage == LearnItemStage.FAMILIAR) {
+            return preferWritten(enabled);
+        }
+        if (stage == LearnItemStage.LEARNING) {
+            if (enabled.contains(LearnQuestionType.WRITTEN) && item.getCorrectStreak() > 0) {
+                return LearnQuestionType.WRITTEN;
+            }
+            return seededChoice(session, item, enabled, LearnQuestionType.TRUE_FALSE, LearnQuestionType.MCQ, LearnQuestionType.WRITTEN);
+        }
+        if (stage == LearnItemStage.SEEN) {
+            return seededChoice(session, item, enabled, LearnQuestionType.TRUE_FALSE, LearnQuestionType.MCQ, LearnQuestionType.WRITTEN);
+        }
+        return enabled.contains(LearnQuestionType.MCQ)
+                ? LearnQuestionType.MCQ
+                : seededChoice(session, item, enabled, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN, LearnQuestionType.MCQ);
+    }
+
+    private LearnQuestionType seededChoice(
+            LearnSession session,
+            LearnSessionItem item,
+            Set<LearnQuestionType> enabled,
+            LearnQuestionType first,
+            LearnQuestionType second,
+            LearnQuestionType fallback
+    ) {
+        List<LearnQuestionType> choices = new ArrayList<>();
+        if (enabled.contains(first)) {
+            choices.add(first);
+        }
+        if (enabled.contains(second)) {
+            choices.add(second);
+        }
+        if (enabled.contains(fallback)) {
+            choices.add(fallback);
+        }
+        if (choices.isEmpty()) {
+            return LearnQuestionType.MCQ;
+        }
+        return choices.get(seededQuestionRandom(session.getId(), item).nextInt(choices.size()));
+    }
+
+    private LearnQuestionType preferWritten(Set<LearnQuestionType> enabled) {
+        if (enabled.contains(LearnQuestionType.WRITTEN)) {
+            return LearnQuestionType.WRITTEN;
+        }
+        if (enabled.contains(LearnQuestionType.TRUE_FALSE)) {
+            return LearnQuestionType.TRUE_FALSE;
+        }
+        return LearnQuestionType.MCQ;
+    }
+
+    private LearnAnswerDirection selectAnswerDirection(LearnSession session, LearnSessionItem item) {
+        if (session.getAnswerDirection() == LearnAnswerDirection.WORD_TO_MEANING) {
+            return LearnAnswerDirection.WORD_TO_MEANING;
+        }
+        if (session.getAnswerDirection() == LearnAnswerDirection.MEANING_TO_WORD) {
+            return LearnAnswerDirection.MEANING_TO_WORD;
+        }
+        return seededQuestionRandom(session.getId() + 13, item).nextBoolean()
+                ? LearnAnswerDirection.WORD_TO_MEANING
+                : LearnAnswerDirection.MEANING_TO_WORD;
+    }
+
+    private TrueFalseQuestion buildTrueFalseQuestion(
+            LearnSession session,
+            LearnSessionItem item,
+            LearnAnswerDirection direction,
+            List<VocabItem> allDeckItems
+    ) {
+        Random seededRng = seededQuestionRandom(session.getId(), item);
+        VocabItem vocab = item.getVocabItem();
+        boolean isTrue = seededRng.nextBoolean();
+        boolean wordToMeaning = direction == LearnAnswerDirection.WORD_TO_MEANING;
+
+        if (isTrue) {
+            String statement = wordToMeaning
+                    ? "\"" + vocab.getWord() + "\" means \"" + vocab.getMeaningVi() + "\"."
+                    : "\"" + vocab.getMeaningVi() + "\" is the meaning of \"" + vocab.getWord() + "\".";
+            return new TrueFalseQuestion(statement, "True");
+        }
+
+        List<VocabItem> distractors = allDeckItems.stream()
+                .filter(v -> !v.getId().equals(vocab.getId()))
+                .toList();
+        VocabItem wrong = distractors.isEmpty() ? vocab : distractors.get(seededRng.nextInt(distractors.size()));
+        String statement = wordToMeaning
+                ? "\"" + vocab.getWord() + "\" means \"" + wrong.getMeaningVi() + "\"."
+                : "\"" + wrong.getMeaningVi() + "\" is the meaning of \"" + vocab.getWord() + "\".";
+        return new TrueFalseQuestion(statement, "False");
+    }
+
+    private LearnItemStage nextCorrectStage(LearnSession session, LearnSessionItem item, LearnQuestionType answeredType) {
+        LearnItemStage stage = normalizeStage(item.getStage());
+        boolean writtenEnabled = enabledQuestionTypes(session).contains(LearnQuestionType.WRITTEN);
+
+        return switch (stage) {
+            case NEW -> LearnItemStage.SEEN;
+            case SEEN -> LearnItemStage.LEARNING;
+            case LEARNING -> !writtenEnabled || answeredType == LearnQuestionType.WRITTEN || session.getGoal() == LearnGoal.QUICK_REVIEW
+                    ? LearnItemStage.FAMILIAR
+                    : LearnItemStage.LEARNING;
+            case FAMILIAR -> !writtenEnabled || answeredType == LearnQuestionType.WRITTEN || session.getGoal() == LearnGoal.LEARN_ALL
+                    ? LearnItemStage.MASTERED
+                    : LearnItemStage.FAMILIAR;
+            case MASTERED -> LearnItemStage.MASTERED;
+            case NOT_STUDIED, STILL_LEARNING -> LearnItemStage.LEARNING;
+        };
+    }
+
+    private LearnItemStage nextIncorrectStage(LearnItemStage currentStage) {
+        return switch (normalizeStage(currentStage)) {
+            case MASTERED, FAMILIAR -> LearnItemStage.LEARNING;
+            case LEARNING -> LearnItemStage.SEEN;
+            case SEEN, NEW, NOT_STUDIED, STILL_LEARNING -> LearnItemStage.NEW;
+        };
+    }
+
+    private boolean isFinishedItem(LearnSession session, LearnSessionItem item) {
+        LearnItemStage stage = normalizeStage(item.getStage());
+        return stage == LearnItemStage.MASTERED
+                || (session.getGoal() == LearnGoal.QUICK_REVIEW && stage == LearnItemStage.FAMILIAR);
+    }
+
+    private LearnQuestionResponse.Progress progressFor(LearnSession session, List<LearnSessionItem> items) {
+        int mastered = 0;
+        int newTerms = 0;
+        int seen = 0;
+        int learning = 0;
+        int familiar = 0;
+
+        for (LearnSessionItem item : items) {
+            LearnItemStage stage = normalizeStage(item.getStage());
+            if (isFinishedItem(session, item)) {
+                mastered++;
+            }
+            switch (stage) {
+                case NEW -> newTerms++;
+                case SEEN -> seen++;
+                case LEARNING -> learning++;
+                case FAMILIAR -> familiar++;
+                case MASTERED -> {
+                }
+                case NOT_STUDIED, STILL_LEARNING -> {
+                }
+            }
+        }
+
+        return new LearnQuestionResponse.Progress(
+                mastered,
+                session.getTotalTerms(),
+                Math.max(0, session.getTotalTerms() - mastered),
+                newTerms,
+                seen,
+                learning,
+                familiar
+        );
+    }
+
+    private void completeSession(LearnSession session, LearnQuestionResponse.Progress progress) {
+        session.setMasteredTerms(progress.masteredTerms());
+        session.setStatus(LearnSessionStatus.COMPLETED);
+        session.setCompletedAt(LocalDateTime.now());
+        session.setDurationMs(Duration.between(session.getStartedAt(), session.getCompletedAt()).toMillis());
+        sessionRepo.save(session);
+    }
+
+    private void normalizeItemStages(List<LearnSessionItem> items) {
+        boolean changed = false;
+        for (LearnSessionItem item : items) {
+            LearnItemStage normalized = normalizeStage(item.getStage());
+            if (item.getStage() != normalized) {
+                item.setStage(normalized);
+                changed = true;
+            }
+        }
+        if (changed) {
+            sessionItemRepo.saveAll(items);
+        }
+    }
+
+    private LearnItemStage normalizeStage(LearnItemStage stage) {
+        if (stage == null || stage == LearnItemStage.NOT_STUDIED) {
+            return LearnItemStage.NEW;
+        }
+        if (stage == LearnItemStage.STILL_LEARNING) {
+            return LearnItemStage.LEARNING;
+        }
+        return stage;
+    }
+
+    private Set<LearnQuestionType> enabledQuestionTypes(LearnSession session) {
+        if (!hasText(session.getEnabledQuestionTypes())) {
+            return EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN);
+        }
+
+        EnumSet<LearnQuestionType> types = EnumSet.noneOf(LearnQuestionType.class);
+        for (String value : session.getEnabledQuestionTypes().split(",")) {
+            try {
+                types.add(LearnQuestionType.valueOf(value.trim()));
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+        return types.isEmpty()
+                ? EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN)
+                : types;
+    }
+
+    private String serializeQuestionTypes(List<LearnQuestionType> requestedTypes) {
+        if (requestedTypes == null || requestedTypes.isEmpty()) {
+            return DEFAULT_QUESTION_TYPES;
+        }
+        List<LearnQuestionType> distinctTypes = requestedTypes.stream()
+                .filter(type -> type != null)
+                .distinct()
+                .toList();
+        if (distinctTypes.isEmpty()) {
+            return DEFAULT_QUESTION_TYPES;
+        }
+        return distinctTypes.stream()
+                .map(Enum::name)
+                .collect(Collectors.joining(","));
+    }
+
+    private boolean isAnswerCorrect(String userAnswer, String correctAnswer, LearnQuestionType questionType, LearnGradingMode gradingMode) {
+        if (questionType == LearnQuestionType.TRUE_FALSE || questionType == LearnQuestionType.MCQ) {
+            return normalizeExact(userAnswer).equals(normalizeExact(correctAnswer));
+        }
+        if (gradingMode == LearnGradingMode.EXACT) {
+            return normalizeExact(userAnswer).equals(normalizeExact(correctAnswer));
+        }
+        if (gradingMode == LearnGradingMode.FUZZY) {
+            String userNormalized = normalizeForAnswer(userAnswer);
+            String correctNormalized = normalizeForAnswer(correctAnswer);
+            int maxDistance = correctNormalized.length() <= 5 ? 1 : 2;
+            return userNormalized.equals(correctNormalized)
+                    || levenshteinDistance(userNormalized, correctNormalized) <= maxDistance;
+        }
+        return normalizeForAnswer(userAnswer).equals(normalizeForAnswer(correctAnswer));
+    }
+
+    private String normalizeExact(String value) {
+        return (value == null ? "" : value).trim().replaceAll("\\s+", " ").toLowerCase(Locale.ROOT);
+    }
+
     private String normalizeForAnswer(String value) {
         String normalized = Normalizer.normalize(value == null ? "" : value, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "");
         return normalized.trim().replaceAll("\\s+", " ").toLowerCase(Locale.ROOT);
     }
 
+    private int levenshteinDistance(String left, String right) {
+        int[] previous = new int[right.length() + 1];
+        int[] current = new int[right.length() + 1];
+
+        for (int j = 0; j <= right.length(); j++) {
+            previous[j] = j;
+        }
+
+        for (int i = 1; i <= left.length(); i++) {
+            current[0] = i;
+            for (int j = 1; j <= right.length(); j++) {
+                int cost = left.charAt(i - 1) == right.charAt(j - 1) ? 0 : 1;
+                current[j] = Math.min(
+                        Math.min(current[j - 1] + 1, previous[j] + 1),
+                        previous[j - 1] + cost
+                );
+            }
+            int[] temp = previous;
+            previous = current;
+            current = temp;
+        }
+
+        return previous[right.length()];
+    }
+
+    private Random seededQuestionRandom(Long sessionId, LearnSessionItem item) {
+        long seed = sessionId * 31 + item.getId() * 17 + item.getTotalAttempts();
+        return new Random(seed);
+    }
+
     private boolean hasText(String value) {
         return value != null && !value.trim().isEmpty();
+    }
+
+    private record GeneratedLearnQuestion(
+            LearnQuestionType type,
+            String prompt,
+            List<String> options,
+            String trueFalseStatement,
+            String correctAnswer
+    ) {
+    }
+
+    private record TrueFalseQuestion(String statement, String correctAnswer) {
     }
 }

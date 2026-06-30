@@ -33,6 +33,8 @@ public class QuizService {
     private static final int QUESTION_LIMIT = 10;
     private static final TypeReference<List<String>> STRING_LIST = new TypeReference<>() {
     };
+    private static final TypeReference<Map<String, List<String>>> MATCHING_OPTIONS = new TypeReference<>() {
+    };
 
     private final DeckService deckService;
     private final UserService userService;
@@ -371,7 +373,7 @@ public class QuizService {
                 question.getVocabItem().getId(),
                 question.getType(),
                 question.getPrompt(),
-                readOptions(question.getOptionsJson()),
+                readOptions(question),
                 question.getExplanation(),
                 question.getCreatedAt()
         );
@@ -397,11 +399,15 @@ public class QuizService {
         }
     }
 
-    private List<String> readOptions(String optionsJson) {
+    private Object readOptions(Question question) {
+        String optionsJson = question.getOptionsJson();
         if (!hasText(optionsJson)) {
             return List.of();
         }
         try {
+            if (question.getType() == QuestionType.MATCHING) {
+                return objectMapper.readValue(optionsJson, MATCHING_OPTIONS);
+            }
             return objectMapper.readValue(optionsJson, STRING_LIST);
         } catch (JsonProcessingException ex) {
             return List.of();

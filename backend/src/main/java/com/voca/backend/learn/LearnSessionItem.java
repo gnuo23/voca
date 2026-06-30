@@ -36,7 +36,7 @@ public class LearnSessionItem {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private LearnItemStage stage = LearnItemStage.NOT_STUDIED;
+    private LearnItemStage stage = LearnItemStage.NEW;
 
     @Column(name = "correct_streak", nullable = false)
     private int correctStreak;

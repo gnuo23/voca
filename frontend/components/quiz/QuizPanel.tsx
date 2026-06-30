@@ -24,6 +24,7 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null);
   const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
+  const [matchingPairs, setMatchingPairs] = useState<Record<number, Record<string, string>>>({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [questionStartedAt, setQuestionStartedAt] = useState(Date.now());
   const [result, setResult] = useState<QuizResult | null>(null);
@@ -42,9 +43,10 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
     setError("");
     setResult(null);
     setAnswers({});
-      setSelectedAnswers({});
-      setCurrentIndex(0);
-      setQuestionStartedAt(Date.now());
+    setSelectedAnswers({});
+    setMatchingPairs({});
+    setCurrentIndex(0);
+    setQuestionStartedAt(Date.now());
 
     try {
       const generated = await generateQuiz(token, deckId);
@@ -62,10 +64,20 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
   }
 
   async function submitAnswer(question: QuizQuestion) {
-    const answer = selectedAnswers[question.id]?.trim() ?? "";
+    const answer = question.type === "MATCHING"
+      ? JSON.stringify(matchingPairs[question.id] ?? {})
+      : selectedAnswers[question.id]?.trim() ?? "";
     if (!answer) {
       setError("Choose or enter an answer first");
       return;
+    }
+    if (question.type === "MATCHING") {
+      const options = matchingOptions(question);
+      const pairs = matchingPairs[question.id] ?? {};
+      if (!options || options.words.some((word) => !pairs[word])) {
+        setError("Match every word before submitting");
+        return;
+      }
     }
     if (!attempt) {
       return;
@@ -131,9 +143,9 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
 
           <h3>{currentQuestion.prompt}</h3>
 
-          {currentQuestion.type === "CHOOSE_MEANING" ? (
+          {isChoiceQuestion(currentQuestion) ? (
             <div className="quiz-options">
-              {currentQuestion.options.map((option) => (
+              {choiceOptions(currentQuestion).map((option) => (
                 <button
                   key={option}
                   className={`quiz-option ${selectedAnswers[currentQuestion.id] === option ? "selected" : ""}`}
@@ -143,6 +155,32 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
                 >
                   {option}
                 </button>
+              ))}
+            </div>
+          ) : currentQuestion.type === "MATCHING" ? (
+            <div className="matching-grid">
+              {(matchingOptions(currentQuestion)?.words ?? []).map((word) => (
+                <div key={word} className="matching-row">
+                  <strong>{word}</strong>
+                  <select
+                    value={matchingPairs[currentQuestion.id]?.[word] ?? ""}
+                    onChange={(event) =>
+                      setMatchingPairs((current) => ({
+                        ...current,
+                        [currentQuestion.id]: {
+                          ...(current[currentQuestion.id] ?? {}),
+                          [word]: event.target.value
+                        }
+                      }))
+                    }
+                    disabled={Boolean(currentAnswer)}
+                  >
+                    <option value="">Choose meaning</option>
+                    {(matchingOptions(currentQuestion)?.meanings ?? []).map((meaning) => (
+                      <option key={meaning} value={meaning}>{meaning}</option>
+                    ))}
+                  </select>
+                </div>
               ))}
             </div>
           ) : (
@@ -166,7 +204,7 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
                 {currentAnswer.correct ? "Correct" : "Incorrect"}
               </strong>
               <p>{currentAnswer.explanation}</p>
-              {!currentAnswer.correct && <p>Correct answer: {currentAnswer.correctAnswer}</p>}
+              {!currentAnswer.correct && currentQuestion.type !== "MATCHING" && <p>Correct answer: {currentAnswer.correctAnswer}</p>}
             </div>
           )}
 
@@ -222,5 +260,23 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
 }
 
 function questionLabel(type: string) {
-  return type === "CHOOSE_MEANING" ? "Choose meaning" : "Fill blank";
+  if (type === "CHOOSE_MEANING") return "Choose meaning";
+  if (type === "TRUE_FALSE") return "True / False";
+  if (type === "MATCHING") return "Matching";
+  return "Fill blank";
+}
+
+function isChoiceQuestion(question: QuizQuestion) {
+  return question.type === "CHOOSE_MEANING" || question.type === "TRUE_FALSE";
+}
+
+function choiceOptions(question: QuizQuestion) {
+  return Array.isArray(question.options) ? question.options : [];
+}
+
+function matchingOptions(question: QuizQuestion) {
+  if (question.type !== "MATCHING" || Array.isArray(question.options)) {
+    return null;
+  }
+  return question.options;
 }

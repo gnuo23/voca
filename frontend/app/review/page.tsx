@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CalendarClock, Check, Flame, RotateCcw, Smile, X } from "lucide-react";
+import { CalendarClock, Check, RotateCcw, Send, X } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { getStoredToken, getTodayReview, ReviewItem, ReviewQuality, submitReviewResult } from "@/lib/api";
+import { getStoredToken, getTodayReview, ReviewItem, submitReviewAnswer } from "@/lib/api";
 
 export default function ReviewPage() {
   const router = useRouter();
@@ -14,6 +14,8 @@ export default function ReviewPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startedAt, setStartedAt] = useState(Date.now());
   const [reviewed, setReviewed] = useState(0);
+  const [answer, setAnswer] = useState("");
+  const [feedback, setFeedback] = useState<boolean | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,19 +37,50 @@ export default function ReviewPage() {
 
   const currentCard = useMemo(() => items[currentIndex] ?? null, [items, currentIndex]);
 
-  async function submit(quality: ReviewQuality) {
+  async function submit() {
+    if (!currentCard) {
+      return;
+    }
+    const submitted = answer.trim();
+    if (!submitted) {
+      setError("Enter the meaning first");
+      return;
+    }
+    const correct = isMeaningCorrect(submitted, currentCard.meaningVi ?? "");
+    setError("");
+    setIsLoading(true);
+    try {
+      await submitReviewAnswer(token, currentCard.vocabId, correct, Date.now() - startedAt);
+      setFeedback(correct);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not submit review");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function reveal() {
     if (!currentCard) {
       return;
     }
     setError("");
+    setIsLoading(true);
     try {
-      await submitReviewResult(token, currentCard.vocabId, quality, Date.now() - startedAt);
-      setReviewed((value) => value + 1);
-      setCurrentIndex((index) => index + 1);
-      setStartedAt(Date.now());
+      await submitReviewAnswer(token, currentCard.vocabId, false, Date.now() - startedAt);
+      setFeedback(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not submit review");
+    } finally {
+      setIsLoading(false);
     }
+  }
+
+  function nextCard() {
+    setReviewed((value) => value + 1);
+    setCurrentIndex((index) => index + 1);
+    setStartedAt(Date.now());
+    setAnswer("");
+    setFeedback(null);
   }
 
   const complete = !isLoading && currentIndex >= items.length;
@@ -57,7 +90,7 @@ export default function ReviewPage() {
       <header className="topbar">
         <div>
           <h1>Review</h1>
-          <p>{isLoading ? "Loading cards" : `${Math.min(currentIndex + 1, items.length)} / ${items.length || 0}`}</p>
+          <p>{items.length === 0 && isLoading ? "Loading cards" : `${Math.min(currentIndex + 1, items.length)} / ${items.length || 0}`}</p>
         </div>
         <div className="button-row">
           <Link className="button secondary-button" href="/review/schedule">
@@ -71,6 +104,8 @@ export default function ReviewPage() {
               setCurrentIndex(0);
               setReviewed(0);
               setStartedAt(Date.now());
+              setAnswer("");
+              setFeedback(null);
             }}
             disabled={items.length === 0}
           >
@@ -88,27 +123,48 @@ export default function ReviewPage() {
             <span className="status-pill neutral">{currentCard.status}</span>
             <h2>{currentCard.word}</h2>
             <p>{currentCard.partOfSpeech || "Vocabulary"}</p>
-            <div className="review-meaning">{currentCard.meaningVi || "-"}</div>
-            {currentCard.exampleEn && <p>{currentCard.exampleEn}</p>}
-            {currentCard.exampleVi && <p>{currentCard.exampleVi}</p>}
+            {feedback === null ? (
+              <div className="field review-answer-field">
+                <label htmlFor="review-answer">Meaning</label>
+                <input
+                  id="review-answer"
+                  value={answer}
+                  onChange={(event) => setAnswer(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      void submit();
+                    }
+                  }}
+                />
+              </div>
+            ) : (
+              <div className={`quiz-feedback ${feedback ? "correct" : "incorrect"}`}>
+                <strong>
+                  {feedback ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
+                  {feedback ? "Correct" : "Needs review"}
+                </strong>
+                <p>Correct answer: {currentCard.meaningVi || "-"}</p>
+                {currentCard.exampleEn && <p>{currentCard.exampleEn}</p>}
+                {currentCard.exampleVi && <p>{currentCard.exampleVi}</p>}
+              </div>
+            )}
           </article>
 
           <div className="review-actions">
-            <button className="button danger-button" type="button" onClick={() => submit("AGAIN")}>
+            {feedback === null ? (
+              <button className="button" type="button" onClick={submit} disabled={isLoading}>
+                <Send size={18} aria-hidden="true" />
+                Check
+              </button>
+            ) : (
+              <button className="button" type="button" onClick={nextCard}>
+                <Check size={18} aria-hidden="true" />
+                Next
+              </button>
+            )}
+            <button className="button secondary-button" type="button" onClick={reveal} disabled={feedback !== null || isLoading}>
               <X size={18} aria-hidden="true" />
-              Again
-            </button>
-            <button className="button warning-button" type="button" onClick={() => submit("HARD")}>
-              <Flame size={18} aria-hidden="true" />
-              Hard
-            </button>
-            <button className="button" type="button" onClick={() => submit("GOOD")}>
-              <Check size={18} aria-hidden="true" />
-              Good
-            </button>
-            <button className="button" type="button" onClick={() => submit("EASY")}>
-              <Smile size={18} aria-hidden="true" />
-              Easy
+              Reveal
             </button>
           </div>
         </section>
@@ -123,4 +179,22 @@ export default function ReviewPage() {
       )}
     </AppShell>
   );
+}
+
+function isMeaningCorrect(answer: string, meaning: string) {
+  const normalizedAnswer = normalizeAnswer(answer);
+  const accepted = meaning
+    .split(/[,;/\n]/)
+    .map(normalizeAnswer)
+    .filter(Boolean);
+  return normalizeAnswer(meaning) === normalizedAnswer || accepted.includes(normalizedAnswer);
+}
+
+function normalizeAnswer(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
 }

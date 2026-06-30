@@ -167,7 +167,14 @@ export type EnrichmentJob = {
   completedAt: string | null;
 };
 
-export type QuizQuestionType = "CHOOSE_MEANING" | "FILL_IN_BLANK";
+export type QuizQuestionType = "CHOOSE_MEANING" | "FILL_IN_BLANK" | "TRUE_FALSE" | "MATCHING";
+
+export type MatchingOptions = {
+  words: string[];
+  meanings: string[];
+};
+
+export type QuizQuestionOptions = string[] | MatchingOptions;
 
 export type QuizQuestion = {
   id: number;
@@ -175,7 +182,7 @@ export type QuizQuestion = {
   vocabId: number;
   type: QuizQuestionType;
   prompt: string;
-  options: string[];
+  options: QuizQuestionOptions;
   explanation: string | null;
   createdAt: string;
 };
@@ -220,6 +227,94 @@ export type QuizResult = {
 };
 
 export type ReviewQuality = "AGAIN" | "HARD" | "GOOD" | "EASY";
+export type ReviewSource = "FLASHCARD" | "QUIZ" | "LEARN";
+
+export type LearnSessionScope = "ALL" | "NOT_MASTERED" | "DIFFICULT_ONLY" | "NEW_ONLY";
+export type LearnGoal = "QUICK_REVIEW" | "LEARN_ALL" | "MASTER_ALL";
+export type LearnAnswerDirection = "WORD_TO_MEANING" | "MEANING_TO_WORD" | "BOTH";
+export type LearnGradingMode = "EXACT" | "ACCENT_INSENSITIVE" | "FUZZY";
+export type LearnSessionStatus = "IN_PROGRESS" | "COMPLETED" | "ABANDONED";
+export type LearnItemStage = "NEW" | "SEEN" | "LEARNING" | "FAMILIAR" | "MASTERED" | "NOT_STUDIED" | "STILL_LEARNING";
+export type LearnQuestionType = "MCQ" | "WRITTEN" | "TRUE_FALSE";
+
+export type LearnProgress = {
+  masteredTerms: number;
+  totalTerms: number;
+  remainingTerms: number;
+  newTerms: number;
+  seenTerms: number;
+  learningTerms: number;
+  familiarTerms: number;
+};
+
+export type LearnSession = {
+  id: number;
+  deckId: number;
+  deckName: string;
+  totalTerms: number;
+  masteredTerms: number;
+  totalAnswers: number;
+  correctAnswers: number;
+  scope: LearnSessionScope;
+  goal: LearnGoal;
+  answerDirection: LearnAnswerDirection;
+  gradingMode: LearnGradingMode;
+  status: LearnSessionStatus;
+  startedAt: string;
+  completedAt: string | null;
+  durationMs: number;
+};
+
+export type StartLearnOptions = {
+  scope?: LearnSessionScope;
+  goal?: LearnGoal;
+  answerDirection?: LearnAnswerDirection;
+  gradingMode?: LearnGradingMode;
+  questionTypes?: LearnQuestionType[];
+};
+
+export type LearnQuestion = {
+  sessionItemId: number | null;
+  vocabId: number | null;
+  word: string | null;
+  questionType: LearnQuestionType | null;
+  prompt: string;
+  options: string[] | null;
+  trueFalseStatement: string | null;
+  stage: LearnItemStage | null;
+  progress: LearnProgress;
+};
+
+export type LearnAnswer = {
+  correct: boolean;
+  correctAnswer: string;
+  newStage: LearnItemStage;
+  correctStreak: number;
+  progress: LearnProgress;
+};
+
+export type LearnSessionResult = {
+  session: LearnSession;
+  items: Array<{
+    vocabId: number;
+    word: string;
+    partOfSpeech: string | null;
+    meaningVi: string | null;
+    stage: LearnItemStage;
+    correctAttempts: number;
+    incorrectAttempts: number;
+    totalAttempts: number;
+  }>;
+  history: Array<{
+    questionType: LearnQuestionType;
+    prompt: string;
+    userAnswer: string;
+    correctAnswer: string;
+    correct: boolean;
+    responseTimeMs: number | null;
+    answeredAt: string;
+  }>;
+};
 
 export type ReviewScheduleBucket =
   | "NEW"
@@ -562,6 +657,45 @@ export async function getQuizResult(token: string, attemptId: number): Promise<Q
   });
 }
 
+export async function startLearnSession(
+  token: string,
+  deckId: string,
+  options: StartLearnOptions = { scope: "NOT_MASTERED" }
+): Promise<LearnSession> {
+  return apiRequest<LearnSession>("/api/learn/sessions", {
+    method: "POST",
+    token,
+    body: JSON.stringify({ deckId: Number(deckId), ...options })
+  });
+}
+
+export async function getNextLearnQuestion(token: string, sessionId: number): Promise<LearnQuestion> {
+  return apiRequest<LearnQuestion>(`/api/learn/sessions/${sessionId}/next`, {
+    token
+  });
+}
+
+export async function submitLearnAnswer(
+  token: string,
+  sessionId: number,
+  sessionItemId: number,
+  answer: string,
+  questionType: LearnQuestionType,
+  responseTimeMs?: number
+): Promise<LearnAnswer> {
+  return apiRequest<LearnAnswer>(`/api/learn/sessions/${sessionId}/answer`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ sessionItemId, answer, questionType, responseTimeMs })
+  });
+}
+
+export async function getLearnSessionResult(token: string, sessionId: number): Promise<LearnSessionResult> {
+  return apiRequest<LearnSessionResult>(`/api/learn/sessions/${sessionId}/result`, {
+    token
+  });
+}
+
 export async function getDashboardMetrics(token: string): Promise<DashboardMetrics> {
   return apiRequest<DashboardMetrics>("/api/dashboard", {
     token
@@ -604,6 +738,19 @@ export async function submitReviewResult(
     method: "POST",
     token,
     body: JSON.stringify({ quality, responseTimeMs, source: "FLASHCARD" })
+  });
+}
+
+export async function submitReviewAnswer(
+  token: string,
+  vocabId: number,
+  isCorrect: boolean,
+  responseTimeMs?: number
+): Promise<ReviewProgress> {
+  return apiRequest<ReviewProgress>(`/api/review/${vocabId}/result`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ isCorrect, responseTimeMs, source: "FLASHCARD" })
   });
 }
 

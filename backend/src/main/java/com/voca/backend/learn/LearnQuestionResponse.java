@@ -16,6 +16,10 @@ public record LearnQuestionResponse(
     public record Progress(
             int masteredTerms,
             int totalTerms,
-            int remainingTerms
+            int remainingTerms,
+            int newTerms,
+            int seenTerms,
+            int learningTerms,
+            int familiarTerms
     ) {}
 }

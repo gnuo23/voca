@@ -5,6 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DeckForm } from "@/components/decks/DeckForm";
+import { LearnPanel } from "@/components/learn/LearnPanel";
+import { MatchGamePanel } from "@/components/match/MatchGamePanel";
 import { QuizPanel } from "@/components/quiz/QuizPanel";
 import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
 import { VocabStudyPanel } from "@/components/vocab/VocabStudyPanel";
@@ -114,11 +116,28 @@ export default function DeckDetailPage() {
       )}
 
       {deck && token && (
+        <LearnPanel
+          token={token}
+          deckId={params.deckId}
+          totalWords={deck.totalWords}
+          refreshDeck={refreshDeck}
+        />
+      )}
+
+      {deck && token && (
         <QuizPanel
           token={token}
           deckId={params.deckId}
           totalWords={deck.totalWords}
           refreshDeck={refreshDeck}
+        />
+      )}
+
+      {deck && token && (
+        <MatchGamePanel
+          token={token}
+          deckId={params.deckId}
+          totalWords={deck.totalWords}
         />
       )}
 
