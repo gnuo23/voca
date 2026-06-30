@@ -19,28 +19,6 @@ public class QuizController {
         this.quizService = quizService;
     }
 
-    @PostMapping("/api/decks/{deckId}/quiz/generate")
-    public QuizGenerateResponse generate(Authentication authentication, @PathVariable Long deckId) {
-        return quizService.generate(authentication, deckId);
-    }
-
-    @PostMapping("/api/quiz-attempts")
-    public QuizAttemptResponse createAttempt(
-            Authentication authentication,
-            @Valid @RequestBody CreateQuizAttemptRequest request
-    ) {
-        return quizService.createAttempt(authentication, request);
-    }
-
-    @PostMapping("/api/decks/{deckId}/quiz/manual-attempt")
-    public QuizAttemptResponse createManualAttempt(
-            Authentication authentication,
-            @PathVariable Long deckId,
-            @RequestBody ManualQuizAttemptRequest request
-    ) {
-        return quizService.createManualAttempt(authentication, deckId, request);
-    }
-
     @PostMapping("/api/decks/{deckId}/quiz/import/preview")
     public QuizImportPreviewResponse previewImport(
             Authentication authentication,
@@ -50,13 +28,21 @@ public class QuizController {
         return quizService.previewImport(authentication, deckId, request);
     }
 
-    @PostMapping("/api/decks/{deckId}/quiz/import/attempt")
-    public QuizAttemptResponse createImportAttempt(
+    @PostMapping("/api/decks/{deckId}/quiz/import/save")
+    public QuizImportPreviewResponse saveImport(
             Authentication authentication,
             @PathVariable Long deckId,
             @RequestBody QuizImportRequest request
     ) {
-        return quizService.createImportAttempt(authentication, deckId, request);
+        return quizService.saveImport(authentication, deckId, request);
+    }
+
+    @PostMapping("/api/decks/{deckId}/quiz/start")
+    public QuizAttemptResponse startQuiz(
+            Authentication authentication,
+            @PathVariable Long deckId
+    ) {
+        return quizService.startQuiz(authentication, deckId);
     }
 
     @PostMapping("/api/quiz-attempts/{attemptId}/answer")

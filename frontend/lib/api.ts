@@ -167,14 +167,7 @@ export type EnrichmentJob = {
   completedAt: string | null;
 };
 
-export type QuizQuestionType = "CHOOSE_MEANING" | "FILL_IN_BLANK" | "CLOZE_CHOICE" | "TRUE_FALSE" | "MATCHING";
-
-export type MatchingOptions = {
-  words: string[];
-  meanings: string[];
-};
-
-export type QuizQuestionOptions = string[] | MatchingOptions;
+export type QuizQuestionType = "CHOOSE_MEANING";
 
 export type QuizQuestion = {
   id: number;
@@ -182,36 +175,9 @@ export type QuizQuestion = {
   vocabId: number;
   type: QuizQuestionType;
   prompt: string;
-  options: QuizQuestionOptions;
+  options: string[];
   explanation: string | null;
   createdAt: string;
-};
-
-export type ManualQuizPayload = {
-  questionTypes?: QuizQuestionType[];
-  limit?: number;
-  vocabPairs?: Array<{
-    vocabId?: number;
-    word?: string;
-    meaning?: string;
-  }>;
-  questions?: Array<{
-    vocabId?: number;
-    word?: string;
-    type: QuizQuestionType;
-    prompt: string;
-    options?: string[];
-    matchingOptions?: MatchingOptions;
-    correctAnswer?: string;
-    correctPairs?: Record<string, string>;
-    explanation?: string;
-  }>;
-};
-
-export type QuizGenerateResponse = {
-  deckId: number;
-  questionCount: number;
-  questions: QuizQuestion[];
 };
 
 export type QuizImportStatus = "OK" | "SKIPPED" | "ERROR";
@@ -220,9 +186,7 @@ export type QuizImportItem = {
   lineNumber: number;
   vocabId: number | null;
   word: string | null;
-  meaning: string | null;
   prompt: string | null;
-  questionTypes: QuizQuestionType[];
   status: QuizImportStatus;
   message: string | null;
 };
@@ -236,8 +200,6 @@ export type QuizImportPreview = {
 
 export type QuizImportPayload = {
   rawText: string;
-  questionTypes?: QuizQuestionType[];
-  limit?: number;
 };
 
 export type QuizAttempt = {
@@ -680,37 +642,6 @@ export async function getEnrichmentJob(token: string, jobId: number): Promise<En
   });
 }
 
-export async function generateQuiz(token: string, deckId: string): Promise<QuizGenerateResponse> {
-  return apiRequest<QuizGenerateResponse>(`/api/decks/${deckId}/quiz/generate`, {
-    method: "POST",
-    token
-  });
-}
-
-export async function createQuizAttempt(
-  token: string,
-  deckId: string,
-  questionIds: number[]
-): Promise<QuizAttempt> {
-  return apiRequest<QuizAttempt>("/api/quiz-attempts", {
-    method: "POST",
-    token,
-    body: JSON.stringify({ deckId: Number(deckId), questionIds })
-  });
-}
-
-export async function createManualQuizAttempt(
-  token: string,
-  deckId: string,
-  payload: ManualQuizPayload
-): Promise<QuizAttempt> {
-  return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/manual-attempt`, {
-    method: "POST",
-    token,
-    body: JSON.stringify(payload)
-  });
-}
-
 export async function previewQuizImport(
   token: string,
   deckId: string,
@@ -723,15 +654,25 @@ export async function previewQuizImport(
   });
 }
 
-export async function createQuizImportAttempt(
+export async function saveQuizImport(
   token: string,
   deckId: string,
   payload: QuizImportPayload
-): Promise<QuizAttempt> {
-  return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/import/attempt`, {
+): Promise<QuizImportPreview> {
+  return apiRequest<QuizImportPreview>(`/api/decks/${deckId}/quiz/import/save`, {
     method: "POST",
     token,
     body: JSON.stringify(payload)
+  });
+}
+
+export async function startQuiz(
+  token: string,
+  deckId: string
+): Promise<QuizAttempt> {
+  return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/start`, {
+    method: "POST",
+    token
   });
 }
 
