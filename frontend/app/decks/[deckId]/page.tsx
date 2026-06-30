@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Trash2 } from "lucide-react";
+import Link from "next/link";
+import { BookOpenCheck, ChevronRight, Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DeckForm } from "@/components/decks/DeckForm";
-import { LearnPanel } from "@/components/learn/LearnPanel";
 import { MatchGamePanel } from "@/components/match/MatchGamePanel";
 import { QuizPanel } from "@/components/quiz/QuizPanel";
 import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
@@ -115,13 +115,23 @@ export default function DeckDetailPage() {
         />
       )}
 
-      {deck && token && (
-        <LearnPanel
-          token={token}
-          deckId={params.deckId}
-          totalWords={deck.totalWords}
-          refreshDeck={refreshDeck}
-        />
+      {deck && (
+        <Link href={`/decks/${params.deckId}/learn`} className="learn-entry-card">
+          <div className="learn-entry-icon">
+            <BookOpenCheck size={24} aria-hidden="true" />
+          </div>
+          <div className="learn-entry-info">
+            <h3>Learn</h3>
+            <p>
+              {deck.totalWords < 2
+                ? "Need at least 2 words to start"
+                : deck.totalWords - deck.learnedWords > 0
+                  ? `${deck.totalWords - deck.learnedWords} terms to study`
+                  : "All terms mastered — review again"}
+            </p>
+          </div>
+          <ChevronRight size={20} className="learn-entry-arrow" aria-hidden="true" />
+        </Link>
       )}
 
       {deck && token && (

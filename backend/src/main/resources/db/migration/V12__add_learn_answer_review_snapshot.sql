@@ -1,0 +1,18 @@
+alter table learn_answers
+    add column review_snapshot_exists boolean,
+    add column review_snapshot_status varchar(30),
+    add column review_snapshot_known_count integer,
+    add column review_snapshot_unknown_count integer,
+    add column review_snapshot_difficult_count integer,
+    add column review_snapshot_correct_count integer,
+    add column review_snapshot_wrong_count integer,
+    add column review_snapshot_streak_correct_count integer,
+    add column review_snapshot_ease_factor double precision,
+    add column review_snapshot_interval_days integer,
+    add column review_snapshot_repetition_count integer,
+    add column review_snapshot_lapse_count integer,
+    add column review_snapshot_last_quality varchar(20),
+    add column review_snapshot_last_response_time_ms integer,
+    add column review_snapshot_last_marked_at timestamp,
+    add column review_snapshot_last_reviewed_at timestamp,
+    add column review_snapshot_next_review_at timestamp;

@@ -16,12 +16,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.Normalizer;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumSet;
+import java.util.HexFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -148,7 +152,7 @@ public class LearnService {
         if (progress.remainingTerms() == 0) {
             completeSession(session, progress);
             return new LearnQuestionResponse(
-                    null, null, null, null, "Session complete!", null, null, null,
+                    null, null, null, null, null, "Session complete!", null, null, null,
                     progress
             );
         }
@@ -165,6 +169,7 @@ public class LearnService {
                 currentItem.getVocabItem().getId(),
                 currentItem.getVocabItem().getWord(),
                 generated.type(),
+                questionToken(session, currentItem, generated),
                 generated.prompt(),
                 generated.options(),
                 generated.trueFalseStatement(),
@@ -206,8 +211,16 @@ public class LearnService {
         if (submittedType != generated.type()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Answer question type does not match the active prompt");
         }
+        if (hasText(request.questionToken())) {
+            String expectedToken = questionToken(session, item, generated);
+            if (!expectedToken.equals(request.questionToken())) {
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "Question is no longer active");
+            }
+        }
 
-        boolean correct = isAnswerCorrect(request.answer(), generated.correctAnswer(), generated.type(), session.getGradingMode());
+        GradeResult grade = gradeAnswer(request.answer(), generated.correctAnswer(), generated.type(), session.getGradingMode());
+        boolean correct = grade.verdict() == GradeVerdict.CORRECT;
+        LearnItemStage stageBefore = normalizeStage(item.getStage());
 
         LearnAnswer answer = new LearnAnswer();
         answer.setSession(session);
@@ -217,7 +230,11 @@ public class LearnService {
         answer.setUserAnswer(request.answer());
         answer.setCorrectAnswer(generated.correctAnswer());
         answer.setCorrect(correct);
+        answer.setVerdict(grade.verdict());
+        answer.setSimilarityScore(grade.similarity());
+        answer.setStageBefore(stageBefore);
         answer.setResponseTimeMs(request.responseTimeMs());
+        captureReviewSnapshot(answer, user, item.getVocabItem());
         answerRepo.save(answer);
 
         item.incrementTotalAttempts();
@@ -257,13 +274,66 @@ public class LearnService {
         }
         sessionRepo.save(session);
 
-        return new LearnAnswerResponse(
-                correct,
-                generated.correctAnswer(),
-                normalizeStage(item.getStage()),
-                item.getCorrectStreak(),
-                progress
-        );
+        return answerResponse(answer, item, progress);
+    }
+
+    @Transactional
+    public LearnAnswerResponse overrideAnswer(Authentication auth, Long sessionId, OverrideLearnAnswerRequest request) {
+        User user = userService.currentUser(auth);
+        LearnSession session = sessionRepo.findByIdAndUserId(sessionId, user.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Learn session not found"));
+
+        if (session.getStatus() != LearnSessionStatus.IN_PROGRESS) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Learn session is not active");
+        }
+
+        LearnSessionItem item = sessionItemRepo.findById(request.sessionItemId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Session item not found"));
+
+        if (!item.getSession().getId().equals(session.getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item does not belong to this session");
+        }
+
+        LearnAnswer answer = answerRepo.findFirstBySessionIdAndSessionItemIdOrderByAnsweredAtDesc(session.getId(), item.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Answer not found"));
+
+        if (request.targetVerdict() != GradeVerdict.CORRECT) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only overriding to correct is supported");
+        }
+
+        if (answer.isCorrect()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only incorrect answers can be overridden");
+        }
+
+        LearnItemStage stageBefore = answer.getStageBefore() == null
+                ? inferStageBeforeOverride(item.getStage())
+                : normalizeStage(answer.getStageBefore());
+
+        answer.setCorrect(true);
+        answer.setVerdict(GradeVerdict.CORRECT);
+        answerRepo.save(answer);
+
+        item.setStage(stageBefore);
+        item.incrementCorrectAttempts();
+        item.setIncorrectAttempts(Math.max(0, item.getIncorrectAttempts() - 1));
+        item.setCorrectStreak(item.getCorrectStreak() + 1);
+        item.setStage(nextCorrectStage(session, item, answer.getQuestionType()));
+        item.setPriority(Math.max(0, item.getPriority() - 7));
+        sessionItemRepo.save(item);
+
+        replayReviewAfterOverride(user, answer);
+        session.incrementCorrectAnswers();
+
+        List<LearnSessionItem> items = sessionItemRepo.findAllBySessionId(session.getId());
+        LearnQuestionResponse.Progress progress = progressFor(session, items);
+        if (progress.remainingTerms() == 0) {
+            completeSession(session, progress);
+        } else {
+            session.setMasteredTerms(progress.masteredTerms());
+        }
+        sessionRepo.save(session);
+
+        return answerResponse(answer, item, progress);
     }
 
     @Transactional(readOnly = true)
@@ -295,6 +365,8 @@ public class LearnService {
                         ans.getUserAnswer(),
                         ans.getCorrectAnswer(),
                         ans.isCorrect(),
+                        ans.getVerdict(),
+                        ans.getSimilarityScore(),
                         ans.getResponseTimeMs(),
                         ans.getAnsweredAt()
                 ))
@@ -561,6 +633,87 @@ public class LearnService {
         };
     }
 
+    private LearnItemStage inferStageBeforeOverride(LearnItemStage currentStage) {
+        return switch (normalizeStage(currentStage)) {
+            case LEARNING -> LearnItemStage.FAMILIAR;
+            case SEEN -> LearnItemStage.LEARNING;
+            case NEW -> LearnItemStage.SEEN;
+            case FAMILIAR, MASTERED -> normalizeStage(currentStage);
+            case NOT_STUDIED, STILL_LEARNING -> LearnItemStage.LEARNING;
+        };
+    }
+
+    private void captureReviewSnapshot(LearnAnswer answer, User user, VocabItem vocabItem) {
+        progressRepo.findByUserIdAndVocabItemId(user.getId(), vocabItem.getId())
+                .ifPresentOrElse(progress -> {
+                    answer.setReviewSnapshotExists(true);
+                    answer.setReviewSnapshotStatus(progress.getStatus().name());
+                    answer.setReviewSnapshotKnownCount(progress.getKnownCount());
+                    answer.setReviewSnapshotUnknownCount(progress.getUnknownCount());
+                    answer.setReviewSnapshotDifficultCount(progress.getDifficultCount());
+                    answer.setReviewSnapshotCorrectCount(progress.getCorrectCount());
+                    answer.setReviewSnapshotWrongCount(progress.getWrongCount());
+                    answer.setReviewSnapshotStreakCorrectCount(progress.getStreakCorrectCount());
+                    answer.setReviewSnapshotEaseFactor(progress.getEaseFactor());
+                    answer.setReviewSnapshotIntervalDays(progress.getIntervalDays());
+                    answer.setReviewSnapshotRepetitionCount(progress.getRepetitionCount());
+                    answer.setReviewSnapshotLapseCount(progress.getLapseCount());
+                    answer.setReviewSnapshotLastQuality(progress.getLastQuality());
+                    answer.setReviewSnapshotLastResponseTimeMs(progress.getLastResponseTimeMs());
+                    answer.setReviewSnapshotLastMarkedAt(progress.getLastMarkedAt());
+                    answer.setReviewSnapshotLastReviewedAt(progress.getLastReviewedAt());
+                    answer.setReviewSnapshotNextReviewAt(progress.getNextReviewAt());
+                }, () -> answer.setReviewSnapshotExists(false));
+    }
+
+    private void replayReviewAfterOverride(User user, LearnAnswer answer) {
+        VocabItem vocabItem = answer.getSessionItem().getVocabItem();
+        if (answer.getReviewSnapshotExists() == null) {
+            reviewService.applyQuizResult(user, vocabItem, true, responseTimeMsAsInteger(answer));
+            return;
+        }
+
+        progressRepo.findByUserIdAndVocabItemId(user.getId(), vocabItem.getId())
+                .ifPresent(progress -> {
+                    if (Boolean.TRUE.equals(answer.getReviewSnapshotExists())) {
+                        restoreReviewSnapshot(answer, progress);
+                        progressRepo.save(progress);
+                    } else {
+                        progressRepo.delete(progress);
+                    }
+                });
+        progressRepo.flush();
+
+        reviewService.applyQuizResult(user, vocabItem, true, responseTimeMsAsInteger(answer));
+    }
+
+    private void restoreReviewSnapshot(LearnAnswer answer, UserProgress progress) {
+        progress.setStatus(VocabProgressStatus.valueOf(answer.getReviewSnapshotStatus()));
+        progress.setKnownCount(valueOrZero(answer.getReviewSnapshotKnownCount()));
+        progress.setUnknownCount(valueOrZero(answer.getReviewSnapshotUnknownCount()));
+        progress.setDifficultCount(valueOrZero(answer.getReviewSnapshotDifficultCount()));
+        progress.setCorrectCount(valueOrZero(answer.getReviewSnapshotCorrectCount()));
+        progress.setWrongCount(valueOrZero(answer.getReviewSnapshotWrongCount()));
+        progress.setStreakCorrectCount(valueOrZero(answer.getReviewSnapshotStreakCorrectCount()));
+        progress.setEaseFactor(answer.getReviewSnapshotEaseFactor() == null ? 2.5 : answer.getReviewSnapshotEaseFactor());
+        progress.setIntervalDays(valueOrZero(answer.getReviewSnapshotIntervalDays()));
+        progress.setRepetitionCount(valueOrZero(answer.getReviewSnapshotRepetitionCount()));
+        progress.setLapseCount(valueOrZero(answer.getReviewSnapshotLapseCount()));
+        progress.setLastQuality(answer.getReviewSnapshotLastQuality());
+        progress.setLastResponseTimeMs(answer.getReviewSnapshotLastResponseTimeMs());
+        progress.setLastMarkedAt(answer.getReviewSnapshotLastMarkedAt());
+        progress.setLastReviewedAt(answer.getReviewSnapshotLastReviewedAt());
+        progress.setNextReviewAt(answer.getReviewSnapshotNextReviewAt());
+    }
+
+    private int valueOrZero(Integer value) {
+        return value == null ? 0 : value;
+    }
+
+    private Integer responseTimeMsAsInteger(LearnAnswer answer) {
+        return answer.getResponseTimeMs() == null ? null : answer.getResponseTimeMs().intValue();
+    }
+
     private boolean isFinishedItem(LearnSession session, LearnSessionItem item) {
         LearnItemStage stage = normalizeStage(item.getStage());
         return stage == LearnItemStage.MASTERED
@@ -667,21 +820,81 @@ public class LearnService {
                 .collect(Collectors.joining(","));
     }
 
-    private boolean isAnswerCorrect(String userAnswer, String correctAnswer, LearnQuestionType questionType, LearnGradingMode gradingMode) {
+    private LearnAnswerResponse answerResponse(LearnAnswer answer, LearnSessionItem item, LearnQuestionResponse.Progress progress) {
+        return new LearnAnswerResponse(
+                answer.isCorrect(),
+                answer.getVerdict(),
+                answer.getSimilarityScore(),
+                answer.getUserAnswer() == null ? "" : answer.getUserAnswer(),
+                answer.getCorrectAnswer(),
+                normalizeStage(item.getStage()),
+                item.getCorrectStreak(),
+                progress
+        );
+    }
+
+    private GradeResult gradeAnswer(String userAnswer, String correctAnswer, LearnQuestionType questionType, LearnGradingMode gradingMode) {
         if (questionType == LearnQuestionType.TRUE_FALSE || questionType == LearnQuestionType.MCQ) {
-            return normalizeExact(userAnswer).equals(normalizeExact(correctAnswer));
+            boolean correct = normalizeExact(userAnswer).equals(normalizeExact(correctAnswer));
+            return new GradeResult(
+                    correct ? GradeVerdict.CORRECT : GradeVerdict.INCORRECT,
+                    correct ? 1.0 : 0.0,
+                    normalizeExact(userAnswer),
+                    normalizeExact(correctAnswer)
+            );
         }
+
+        String userExact = normalizeExact(userAnswer);
+        String correctExact = normalizeExact(correctAnswer);
+        String userNormalized = normalizeForAnswer(userAnswer);
+        String correctNormalized = normalizeForAnswer(correctAnswer);
+
         if (gradingMode == LearnGradingMode.EXACT) {
-            return normalizeExact(userAnswer).equals(normalizeExact(correctAnswer));
+            if (userExact.equals(correctExact)) {
+                return new GradeResult(GradeVerdict.CORRECT, 1.0, userExact, correctExact);
+            }
+            return closeOrIncorrect(userExact, correctExact, 2);
         }
+
         if (gradingMode == LearnGradingMode.FUZZY) {
-            String userNormalized = normalizeForAnswer(userAnswer);
-            String correctNormalized = normalizeForAnswer(correctAnswer);
             int maxDistance = correctNormalized.length() <= 5 ? 1 : 2;
-            return userNormalized.equals(correctNormalized)
-                    || levenshteinDistance(userNormalized, correctNormalized) <= maxDistance;
+            int distance = levenshteinDistance(userNormalized, correctNormalized);
+            double similarity = similarity(distance, userNormalized, correctNormalized);
+            if (distance <= maxDistance) {
+                return new GradeResult(GradeVerdict.CORRECT, similarity, userNormalized, correctNormalized);
+            }
+            if (distance <= maxDistance + 2) {
+                return new GradeResult(GradeVerdict.CLOSE, similarity, userNormalized, correctNormalized);
+            }
+            return new GradeResult(GradeVerdict.INCORRECT, similarity, userNormalized, correctNormalized);
         }
-        return normalizeForAnswer(userAnswer).equals(normalizeForAnswer(correctAnswer));
+
+        if (userExact.equals(correctExact)) {
+            return new GradeResult(GradeVerdict.CORRECT, 1.0, userNormalized, correctNormalized);
+        }
+        if (userNormalized.equals(correctNormalized)) {
+            return new GradeResult(GradeVerdict.CLOSE, 1.0, userNormalized, correctNormalized);
+        }
+        return closeOrIncorrect(userNormalized, correctNormalized, 2);
+    }
+
+    private GradeResult closeOrIncorrect(String userAnswer, String correctAnswer, int closeDistance) {
+        int distance = levenshteinDistance(userAnswer, correctAnswer);
+        double similarity = similarity(distance, userAnswer, correctAnswer);
+        return new GradeResult(
+                distance <= closeDistance ? GradeVerdict.CLOSE : GradeVerdict.INCORRECT,
+                similarity,
+                userAnswer,
+                correctAnswer
+        );
+    }
+
+    private double similarity(int distance, String userAnswer, String correctAnswer) {
+        int maxLength = Math.max(userAnswer == null ? 0 : userAnswer.length(), correctAnswer == null ? 0 : correctAnswer.length());
+        if (maxLength == 0) {
+            return 1.0;
+        }
+        return Math.max(0.0, 1.0 - ((double) distance / maxLength));
     }
 
     private String normalizeExact(String value) {
@@ -719,6 +932,27 @@ public class LearnService {
         return previous[right.length()];
     }
 
+    private String questionToken(LearnSession session, LearnSessionItem item, GeneratedLearnQuestion question) {
+        LearnItemStage stage = normalizeStage(item.getStage());
+        String raw = String.join("|",
+                String.valueOf(session.getId()),
+                String.valueOf(item.getId()),
+                String.valueOf(item.getTotalAttempts()),
+                stage.name(),
+                question.type().name(),
+                normalizeExact(question.prompt()),
+                normalizeExact(question.trueFalseStatement()),
+                normalizeExact(question.correctAnswer())
+        );
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(raw.getBytes(StandardCharsets.UTF_8));
+            return HexFormat.of().formatHex(hash);
+        } catch (NoSuchAlgorithmException ex) {
+            throw new IllegalStateException("SHA-256 is not available", ex);
+        }
+    }
+
     private Random seededQuestionRandom(Long sessionId, LearnSessionItem item) {
         long seed = sessionId * 31 + item.getId() * 17 + item.getTotalAttempts();
         return new Random(seed);
@@ -738,5 +972,8 @@ public class LearnService {
     }
 
     private record TrueFalseQuestion(String statement, String correctAnswer) {
+    }
+
+    private record GradeResult(GradeVerdict verdict, double similarity, String normalizedUser, String normalizedCorrect) {
     }
 }

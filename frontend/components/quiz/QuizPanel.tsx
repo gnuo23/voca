@@ -1,14 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, CircleHelp, ListChecks, Send, X } from "lucide-react";
+import { Braces, Check, CircleHelp, ListChecks, Send, X } from "lucide-react";
 import {
   answerQuizQuestion,
   createQuizAttempt,
+  createManualQuizAttempt,
   generateQuiz,
   getQuizResult,
   QuizAnswer,
   QuizAttempt,
+  ManualQuizPayload,
   QuizQuestion,
   QuizResult
 } from "@/lib/api";
@@ -21,6 +23,14 @@ type QuizPanelProps = {
 };
 
 export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelProps) {
+  const manualSample = `{
+  "questionTypes": ["CLOZE_CHOICE"],
+  "limit": 20,
+  "vocabPairs": [
+    { "word": "absent", "meaning": "vang mat" },
+    { "word": "accumulate", "meaning": "tich luy" }
+  ]
+}`;
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null);
   const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -30,6 +40,8 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
   const [result, setResult] = useState<QuizResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showManualJson, setShowManualJson] = useState(false);
+  const [manualJson, setManualJson] = useState(manualSample);
 
   const currentQuestion = useMemo(() => {
     if (!attempt || attempt.questions.length === 0) {
@@ -38,15 +50,19 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
     return attempt.questions[Math.min(currentIndex, attempt.questions.length - 1)];
   }, [attempt, currentIndex]);
 
-  async function startQuiz() {
-    setIsLoading(true);
-    setError("");
+  function resetRunState() {
     setResult(null);
     setAnswers({});
     setSelectedAnswers({});
     setMatchingPairs({});
     setCurrentIndex(0);
     setQuestionStartedAt(Date.now());
+  }
+
+  async function startQuiz() {
+    setIsLoading(true);
+    setError("");
+    resetRunState();
 
     try {
       const generated = await generateQuiz(token, deckId);
@@ -58,6 +74,26 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
       setAttempt(nextAttempt);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not start quiz");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function startManualQuiz() {
+    setIsLoading(true);
+    setError("");
+    resetRunState();
+
+    try {
+      const payload = JSON.parse(manualJson) as ManualQuizPayload;
+      const nextAttempt = await createManualQuizAttempt(token, deckId, payload);
+      setAttempt(nextAttempt);
+    } catch (err) {
+      if (err instanceof SyntaxError) {
+        setError("Manual quiz JSON is invalid");
+      } else {
+        setError(err instanceof Error ? err.message : "Could not start manual quiz");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -125,14 +161,49 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
           <h2>Quiz</h2>
           <p>{attempt ? `${answeredCount}/${attempt.totalQuestions} answered` : "10 rule-based questions"}</p>
         </div>
-        <button className="button" type="button" onClick={startQuiz} disabled={isLoading || totalWords < 2}>
-          <ListChecks size={18} aria-hidden="true" />
-          {attempt ? "New Quiz" : "Start Quiz"}
-        </button>
+        <div className="button-row">
+          <button className="button" type="button" onClick={startQuiz} disabled={isLoading || totalWords < 2}>
+            <ListChecks size={18} aria-hidden="true" />
+            {attempt ? "New Quiz" : "Start Quiz"}
+          </button>
+          <button
+            className="button secondary-button"
+            type="button"
+            onClick={() => setShowManualJson((current) => !current)}
+            disabled={isLoading || totalWords < 2}
+          >
+            <Braces size={18} aria-hidden="true" />
+            Manual JSON
+          </button>
+        </div>
       </div>
 
       {error && <p className="form-error">{error}</p>}
       {totalWords < 2 && <p className="form-muted">Need at least 2 vocabulary items with meanings.</p>}
+
+      {showManualJson && (
+        <div className="quiz-manual-panel">
+          <div className="field">
+            <label htmlFor="manual-quiz-json">Quiz JSON</label>
+            <textarea
+              id="manual-quiz-json"
+              className="quiz-json-input"
+              value={manualJson}
+              onChange={(event) => setManualJson(event.target.value)}
+              spellCheck={false}
+            />
+          </div>
+          <div className="button-row">
+            <button className="button" type="button" onClick={startManualQuiz} disabled={isLoading || totalWords < 2}>
+              <Braces size={18} aria-hidden="true" />
+              Start Manual Quiz
+            </button>
+            <button className="button secondary-button" type="button" onClick={() => setManualJson(manualSample)} disabled={isLoading}>
+              Reset Sample
+            </button>
+          </div>
+        </div>
+      )}
 
       {currentQuestion && (
         <div className="quiz-runner">
@@ -145,7 +216,7 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
 
           {isChoiceQuestion(currentQuestion) ? (
             <div className="quiz-options">
-              {choiceOptions(currentQuestion).map((option) => (
+              {choiceOptions(currentQuestion).map((option, index) => (
                 <button
                   key={option}
                   className={`quiz-option ${selectedAnswers[currentQuestion.id] === option ? "selected" : ""}`}
@@ -153,6 +224,7 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
                   onClick={() => setSelectedAnswers((current) => ({ ...current, [currentQuestion.id]: option }))}
                   disabled={Boolean(currentAnswer)}
                 >
+                  <span className="quiz-option-letter">{String.fromCharCode(65 + index)}</span>
                   {option}
                 </button>
               ))}
@@ -261,13 +333,14 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
 
 function questionLabel(type: string) {
   if (type === "CHOOSE_MEANING") return "Choose meaning";
+  if (type === "CLOZE_CHOICE") return "Fill blank";
   if (type === "TRUE_FALSE") return "True / False";
   if (type === "MATCHING") return "Matching";
-  return "Fill blank";
+  return "Type answer";
 }
 
 function isChoiceQuestion(question: QuizQuestion) {
-  return question.type === "CHOOSE_MEANING" || question.type === "TRUE_FALSE";
+  return question.type === "CHOOSE_MEANING" || question.type === "CLOZE_CHOICE" || question.type === "TRUE_FALSE";
 }
 
 function choiceOptions(question: QuizQuestion) {

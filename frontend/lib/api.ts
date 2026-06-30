@@ -167,7 +167,7 @@ export type EnrichmentJob = {
   completedAt: string | null;
 };
 
-export type QuizQuestionType = "CHOOSE_MEANING" | "FILL_IN_BLANK" | "TRUE_FALSE" | "MATCHING";
+export type QuizQuestionType = "CHOOSE_MEANING" | "FILL_IN_BLANK" | "CLOZE_CHOICE" | "TRUE_FALSE" | "MATCHING";
 
 export type MatchingOptions = {
   words: string[];
@@ -185,6 +185,27 @@ export type QuizQuestion = {
   options: QuizQuestionOptions;
   explanation: string | null;
   createdAt: string;
+};
+
+export type ManualQuizPayload = {
+  questionTypes?: QuizQuestionType[];
+  limit?: number;
+  vocabPairs?: Array<{
+    vocabId?: number;
+    word?: string;
+    meaning?: string;
+  }>;
+  questions?: Array<{
+    vocabId?: number;
+    word?: string;
+    type: QuizQuestionType;
+    prompt: string;
+    options?: string[];
+    matchingOptions?: MatchingOptions;
+    correctAnswer?: string;
+    correctPairs?: Record<string, string>;
+    explanation?: string;
+  }>;
 };
 
 export type QuizGenerateResponse = {
@@ -236,6 +257,7 @@ export type LearnGradingMode = "EXACT" | "ACCENT_INSENSITIVE" | "FUZZY";
 export type LearnSessionStatus = "IN_PROGRESS" | "COMPLETED" | "ABANDONED";
 export type LearnItemStage = "NEW" | "SEEN" | "LEARNING" | "FAMILIAR" | "MASTERED" | "NOT_STUDIED" | "STILL_LEARNING";
 export type LearnQuestionType = "MCQ" | "WRITTEN" | "TRUE_FALSE";
+export type LearnVerdict = "CORRECT" | "CLOSE" | "INCORRECT";
 
 export type LearnProgress = {
   masteredTerms: number;
@@ -278,6 +300,7 @@ export type LearnQuestion = {
   vocabId: number | null;
   word: string | null;
   questionType: LearnQuestionType | null;
+  questionToken: string | null;
   prompt: string;
   options: string[] | null;
   trueFalseStatement: string | null;
@@ -287,6 +310,9 @@ export type LearnQuestion = {
 
 export type LearnAnswer = {
   correct: boolean;
+  verdict: LearnVerdict;
+  similarityScore: number;
+  userAnswer: string;
   correctAnswer: string;
   newStage: LearnItemStage;
   correctStreak: number;
@@ -311,6 +337,8 @@ export type LearnSessionResult = {
     userAnswer: string;
     correctAnswer: string;
     correct: boolean;
+    verdict: LearnVerdict;
+    similarityScore: number;
     responseTimeMs: number | null;
     answeredAt: string;
   }>;
@@ -637,6 +665,18 @@ export async function createQuizAttempt(
   });
 }
 
+export async function createManualQuizAttempt(
+  token: string,
+  deckId: string,
+  payload: ManualQuizPayload
+): Promise<QuizAttempt> {
+  return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/manual-attempt`, {
+    method: "POST",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
 export async function answerQuizQuestion(
   token: string,
   attemptId: number,
@@ -681,18 +721,32 @@ export async function submitLearnAnswer(
   sessionItemId: number,
   answer: string,
   questionType: LearnQuestionType,
-  responseTimeMs?: number
+  responseTimeMs?: number,
+  questionToken?: string | null
 ): Promise<LearnAnswer> {
   return apiRequest<LearnAnswer>(`/api/learn/sessions/${sessionId}/answer`, {
     method: "POST",
     token,
-    body: JSON.stringify({ sessionItemId, answer, questionType, responseTimeMs })
+    body: JSON.stringify({ sessionItemId, answer, questionType, responseTimeMs, questionToken })
   });
 }
 
 export async function getLearnSessionResult(token: string, sessionId: number): Promise<LearnSessionResult> {
   return apiRequest<LearnSessionResult>(`/api/learn/sessions/${sessionId}/result`, {
     token
+  });
+}
+
+export async function overrideLearnAnswer(
+  token: string,
+  sessionId: number,
+  sessionItemId: number,
+  verdict: LearnVerdict = "CORRECT"
+): Promise<LearnAnswer> {
+  return apiRequest<LearnAnswer>(`/api/learn/sessions/${sessionId}/override`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ sessionItemId, verdict })
   });
 }
 

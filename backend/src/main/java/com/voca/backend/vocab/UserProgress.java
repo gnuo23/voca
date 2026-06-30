@@ -147,12 +147,24 @@ public class UserProgress {
         return knownCount;
     }
 
+    public void setKnownCount(int knownCount) {
+        this.knownCount = knownCount;
+    }
+
     public int getUnknownCount() {
         return unknownCount;
     }
 
+    public void setUnknownCount(int unknownCount) {
+        this.unknownCount = unknownCount;
+    }
+
     public int getDifficultCount() {
         return difficultCount;
+    }
+
+    public void setDifficultCount(int difficultCount) {
+        this.difficultCount = difficultCount;
     }
 
     public void incrementKnownCount() {

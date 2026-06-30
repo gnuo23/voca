@@ -7,6 +7,7 @@ public record LearnQuestionResponse(
         Long vocabId,
         String word,
         LearnQuestionType questionType,
+        String questionToken,
         String prompt,
         List<String> options,
         String trueFalseStatement,

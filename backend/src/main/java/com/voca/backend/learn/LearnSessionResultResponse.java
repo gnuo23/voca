@@ -25,6 +25,8 @@ public record LearnSessionResultResponse(
             String userAnswer,
             String correctAnswer,
             boolean correct,
+            GradeVerdict verdict,
+            double similarityScore,
             Long responseTimeMs,
             LocalDateTime answeredAt
     ) {}

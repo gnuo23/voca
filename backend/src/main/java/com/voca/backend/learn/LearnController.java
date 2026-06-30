@@ -44,6 +44,15 @@ public class LearnController {
         return learnService.submitAnswer(auth, id, request);
     }
 
+    @PostMapping("/sessions/{id}/override")
+    public LearnAnswerResponse overrideAnswer(
+            Authentication auth,
+            @PathVariable Long id,
+            @Valid @RequestBody OverrideLearnAnswerRequest request
+    ) {
+        return learnService.overrideAnswer(auth, id, request);
+    }
+
     @GetMapping("/sessions/{id}/result")
     public LearnSessionResultResponse getSessionResult(
             Authentication auth,

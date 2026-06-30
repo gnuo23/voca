@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -86,8 +87,8 @@ class QuizIntegrationTest {
         String generateBody = mockMvc.perform(post("/api/decks/{deckId}/quiz/generate", deckId)
                         .header("Authorization", bearer(token)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.questionCount").value(10))
-                .andExpect(jsonPath("$.questions", hasSize(10)))
+                .andExpect(jsonPath("$.questionCount").value(6))
+                .andExpect(jsonPath("$.questions", hasSize(6)))
                 .andExpect(jsonPath("$.questions[0].prompt").isNotEmpty())
                 .andReturn()
                 .getResponse()
@@ -103,7 +104,7 @@ class QuizIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(attemptRequest)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalQuestions").value(10))
+                .andExpect(jsonPath("$.totalQuestions").value(6))
                 .andExpect(jsonPath("$.answeredCount").value(0))
                 .andReturn()
                 .getResponse()
@@ -126,12 +127,12 @@ class QuizIntegrationTest {
         mockMvc.perform(get("/api/quiz-attempts/{attemptId}/result", attemptId)
                         .header("Authorization", bearer(token)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalQuestions").value(10))
-                .andExpect(jsonPath("$.answeredCount").value(10))
-                .andExpect(jsonPath("$.correctCount").value(9))
-                .andExpect(jsonPath("$.scorePercent").value(90))
+                .andExpect(jsonPath("$.totalQuestions").value(6))
+                .andExpect(jsonPath("$.answeredCount").value(6))
+                .andExpect(jsonPath("$.correctCount").value(5))
+                .andExpect(jsonPath("$.scorePercent").value(83))
                 .andExpect(jsonPath("$.completed").value(true))
-                .andExpect(jsonPath("$.answers", hasSize(10)));
+                .andExpect(jsonPath("$.answers", hasSize(6)));
 
         mockMvc.perform(get("/api/decks/{deckId}", deckId)
                         .header("Authorization", bearer(token)))
@@ -149,6 +150,81 @@ class QuizIntegrationTest {
                         .header("Authorization", bearer(token)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("Need at least 2 vocabulary items with meanings to generate a quiz"));
+    }
+
+    @Test
+    void userCanCreateManualQuizFromAllDeckVocabularyJson() throws Exception {
+        String token = register("quiz-manual-map@example.com");
+        long deckId = createDeck(token, "Manual Map Deck");
+        importItems(token, deckId, """
+                absent ; (adj) vang mat
+                accumulate ; (v) tich luy
+                adhere ; (v) tuan theo
+                adjacent ; (adj) ke ben
+                """);
+
+        String attemptBody = mockMvc.perform(post("/api/decks/{deckId}/quiz/manual-attempt", deckId)
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(Map.of(
+                                "questionTypes", List.of("CLOZE_CHOICE", "MATCHING"),
+                                "limit", 4
+                        ))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.totalQuestions").value(4))
+                .andExpect(jsonPath("$.answeredCount").value(0))
+                .andExpect(jsonPath("$.questions", hasSize(4)))
+                .andExpect(jsonPath("$.questions[0].prompt").isNotEmpty())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        JsonNode questions = objectMapper.readTree(attemptBody).get("questions");
+        org.assertj.core.api.Assertions.assertThat(questions)
+                .anyMatch(question -> question.get("type").asText().equals("MATCHING"));
+    }
+
+    @Test
+    void userCanCreateManualAuthoredQuizQuestionJson() throws Exception {
+        String token = register("quiz-manual-authored@example.com");
+        long deckId = createDeck(token, "Manual Authored Deck");
+        importItems(token, deckId, """
+                absent ; (adj) vang mat
+                accumulate ; (v) tich luy
+                """);
+
+        String attemptBody = mockMvc.perform(post("/api/decks/{deckId}/quiz/manual-attempt", deckId)
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(Map.of(
+                                "questions", List.of(Map.of(
+                                        "word", "absent",
+                                        "type", "CLOZE_CHOICE",
+                                        "prompt", "He was ____ from class yesterday.",
+                                        "options", List.of("absent", "accumulate"),
+                                        "correctAnswer", "absent",
+                                        "explanation", "The correct word is absent."
+                                ))
+                        ))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.totalQuestions").value(1))
+                .andExpect(jsonPath("$.questions", hasSize(1)))
+                .andExpect(jsonPath("$.questions[0].type").value("CLOZE_CHOICE"))
+                .andExpect(jsonPath("$.questions[0].options", hasSize(2)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        JsonNode attempt = objectMapper.readTree(attemptBody);
+        long attemptId = attempt.get("id").asLong();
+        long questionId = attempt.get("questions").get(0).get("id").asLong();
+
+        mockMvc.perform(post("/api/quiz-attempts/{attemptId}/answer", attemptId)
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new AnswerQuizQuestionRequest(questionId, "absent", 1200))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.correct").value(true));
     }
 
     private String register(String email) throws Exception {

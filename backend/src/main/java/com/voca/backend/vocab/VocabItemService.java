@@ -107,6 +107,7 @@ public class VocabItemService {
     public void delete(Authentication authentication, Long vocabId) {
         User user = userService.currentUser(authentication);
         VocabItem item = findOwnedVocab(user, vocabId);
+        userProgressRepository.deleteAllByVocabItemId(item.getId());
         vocabItemRepository.delete(item);
     }
 

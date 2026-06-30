@@ -32,6 +32,15 @@ public class QuizController {
         return quizService.createAttempt(authentication, request);
     }
 
+    @PostMapping("/api/decks/{deckId}/quiz/manual-attempt")
+    public QuizAttemptResponse createManualAttempt(
+            Authentication authentication,
+            @PathVariable Long deckId,
+            @RequestBody ManualQuizAttemptRequest request
+    ) {
+        return quizService.createManualAttempt(authentication, deckId, request);
+    }
+
     @PostMapping("/api/quiz-attempts/{attemptId}/answer")
     public QuizAnswerResponse answer(
             Authentication authentication,

@@ -95,7 +95,8 @@ export function LearnPanel({ token, deckId, totalWords, refreshDeck }: LearnPane
         question.sessionItemId,
         finalAnswer,
         question.questionType,
-        Date.now() - startedAt
+        Date.now() - startedAt,
+        question.questionToken
       );
       setFeedback(response);
       setAnswer(finalAnswer);
