@@ -102,7 +102,7 @@ public class QuizService {
     }
 
     @Transactional
-    public QuizAttemptResponse startQuiz(Authentication authentication, Long deckId) {
+    public QuizAttemptResponse startQuiz(Authentication authentication, Long deckId, StartQuizRequest request) {
         User user = userService.currentUser(authentication);
         Deck deck = deckService.findOwnedDeck(user, deckId);
         List<VocabItem> deckItems = loadDeckItems(deckId, user);
@@ -117,6 +117,10 @@ public class QuizService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No quiz questions saved for this deck yet");
         }
         Collections.shuffle(questions);
+
+        if (request != null && request.limit() != null && request.limit() > 0 && request.limit() < questions.size()) {
+            questions = new ArrayList<>(questions.subList(0, request.limit()));
+        }
 
         QuizAttempt attempt = new QuizAttempt();
         attempt.setDeck(deck);

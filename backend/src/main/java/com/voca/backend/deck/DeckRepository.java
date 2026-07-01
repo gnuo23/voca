@@ -10,4 +10,6 @@ public interface DeckRepository extends JpaRepository<Deck, Long> {
     List<Deck> findAllByOwnerIdOrderByUpdatedAtDesc(Long ownerId);
 
     Optional<Deck> findByIdAndOwnerId(Long id, Long ownerId);
+
+    boolean existsByOwnerIdAndName(Long ownerId, String name);
 }

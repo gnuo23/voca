@@ -6,6 +6,7 @@ import Link from "next/link";
 import { BookOpenCheck, ChevronRight, RotateCcw, Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { DeckForm } from "@/components/decks/DeckForm";
+import { DeckSharePanel } from "@/components/decks/DeckSharePanel";
 import { MatchGamePanel } from "@/components/match/MatchGamePanel";
 import { QuizPanel } from "@/components/quiz/QuizPanel";
 import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
@@ -35,25 +36,25 @@ export default function DeckDetailPage() {
   }, [params.deckId, router]);
 
   async function handleDelete() {
-    if (!confirm("Delete this deck and all its words?")) return;
+    if (!confirm("Xoá deck này và toàn bộ từ trong đó?")) return;
     setError("");
     try {
       await deleteDeck(token, params.deckId);
       router.push("/decks");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not delete deck");
+      setError(err instanceof Error ? err.message : "Không thể xoá deck");
     }
   }
 
   async function handleReset() {
-    if (!confirm("Reset all learning progress for this deck? Words will remain but progress goes back to 0.")) return;
+    if (!confirm("Đặt lại tiến độ học của deck này? Các từ vẫn giữ nguyên, nhưng tiến độ sẽ về 0.")) return;
     setError("");
     try {
       const updated = await resetDeckProgress(token, params.deckId);
       setDeck(updated);
       setVocabRefreshKey((v) => v + 1);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not reset progress");
+      setError(err instanceof Error ? err.message : "Không thể reset tiến độ");
     }
   }
 
@@ -76,63 +77,37 @@ export default function DeckDetailPage() {
       <header className="topbar">
         <div>
           <h1>{deck?.name ?? "Deck Detail"}</h1>
-          <p>{deck ? `${deck.totalWords} words · ${deck.learnedWords} learned · ${deck.dueWords} due` : "Loading deck"}</p>
+          <p>{deck ? `${deck.totalWords} từ · ${deck.learnedWords} đã thuộc · ${deck.dueWords} cần ôn` : "Đang tải deck"}</p>
         </div>
         <div className="button-row">
-          <button className="button" type="button" onClick={handleReset} disabled={!deck}>
+          <button className="button secondary-button" type="button" onClick={handleReset} disabled={!deck}>
             <RotateCcw size={18} aria-hidden="true" />
-            Reset Progress
+            Reset tiến độ
           </button>
           <button className="button danger-button" type="button" onClick={handleDelete} disabled={!deck}>
             <Trash2 size={18} aria-hidden="true" />
-            Delete
+            Xoá deck
           </button>
         </div>
       </header>
 
       <section className="grid">
-        <article className="card">
-          <h2>Progress</h2>
+        <article className="card stat-card">
+          <h2>Tổng số từ</h2>
           <div className="metric">{deck?.totalWords ?? 0}</div>
-          <p>Total words</p>
+          <p>từ trong deck</p>
         </article>
-        <article className="card">
-          <h2>Learned</h2>
+        <article className="card stat-card">
+          <h2>Đã học</h2>
           <div className="metric">{deck?.learnedWords ?? 0}</div>
-          <p>Placeholder</p>
+          <p>từ đã thuộc</p>
         </article>
-        <article className="card">
-          <h2>Due</h2>
+        <article className="card stat-card">
+          <h2>Cần ôn</h2>
           <div className="metric">{deck?.dueWords ?? 0}</div>
-          <p>Placeholder</p>
+          <p>từ chờ ôn lại</p>
         </article>
       </section>
-
-      <section className="card profile-card deck-edit-card">
-        <h2>Edit deck</h2>
-        {deck && (
-          <DeckForm
-            initialDeck={deck}
-            submitLabel="Save deck"
-            onSubmit={async (payload) => {
-              const updated = await updateDeck(token, params.deckId, payload);
-              setDeck(updated);
-              setSaved(true);
-            }}
-          />
-        )}
-        {saved && <p className="form-success">Deck saved.</p>}
-        {error && <p className="form-error">{error}</p>}
-      </section>
-
-      {deck && token && (
-        <VocabStudyPanel
-          token={token}
-          deckId={params.deckId}
-          refreshDeck={refreshDeck}
-          refreshKey={vocabRefreshKey}
-        />
-      )}
 
       {deck && (
         <Link href={`/decks/${params.deckId}/learn`} className="learn-entry-card">
@@ -158,6 +133,7 @@ export default function DeckDetailPage() {
           token={token}
           deckId={params.deckId}
           totalWords={deck.totalWords}
+          savedQuestionCount={deck.savedQuestionCount ?? 0}
           refreshDeck={refreshDeck}
         />
       )}
@@ -171,12 +147,42 @@ export default function DeckDetailPage() {
       )}
 
       {deck && token && (
+        <DeckSharePanel token={token} deckId={params.deckId} />
+      )}
+
+      {deck && token && (
+        <VocabStudyPanel
+          token={token}
+          deckId={params.deckId}
+          refreshDeck={refreshDeck}
+          refreshKey={vocabRefreshKey}
+        />
+      )}
+
+      {deck && token && (
         <VocabImportPanel
           token={token}
           deckId={params.deckId}
           onImported={handleImported}
         />
       )}
+
+      <section className="card profile-card deck-edit-card">
+        <h2>Chỉnh sửa deck</h2>
+        {deck && (
+          <DeckForm
+            initialDeck={deck}
+            submitLabel="Lưu thay đổi"
+            onSubmit={async (payload) => {
+              const updated = await updateDeck(token, params.deckId, payload);
+              setDeck(updated);
+              setSaved(true);
+            }}
+          />
+        )}
+        {saved && <p className="form-success">Deck đã được lưu.</p>}
+        {error && <p className="form-error">{error}</p>}
+      </section>
     </AppShell>
   );
 }

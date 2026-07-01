@@ -9,19 +9,16 @@ public record DeckResponse(
         Integer totalWords,
         Integer learnedWords,
         Integer dueWords,
+        Integer savedQuestionCount,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
 
     public static DeckResponse from(Deck deck) {
-        return from(deck, 0);
+        return from(deck, 0, 0, 0, 0);
     }
 
-    public static DeckResponse from(Deck deck, long totalWords) {
-        return from(deck, totalWords, 0, 0);
-    }
-
-    public static DeckResponse from(Deck deck, long totalWords, long learnedWords, long dueWords) {
+    public static DeckResponse from(Deck deck, long totalWords, long learnedWords, long dueWords, long savedQuestionCount) {
         return new DeckResponse(
                 deck.getId(),
                 deck.getName(),
@@ -29,6 +26,7 @@ public record DeckResponse(
                 Math.toIntExact(totalWords),
                 Math.toIntExact(learnedWords),
                 Math.toIntExact(dueWords),
+                Math.toIntExact(savedQuestionCount),
                 deck.getCreatedAt(),
                 deck.getUpdatedAt()
         );

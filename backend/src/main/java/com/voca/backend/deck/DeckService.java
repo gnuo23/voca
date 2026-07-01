@@ -1,5 +1,6 @@
 package com.voca.backend.deck;
 
+import com.voca.backend.quiz.QuestionRepository;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
 import com.voca.backend.vocab.UserProgressRepository;
@@ -21,17 +22,20 @@ public class DeckService {
     private final UserService userService;
     private final VocabItemRepository vocabItemRepository;
     private final UserProgressRepository userProgressRepository;
+    private final QuestionRepository questionRepository;
 
     public DeckService(
             DeckRepository deckRepository,
             UserService userService,
             VocabItemRepository vocabItemRepository,
-            UserProgressRepository userProgressRepository
+            UserProgressRepository userProgressRepository,
+            QuestionRepository questionRepository
     ) {
         this.deckRepository = deckRepository;
         this.userService = userService;
         this.vocabItemRepository = vocabItemRepository;
         this.userProgressRepository = userProgressRepository;
+        this.questionRepository = questionRepository;
     }
 
     @Transactional
@@ -105,7 +109,7 @@ public class DeckService {
         deck.setDescription(request.description() == null ? null : request.description().trim());
     }
 
-    private DeckResponse toResponse(Deck deck, User owner) {
+    public DeckResponse toResponse(Deck deck, User owner) {
         long totalWords = vocabItemRepository.countByDeckId(deck.getId());
         List<Long> vocabIds = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
                 .stream()
@@ -116,6 +120,7 @@ public class DeckService {
                 .filter(progress -> Set.of(VocabProgressStatus.REVIEW, VocabProgressStatus.MASTERED).contains(progress.getStatus()))
                 .count();
         long dueWords = totalWords - learnedWords;
-        return DeckResponse.from(deck, totalWords, learnedWords, dueWords);
+        long savedQuestionCount = questionRepository.countByDeckIdAndOwnerId(deck.getId(), owner.getId());
+        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, savedQuestionCount);
     }
 }

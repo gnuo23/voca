@@ -19,6 +19,7 @@ type QuizPanelProps = {
   token: string;
   deckId: string;
   totalWords: number;
+  savedQuestionCount: number;
   refreshDeck: () => void;
 };
 
@@ -48,7 +49,7 @@ function PronounceButton({ text, className = "" }: { text: string; className?: s
   );
 }
 
-export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelProps) {
+export function QuizPanel({ token, deckId, totalWords, savedQuestionCount, refreshDeck }: QuizPanelProps) {
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null);
   const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -60,7 +61,17 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
   const [showBulkImport, setShowBulkImport] = useState(false);
   const [bulkText, setBulkText] = useState("");
   const [bulkPreview, setBulkPreview] = useState<QuizImportPreview | null>(null);
+  const [questionLimit, setQuestionLimit] = useState<number>(Math.max(1, savedQuestionCount));
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    setQuestionLimit((current) => {
+      if (savedQuestionCount <= 0) return 1;
+      if (current > savedQuestionCount) return savedQuestionCount;
+      if (current < 1) return 1;
+      return current;
+    });
+  }, [savedQuestionCount]);
 
   const currentQuestion = useMemo(() => {
     if (!attempt || attempt.questions.length === 0) {
@@ -103,7 +114,8 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
     setError("");
     resetRunState();
     try {
-      const nextAttempt = await startQuiz(token, deckId);
+      const safeLimit = Math.max(1, Math.min(questionLimit || 1, Math.max(1, savedQuestionCount)));
+      const nextAttempt = await startQuiz(token, deckId, safeLimit);
       setAttempt(nextAttempt);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không thể bắt đầu quiz");
@@ -229,13 +241,9 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
       <div className="section-heading">
         <div>
           <h2>Quiz</h2>
-          <p>{attempt ? `Đã trả lời ${answeredCount}/${attempt.totalQuestions}` : "Trắc nghiệm 4 lựa chọn từ các câu hỏi bạn đã thêm"}</p>
+          <p>{attempt ? `Đã trả lời ${answeredCount}/${attempt.totalQuestions}` : `Trắc nghiệm 4 lựa chọn · ${savedQuestionCount} câu hỏi đã lưu`}</p>
         </div>
         <div className="button-row">
-          <button className="button" type="button" onClick={beginQuiz} disabled={isLoading || totalWords < 4}>
-            <ListChecks size={18} aria-hidden="true" />
-            {attempt ? "Quiz mới" : "Bắt đầu Quiz"}
-          </button>
           <button
             className="button secondary-button"
             type="button"
@@ -243,13 +251,73 @@ export function QuizPanel({ token, deckId, totalWords, refreshDeck }: QuizPanelP
             disabled={isLoading || totalWords < 4}
           >
             <Eye size={18} aria-hidden="true" />
-            Thêm câu hỏi
+            {showBulkImport ? "Đóng" : "Thêm câu hỏi"}
           </button>
         </div>
       </div>
 
       {error && <p className="form-error">{error}</p>}
       {totalWords < 4 && <p className="form-muted">Cần ít nhất 4 từ vựng trong bộ thẻ để tạo 4 lựa chọn đáp án.</p>}
+
+      {!attempt && !showBulkImport && totalWords >= 4 && (
+        <div className="quiz-start-form">
+          {savedQuestionCount === 0 ? (
+            <div className="quiz-empty-state">
+              <ListChecks size={28} aria-hidden="true" />
+              <h3>Chưa có câu hỏi quiz</h3>
+              <p>Hãy thêm danh sách câu hỏi <code>từ -- câu hỏi</code> để bắt đầu.</p>
+              <button
+                className="button"
+                type="button"
+                onClick={() => setShowBulkImport(true)}
+              >
+                <Eye size={18} aria-hidden="true" />
+                Thêm câu hỏi ngay
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="quiz-start-row">
+                <label className="quiz-start-label" htmlFor="quiz-count">Số câu trong lượt này</label>
+                <div className="quiz-start-controls">
+                  <input
+                    id="quiz-count"
+                    type="number"
+                    min={1}
+                    max={savedQuestionCount}
+                    value={questionLimit}
+                    onChange={(event) => {
+                      const value = Number(event.target.value) || 1;
+                      setQuestionLimit(Math.max(1, Math.min(value, savedQuestionCount)));
+                    }}
+                    className="quiz-count-input"
+                  />
+                  <span className="form-muted">/ {savedQuestionCount}</span>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={beginQuiz}
+                    disabled={isLoading || savedQuestionCount === 0}
+                  >
+                    <ListChecks size={18} aria-hidden="true" />
+                    Bắt đầu Quiz
+                  </button>
+                </div>
+              </div>
+              <p className="form-muted">Mỗi lần chơi, hệ thống xáo lại thứ tự câu và 3 đáp án sai.</p>
+            </>
+          )}
+        </div>
+      )}
+
+      {attempt && !result && (
+        <div className="button-row quiz-new-row">
+          <button className="button secondary-button" type="button" onClick={beginQuiz} disabled={isLoading}>
+            <ListChecks size={18} aria-hidden="true" />
+            Quiz mới
+          </button>
+        </div>
+      )}
 
       {showBulkImport && (
         <div className="quiz-manual-panel">

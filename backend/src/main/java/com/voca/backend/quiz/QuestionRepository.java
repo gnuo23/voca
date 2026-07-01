@@ -14,5 +14,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     List<Question> findAllByDeckIdAndOwnerIdOrderByCreatedAtAsc(Long deckId, Long ownerId);
 
+    long countByDeckIdAndOwnerId(Long deckId, Long ownerId);
+
     Optional<Question> findByIdAndOwnerId(Long id, Long ownerId);
 }

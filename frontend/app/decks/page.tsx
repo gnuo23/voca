@@ -5,48 +5,70 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Plus, Layers } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { DeckImportFromCodePanel } from "@/components/decks/DeckImportFromCodePanel";
 import { Deck, getStoredToken, listDecks } from "@/lib/api";
 
 export default function DecksPage() {
   const router = useRouter();
+  const [token, setToken] = useState("");
   const [decks, setDecks] = useState<Deck[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const token = getStoredToken();
-    if (!token) {
+    const storedToken = getStoredToken();
+    if (!storedToken) {
       router.push("/login");
       return;
     }
 
-    listDecks(token)
+    setToken(storedToken);
+    listDecks(storedToken)
       .then(setDecks)
       .catch(() => router.push("/login"))
       .finally(() => setIsLoading(false));
   }, [router]);
 
+  async function refreshDecks() {
+    if (!token) return;
+    try {
+      setDecks(await listDecks(token));
+    } catch {
+      // ignore - the import flow will navigate away on success
+    }
+  }
+
   return (
     <AppShell>
       <header className="topbar">
         <div>
-          <h1>My Decks</h1>
-          <p>{isLoading ? "Loading decks" : `${decks.length} deck${decks.length === 1 ? "" : "s"}`}</p>
+          <h1>Bộ thẻ của tôi</h1>
+          <p>{isLoading ? "Đang tải…" : `${decks.length} deck`}</p>
         </div>
-        <Link className="button" href="/decks/new">
-          <Plus size={18} aria-hidden="true" />
-          New deck
-        </Link>
+        <div className="button-row">
+          {token && (
+            <DeckImportFromCodePanel token={token} onImported={refreshDecks} />
+          )}
+          <Link className="button" href="/decks/new">
+            <Plus size={18} aria-hidden="true" />
+            Deck mới
+          </Link>
+        </div>
       </header>
 
       {decks.length === 0 && !isLoading ? (
         <section className="empty-state">
           <Layers size={28} aria-hidden="true" />
-          <h2>No decks yet</h2>
-          <p>Create your first vocabulary deck.</p>
-          <Link className="button" href="/decks/new">
-            <Plus size={18} aria-hidden="true" />
-            New deck
-          </Link>
+          <h2>Chưa có deck nào</h2>
+          <p>Tạo bộ thẻ đầu tiên hoặc nhập mã chia sẻ từ người khác.</p>
+          <div className="button-row">
+            <Link className="button" href="/decks/new">
+              <Plus size={18} aria-hidden="true" />
+              Tạo deck mới
+            </Link>
+            {token && (
+              <DeckImportFromCodePanel token={token} onImported={refreshDecks} />
+            )}
+          </div>
         </section>
       ) : (
         <section className="deck-list" aria-label="Vocabulary decks">
@@ -54,12 +76,12 @@ export default function DecksPage() {
             <Link className="card deck-card" key={deck.id} href={`/decks/${deck.id}`}>
               <div>
                 <h2>{deck.name}</h2>
-                <p>{deck.description || "No description"}</p>
+                <p>{deck.description || "Chưa có mô tả"}</p>
               </div>
               <div className="progress-row">
-                <span>{deck.totalWords} words</span>
-                <span>{deck.learnedWords} learned</span>
-                <span>{deck.dueWords} due</span>
+                <span>{deck.totalWords} từ</span>
+                <span>{deck.learnedWords} đã thuộc</span>
+                <span>{deck.dueWords} cần ôn</span>
               </div>
             </Link>
           ))}

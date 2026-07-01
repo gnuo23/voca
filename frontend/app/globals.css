@@ -3099,3 +3099,199 @@ input, select, textarea { font: inherit; }
   font-weight: 700;
   margin: 0 2px;
 }
+
+/* ===== Quiz start form ===== */
+.quiz-start-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 18px 20px;
+  background: var(--bg-elevated, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.quiz-start-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.quiz-start-label {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.quiz-start-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quiz-new-row {
+  margin-top: 16px;
+}
+
+.quiz-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.quiz-empty-state h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.quiz-empty-state p {
+  margin: 0;
+  max-width: 360px;
+}
+
+.quiz-empty-state code {
+  background: var(--surface);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* ===== Stat cards (deck detail) ===== */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-card h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.stat-card .metric {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ===== Section heading icon ===== */
+.section-heading-icon {
+  vertical-align: -3px;
+  margin-right: 6px;
+  color: var(--primary, #8b5cf6);
+}
+
+/* ===== Share / Import deck panels ===== */
+.share-card,
+.deck-import-card {
+  margin-top: 16px;
+}
+
+.share-code-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--surface, rgba(139, 92, 246, 0.08));
+  border: 1px dashed rgba(139, 92, 246, 0.45);
+  border-radius: var(--radius);
+  margin: 12px 0;
+}
+
+.share-code-value {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  word-break: break-all;
+}
+
+.share-code-actions {
+  margin-top: 4px;
+}
+
+.share-import-field {
+  margin-top: 12px;
+}
+
+.share-code-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.share-code-input:focus {
+  outline: none;
+  border-color: var(--primary, #8b5cf6);
+}
+
+.share-preview {
+  margin-top: 12px;
+  padding: 16px;
+  background: var(--surface, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.share-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+
+.share-preview-row strong {
+  color: var(--text);
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.icon-button:hover {
+  color: var(--text);
+  border-color: var(--text-secondary);
+}

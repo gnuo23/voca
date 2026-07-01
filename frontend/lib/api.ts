@@ -61,6 +61,7 @@ export type Deck = {
   totalWords: number;
   learnedWords: number;
   dueWords: number;
+  savedQuestionCount: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -68,6 +69,22 @@ export type Deck = {
 export type DeckPayload = {
   name: string;
   description: string;
+};
+
+export type DeckShareCode = {
+  deckId: number;
+  deckName: string;
+  code: string;
+  createdAt: string;
+};
+
+export type DeckSharePreview = {
+  code: string;
+  deckName: string;
+  description: string | null;
+  ownerName: string;
+  totalWords: number;
+  totalQuestions: number;
 };
 
 export type VocabImportStatus =
@@ -668,11 +685,41 @@ export async function saveQuizImport(
 
 export async function startQuiz(
   token: string,
-  deckId: string
+  deckId: string,
+  limit?: number
 ): Promise<QuizAttempt> {
+  const body = limit && limit > 0 ? JSON.stringify({ limit }) : undefined;
   return apiRequest<QuizAttempt>(`/api/decks/${deckId}/quiz/start`, {
     method: "POST",
+    token,
+    body
+  });
+}
+
+export async function getDeckShareCode(token: string, deckId: string): Promise<DeckShareCode> {
+  return apiRequest<DeckShareCode>(`/api/decks/${deckId}/share-code`, { token });
+}
+
+export async function rotateDeckShareCode(token: string, deckId: string): Promise<DeckShareCode> {
+  return apiRequest<DeckShareCode>(`/api/decks/${deckId}/share-code/rotate`, {
+    method: "POST",
     token
+  });
+}
+
+export async function previewDeckShare(token: string, code: string): Promise<DeckSharePreview> {
+  return apiRequest<DeckSharePreview>(`/api/deck-shares/preview`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ code })
+  });
+}
+
+export async function importDeckShare(token: string, code: string): Promise<Deck> {
+  return apiRequest<Deck>(`/api/deck-shares/import`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ code })
   });
 }
 

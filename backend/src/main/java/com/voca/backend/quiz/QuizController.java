@@ -40,9 +40,10 @@ public class QuizController {
     @PostMapping("/api/decks/{deckId}/quiz/start")
     public QuizAttemptResponse startQuiz(
             Authentication authentication,
-            @PathVariable Long deckId
+            @PathVariable Long deckId,
+            @RequestBody(required = false) StartQuizRequest request
     ) {
-        return quizService.startQuiz(authentication, deckId);
+        return quizService.startQuiz(authentication, deckId, request);
     }
 
     @PostMapping("/api/quiz-attempts/{attemptId}/answer")
