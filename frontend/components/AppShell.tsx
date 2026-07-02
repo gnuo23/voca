@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { AlertTriangle, CalendarClock, Home, Layers, LogOut, Menu, Repeat2, UserRound, X } from "lucide-react";
+import { AlertTriangle, CalendarClock, Flame, Home, Layers, LogOut, Menu, Moon, Repeat2, Sparkles, UserRound, X } from "lucide-react";
 import { clearToken } from "@/lib/api";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -91,10 +91,29 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               {item.label}
             </Link>
           ))}
+          <div className="sidebar-streak-card" aria-label="Learning streak">
+            <div>
+              <span>Streak</span>
+              <strong>7 <small>ngày</small></strong>
+              <p>Cố lên! Bạn đang làm rất tốt!</p>
+            </div>
+            <Flame size={30} aria-hidden="true" />
+            <div className="streak-dots" aria-hidden="true">
+              {["T2", "T3", "T4", "T5", "T6", "T7", "CN"].map((day, index) => (
+                <span key={day} className={index < 6 ? "done" : ""}>
+                  {day}
+                </span>
+              ))}
+            </div>
+          </div>
           <button className="nav-button" type="button" onClick={signOut}>
             <LogOut size={18} aria-hidden="true" />
             Sign out
           </button>
+          <div className="sidebar-theme-switch" aria-hidden="true">
+            <span><Moon size={16} /></span>
+            <span className="active"><Sparkles size={16} /></span>
+          </div>
         </nav>
       </aside>
 

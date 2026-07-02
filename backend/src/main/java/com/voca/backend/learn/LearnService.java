@@ -24,13 +24,11 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.EnumSet;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -38,7 +36,7 @@ import java.util.stream.Collectors;
 public class LearnService {
 
     private static final int INTRO_BATCH_SIZE = 6;
-    private static final String DEFAULT_QUESTION_TYPES = "MCQ,WRITTEN";
+    private static final String DEFAULT_QUESTION_TYPES = "MCQ,TRUE_FALSE,WRITTEN";
 
     private final LearnSessionRepository sessionRepo;
     private final LearnSessionItemRepository sessionItemRepo;
@@ -519,58 +517,16 @@ public class LearnService {
     }
 
     private LearnQuestionType selectQuestionType(LearnSession session, LearnSessionItem item) {
-        Set<LearnQuestionType> enabled = enabledQuestionTypes(session);
         LearnItemStage stage = normalizeStage(item.getStage());
-        // Step 1 (NEW): MCQ for recognition
+        // Fixed Learn path: MCQ -> Written EN->VI -> Written VI->EN.
         if (stage == LearnItemStage.NEW || stage == LearnItemStage.SEEN) {
-            return seededChoice(session, item, enabled, LearnQuestionType.MCQ, LearnQuestionType.TRUE_FALSE, LearnQuestionType.WRITTEN);
-        }
-        // Steps 2 & 3 (LEARNING, FAMILIAR): Written for recall
-        return preferWritten(enabled);
-    }
-
-    private LearnQuestionType seededChoice(
-            LearnSession session,
-            LearnSessionItem item,
-            Set<LearnQuestionType> enabled,
-            LearnQuestionType first,
-            LearnQuestionType second,
-            LearnQuestionType fallback
-    ) {
-        List<LearnQuestionType> choices = new ArrayList<>();
-        if (enabled.contains(first)) {
-            choices.add(first);
-        }
-        if (enabled.contains(second)) {
-            choices.add(second);
-        }
-        if (enabled.contains(fallback)) {
-            choices.add(fallback);
-        }
-        if (choices.isEmpty()) {
             return LearnQuestionType.MCQ;
         }
-        return choices.get(seededQuestionRandom(session.getId(), item).nextInt(choices.size()));
-    }
-
-    private LearnQuestionType preferWritten(Set<LearnQuestionType> enabled) {
-        if (enabled.contains(LearnQuestionType.WRITTEN)) {
-            return LearnQuestionType.WRITTEN;
-        }
-        if (enabled.contains(LearnQuestionType.TRUE_FALSE)) {
-            return LearnQuestionType.TRUE_FALSE;
-        }
-        return LearnQuestionType.MCQ;
+        return LearnQuestionType.WRITTEN;
     }
 
     private LearnAnswerDirection selectAnswerDirection(LearnSession session, LearnSessionItem item) {
-        if (session.getAnswerDirection() == LearnAnswerDirection.WORD_TO_MEANING) {
-            return LearnAnswerDirection.WORD_TO_MEANING;
-        }
-        if (session.getAnswerDirection() == LearnAnswerDirection.MEANING_TO_WORD) {
-            return LearnAnswerDirection.MEANING_TO_WORD;
-        }
-        // BOTH: English→Vietnamese while learning, Vietnamese→English as final confirmation
+        // The Learn path always starts from English, then confirms recall from Vietnamese.
         LearnItemStage stage = normalizeStage(item.getStage());
         if (stage == LearnItemStage.FAMILIAR) {
             return LearnAnswerDirection.MEANING_TO_WORD;
@@ -706,8 +662,7 @@ public class LearnService {
 
     private boolean isFinishedItem(LearnSession session, LearnSessionItem item) {
         LearnItemStage stage = normalizeStage(item.getStage());
-        return stage == LearnItemStage.MASTERED
-                || (session.getGoal() == LearnGoal.QUICK_REVIEW && stage == LearnItemStage.FAMILIAR);
+        return stage == LearnItemStage.MASTERED;
     }
 
     private LearnQuestionResponse.Progress progressFor(LearnSession session, List<LearnSessionItem> items) {
@@ -775,23 +730,6 @@ public class LearnService {
             return LearnItemStage.LEARNING;
         }
         return stage;
-    }
-
-    private Set<LearnQuestionType> enabledQuestionTypes(LearnSession session) {
-        if (!hasText(session.getEnabledQuestionTypes())) {
-            return EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN);
-        }
-
-        EnumSet<LearnQuestionType> types = EnumSet.noneOf(LearnQuestionType.class);
-        for (String value : session.getEnabledQuestionTypes().split(",")) {
-            try {
-                types.add(LearnQuestionType.valueOf(value.trim()));
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
-        return types.isEmpty()
-                ? EnumSet.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
-                : types;
     }
 
     private String serializeQuestionTypes(List<LearnQuestionType> requestedTypes) {

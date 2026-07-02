@@ -2,10 +2,11 @@
 
 import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { X, Settings, ChevronDown } from "lucide-react";
+import { X, Settings, ChevronDown, RotateCcw } from "lucide-react";
 import { LearnSetup } from "@/components/learn/LearnSetup";
 import { LearnQuestion } from "@/components/learn/LearnQuestion";
 import { LearnResult } from "@/components/learn/LearnResult";
+import { clearStoredLearnState, readStoredLearnState, writeStoredLearnState } from "@/lib/learnStorage";
 import {
   Deck,
   getDeck,
@@ -22,53 +23,9 @@ import {
   getLearnSessionResult,
   overrideLearnAnswer,
   adjustLearnQuality,
+  resetDeckProgress,
   ReviewQuality,
 } from "@/lib/api";
-
-type StoredLearnState = {
-  version: 1;
-  session: LearnSession;
-  question: LearnQuestionData | null;
-  questionTurn: number;
-  progress: LearnProgress | null;
-  pendingNext: boolean;
-  savedAt: number;
-};
-
-function learnStorageKey(deckId: string) {
-  return `voca.learn.${deckId}.active`;
-}
-
-function readStoredLearnState(deckId: string): StoredLearnState | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = window.localStorage.getItem(learnStorageKey(deckId));
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as Partial<StoredLearnState>;
-    if (parsed.version !== 1 || !parsed.session) return null;
-    return parsed as StoredLearnState;
-  } catch {
-    window.localStorage.removeItem(learnStorageKey(deckId));
-    return null;
-  }
-}
-
-function writeStoredLearnState(deckId: string, state: Omit<StoredLearnState, "version" | "savedAt">) {
-  if (typeof window === "undefined") return;
-  window.localStorage.setItem(
-    learnStorageKey(deckId),
-    JSON.stringify({
-      version: 1,
-      savedAt: Date.now(),
-      ...state,
-    })
-  );
-}
-
-function clearStoredLearnState(deckId: string) {
-  if (typeof window === "undefined") return;
-  window.localStorage.removeItem(learnStorageKey(deckId));
-}
 
 export default function LearnPage() {
   const params = useParams();
@@ -82,6 +39,7 @@ export default function LearnPage() {
   const [questionTurn, setQuestionTurn] = useState(0);
   const [result, setResult] = useState<LearnSessionResultData | null>(null);
   const [progress, setProgress] = useState<LearnProgress | null>(null);
+  const [showWrittenHint, setShowWrittenHint] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const questionStartedAt = useRef<number>(0);
@@ -112,6 +70,7 @@ export default function LearnPage() {
     setSession(stored.session);
     setProgress(stored.progress ?? stored.question?.progress ?? null);
     setQuestionTurn(stored.questionTurn);
+    setShowWrittenHint(stored.showWrittenHint ?? true);
 
     if (stored.pendingNext) {
       setIsLoading(true);
@@ -130,6 +89,7 @@ export default function LearnPage() {
             questionTurn: stored.questionTurn + 1,
             progress: nextQuestion.progress,
             pendingNext: false,
+            showWrittenHint: stored.showWrittenHint ?? true,
           });
         })
         .catch((err: unknown) => {
@@ -172,23 +132,26 @@ export default function LearnPage() {
   }, [deckId, router]);
 
   const handleStart = useCallback(
-    async (options: StartLearnOptions) => {
+    async (options: StartLearnOptions, preferences: { showWrittenHint: boolean }) => {
       if (!token) return;
       setIsLoading(true);
       setError(null);
       try {
+        setShowWrittenHint(preferences.showWrittenHint);
         const newSession = await startLearnSession(token, deckId, options);
         setSession(newSession);
         const firstQuestion = await getNextLearnQuestion(token, newSession.id);
+        const nextQuestionTurn = 1;
         setQuestion(firstQuestion);
-        setQuestionTurn((current) => current + 1);
+        setQuestionTurn(nextQuestionTurn);
         setProgress(firstQuestion.progress);
         writeStoredLearnState(deckId, {
           session: newSession,
           question: firstQuestion.sessionItemId ? firstQuestion : null,
-          questionTurn: questionTurn + 1,
+          questionTurn: nextQuestionTurn,
           progress: firstQuestion.progress,
           pendingNext: false,
+          showWrittenHint: preferences.showWrittenHint,
         });
       } catch (err: unknown) {
         setError(err instanceof Error ? err.message : "Failed to start session");
@@ -232,6 +195,7 @@ export default function LearnPage() {
             questionTurn,
             progress: result.progress,
             pendingNext: true,
+            showWrittenHint,
           });
         }
 
@@ -241,7 +205,7 @@ export default function LearnPage() {
         return null;
       }
     },
-    [token, session, question]
+    [token, session, question, deckId, questionTurn, showWrittenHint]
   );
 
   const handleNext = useCallback(async () => {
@@ -262,6 +226,7 @@ export default function LearnPage() {
           questionTurn: questionTurn + 1,
           progress: nextQuestion.progress,
           pendingNext: false,
+          showWrittenHint,
         });
       } else {
         clearStoredLearnState(deckId);
@@ -272,7 +237,7 @@ export default function LearnPage() {
     } finally {
       setIsLoading(false);
     }
-  }, [token, session, result, deckId, questionTurn]);
+  }, [token, session, result, deckId, questionTurn, showWrittenHint]);
 
   const handleRestart = useCallback(() => {
     clearStoredLearnState(deckId);
@@ -283,6 +248,28 @@ export default function LearnPage() {
     setProgress(null);
     setError(null);
   }, [deckId]);
+
+  const handleResetLearn = useCallback(async () => {
+    if (!token || !deck) return;
+    if (!confirm("Reset toàn bộ tiến độ học của deck này? Phiên Learn hiện tại cũng sẽ bắt đầu lại từ đầu.")) return;
+
+    setIsLoading(true);
+    setError(null);
+    try {
+      const updatedDeck = await resetDeckProgress(token, deckId);
+      clearStoredLearnState(deckId);
+      setDeck(updatedDeck);
+      setSession(null);
+      setQuestion(null);
+      setQuestionTurn(0);
+      setResult(null);
+      setProgress(null);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to reset learn progress");
+    } finally {
+      setIsLoading(false);
+    }
+  }, [token, deck, deckId]);
 
   const handleBack = useCallback(() => {
     router.push(`/decks/${deckId}`);
@@ -312,6 +299,7 @@ export default function LearnPage() {
             questionTurn,
             progress: overrideResult.progress,
             pendingNext: true,
+            showWrittenHint,
           });
         }
 
@@ -321,7 +309,7 @@ export default function LearnPage() {
         return null;
       }
     },
-    [token, session, deckId, questionTurn]
+    [token, session, deckId, questionTurn, showWrittenHint]
   );
 
   const handleQuality = useCallback(
@@ -385,6 +373,16 @@ export default function LearnPage() {
           <button
             type="button"
             className="learn-topbar-icon-btn"
+            onClick={handleResetLearn}
+            disabled={!deck || isLoading}
+            aria-label="Reset learn"
+            title="Reset Learn"
+          >
+            <RotateCcw size={18} />
+          </button>
+          <button
+            type="button"
+            className="learn-topbar-icon-btn"
             aria-label="Settings"
           >
             <Settings size={18} />
@@ -422,6 +420,7 @@ export default function LearnPage() {
             onOverride={handleOverride}
             onQuality={handleQuality}
             isLoading={isLoading}
+            showWrittenHint={showWrittenHint}
           />
         )}
 

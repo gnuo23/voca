@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Settings, BookOpenCheck } from "lucide-react";
+import { Settings, BookOpenCheck, Lightbulb } from "lucide-react";
 import {
   StartLearnOptions,
   LearnSessionScope,
@@ -15,7 +15,7 @@ type LearnSetupProps = {
   deckName: string;
   totalWords: number;
   learnedWords: number;
-  onStart: (options: StartLearnOptions) => void;
+  onStart: (options: StartLearnOptions, preferences: { showWrittenHint: boolean }) => void;
   isLoading: boolean;
 };
 
@@ -33,8 +33,10 @@ export function LearnSetup({
   const [grading, setGrading] = useState<LearnGradingMode>("ACCENT_INSENSITIVE");
   const [questionTypes, setQuestionTypes] = useState<LearnQuestionType[]>([
     "MCQ",
+    "TRUE_FALSE",
     "WRITTEN",
   ]);
+  const [showWrittenHint, setShowWrittenHint] = useState(true);
 
   const unmastered = totalWords - learnedWords;
   const termsToStudy = unmastered > 0 ? unmastered : totalWords;
@@ -51,7 +53,10 @@ export function LearnSetup({
   };
 
   const handleStart = () => {
-    onStart({ scope, goal, answerDirection: direction, gradingMode: grading, questionTypes });
+    onStart(
+      { scope, goal, answerDirection: direction, gradingMode: grading, questionTypes },
+      { showWrittenHint }
+    );
   };
 
   return (
@@ -142,6 +147,20 @@ export function LearnSetup({
                   {type === "MCQ" ? "MCQ" : type === "TRUE_FALSE" ? "True/False" : "Written"}
                 </button>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <span>Written hint</span>
+            <div className="learn-toggle-row">
+              <button
+                type="button"
+                className={`status-pill ${showWrittenHint ? "ok" : "neutral"}`}
+                onClick={() => setShowWrittenHint((value) => !value)}
+              >
+                <Lightbulb size={14} />
+                {showWrittenHint ? "Hint on" : "Hint off"}
+              </button>
             </div>
           </div>
         </div>

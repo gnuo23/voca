@@ -12,6 +12,7 @@ type LearnQuestionProps = {
   onOverride?: (sessionItemId: number) => Promise<LearnAnswer | null>;
   onQuality?: (sessionItemId: number, quality: ReviewQuality) => Promise<void>;
   isLoading: boolean;
+  showWrittenHint: boolean;
 };
 
 /** Resolve the feedback class for the question card border/bg */
@@ -108,6 +109,7 @@ export function LearnQuestion({
   onOverride,
   onQuality,
   isLoading,
+  showWrittenHint,
 }: LearnQuestionProps) {
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState<LearnAnswer | null>(null);
@@ -386,7 +388,7 @@ export function LearnQuestion({
                 disabled={submitting || isLoading}
                 autoComplete="off"
               />
-              {question.hint && (
+              {showWrittenHint && question.hint && (
                 <div className="learn-written-hint">
                   Hint: <span>{question.hint}</span>
                 </div>

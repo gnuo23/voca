@@ -1,6 +1,7 @@
 package com.voca.backend.deck;
 
 import com.voca.backend.quiz.QuestionRepository;
+import com.voca.backend.learn.LearnSessionRepository;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
 import com.voca.backend.vocab.UserProgressRepository;
@@ -23,19 +24,22 @@ public class DeckService {
     private final VocabItemRepository vocabItemRepository;
     private final UserProgressRepository userProgressRepository;
     private final QuestionRepository questionRepository;
+    private final LearnSessionRepository learnSessionRepository;
 
     public DeckService(
             DeckRepository deckRepository,
             UserService userService,
             VocabItemRepository vocabItemRepository,
             UserProgressRepository userProgressRepository,
-            QuestionRepository questionRepository
+            QuestionRepository questionRepository,
+            LearnSessionRepository learnSessionRepository
     ) {
         this.deckRepository = deckRepository;
         this.userService = userService;
         this.vocabItemRepository = vocabItemRepository;
         this.userProgressRepository = userProgressRepository;
         this.questionRepository = questionRepository;
+        this.learnSessionRepository = learnSessionRepository;
     }
 
     @Transactional
@@ -101,6 +105,7 @@ public class DeckService {
         if (!vocabIds.isEmpty()) {
             userProgressRepository.deleteAllByUserIdAndVocabItemIdIn(owner.getId(), vocabIds);
         }
+        learnSessionRepository.deleteAllByUserIdAndDeckId(owner.getId(), deck.getId());
         return toResponse(deck, owner);
     }
 

@@ -51,7 +51,7 @@ public class LearnSession {
     private LearnGradingMode gradingMode = LearnGradingMode.ACCENT_INSENSITIVE;
 
     @Column(name = "enabled_question_types", nullable = false, length = 100)
-    private String enabledQuestionTypes = "MCQ,WRITTEN";
+    private String enabledQuestionTypes = "MCQ,TRUE_FALSE,WRITTEN";
 
     @Column(name = "total_terms", nullable = false)
     private int totalTerms;
