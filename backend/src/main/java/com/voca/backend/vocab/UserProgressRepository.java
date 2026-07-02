@@ -21,6 +21,8 @@ public interface UserProgressRepository extends JpaRepository<UserProgress, Long
 
     long countByUserIdAndNextReviewAtLessThan(Long userId, LocalDateTime dateTime);
 
+    long countByUserIdAndVocabItemDeckIdAndNextReviewAtLessThanEqual(Long userId, Long deckId, LocalDateTime now);
+
     long countByUserIdAndLastReviewedAtBetween(Long userId, LocalDateTime start, LocalDateTime end);
 
     long countByUserIdAndCreatedAtBetweenAndLastReviewedAtIsNotNull(Long userId, LocalDateTime start, LocalDateTime end);

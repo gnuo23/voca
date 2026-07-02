@@ -120,7 +120,10 @@ public class DeckService {
                 .filter(progress -> Set.of(VocabProgressStatus.REVIEW, VocabProgressStatus.MASTERED).contains(progress.getStatus()))
                 .count();
         long dueWords = totalWords - learnedWords;
+        long dueTodayCount = userProgressRepository.countByUserIdAndVocabItemDeckIdAndNextReviewAtLessThanEqual(
+                owner.getId(), deck.getId(), java.time.LocalDateTime.now()
+        );
         long savedQuestionCount = questionRepository.countByDeckIdAndOwnerId(deck.getId(), owner.getId());
-        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, savedQuestionCount);
+        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount);
     }
 }

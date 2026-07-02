@@ -77,7 +77,7 @@ export default function DeckDetailPage() {
       <header className="topbar">
         <div>
           <h1>{deck?.name ?? "Deck Detail"}</h1>
-          <p>{deck ? `${deck.totalWords} từ · ${deck.learnedWords} đã thuộc · ${deck.dueWords} cần ôn` : "Đang tải deck"}</p>
+          <p>{deck ? `${deck.totalWords} từ · ${deck.learnedWords} đã thuộc · ${deck.dueTodayCount ?? 0} cần ôn hôm nay` : "Đang tải deck"}</p>
         </div>
         <div className="button-row">
           <button className="button secondary-button" type="button" onClick={handleReset} disabled={!deck}>
@@ -103,9 +103,9 @@ export default function DeckDetailPage() {
           <p>từ đã thuộc</p>
         </article>
         <article className="card stat-card">
-          <h2>Cần ôn</h2>
-          <div className="metric">{deck?.dueWords ?? 0}</div>
-          <p>từ chờ ôn lại</p>
+          <h2>Cần ôn hôm nay</h2>
+          <div className="metric">{deck?.dueTodayCount ?? 0}</div>
+          <p>đến hạn ôn ngay</p>
         </article>
       </section>
 
@@ -115,13 +115,15 @@ export default function DeckDetailPage() {
             <BookOpenCheck size={24} aria-hidden="true" />
           </div>
           <div className="learn-entry-info">
-            <h3>Learn</h3>
+            <h3>Học từ vựng</h3>
             <p>
               {deck.totalWords < 2
-                ? "Need at least 2 words to start"
-                : deck.totalWords - deck.learnedWords > 0
-                  ? `${deck.totalWords - deck.learnedWords} terms to study`
-                  : "All terms mastered — review again"}
+                ? "Cần ít nhất 2 từ để bắt đầu"
+                : (deck.dueTodayCount ?? 0) > 0
+                  ? `${deck.dueTodayCount} từ cần ôn ngay hôm nay`
+                  : deck.totalWords - deck.learnedWords > 0
+                    ? `${deck.totalWords - deck.learnedWords} từ mới chưa học`
+                    : "Bạn đã thuộc hết deck — ôn lại nhé"}
             </p>
           </div>
           <ChevronRight size={20} className="learn-entry-arrow" aria-hidden="true" />

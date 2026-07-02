@@ -61,6 +61,7 @@ export type Deck = {
   totalWords: number;
   learnedWords: number;
   dueWords: number;
+  dueTodayCount: number;
   savedQuestionCount: number;
   createdAt: string;
   updatedAt: string;
@@ -264,6 +265,14 @@ export type LearnItemStage = "NEW" | "SEEN" | "LEARNING" | "FAMILIAR" | "MASTERE
 export type LearnQuestionType = "MCQ" | "WRITTEN" | "TRUE_FALSE";
 export type LearnVerdict = "CORRECT" | "CLOSE" | "INCORRECT";
 
+export type LearnVocabContext = {
+  ipa: string | null;
+  meaningVi: string | null;
+  partOfSpeech: string | null;
+  exampleEn: string | null;
+  exampleVi: string | null;
+};
+
 export type LearnProgress = {
   masteredTerms: number;
   totalTerms: number;
@@ -311,6 +320,7 @@ export type LearnQuestion = {
   trueFalseStatement: string | null;
   hint: string | null;
   stage: LearnItemStage | null;
+  vocab: LearnVocabContext | null;
   progress: LearnProgress;
 };
 
@@ -322,6 +332,7 @@ export type LearnAnswer = {
   correctAnswer: string;
   newStage: LearnItemStage;
   correctStreak: number;
+  vocab: LearnVocabContext | null;
   progress: LearnProgress;
 };
 
@@ -768,12 +779,26 @@ export async function submitLearnAnswer(
   answer: string,
   questionType: LearnQuestionType,
   responseTimeMs?: number,
-  questionToken?: string | null
+  questionToken?: string | null,
+  quality?: ReviewQuality
 ): Promise<LearnAnswer> {
   return apiRequest<LearnAnswer>(`/api/learn/sessions/${sessionId}/answer`, {
     method: "POST",
     token,
-    body: JSON.stringify({ sessionItemId, answer, questionType, responseTimeMs, questionToken })
+    body: JSON.stringify({ sessionItemId, answer, questionType, responseTimeMs, questionToken, quality })
+  });
+}
+
+export async function adjustLearnQuality(
+  token: string,
+  sessionId: number,
+  sessionItemId: number,
+  quality: ReviewQuality
+): Promise<void> {
+  await apiRequest<void>(`/api/learn/sessions/${sessionId}/quality`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ sessionItemId, quality })
   });
 }
 

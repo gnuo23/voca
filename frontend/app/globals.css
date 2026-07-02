@@ -3295,3 +3295,168 @@ input, select, textarea { font: inherit; }
   color: var(--text);
   border-color: var(--text-secondary);
 }
+
+/* ===== Learn vocab details block ===== */
+.learn-vocab-details {
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: rgba(139, 92, 246, 0.07);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.learn-vocab-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.learn-vocab-word {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.learn-vocab-pos {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  text-transform: lowercase;
+}
+
+.learn-vocab-ipa {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent, #06b6d4);
+}
+
+.learn-vocab-audio-btn {
+  margin-left: auto;
+}
+
+.learn-vocab-meaning {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.learn-vocab-example {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.learn-vocab-example-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.learn-vocab-example-en {
+  margin: 0;
+  color: var(--text);
+  font-style: italic;
+}
+
+.learn-vocab-example-hit {
+  color: var(--primary, #8b5cf6);
+  font-weight: 700;
+  font-style: normal;
+  background: rgba(139, 92, 246, 0.15);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.learn-vocab-example-vi {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* ===== Learn quality picker ===== */
+.learn-quality-row {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--surface, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.learn-quality-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.learn-quality-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.learn-quality-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  background: var(--bg-elevated, rgba(255, 255, 255, 0.04));
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.18s;
+}
+
+.learn-quality-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--primary, #8b5cf6);
+}
+
+.learn-quality-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.learn-quality-btn.is-picked {
+  opacity: 1;
+  transform: none;
+}
+
+.learn-quality-btn.quality-again { color: #f87171; }
+.learn-quality-btn.quality-again:hover:not(:disabled) { border-color: #f87171; background: rgba(248, 113, 113, 0.08); }
+.learn-quality-btn.quality-again.is-picked { border-color: #f87171; background: rgba(248, 113, 113, 0.14); }
+.learn-quality-btn.quality-hard { color: #fbbf24; }
+.learn-quality-btn.quality-hard:hover:not(:disabled) { border-color: #fbbf24; background: rgba(251, 191, 36, 0.08); }
+.learn-quality-btn.quality-hard.is-picked { border-color: #fbbf24; background: rgba(251, 191, 36, 0.14); }
+.learn-quality-btn.quality-good { color: #34d399; }
+.learn-quality-btn.quality-good:hover:not(:disabled) { border-color: #34d399; background: rgba(52, 211, 153, 0.08); }
+.learn-quality-btn.quality-good.is-picked { border-color: #34d399; background: rgba(52, 211, 153, 0.14); }
+.learn-quality-btn.quality-easy { color: #60a5fa; }
+.learn-quality-btn.quality-easy:hover:not(:disabled) { border-color: #60a5fa; background: rgba(96, 165, 250, 0.08); }
+.learn-quality-btn.quality-easy.is-picked { border-color: #60a5fa; background: rgba(96, 165, 250, 0.14); }
+
+@media (max-width: 640px) {
+  .learn-quality-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

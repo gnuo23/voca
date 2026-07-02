@@ -8,5 +8,6 @@ public record LearnAnswerResponse(
         String correctAnswer,
         LearnItemStage newStage,
         int correctStreak,
+        LearnQuestionResponse.VocabContext vocab,
         LearnQuestionResponse.Progress progress
 ) {}

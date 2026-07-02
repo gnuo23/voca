@@ -81,7 +81,7 @@ export default function DecksPage() {
               <div className="progress-row">
                 <span>{deck.totalWords} từ</span>
                 <span>{deck.learnedWords} đã thuộc</span>
-                <span>{deck.dueWords} cần ôn</span>
+                <span>{deck.dueTodayCount ?? 0} cần ôn hôm nay</span>
               </div>
             </Link>
           ))}

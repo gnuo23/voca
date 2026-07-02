@@ -53,6 +53,15 @@ public class LearnController {
         return learnService.overrideAnswer(auth, id, request);
     }
 
+    @PostMapping("/sessions/{id}/quality")
+    public void adjustQuality(
+            Authentication auth,
+            @PathVariable Long id,
+            @Valid @RequestBody AdjustLearnQualityRequest request
+    ) {
+        learnService.adjustQuality(auth, id, request);
+    }
+
     @GetMapping("/sessions/{id}/result")
     public LearnSessionResultResponse getSessionResult(
             Authentication auth,

@@ -13,6 +13,7 @@ public record LearnQuestionResponse(
         String trueFalseStatement,
         String hint,
         LearnItemStage stage,
+        VocabContext vocab,
         Progress progress
 ) {
     public record Progress(
@@ -23,5 +24,13 @@ public record LearnQuestionResponse(
             int seenTerms,
             int learningTerms,
             int familiarTerms
+    ) {}
+
+    public record VocabContext(
+            String ipa,
+            String meaningVi,
+            String partOfSpeech,
+            String exampleEn,
+            String exampleVi
     ) {}
 }

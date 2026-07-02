@@ -140,9 +140,16 @@ public class ReviewService {
 
     @Transactional
     public UserProgress applyQuizResult(User user, VocabItem item, boolean correct, Integer responseTimeMs) {
+        return applyQuizResult(user, item, correct, responseTimeMs, null);
+    }
+
+    @Transactional
+    public UserProgress applyQuizResult(User user, VocabItem item, boolean correct, Integer responseTimeMs, ReviewQuality qualityOverride) {
         UserProgress progress = userProgressRepository.findByUserIdAndVocabItemId(user.getId(), item.getId())
                 .orElseGet(() -> createProgress(user, item));
-        ReviewQuality quality = reviewSchedulingService.infer(correct, responseTimeMs);
+        ReviewQuality quality = qualityOverride != null
+                ? qualityOverride
+                : reviewSchedulingService.infer(correct, responseTimeMs);
         reviewSchedulingService.apply(progress, quality, responseTimeMs, LocalDateTime.now());
         return userProgressRepository.save(progress);
     }

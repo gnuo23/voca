@@ -152,7 +152,7 @@ public class LearnService {
         if (progress.remainingTerms() == 0) {
             completeSession(session, progress);
             return new LearnQuestionResponse(
-                    null, null, null, null, null, "Session complete!", null, null, null, null,
+                    null, null, null, null, null, "Session complete!", null, null, null, null, null,
                     progress
             );
         }
@@ -175,6 +175,7 @@ public class LearnService {
                 generated.trueFalseStatement(),
                 answerHint(generated),
                 normalizeStage(currentItem.getStage()),
+                buildVocabContext(currentItem.getVocabItem()),
                 progress
         );
     }
@@ -263,7 +264,8 @@ public class LearnService {
                 user,
                 item.getVocabItem(),
                 correct,
-                request.responseTimeMs() == null ? null : request.responseTimeMs().intValue()
+                request.responseTimeMs() == null ? null : request.responseTimeMs().intValue(),
+                request.quality()
         );
 
         items = sessionItemRepo.findAllBySessionId(session.getId());
@@ -817,7 +819,34 @@ public class LearnService {
                 answer.getCorrectAnswer(),
                 normalizeStage(item.getStage()),
                 item.getCorrectStreak(),
+                buildVocabContext(item.getVocabItem()),
                 progress
+        );
+    }
+
+    @Transactional
+    public void adjustQuality(Authentication auth, Long sessionId, AdjustLearnQualityRequest request) {
+        User user = userService.currentUser(auth);
+        LearnSession session = sessionRepo.findByIdAndUserId(sessionId, user.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Learn session not found"));
+        LearnSessionItem item = sessionItemRepo.findById(request.sessionItemId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Session item not found"));
+        if (!item.getSession().getId().equals(session.getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item does not belong to this session");
+        }
+        reviewService.applyQuizResult(user, item.getVocabItem(), true, null, request.quality());
+    }
+
+    private LearnQuestionResponse.VocabContext buildVocabContext(VocabItem vocab) {
+        if (vocab == null) {
+            return null;
+        }
+        return new LearnQuestionResponse.VocabContext(
+                vocab.getIpa(),
+                vocab.getMeaningVi(),
+                vocab.getPartOfSpeech(),
+                vocab.getExampleEn(),
+                vocab.getExampleVi()
         );
     }
 

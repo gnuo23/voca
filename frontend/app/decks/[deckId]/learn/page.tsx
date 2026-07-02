@@ -21,6 +21,8 @@ import {
   submitLearnAnswer,
   getLearnSessionResult,
   overrideLearnAnswer,
+  adjustLearnQuality,
+  ReviewQuality,
 } from "@/lib/api";
 
 type StoredLearnState = {
@@ -322,6 +324,18 @@ export default function LearnPage() {
     [token, session, deckId, questionTurn]
   );
 
+  const handleQuality = useCallback(
+    async (sessionItemId: number, quality: ReviewQuality) => {
+      if (!token || !session) return;
+      try {
+        await adjustLearnQuality(token, session.id, sessionItemId, quality);
+      } catch {
+        // Non-fatal: scheduling adjustment is a best-effort tweak
+      }
+    },
+    [token, session]
+  );
+
   // Build segmented progress bar data
   const segments = useMemo(() => {
     if (!progress) return [];
@@ -406,6 +420,7 @@ export default function LearnPage() {
             onSubmit={handleSubmitAnswer}
             onNext={handleNext}
             onOverride={handleOverride}
+            onQuality={handleQuality}
             isLoading={isLoading}
           />
         )}

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Check, X, Send, ChevronRight, HelpCircle, AlertTriangle, Volume2 } from "lucide-react";
-import { LearnQuestion as LearnQuestionData, LearnAnswer, LearnVerdict } from "@/lib/api";
+import { Check, X, Send, ChevronRight, HelpCircle, AlertTriangle, Volume2, Frown, Meh, Smile, Zap } from "lucide-react";
+import { LearnQuestion as LearnQuestionData, LearnAnswer, LearnVerdict, ReviewQuality } from "@/lib/api";
 import { computeDiff, DiffSegment } from "@/lib/diffUtil";
 
 type LearnQuestionProps = {
@@ -10,6 +10,7 @@ type LearnQuestionProps = {
   onSubmit: (answer: string) => Promise<LearnAnswer | null>;
   onNext: () => void;
   onOverride?: (sessionItemId: number) => Promise<LearnAnswer | null>;
+  onQuality?: (sessionItemId: number, quality: ReviewQuality) => Promise<void>;
   isLoading: boolean;
 };
 
@@ -105,6 +106,7 @@ export function LearnQuestion({
   onSubmit,
   onNext,
   onOverride,
+  onQuality,
   isLoading,
 }: LearnQuestionProps) {
   const [answer, setAnswer] = useState("");
@@ -112,22 +114,21 @@ export function LearnQuestion({
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
   const [overriding, setOverriding] = useState(false);
+  const [pickedQuality, setPickedQuality] = useState<ReviewQuality | null>(null);
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Reset state every time the parent loads a question. The same term can be
-  // drilled again with the same type, prompt, and stage after a miss.
   useEffect(() => {
     setAnswer("");
     setFeedback(null);
     setSelectedOption("");
     setSubmitting(false);
     setOverriding(false);
+    setPickedQuality(null);
     if (autoAdvanceTimer.current) {
       clearTimeout(autoAdvanceTimer.current);
       autoAdvanceTimer.current = null;
     }
-    // Focus input for written questions
     if (question.questionType === "WRITTEN") {
       setTimeout(() => inputRef.current?.focus(), 50);
     }
@@ -145,25 +146,18 @@ export function LearnQuestion({
   const handleSubmit = useCallback(
     async (value: string) => {
       if (submitting || feedback || isLoading) return;
-      // Allow empty string for "Don't know"
       setSubmitting(true);
       setSelectedOption(value);
       try {
         const result = await onSubmit(value);
         if (result) {
           setFeedback(result);
-          const verdict = result.verdict ?? (result.correct ? "CORRECT" : "INCORRECT");
-          if (verdict === "CORRECT") {
-            autoAdvanceTimer.current = setTimeout(() => {
-              onNext();
-            }, 1200);
-          }
         }
       } finally {
         setSubmitting(false);
       }
     },
-    [submitting, feedback, isLoading, onSubmit, onNext]
+    [submitting, feedback, isLoading, onSubmit]
   );
 
   const handleDontKnow = useCallback(() => {
@@ -197,6 +191,22 @@ export function LearnQuestion({
     }
     onNext();
   }, [feedback, onNext]);
+
+  const handlePickQuality = useCallback(
+    async (quality: ReviewQuality) => {
+      if (!feedback || !question.sessionItemId || pickedQuality) return;
+      setPickedQuality(quality);
+      try {
+        if (onQuality) {
+          await onQuality(question.sessionItemId, quality);
+        }
+      } catch {
+        // Non-fatal: scheduling adjustment is a best-effort tweak
+      }
+      onNext();
+    },
+    [feedback, question.sessionItemId, pickedQuality, onQuality, onNext]
+  );
 
   // Keyboard handler
   useEffect(() => {
@@ -484,8 +494,74 @@ export function LearnQuestion({
             </div>
           )}
 
-          {/* Action row — Continue button */}
-          {feedback && verdict !== "CLOSE" && (
+          {/* Vocab details — show once feedback is present so the learner can lock the memory */}
+          {feedback && (feedback.vocab || question.vocab) && (
+            <VocabDetails
+              word={feedback.correctAnswer || question.word || ""}
+              vocab={feedback.vocab ?? question.vocab}
+            />
+          )}
+
+          {/* Quality picker — shown for CORRECT/CLOSE to let user self-report recall difficulty */}
+          {feedback && verdict !== "INCORRECT" && onQuality && question.sessionItemId && (
+            <div className="learn-quality-row" role="group" aria-label="Bạn nhớ từ này thế nào?">
+              <span className="learn-quality-label">Bạn nhớ từ này thế nào?</span>
+              <div className="learn-quality-buttons">
+                <button
+                  type="button"
+                  className={`learn-quality-btn quality-again ${pickedQuality === "AGAIN" ? "is-picked" : ""}`}
+                  onClick={() => handlePickQuality("AGAIN")}
+                  disabled={Boolean(pickedQuality)}
+                  title="Quên hẳn — cho ôn lại sớm"
+                >
+                  <Frown size={16} aria-hidden="true" />
+                  Quên
+                </button>
+                <button
+                  type="button"
+                  className={`learn-quality-btn quality-hard ${pickedQuality === "HARD" ? "is-picked" : ""}`}
+                  onClick={() => handlePickQuality("HARD")}
+                  disabled={Boolean(pickedQuality)}
+                  title="Nhớ mờ — cho ôn lại sớm hơn bình thường"
+                >
+                  <Meh size={16} aria-hidden="true" />
+                  Mờ
+                </button>
+                <button
+                  type="button"
+                  className={`learn-quality-btn quality-good ${pickedQuality === "GOOD" ? "is-picked" : ""}`}
+                  onClick={() => handlePickQuality("GOOD")}
+                  disabled={Boolean(pickedQuality)}
+                  title="Nhớ tốt — lịch ôn bình thường"
+                >
+                  <Smile size={16} aria-hidden="true" />
+                  Nhớ
+                </button>
+                <button
+                  type="button"
+                  className={`learn-quality-btn quality-easy ${pickedQuality === "EASY" ? "is-picked" : ""}`}
+                  onClick={() => handlePickQuality("EASY")}
+                  disabled={Boolean(pickedQuality)}
+                  title="Nhớ ngay — giãn cách xa hơn"
+                >
+                  <Zap size={16} aria-hidden="true" />
+                  Dễ
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Fallback continue button for INCORRECT (quality already inferred as AGAIN server-side) */}
+          {feedback && verdict === "INCORRECT" && (
+            <div className="learn-action-row">
+              <button type="button" className="button learn-continue-btn" onClick={handleAdvance}>
+                Tiếp tục <ChevronRight size={16} />
+              </button>
+            </div>
+          )}
+
+          {/* Continue button also shown when quality picker is not wired */}
+          {feedback && verdict !== "INCORRECT" && !onQuality && (
             <div className="learn-action-row">
               <button type="button" className="button learn-continue-btn" onClick={handleAdvance}>
                 Tiếp tục <ChevronRight size={16} />
@@ -495,5 +571,41 @@ export function LearnQuestion({
         </div>
       </div>
     </div>
+  );
+}
+
+function VocabDetails({ word, vocab }: { word: string; vocab: { ipa: string | null; meaningVi: string | null; partOfSpeech: string | null; exampleEn: string | null; exampleVi: string | null } | null }) {
+  if (!vocab) return null;
+  const { ipa, meaningVi, partOfSpeech, exampleEn, exampleVi } = vocab;
+  if (!ipa && !meaningVi && !exampleEn && !exampleVi) return null;
+
+  const highlighted = exampleEn ? highlightWord(exampleEn, word) : null;
+
+  return (
+    <div className="learn-vocab-details">
+      <div className="learn-vocab-head">
+        <span className="learn-vocab-word">{word}</span>
+        {partOfSpeech && <span className="learn-vocab-pos">{partOfSpeech}</span>}
+        {ipa && <span className="learn-vocab-ipa">/{ipa.replace(/^\/|\/$/g, "")}/</span>}
+        {word && <PronounceButton text={word} className="learn-vocab-audio-btn" />}
+      </div>
+      {meaningVi && <p className="learn-vocab-meaning">{meaningVi}</p>}
+      {highlighted && (
+        <div className="learn-vocab-example">
+          <span className="learn-vocab-example-label">Ví dụ</span>
+          <p className="learn-vocab-example-en">{highlighted}</p>
+          {exampleVi && <p className="learn-vocab-example-vi">{exampleVi}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function highlightWord(sentence: string, word: string) {
+  if (!word) return sentence;
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const parts = sentence.split(new RegExp(`\\b(${escaped})\\b`, "gi"));
+  return parts.map((part, idx) =>
+    part.toLowerCase() === word.toLowerCase() ? <strong key={idx} className="learn-vocab-example-hit">{part}</strong> : <span key={idx}>{part}</span>
   );
 }
