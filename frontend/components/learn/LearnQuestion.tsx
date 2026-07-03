@@ -117,6 +117,7 @@ export function LearnQuestion({
   const [submitting, setSubmitting] = useState(false);
   const [overriding, setOverriding] = useState(false);
   const [pickedQuality, setPickedQuality] = useState<ReviewQuality | null>(null);
+  const [hintRevealed, setHintRevealed] = useState(false);
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -127,6 +128,7 @@ export function LearnQuestion({
     setSubmitting(false);
     setOverriding(false);
     setPickedQuality(null);
+    setHintRevealed(false);
     if (autoAdvanceTimer.current) {
       clearTimeout(autoAdvanceTimer.current);
       autoAdvanceTimer.current = null;
@@ -389,8 +391,22 @@ export function LearnQuestion({
                 autoComplete="off"
               />
               {showWrittenHint && question.hint && (
-                <div className="learn-written-hint">
-                  Hint: <span>{question.hint}</span>
+                <div className="learn-written-hint-row">
+                  {hintRevealed ? (
+                    <div className="learn-written-hint">
+                      Gợi ý: <span>{question.hint}</span>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      className="learn-hint-reveal-btn"
+                      onClick={() => setHintRevealed(true)}
+                      disabled={submitting || isLoading}
+                    >
+                      <HelpCircle size={16} />
+                      Gợi ý
+                    </button>
+                  )}
                 </div>
               )}
               <div className="learn-written-actions">

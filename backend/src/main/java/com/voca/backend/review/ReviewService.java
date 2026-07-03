@@ -61,6 +61,7 @@ public class ReviewService {
 
         List<ReviewCandidate> dueItems = items.stream()
                 .map(item -> new ReviewCandidate(item, progressByVocabId.get(item.getId())))
+                .filter(candidate -> isReviewable(candidate.progress()))
                 .filter(candidate -> isDue(candidate.progress(), now))
                 .filter(candidate -> status == null || progressStatus(candidate.progress()).equals(status))
                 .sorted(reviewComparator(now))
@@ -94,6 +95,7 @@ public class ReviewService {
 
         List<ReviewCandidate> candidates = items.stream()
                 .map(item -> new ReviewCandidate(item, progressByVocabId.get(item.getId())))
+                .filter(candidate -> isReviewable(candidate.progress()))
                 .filter(candidate -> status == null || progressStatus(candidate.progress()).equals(status))
                 .sorted(scheduleComparator(now))
                 .toList();
@@ -162,10 +164,16 @@ public class ReviewService {
     }
 
     private boolean isDue(UserProgress progress, LocalDateTime now) {
-        if (progress == null || progress.getStatus() == VocabProgressStatus.NEW) {
-            return true;
+        if (!isReviewable(progress)) {
+            return false;
         }
         return progress.getNextReviewAt() == null || !progress.getNextReviewAt().isAfter(now);
+    }
+
+    private boolean isReviewable(UserProgress progress) {
+        return progress != null
+                && progress.getStatus() != VocabProgressStatus.NEW
+                && progress.getNextReviewAt() != null;
     }
 
     private VocabProgressStatus progressStatus(UserProgress progress) {
@@ -191,7 +199,7 @@ public class ReviewService {
     }
 
     private boolean isOverdue(UserProgress progress, LocalDateTime now) {
-        return progress == null || progress.getNextReviewAt() == null || progress.getNextReviewAt().isBefore(now);
+        return isReviewable(progress) && progress.getNextReviewAt().isBefore(now);
     }
 
     private boolean isScheduledOverdue(UserProgress progress, LocalDateTime now) {

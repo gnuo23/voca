@@ -2624,6 +2624,39 @@ input, select, textarea { font: inherit; }
   font-size: 16px;
 }
 
+.learn-written-hint-row {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.learn-hint-reveal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  border: 1px solid rgba(154, 170, 214, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #dbe5ff;
+  padding: 0 13px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.learn-hint-reveal-btn:hover {
+  border-color: rgba(154, 170, 214, 0.45);
+  background: rgba(255, 255, 255, 0.075);
+  transform: translateY(-1px);
+}
+
+.learn-hint-reveal-btn:disabled {
+  cursor: default;
+  opacity: 0.55;
+  transform: none;
+}
+
 /* --- Feedback --- */
 
 .learn-feedback {
