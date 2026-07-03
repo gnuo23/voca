@@ -4,16 +4,52 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AlertTriangle, CalendarClock, Flame, Home, Layers, LogOut, Menu, Moon, Repeat2, Sparkles, UserRound, X } from "lucide-react";
-import { clearToken } from "@/lib/api";
+import { clearToken, getDashboardMetrics, getStoredToken, type StreakDay } from "@/lib/api";
+
+const DEFAULT_STREAK_WEEK: StreakDay[] = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"].map((label) => ({
+  label,
+  date: "",
+  active: false,
+  today: false
+}));
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [streakDays, setStreakDays] = useState(0);
+  const [streakActiveToday, setStreakActiveToday] = useState(false);
+  const [streakWeek, setStreakWeek] = useState<StreakDay[]>(DEFAULT_STREAK_WEEK);
 
   // Close drawer on route change
   useEffect(() => {
     setDrawerOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const token = getStoredToken();
+    if (!token) {
+      return;
+    }
+
+    let cancelled = false;
+    getDashboardMetrics(token)
+      .then((metrics) => {
+        if (cancelled) return;
+        setStreakDays(metrics.streakDays ?? 0);
+        setStreakActiveToday(Boolean(metrics.streakActiveToday));
+        setStreakWeek(metrics.streakWeek?.length ? metrics.streakWeek : DEFAULT_STREAK_WEEK);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setStreakDays(0);
+        setStreakActiveToday(false);
+        setStreakWeek(DEFAULT_STREAK_WEEK);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [pathname]);
 
   // Close drawer on escape key
@@ -94,14 +130,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="sidebar-streak-card" aria-label="Learning streak">
             <div>
               <span>Streak</span>
-              <strong>7 <small>ngày</small></strong>
-              <p>Cố lên! Bạn đang làm rất tốt!</p>
+              <strong>{streakDays} <small>ngày</small></strong>
+              <p>{streakActiveToday ? "Cố lên! Bạn đang làm rất tốt!" : "Học một câu để giữ nhịp hôm nay."}</p>
             </div>
             <Flame size={30} aria-hidden="true" />
             <div className="streak-dots" aria-hidden="true">
-              {["T2", "T3", "T4", "T5", "T6", "T7", "CN"].map((day, index) => (
-                <span key={day} className={index < 6 ? "done" : ""}>
-                  {day}
+              {streakWeek.map((day) => (
+                <span key={`${day.label}-${day.date}`} className={`${day.active ? "done" : ""} ${day.today ? "today" : ""}`.trim()}>
+                  {day.label}
                 </span>
               ))}
             </div>

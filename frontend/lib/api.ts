@@ -454,6 +454,13 @@ export type DeckProgress = {
   progressScore: number;
 };
 
+export type StreakDay = {
+  label: string;
+  date: string;
+  active: boolean;
+  today: boolean;
+};
+
 export type DashboardMetrics = {
   wordsLearnedToday: number;
   wordsReviewedToday: number;
@@ -461,6 +468,8 @@ export type DashboardMetrics = {
   overdueWords: number;
   accuracy: number;
   streakDays: number;
+  streakActiveToday: boolean;
+  streakWeek: StreakDay[];
   hardWords: HardWord[];
   deckProgress: DeckProgress[];
 };

@@ -71,7 +71,7 @@ class ReviewIntegrationTest {
     }
 
     @Test
-    void todayReturnsDueItemsOnly() throws Exception {
+    void todayExcludesUnlearnedItems() throws Exception {
         String token = register("review-today@example.com");
         long deckId = createDeck(token, "Review Deck");
         importItems(token, deckId, """
@@ -86,9 +86,8 @@ class ReviewIntegrationTest {
         mockMvc.perform(get("/api/review/today")
                         .header("Authorization", bearer(token)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalDue").value(1))
-                .andExpect(jsonPath("$.items", hasSize(1)))
-                .andExpect(jsonPath("$.items[0].word").value("accumulate"));
+                .andExpect(jsonPath("$.totalDue").value(0))
+                .andExpect(jsonPath("$.items", hasSize(0)));
     }
 
     @Test
@@ -111,7 +110,7 @@ class ReviewIntegrationTest {
     }
 
     @Test
-    void scheduleReturnsNewAndUpcomingItems() throws Exception {
+    void scheduleReturnsLearnedItemsOnly() throws Exception {
         String token = register("review-schedule@example.com");
         long deckId = createDeck(token, "Schedule Preview Deck");
         importItems(token, deckId, """
@@ -127,15 +126,13 @@ class ReviewIntegrationTest {
                         .header("Authorization", bearer(token))
                         .param("deckId", String.valueOf(deckId)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalItems").value(2))
-                .andExpect(jsonPath("$.dueNow").value(1))
-                .andExpect(jsonPath("$.newItems").value(1))
+                .andExpect(jsonPath("$.totalItems").value(1))
+                .andExpect(jsonPath("$.dueNow").value(0))
+                .andExpect(jsonPath("$.newItems").value(0))
                 .andExpect(jsonPath("$.upcoming").value(1))
-                .andExpect(jsonPath("$.items", hasSize(2)))
-                .andExpect(jsonPath("$.items[0].word").value("accumulate"))
-                .andExpect(jsonPath("$.items[0].bucket").value("NEW"))
-                .andExpect(jsonPath("$.items[1].word").value("absent"))
-                .andExpect(jsonPath("$.items[1].nextReviewAt", startsWith("2026-")));
+                .andExpect(jsonPath("$.items", hasSize(1)))
+                .andExpect(jsonPath("$.items[0].word").value("absent"))
+                .andExpect(jsonPath("$.items[0].nextReviewAt", startsWith("2026-")));
     }
 
     @Test

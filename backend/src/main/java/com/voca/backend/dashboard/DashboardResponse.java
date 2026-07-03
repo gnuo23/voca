@@ -9,6 +9,8 @@ public record DashboardResponse(
         long overdueWords,
         double accuracy,
         int streakDays,
+        boolean streakActiveToday,
+        List<StreakDayResponse> streakWeek,
         List<HardWordResponse> hardWords,
         List<DeckProgressResponse> deckProgress
 ) {

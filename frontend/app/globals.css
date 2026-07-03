@@ -300,6 +300,11 @@ input, select, textarea { font: inherit; }
   box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
 }
 
+.streak-dots span.today::before {
+  outline: 2px solid rgba(255, 255, 255, 0.24);
+  outline-offset: 2px;
+}
+
 .sidebar-theme-switch {
   display: flex;
   align-items: center;
@@ -3396,6 +3401,9 @@ input, select, textarea { font: inherit; }
 .deck-hero-topbar {
   align-items: flex-start;
   margin-bottom: 28px;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .deck-welcome {
@@ -3438,9 +3446,12 @@ input, select, textarea { font: inherit; }
 
 .deck-command-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  grid-template-columns: minmax(0, 2.35fr) minmax(290px, 0.95fr);
   gap: 28px;
   align-items: start;
+  justify-content: center;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .deck-command-main,
@@ -3452,17 +3463,19 @@ input, select, textarea { font: inherit; }
 .deck-stat-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 18px;
 }
 
 .stat-card {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 218px;
+  min-height: 176px;
   overflow: hidden;
-  padding: 26px;
+  padding: 22px;
   position: relative;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 22px 46px rgba(0, 0, 0, 0.16);
 }
 
 .stat-card::before {
@@ -3478,17 +3491,17 @@ input, select, textarea { font: inherit; }
 }
 
 .stat-card-purple {
-  background: linear-gradient(135deg, rgba(113, 46, 255, 0.23), rgba(41, 24, 92, 0.68));
+  background: linear-gradient(145deg, rgba(105, 48, 255, 0.28), rgba(32, 20, 79, 0.82));
   border-color: rgba(143, 84, 255, 0.38);
 }
 
 .stat-card-blue {
-  background: linear-gradient(135deg, rgba(39, 102, 255, 0.22), rgba(15, 38, 92, 0.68));
+  background: linear-gradient(145deg, rgba(39, 102, 255, 0.26), rgba(13, 34, 84, 0.84));
   border-color: rgba(59, 130, 246, 0.38);
 }
 
 .stat-card-cyan {
-  background: linear-gradient(135deg, rgba(14, 165, 189, 0.24), rgba(14, 50, 72, 0.7));
+  background: linear-gradient(145deg, rgba(14, 165, 189, 0.28), rgba(11, 47, 68, 0.86));
   border-color: rgba(34, 211, 238, 0.32);
 }
 
@@ -3512,8 +3525,7 @@ input, select, textarea { font: inherit; }
 }
 
 .stat-card h2 {
-  margin-top: 10px;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 900;
   color: #c9d2ef;
   text-transform: uppercase;
@@ -3523,7 +3535,7 @@ input, select, textarea { font: inherit; }
 
 .stat-card .metric {
   margin-top: 2px;
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 900;
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
@@ -3538,18 +3550,18 @@ input, select, textarea { font: inherit; }
 }
 
 .deck-learn-spotlight {
-  min-height: 144px;
+  min-height: 132px;
   border-color: rgba(139, 92, 246, 0.42);
   background:
     linear-gradient(135deg, rgba(117, 44, 255, 0.26), rgba(20, 13, 57, 0.88)),
     var(--glass);
-  padding: 28px;
+  padding: 24px 26px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 22px 50px rgba(72, 45, 185, 0.16);
 }
 
 .deck-learn-spotlight .learn-entry-icon {
-  width: 78px;
-  height: 78px;
+  width: 70px;
+  height: 70px;
   border-radius: 14px;
   background: linear-gradient(145deg, #8b2dff, #2d55ff);
   color: #ffffff;
@@ -3649,6 +3661,7 @@ input, select, textarea { font: inherit; }
 .recent-card {
   min-height: 176px;
   background: linear-gradient(145deg, rgba(19, 20, 52, 0.92), rgba(12, 16, 42, 0.94));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 18px 42px rgba(0, 0, 0, 0.16);
 }
 
 .mini-chart {
@@ -3748,8 +3761,23 @@ input, select, textarea { font: inherit; }
 
 .deck-extra-card {
   margin-top: 24px;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
   background: transparent;
   border-style: dashed;
+}
+
+@media (max-width: 1180px) {
+  .deck-hero-topbar,
+  .deck-command-layout,
+  .deck-extra-card {
+    max-width: 860px;
+  }
+
+  .deck-command-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===== Section heading icon ===== */

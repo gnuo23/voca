@@ -55,6 +55,8 @@ public class DashboardService {
         long correct = allProgress.stream().mapToLong(UserProgress::getCorrectCount).sum();
         long wrong = allProgress.stream().mapToLong(UserProgress::getWrongCount).sum();
         double accuracy = correct + wrong == 0 ? 0 : Math.round((correct * 1000.0) / (correct + wrong)) / 10.0;
+        Set<LocalDate> activityDates = activityDates(allProgress);
+        LocalDate today = LocalDate.now();
 
         return new DashboardResponse(
                 userProgressRepository.countByUserIdAndCreatedAtBetweenAndLastReviewedAtIsNotNull(user.getId(), startOfToday, startOfTomorrow),
@@ -62,7 +64,9 @@ public class DashboardService {
                 userProgressRepository.countByUserIdAndNextReviewAtLessThanEqual(user.getId(), now),
                 userProgressRepository.countByUserIdAndNextReviewAtLessThan(user.getId(), startOfToday),
                 accuracy,
-                streakDays(allProgress),
+                streakDays(activityDates),
+                activityDates.contains(today),
+                streakWeek(activityDates, today),
                 hardWords(allProgress),
                 deckProgress(decks, allItems, allProgress)
         );
@@ -126,13 +130,15 @@ public class DashboardService {
                 .count();
     }
 
-    private int streakDays(List<UserProgress> progress) {
-        Set<LocalDate> dates = progress.stream()
+    private Set<LocalDate> activityDates(List<UserProgress> progress) {
+        return progress.stream()
                 .map(UserProgress::getLastReviewedAt)
                 .filter(reviewedAt -> reviewedAt != null)
                 .map(LocalDateTime::toLocalDate)
                 .collect(Collectors.toSet());
+    }
 
+    private int streakDays(Set<LocalDate> dates) {
         int streak = 0;
         LocalDate cursor = LocalDate.now();
         while (dates.contains(cursor)) {
@@ -140,5 +146,21 @@ public class DashboardService {
             cursor = cursor.minusDays(1);
         }
         return streak;
+    }
+
+    private List<StreakDayResponse> streakWeek(Set<LocalDate> dates, LocalDate today) {
+        LocalDate monday = today.minusDays(today.getDayOfWeek().getValue() - 1L);
+        String[] labels = {"T2", "T3", "T4", "T5", "T6", "T7", "CN"};
+        return java.util.stream.IntStream.range(0, 7)
+                .mapToObj(index -> {
+                    LocalDate date = monday.plusDays(index);
+                    return new StreakDayResponse(
+                            labels[index],
+                            date,
+                            dates.contains(date),
+                            date.isEqual(today)
+                    );
+                })
+                .toList();
     }
 }
