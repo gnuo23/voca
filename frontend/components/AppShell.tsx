@@ -12,14 +12,14 @@ const DEFAULT_STREAK_WEEK: StreakDay[] = ["T2", "T3", "T4", "T5", "T6", "T7", "C
   active: false,
   today: false
 }));
-const THEME_STORAGE_KEY = "voca.theme";
+const THEME_STORAGE_KEY = "voca.theme.v2";
 type ThemeMode = "dark" | "light";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>("dark");
+  const [theme, setTheme] = useState<ThemeMode>("light");
   const [streakDays, setStreakDays] = useState(0);
   const [streakActiveToday, setStreakActiveToday] = useState(false);
   const [streakWeek, setStreakWeek] = useState<StreakDay[]>(DEFAULT_STREAK_WEEK);
