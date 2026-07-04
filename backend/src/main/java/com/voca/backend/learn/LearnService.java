@@ -24,6 +24,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.voca.backend.deck.Deck;
 import com.voca.backend.deck.DeckService;
+import com.voca.backend.review.ReviewQuality;
 import com.voca.backend.review.ReviewService;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
@@ -235,11 +236,13 @@ public class LearnService {
         answer.setSimilarityScore(grade.similarity());
         answer.setStageBefore(stageBefore);
         answer.setResponseTimeMs(request.responseTimeMs());
-        captureReviewSnapshot(answer, user, item.getVocabItem());
         answerRepo.save(answer);
 
         item.incrementTotalAttempts();
         item.setLastAnsweredAt(LocalDateTime.now());
+        if (request.quality() != null) {
+            item.setReviewQualityOverride(request.quality());
+        }
 
         if (correct) {
             item.incrementCorrectAttempts();
@@ -253,19 +256,12 @@ public class LearnService {
             item.setPriority(item.getPriority() + 5);
         }
         sessionItemRepo.save(item);
+        applyLearnReviewIfComplete(user, item, request.responseTimeMs() == null ? null : request.responseTimeMs().intValue());
 
         session.incrementTotalAnswers();
         if (correct) {
             session.incrementCorrectAnswers();
         }
-
-        reviewService.applyQuizResult(
-                user,
-                item.getVocabItem(),
-                correct,
-                request.responseTimeMs() == null ? null : request.responseTimeMs().intValue(),
-                request.quality()
-        );
 
         items = sessionItemRepo.findAllBySessionId(session.getId());
         LearnQuestionResponse.Progress progress = progressFor(session, items);
@@ -322,8 +318,8 @@ public class LearnService {
         item.setStage(nextCorrectStage(session, item, answer.getQuestionType()));
         item.setPriority(Math.max(0, item.getPriority() - 7));
         sessionItemRepo.save(item);
+        applyLearnReviewIfComplete(user, item, responseTimeMsAsInteger(answer));
 
-        replayReviewAfterOverride(user, answer);
         session.incrementCorrectAnswers();
 
         List<LearnSessionItem> items = sessionItemRepo.findAllBySessionId(session.getId());
@@ -773,7 +769,26 @@ public class LearnService {
         if (!item.getSession().getId().equals(session.getId())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item does not belong to this session");
         }
-        reviewService.applyQuizResult(user, item.getVocabItem(), true, null, request.quality());
+        item.setReviewQualityOverride(request.quality());
+        sessionItemRepo.save(item);
+        applyLearnReviewIfComplete(user, item, null);
+    }
+
+    private void applyLearnReviewIfComplete(User user, LearnSessionItem item, Integer responseTimeMs) {
+        if (!isFinishedItem(item.getSession(), item) || item.getReviewAppliedAt() != null) {
+            return;
+        }
+        ReviewQuality qualityOverride = item.getReviewQualityOverride();
+        reviewService.applyLearnResult(
+                user,
+                item.getVocabItem(),
+                item.getCorrectAttempts(),
+                item.getIncorrectAttempts(),
+                responseTimeMs,
+                qualityOverride
+        );
+        item.setReviewAppliedAt(LocalDateTime.now());
+        sessionItemRepo.save(item);
     }
 
     private LearnQuestionResponse.VocabContext buildVocabContext(VocabItem vocab) {

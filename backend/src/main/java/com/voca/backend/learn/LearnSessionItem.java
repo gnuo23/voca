@@ -1,6 +1,7 @@
 package com.voca.backend.learn;
 
 import com.voca.backend.vocab.VocabItem;
+import com.voca.backend.review.ReviewQuality;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -53,6 +54,13 @@ public class LearnSessionItem {
     @Column(name = "last_answered_at")
     private LocalDateTime lastAnsweredAt;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "review_quality_override")
+    private ReviewQuality reviewQualityOverride;
+
+    @Column(name = "review_applied_at")
+    private LocalDateTime reviewAppliedAt;
+
     @Column(nullable = false)
     private int priority;
 
@@ -86,6 +94,12 @@ public class LearnSessionItem {
 
     public LocalDateTime getLastAnsweredAt() { return lastAnsweredAt; }
     public void setLastAnsweredAt(LocalDateTime lastAnsweredAt) { this.lastAnsweredAt = lastAnsweredAt; }
+
+    public ReviewQuality getReviewQualityOverride() { return reviewQualityOverride; }
+    public void setReviewQualityOverride(ReviewQuality reviewQualityOverride) { this.reviewQualityOverride = reviewQualityOverride; }
+
+    public LocalDateTime getReviewAppliedAt() { return reviewAppliedAt; }
+    public void setReviewAppliedAt(LocalDateTime reviewAppliedAt) { this.reviewAppliedAt = reviewAppliedAt; }
 
     public int getPriority() { return priority; }
     public void setPriority(int priority) { this.priority = priority; }

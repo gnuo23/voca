@@ -167,6 +167,50 @@ public class ReviewService {
         return userProgressRepository.save(progress);
     }
 
+    @Transactional
+    public UserProgress applyLearnResult(
+            User user,
+            VocabItem item,
+            int correctAttempts,
+            int incorrectAttempts,
+            Integer responseTimeMs,
+            ReviewQuality qualityOverride
+    ) {
+        UserProgress progress = userProgressRepository.findByUserIdAndVocabItemId(user.getId(), item.getId())
+                .orElseGet(() -> createProgress(user, item));
+        LocalDateTime now = LocalDateTime.now();
+        ReviewQuality quality = learnQuality(incorrectAttempts, qualityOverride);
+
+        if (incorrectAttempts == 1 && quality != ReviewQuality.AGAIN) {
+            progress.setWrongCount(progress.getWrongCount() + 1);
+            progress.setLapseCount(progress.getLapseCount() + 1);
+            progress.incrementUnknownCount();
+        }
+
+        reviewSchedulingService.apply(progress, quality, responseTimeMs, now);
+
+        if (incorrectAttempts >= 2) {
+            int extraWrongs = incorrectAttempts - 1;
+            progress.setWrongCount(progress.getWrongCount() + extraWrongs);
+            progress.setLapseCount(progress.getLapseCount() + extraWrongs);
+            progress.setUnknownCount(progress.getUnknownCount() + extraWrongs);
+            progress.incrementDifficultCount();
+            progress.setStatus(VocabProgressStatus.DIFFICULT);
+        }
+
+        return userProgressRepository.save(progress);
+    }
+
+    private ReviewQuality learnQuality(int incorrectAttempts, ReviewQuality qualityOverride) {
+        if (incorrectAttempts >= 2) {
+            return ReviewQuality.AGAIN;
+        }
+        if (incorrectAttempts == 1) {
+            return qualityOverride == ReviewQuality.AGAIN ? ReviewQuality.AGAIN : ReviewQuality.HARD;
+        }
+        return qualityOverride == null ? ReviewQuality.GOOD : qualityOverride;
+    }
+
     private List<VocabItem> loadReviewItems(User user, Long deckId) {
         if (deckId != null) {
             Deck deck = deckService.findStudyDeck(user, deckId);
