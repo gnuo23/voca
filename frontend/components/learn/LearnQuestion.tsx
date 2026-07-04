@@ -15,6 +15,8 @@ type LearnQuestionProps = {
   showWrittenHint: boolean;
 };
 
+const CORRECT_AUTO_ADVANCE_MS = 700;
+
 /** Resolve the feedback class for the question card border/bg */
 function feedbackCardClass(feedback: LearnAnswer | null): string {
   if (!feedback) return "";
@@ -61,6 +63,10 @@ function hasSharedLetter(userAnswer: string | null | undefined, correctAnswer: s
   return normalizeLetters(correctAnswer)
     .split("")
     .some((letter) => userLetters.has(letter));
+}
+
+function isFullyCorrect(feedback: LearnAnswer): boolean {
+  return (feedback.verdict ?? (feedback.correct ? "CORRECT" : "INCORRECT")) === "CORRECT";
 }
 
 function playEnglishPronunciation(text: string) {
@@ -156,12 +162,17 @@ export function LearnQuestion({
         const result = await onSubmit(value);
         if (result) {
           setFeedback(result);
+          if (isFullyCorrect(result) && result.progress.remainingTerms > 0) {
+            autoAdvanceTimer.current = setTimeout(() => {
+              onNext();
+            }, CORRECT_AUTO_ADVANCE_MS);
+          }
         }
       } finally {
         setSubmitting(false);
       }
     },
-    [submitting, feedback, isLoading, onSubmit]
+    [submitting, feedback, isLoading, onSubmit, onNext]
   );
 
   const handleDontKnow = useCallback(() => {
