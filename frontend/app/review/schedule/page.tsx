@@ -9,7 +9,7 @@ import {
   Deck,
   getReviewSchedule,
   getStoredToken,
-  listDecks,
+  listStudyDecks,
   ReviewScheduleBucket,
   ReviewScheduleItem,
   ReviewScheduleResponse,
@@ -45,7 +45,7 @@ export default function ReviewSchedulePage() {
       return;
     }
     setToken(storedToken);
-    listDecks(storedToken)
+    listStudyDecks(storedToken)
       .then(setDecks)
       .catch(() => setDecks([]));
   }, [router]);

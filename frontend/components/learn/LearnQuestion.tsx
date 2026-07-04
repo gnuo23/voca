@@ -69,6 +69,16 @@ function isFullyCorrect(feedback: LearnAnswer): boolean {
   return (feedback.verdict ?? (feedback.correct ? "CORRECT" : "INCORRECT")) === "CORRECT";
 }
 
+function canUseWrittenOverride(
+  question: LearnQuestionData,
+  feedback: LearnAnswer | null,
+  onOverride: LearnQuestionProps["onOverride"]
+): boolean {
+  if (!feedback || question.questionType !== "WRITTEN" || !onOverride) return false;
+  if (isFullyCorrect(feedback)) return false;
+  return Boolean(normalizeLetters(feedback.userAnswer) && hasSharedLetter(feedback.userAnswer, feedback.correctAnswer));
+}
+
 function playEnglishPronunciation(text: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   window.speechSynthesis.cancel();
@@ -248,6 +258,17 @@ export function LearnQuestion({
         }
       }
 
+      if (canUseWrittenOverride(question, feedback, onOverride)) {
+        if (e.key === "ArrowUp") {
+          e.preventDefault();
+          void handleOverride();
+        }
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          handleAdvance();
+        }
+      }
+
       // Number keys 1-4 for MCQ / TRUE_FALSE options
       if (
         !feedback &&
@@ -264,7 +285,7 @@ export function LearnQuestion({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [feedback, question.questionType, question.options, answer, handleAdvance, handleSubmit, handleDontKnow]);
+  }, [feedback, question, question.questionType, question.options, answer, handleAdvance, handleSubmit, handleDontKnow, handleOverride, onOverride]);
 
   const cardClass = feedbackCardClass(feedback);
   const verdict: LearnVerdict | null = feedback
@@ -501,7 +522,7 @@ export function LearnQuestion({
           )}
 
           {/* Quizlet-style manual override for written answers the system marked wrong */}
-          {feedback && question.questionType === "WRITTEN" && verdict !== "CORRECT" && !showSimpleWrittenAnswer && onOverride && (
+          {canUseWrittenOverride(question, feedback, onOverride) && (
             <div className="learn-override-row">
               <button
                 type="button"

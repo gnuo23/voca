@@ -48,7 +48,7 @@ public class VocabItemService {
     @Transactional(readOnly = true)
     public List<VocabItemResponse> listByDeck(Authentication authentication, Long deckId) {
         User user = userService.currentUser(authentication);
-        Deck deck = deckService.findOwnedDeck(authentication, deckId);
+        Deck deck = deckService.findStudyDeck(user, deckId);
         List<VocabItem> items = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId());
         Map<Long, UserProgress> progressByVocabId = userProgressRepository
                 .findAllByUserIdAndVocabItemIdIn(
@@ -66,7 +66,7 @@ public class VocabItemService {
     @Transactional(readOnly = true)
     public VocabItemResponse get(Authentication authentication, Long vocabId) {
         User user = userService.currentUser(authentication);
-        VocabItem item = findOwnedVocab(user, vocabId);
+        VocabItem item = findStudyVocab(user, vocabId);
         UserProgress progress = userProgressRepository
                 .findByUserIdAndVocabItemId(user.getId(), item.getId())
                 .orElse(null);
@@ -76,7 +76,7 @@ public class VocabItemService {
     @Transactional
     public VocabItemResponse update(Authentication authentication, Long vocabId, VocabItemRequest request) {
         User user = userService.currentUser(authentication);
-        VocabItem item = findOwnedVocab(user, vocabId);
+        VocabItem item = findStudyVocab(user, vocabId);
         apply(item, request);
 
         UserProgress progress = userProgressRepository
@@ -88,7 +88,7 @@ public class VocabItemService {
     @Transactional
     public VocabAudioResponse getAudio(Authentication authentication, Long vocabId) {
         User user = userService.currentUser(authentication);
-        VocabItem item = findOwnedVocab(user, vocabId);
+        VocabItem item = findStudyVocab(user, vocabId);
         if (item.getAudioRefreshedAt() == null) {
             refreshAudio(item);
         }
@@ -98,7 +98,7 @@ public class VocabItemService {
     @Transactional
     public VocabAudioResponse refreshAudio(Authentication authentication, Long vocabId) {
         User user = userService.currentUser(authentication);
-        VocabItem item = findOwnedVocab(user, vocabId);
+        VocabItem item = findStudyVocab(user, vocabId);
         refreshAudio(item);
         return VocabAudioResponse.from(item);
     }
@@ -135,6 +135,15 @@ public class VocabItemService {
     private VocabItem findOwnedVocab(User user, Long vocabId) {
         return vocabItemRepository.findByIdAndDeckOwnerId(vocabId, user.getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vocabulary item not found"));
+    }
+
+    private VocabItem findStudyVocab(User user, Long vocabId) {
+        VocabItem item = vocabItemRepository.findById(vocabId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vocabulary item not found"));
+        if (!deckService.canStudyDeck(user, item.getDeck())) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vocabulary item not found");
+        }
+        return item;
     }
 
     private void apply(VocabItem item, VocabItemRequest request) {

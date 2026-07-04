@@ -16,6 +16,8 @@ public interface VocabItemRepository extends JpaRepository<VocabItem, Long> {
 
     List<VocabItem> findAllByDeckIdOrderByCreatedAtAsc(Long deckId);
 
+    List<VocabItem> findAllByDeckIdIn(Collection<Long> deckIds);
+
     List<VocabItem> findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(Long deckId, Long ownerId);
 
     Optional<VocabItem> findByIdAndDeckOwnerId(Long id, Long ownerId);

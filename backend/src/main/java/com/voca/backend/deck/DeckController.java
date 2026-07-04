@@ -35,6 +35,11 @@ public class DeckController {
         return deckService.list(authentication);
     }
 
+    @GetMapping("/study")
+    public List<DeckResponse> listStudyDecks(Authentication authentication) {
+        return deckService.listStudyDecks(authentication);
+    }
+
     @GetMapping("/{deckId}")
     public DeckResponse get(Authentication authentication, @PathVariable Long deckId) {
         return deckService.get(authentication, deckId);

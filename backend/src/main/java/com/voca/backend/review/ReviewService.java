@@ -1,5 +1,23 @@
 package com.voca.backend.review;
 
+import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.voca.backend.classroom.ClassroomDeckRepository;
+import com.voca.backend.deck.Deck;
+import com.voca.backend.deck.DeckService;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
 import com.voca.backend.vocab.UserProgress;
@@ -7,18 +25,6 @@ import com.voca.backend.vocab.UserProgressRepository;
 import com.voca.backend.vocab.VocabItem;
 import com.voca.backend.vocab.VocabItemRepository;
 import com.voca.backend.vocab.VocabProgressStatus;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.time.LocalDateTime;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 public class ReviewService {
@@ -29,17 +35,23 @@ public class ReviewService {
     private final VocabItemRepository vocabItemRepository;
     private final UserProgressRepository userProgressRepository;
     private final ReviewSchedulingService reviewSchedulingService;
+    private final DeckService deckService;
+    private final ClassroomDeckRepository classroomDeckRepository;
 
     public ReviewService(
             UserService userService,
             VocabItemRepository vocabItemRepository,
             UserProgressRepository userProgressRepository,
-            ReviewSchedulingService reviewSchedulingService
+            ReviewSchedulingService reviewSchedulingService,
+            DeckService deckService,
+            ClassroomDeckRepository classroomDeckRepository
     ) {
         this.userService = userService;
         this.vocabItemRepository = vocabItemRepository;
         this.userProgressRepository = userProgressRepository;
         this.reviewSchedulingService = reviewSchedulingService;
+        this.deckService = deckService;
+        this.classroomDeckRepository = classroomDeckRepository;
     }
 
     @Transactional(readOnly = true)
@@ -47,9 +59,7 @@ public class ReviewService {
         User user = userService.currentUser(authentication);
         LocalDateTime now = LocalDateTime.now();
         int actualLimit = limit == null ? DEFAULT_LIMIT : Math.max(1, limit);
-        List<VocabItem> items = deckId == null
-                ? vocabItemRepository.findAllByDeckOwnerIdOrderByCreatedAtAsc(user.getId())
-                : vocabItemRepository.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(deckId, user.getId());
+        List<VocabItem> items = loadReviewItems(user, deckId);
         if (items.isEmpty()) {
             return new ReviewTodayResponse(List.of(), 0);
         }
@@ -81,9 +91,7 @@ public class ReviewService {
         User user = userService.currentUser(authentication);
         LocalDateTime now = LocalDateTime.now();
         int actualLimit = limit == null ? 200 : Math.max(1, limit);
-        List<VocabItem> items = deckId == null
-                ? vocabItemRepository.findAllByDeckOwnerIdOrderByCreatedAtAsc(user.getId())
-                : vocabItemRepository.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(deckId, user.getId());
+        List<VocabItem> items = loadReviewItems(user, deckId);
         if (items.isEmpty()) {
             return new ReviewScheduleResponse(List.of(), 0, 0, 0, 0, 0);
         }
@@ -126,8 +134,11 @@ public class ReviewService {
     @Transactional
     public ReviewProgressResponse submit(Authentication authentication, Long vocabId, ReviewResultRequest request) {
         User user = userService.currentUser(authentication);
-        VocabItem item = vocabItemRepository.findByIdAndDeckOwnerId(vocabId, user.getId())
+        VocabItem item = vocabItemRepository.findById(vocabId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vocabulary item not found"));
+        if (!deckService.canStudyDeck(user, item.getDeck())) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vocabulary item not found");
+        }
         ReviewQuality quality = request.quality() == null
                 ? reviewSchedulingService.infer(request.isCorrect(), request.responseTimeMs())
                 : request.quality();
@@ -154,6 +165,25 @@ public class ReviewService {
                 : reviewSchedulingService.infer(correct, responseTimeMs);
         reviewSchedulingService.apply(progress, quality, responseTimeMs, LocalDateTime.now());
         return userProgressRepository.save(progress);
+    }
+
+    private List<VocabItem> loadReviewItems(User user, Long deckId) {
+        if (deckId != null) {
+            Deck deck = deckService.findStudyDeck(user, deckId);
+            return vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId());
+        }
+
+        List<VocabItem> ownedItems = vocabItemRepository.findAllByDeckOwnerIdOrderByCreatedAtAsc(user.getId());
+        List<Long> classDeckIds = classroomDeckRepository.findStudyDeckIds(user.getId());
+        List<VocabItem> classItems = classDeckIds.isEmpty()
+                ? List.of()
+                : vocabItemRepository.findAllByDeckIdIn(classDeckIds);
+
+        return Stream.concat(ownedItems.stream(), classItems.stream())
+                .collect(Collectors.toMap(VocabItem::getId, Function.identity(), (left, right) -> left, LinkedHashMap::new))
+                .values()
+                .stream()
+                .toList();
     }
 
     private UserProgress createProgress(User user, VocabItem item) {

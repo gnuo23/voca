@@ -88,6 +88,58 @@ export type DeckSharePreview = {
   totalQuestions: number;
 };
 
+export type ClassroomRole = "OWNER" | "STUDENT";
+
+export type ClassroomDeck = {
+  deckId: number;
+  deckName: string;
+  description: string | null;
+  totalWords: number;
+  learnedWords: number;
+  dueWords: number;
+  dueTodayCount: number;
+  addedAt: string;
+};
+
+export type ClassroomMemberProgress = {
+  userId: number;
+  displayName: string;
+  email: string;
+  role: ClassroomRole;
+  totalWords: number;
+  touchedWords: number;
+  learnedWords: number;
+  masteredWords: number;
+  reviewWords: number;
+  difficultWords: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  accuracyPercent: number;
+  lastActivityAt: string | null;
+  joinedAt: string;
+};
+
+export type Classroom = {
+  id: number;
+  name: string;
+  description: string | null;
+  inviteCode: string;
+  role: ClassroomRole;
+  deckCount: number;
+  memberCount: number;
+  totalWords: number;
+  learnedWords: number;
+  decks: ClassroomDeck[];
+  members: ClassroomMemberProgress[];
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ClassroomPayload = {
+  name: string;
+  description: string;
+};
+
 export type VocabImportStatus =
   | "OK"
   | "ERROR"
@@ -567,6 +619,12 @@ export async function listDecks(token: string): Promise<Deck[]> {
   });
 }
 
+export async function listStudyDecks(token: string): Promise<Deck[]> {
+  return apiRequest<Deck[]>("/api/decks/study", {
+    token
+  });
+}
+
 export async function createDeck(token: string, payload: DeckPayload): Promise<Deck> {
   return apiRequest<Deck>("/api/decks", {
     method: "POST",
@@ -768,6 +826,67 @@ export async function importDeckShare(token: string, code: string): Promise<Deck
     method: "POST",
     token,
     body: JSON.stringify({ code })
+  });
+}
+
+export async function listClasses(token: string): Promise<Classroom[]> {
+  return apiRequest<Classroom[]>("/api/classes", { token });
+}
+
+export async function createClass(token: string, payload: ClassroomPayload): Promise<Classroom> {
+  return apiRequest<Classroom>("/api/classes", {
+    method: "POST",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function getClass(token: string, classId: string): Promise<Classroom> {
+  return apiRequest<Classroom>(`/api/classes/${classId}`, { token });
+}
+
+export async function updateClass(token: string, classId: string, payload: ClassroomPayload): Promise<Classroom> {
+  return apiRequest<Classroom>(`/api/classes/${classId}`, {
+    method: "PUT",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function deleteClass(token: string, classId: string): Promise<void> {
+  await apiRequest<void>(`/api/classes/${classId}`, {
+    method: "DELETE",
+    token
+  });
+}
+
+export async function joinClass(token: string, code: string): Promise<Classroom> {
+  return apiRequest<Classroom>("/api/classes/join", {
+    method: "POST",
+    token,
+    body: JSON.stringify({ code })
+  });
+}
+
+export async function rotateClassCode(token: string, classId: string): Promise<Classroom> {
+  return apiRequest<Classroom>(`/api/classes/${classId}/rotate-code`, {
+    method: "POST",
+    token
+  });
+}
+
+export async function addClassDeck(token: string, classId: string, deckId: string): Promise<Classroom> {
+  return apiRequest<Classroom>(`/api/classes/${classId}/decks`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ deckId: Number(deckId) })
+  });
+}
+
+export async function removeClassDeck(token: string, classId: string, deckId: string): Promise<Classroom> {
+  return apiRequest<Classroom>(`/api/classes/${classId}/decks/${deckId}`, {
+    method: "DELETE",
+    token
   });
 }
 

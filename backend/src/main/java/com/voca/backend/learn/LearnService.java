@@ -1,21 +1,5 @@
 package com.voca.backend.learn;
 
-import com.voca.backend.deck.Deck;
-import com.voca.backend.deck.DeckService;
-import com.voca.backend.review.ReviewService;
-import com.voca.backend.user.User;
-import com.voca.backend.user.UserService;
-import com.voca.backend.vocab.UserProgress;
-import com.voca.backend.vocab.UserProgressRepository;
-import com.voca.backend.vocab.VocabItem;
-import com.voca.backend.vocab.VocabItemRepository;
-import com.voca.backend.vocab.VocabProgressStatus;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -32,10 +16,27 @@ import java.util.Random;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.voca.backend.deck.Deck;
+import com.voca.backend.deck.DeckService;
+import com.voca.backend.review.ReviewService;
+import com.voca.backend.user.User;
+import com.voca.backend.user.UserService;
+import com.voca.backend.vocab.UserProgress;
+import com.voca.backend.vocab.UserProgressRepository;
+import com.voca.backend.vocab.VocabItem;
+import com.voca.backend.vocab.VocabItemRepository;
+import com.voca.backend.vocab.VocabProgressStatus;
+
 @Service
 public class LearnService {
 
-    private static final int INTRO_BATCH_SIZE = 6;
+    private static final int INTRO_BATCH_SIZE = 8;
     private static final String DEFAULT_QUESTION_TYPES = "MCQ,TRUE_FALSE,WRITTEN";
 
     private final LearnSessionRepository sessionRepo;
@@ -71,7 +72,7 @@ public class LearnService {
     @Transactional
     public LearnSessionResponse startSession(Authentication auth, StartLearnSessionRequest request) {
         User user = userService.currentUser(auth);
-        Deck deck = deckService.findOwnedDeck(user, request.deckId());
+        Deck deck = deckService.findStudyDeck(user, request.deckId());
 
         sessionRepo.findFirstByUserIdAndDeckIdAndStatusOrderByCreatedAtDesc(
                 user.getId(), deck.getId(), LearnSessionStatus.IN_PROGRESS
@@ -80,7 +81,7 @@ public class LearnService {
             sessionRepo.save(session);
         });
 
-        List<VocabItem> allVocabs = vocabRepo.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(deck.getId(), user.getId())
+        List<VocabItem> allVocabs = vocabRepo.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
                 .stream()
                 .filter(v -> hasText(v.getMeaningVi()))
                 .toList();
@@ -156,7 +157,7 @@ public class LearnService {
         }
 
         LearnSessionItem currentItem = selectNextItem(session, items);
-        List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(session.getDeck().getId(), user.getId())
+        List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdOrderByCreatedAtAsc(session.getDeck().getId())
                 .stream()
                 .filter(v -> hasText(v.getMeaningVi()))
                 .toList();
@@ -201,7 +202,7 @@ public class LearnService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item is already complete");
         }
 
-        List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(session.getDeck().getId(), user.getId())
+        List<VocabItem> allDeckItems = vocabRepo.findAllByDeckIdOrderByCreatedAtAsc(session.getDeck().getId())
                 .stream()
                 .filter(v -> hasText(v.getMeaningVi()))
                 .toList();
@@ -926,8 +927,24 @@ public class LearnService {
     }
 
     private Random seededQuestionRandom(Long sessionId, LearnSessionItem item) {
-        long seed = sessionId * 31 + item.getId() * 17 + item.getTotalAttempts();
-        return new Random(seed);
+        String raw = String.join("|",
+                "learn-question-rng",
+                String.valueOf(sessionId),
+                String.valueOf(item.getId()),
+                String.valueOf(item.getTotalAttempts()),
+                normalizeStage(item.getStage()).name()
+        );
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(raw.getBytes(StandardCharsets.UTF_8));
+            long seed = 0L;
+            for (int i = 0; i < Long.BYTES; i++) {
+                seed = (seed << 8) | (hash[i] & 0xffL);
+            }
+            return new Random(seed);
+        } catch (NoSuchAlgorithmException ex) {
+            throw new IllegalStateException("SHA-256 is not available", ex);
+        }
     }
 
     private boolean hasText(String value) {

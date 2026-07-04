@@ -1,0 +1,347 @@
+package com.voca.backend.classroom;
+
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.voca.backend.deck.Deck;
+import com.voca.backend.deck.DeckRepository;
+import com.voca.backend.user.User;
+import com.voca.backend.user.UserService;
+import com.voca.backend.vocab.UserProgress;
+import com.voca.backend.vocab.UserProgressRepository;
+import com.voca.backend.vocab.VocabItem;
+import com.voca.backend.vocab.VocabItemRepository;
+import com.voca.backend.vocab.VocabProgressStatus;
+
+@Service
+public class ClassroomService {
+
+    private static final String CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    private static final SecureRandom SECURE_RANDOM = new SecureRandom();
+    private static final Set<VocabProgressStatus> LEARNED_STATUSES = Set.of(
+            VocabProgressStatus.REVIEW,
+            VocabProgressStatus.MASTERED
+    );
+
+    private final ClassroomRepository classroomRepository;
+    private final ClassroomMemberRepository memberRepository;
+    private final ClassroomDeckRepository classroomDeckRepository;
+    private final DeckRepository deckRepository;
+    private final VocabItemRepository vocabItemRepository;
+    private final UserProgressRepository progressRepository;
+    private final UserService userService;
+
+    public ClassroomService(
+            ClassroomRepository classroomRepository,
+            ClassroomMemberRepository memberRepository,
+            ClassroomDeckRepository classroomDeckRepository,
+            DeckRepository deckRepository,
+            VocabItemRepository vocabItemRepository,
+            UserProgressRepository progressRepository,
+            UserService userService
+    ) {
+        this.classroomRepository = classroomRepository;
+        this.memberRepository = memberRepository;
+        this.classroomDeckRepository = classroomDeckRepository;
+        this.deckRepository = deckRepository;
+        this.vocabItemRepository = vocabItemRepository;
+        this.progressRepository = progressRepository;
+        this.userService = userService;
+    }
+
+    @Transactional
+    public ClassroomResponse create(Authentication authentication, ClassroomRequest request) {
+        User owner = userService.currentUser(authentication);
+
+        Classroom classroom = new Classroom();
+        classroom.setOwner(owner);
+        apply(classroom, request);
+        classroom.setInviteCode(generateUniqueCode());
+        classroomRepository.save(classroom);
+
+        ClassroomMember member = new ClassroomMember();
+        member.setClassroom(classroom);
+        member.setUser(owner);
+        member.setRole(ClassroomRole.OWNER);
+        memberRepository.save(member);
+
+        return toResponse(classroom, member, true);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ClassroomResponse> list(Authentication authentication) {
+        User user = userService.currentUser(authentication);
+        return memberRepository.findAllByUserIdOrderByJoinedAtDesc(user.getId())
+                .stream()
+                .map(member -> toResponse(member.getClassroom(), member, false))
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public ClassroomResponse get(Authentication authentication, Long classroomId) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireMembership(classroomId, user);
+        return toResponse(membership.getClassroom(), membership, true);
+    }
+
+    @Transactional
+    public ClassroomResponse update(Authentication authentication, Long classroomId, ClassroomRequest request) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireOwner(classroomId, user);
+        Classroom classroom = membership.getClassroom();
+        apply(classroom, request);
+        return toResponse(classroom, membership, true);
+    }
+
+    @Transactional
+    public void delete(Authentication authentication, Long classroomId) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireOwner(classroomId, user);
+        classroomRepository.delete(membership.getClassroom());
+    }
+
+    @Transactional
+    public ClassroomResponse join(Authentication authentication, JoinClassroomRequest request) {
+        User user = userService.currentUser(authentication);
+        String code = cleanCode(request.code());
+        Classroom classroom = classroomRepository.findByInviteCode(code)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Class code not found"));
+
+        ClassroomMember membership = memberRepository.findByClassroomIdAndUserId(classroom.getId(), user.getId())
+                .orElseGet(() -> {
+                    ClassroomMember member = new ClassroomMember();
+                    member.setClassroom(classroom);
+                    member.setUser(user);
+                    member.setRole(classroom.getOwner().getId().equals(user.getId()) ? ClassroomRole.OWNER : ClassroomRole.STUDENT);
+                    return memberRepository.save(member);
+                });
+
+        return toResponse(classroom, membership, true);
+    }
+
+    @Transactional
+    public ClassroomResponse rotateCode(Authentication authentication, Long classroomId) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireOwner(classroomId, user);
+        Classroom classroom = membership.getClassroom();
+        classroom.setInviteCode(generateUniqueCode());
+        return toResponse(classroom, membership, true);
+    }
+
+    @Transactional
+    public ClassroomResponse addDeck(Authentication authentication, Long classroomId, AddClassroomDeckRequest request) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireOwner(classroomId, user);
+        Classroom classroom = membership.getClassroom();
+        Deck deck = deckRepository.findByIdAndOwnerId(request.deckId(), user.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deck not found"));
+
+        if (!classroomDeckRepository.existsByClassroomIdAndDeckId(classroom.getId(), deck.getId())) {
+            ClassroomDeck classroomDeck = new ClassroomDeck();
+            classroomDeck.setClassroom(classroom);
+            classroomDeck.setDeck(deck);
+            classroomDeckRepository.save(classroomDeck);
+        }
+
+        return toResponse(classroom, membership, true);
+    }
+
+    @Transactional
+    public ClassroomResponse removeDeck(Authentication authentication, Long classroomId, Long deckId) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireOwner(classroomId, user);
+        Classroom classroom = membership.getClassroom();
+        classroomDeckRepository.findByClassroomIdAndDeckId(classroom.getId(), deckId)
+                .ifPresent(classroomDeckRepository::delete);
+        return toResponse(classroom, membership, true);
+    }
+
+    private ClassroomMember requireMembership(Long classroomId, User user) {
+        return memberRepository.findByClassroomIdAndUserId(classroomId, user.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Class not found"));
+    }
+
+    private ClassroomMember requireOwner(Long classroomId, User user) {
+        ClassroomMember membership = requireMembership(classroomId, user);
+        if (membership.getRole() != ClassroomRole.OWNER) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only the class owner can do this");
+        }
+        return membership;
+    }
+
+    private ClassroomResponse toResponse(Classroom classroom, ClassroomMember viewerMembership, boolean includeDetails) {
+        List<ClassroomDeck> classroomDecks = classroomDeckRepository.findAllByClassroomIdOrderByAddedAtDesc(classroom.getId());
+        List<Deck> decks = classroomDecks.stream().map(ClassroomDeck::getDeck).toList();
+        List<Long> deckIds = decks.stream().map(Deck::getId).toList();
+        List<VocabItem> vocabItems = deckIds.isEmpty()
+                ? List.of()
+                : vocabItemRepository.findAllByDeckIdIn(deckIds);
+        List<Long> vocabIds = vocabItems.stream().map(VocabItem::getId).toList();
+
+        long totalWords = vocabItems.size();
+        long memberCount = memberRepository.findAllByClassroomIdOrderByJoinedAtAsc(classroom.getId()).size();
+        long learnedWords = learnedWordsFor(viewerMembership.getUser().getId(), vocabIds);
+
+        List<ClassroomDeckResponse> deckResponses = includeDetails
+                ? toDeckResponses(classroomDecks, vocabItems, viewerMembership.getUser().getId())
+                : List.of();
+        List<ClassroomMemberProgressResponse> memberResponses = includeDetails && viewerMembership.getRole() == ClassroomRole.OWNER
+                ? toMemberResponses(classroom, vocabIds)
+                : List.of();
+
+        return new ClassroomResponse(
+                classroom.getId(),
+                classroom.getName(),
+                classroom.getDescription(),
+                classroom.getInviteCode(),
+                viewerMembership.getRole(),
+                classroomDecks.size(),
+                memberCount,
+                totalWords,
+                learnedWords,
+                deckResponses,
+                memberResponses,
+                classroom.getCreatedAt(),
+                classroom.getUpdatedAt()
+        );
+    }
+
+    private List<ClassroomDeckResponse> toDeckResponses(List<ClassroomDeck> classroomDecks, List<VocabItem> vocabItems, Long viewerUserId) {
+        Map<Long, Long> totalByDeck = vocabItems.stream()
+                .collect(Collectors.groupingBy(item -> item.getDeck().getId(), Collectors.counting()));
+        Map<Long, List<VocabItem>> itemsByDeck = vocabItems.stream()
+                .collect(Collectors.groupingBy(item -> item.getDeck().getId()));
+        return classroomDecks.stream()
+                .map(classroomDeck -> {
+                    Long deckId = classroomDeck.getDeck().getId();
+                    List<VocabItem> deckItems = itemsByDeck.getOrDefault(deckId, List.of());
+                    List<Long> vocabIds = deckItems.stream().map(VocabItem::getId).toList();
+                    List<UserProgress> progress = vocabIds.isEmpty()
+                            ? List.of()
+                            : progressRepository.findAllByUserIdAndVocabItemIdIn(viewerUserId, vocabIds);
+                    long learned = progress.stream().filter(item -> LEARNED_STATUSES.contains(item.getStatus())).count();
+                    long dueToday = progress.stream()
+                            .filter(item -> item.getStatus() != VocabProgressStatus.NEW)
+                            .filter(item -> item.getNextReviewAt() != null)
+                            .filter(item -> !item.getNextReviewAt().isAfter(LocalDateTime.now()))
+                            .count();
+                    long total = totalByDeck.getOrDefault(deckId, 0L);
+                    return new ClassroomDeckResponse(
+                            deckId,
+                            classroomDeck.getDeck().getName(),
+                            classroomDeck.getDeck().getDescription(),
+                            total,
+                            learned,
+                            Math.max(0, total - learned),
+                            dueToday,
+                            classroomDeck.getAddedAt()
+                    );
+                })
+                .toList();
+    }
+
+    private List<ClassroomMemberProgressResponse> toMemberResponses(Classroom classroom, List<Long> vocabIds) {
+        List<ClassroomMember> members = memberRepository.findAllByClassroomIdOrderByJoinedAtAsc(classroom.getId());
+        return members.stream()
+                .map(member -> progressForMember(member, vocabIds))
+                .toList();
+    }
+
+    private ClassroomMemberProgressResponse progressForMember(ClassroomMember member, List<Long> vocabIds) {
+        List<UserProgress> progress = vocabIds.isEmpty()
+                ? List.of()
+                : progressRepository.findAllByUserIdAndVocabItemIdIn(member.getUser().getId(), vocabIds);
+        Map<Long, UserProgress> progressByVocabId = progress.stream()
+                .collect(Collectors.toMap(item -> item.getVocabItem().getId(), Function.identity()));
+
+        long learned = progress.stream().filter(item -> LEARNED_STATUSES.contains(item.getStatus())).count();
+        long mastered = progress.stream().filter(item -> item.getStatus() == VocabProgressStatus.MASTERED).count();
+        long review = progress.stream().filter(item -> item.getStatus() == VocabProgressStatus.REVIEW).count();
+        long difficult = progress.stream().filter(item -> item.getStatus() == VocabProgressStatus.DIFFICULT).count();
+        long correct = progress.stream().mapToLong(UserProgress::getCorrectCount).sum();
+        long wrong = progress.stream().mapToLong(UserProgress::getWrongCount).sum();
+        long totalAnswers = correct + wrong;
+        int accuracy = totalAnswers == 0 ? 0 : Math.round((correct * 100f) / totalAnswers);
+        LocalDateTime lastActivity = progress.stream()
+                .map(this::activityAt)
+                .filter(value -> value != null)
+                .max(LocalDateTime::compareTo)
+                .orElse(null);
+
+        long touched = vocabIds.stream().filter(progressByVocabId::containsKey).count();
+
+        return new ClassroomMemberProgressResponse(
+                member.getUser().getId(),
+                member.getUser().getDisplayName(),
+                member.getUser().getEmail(),
+                member.getRole(),
+                vocabIds.size(),
+                touched,
+                learned,
+                mastered,
+                review,
+                difficult,
+                correct,
+                wrong,
+                accuracy,
+                lastActivity,
+                member.getJoinedAt()
+        );
+    }
+
+    private long learnedWordsFor(Long userId, List<Long> vocabIds) {
+        if (vocabIds.isEmpty()) {
+            return 0;
+        }
+        return progressRepository.findAllByUserIdAndVocabItemIdIn(userId, vocabIds)
+                .stream()
+                .filter(progress -> LEARNED_STATUSES.contains(progress.getStatus()))
+                .count();
+    }
+
+    private LocalDateTime activityAt(UserProgress progress) {
+        if (progress.getLastReviewedAt() != null) {
+            return progress.getLastReviewedAt();
+        }
+        return progress.getLastMarkedAt();
+    }
+
+    private void apply(Classroom classroom, ClassroomRequest request) {
+        classroom.setName(request.name().trim());
+        classroom.setDescription(request.description() == null || request.description().trim().isEmpty()
+                ? null
+                : request.description().trim());
+    }
+
+    private String cleanCode(String code) {
+        return code == null ? "" : code.trim().replaceAll("\\s+", "").toUpperCase(Locale.ROOT);
+    }
+
+    private String generateUniqueCode() {
+        String code;
+        do {
+            code = randomCode();
+        } while (classroomRepository.existsByInviteCode(code));
+        return code;
+    }
+
+    private String randomCode() {
+        StringBuilder builder = new StringBuilder(8);
+        for (int i = 0; i < 8; i++) {
+            builder.append(CODE_ALPHABET.charAt(SECURE_RANDOM.nextInt(CODE_ALPHABET.length())));
+        }
+        return builder.toString();
+    }
+}

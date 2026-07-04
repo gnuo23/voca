@@ -1,7 +1,8 @@
 package com.voca.backend.deck;
 
-import com.voca.backend.quiz.QuestionRepository;
+import com.voca.backend.classroom.ClassroomDeckRepository;
 import com.voca.backend.learn.LearnSessionRepository;
+import com.voca.backend.quiz.QuestionRepository;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
 import com.voca.backend.vocab.UserProgressRepository;
@@ -15,6 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 @Service
 public class DeckService {
@@ -25,6 +27,7 @@ public class DeckService {
     private final UserProgressRepository userProgressRepository;
     private final QuestionRepository questionRepository;
     private final LearnSessionRepository learnSessionRepository;
+    private final ClassroomDeckRepository classroomDeckRepository;
 
     public DeckService(
             DeckRepository deckRepository,
@@ -32,7 +35,8 @@ public class DeckService {
             VocabItemRepository vocabItemRepository,
             UserProgressRepository userProgressRepository,
             QuestionRepository questionRepository,
-            LearnSessionRepository learnSessionRepository
+            LearnSessionRepository learnSessionRepository,
+            ClassroomDeckRepository classroomDeckRepository
     ) {
         this.deckRepository = deckRepository;
         this.userService = userService;
@@ -40,6 +44,7 @@ public class DeckService {
         this.userProgressRepository = userProgressRepository;
         this.questionRepository = questionRepository;
         this.learnSessionRepository = learnSessionRepository;
+        this.classroomDeckRepository = classroomDeckRepository;
     }
 
     @Transactional
@@ -63,10 +68,25 @@ public class DeckService {
     }
 
     @Transactional(readOnly = true)
+    public List<DeckResponse> listStudyDecks(Authentication authentication) {
+        User user = userService.currentUser(authentication);
+        List<Deck> ownedDecks = deckRepository.findAllByOwnerIdOrderByUpdatedAtDesc(user.getId());
+        List<Long> classDeckIds = classroomDeckRepository.findStudyDeckIds(user.getId());
+        List<Deck> classDecks = classDeckIds.isEmpty() ? List.of() : deckRepository.findAllById(classDeckIds);
+        return java.util.stream.Stream.concat(ownedDecks.stream(), classDecks.stream())
+                .collect(java.util.stream.Collectors.toMap(Deck::getId, Function.identity(), (left, right) -> left))
+                .values()
+                .stream()
+                .sorted((left, right) -> right.getUpdatedAt().compareTo(left.getUpdatedAt()))
+                .map(deck -> toResponse(deck, user))
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public DeckResponse get(Authentication authentication, Long deckId) {
-        User owner = userService.currentUser(authentication);
-        Deck deck = findOwnedDeck(owner, deckId);
-        return toResponse(deck, owner);
+        User user = userService.currentUser(authentication);
+        Deck deck = findStudyDeck(user, deckId);
+        return toResponse(deck, user);
     }
 
     @Transactional
@@ -94,10 +114,29 @@ public class DeckService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deck not found"));
     }
 
+    @Transactional(readOnly = true)
+    public Deck findStudyDeck(Authentication authentication, Long deckId) {
+        User user = userService.currentUser(authentication);
+        return findStudyDeck(user, deckId);
+    }
+
+    @Transactional(readOnly = true)
+    public Deck findStudyDeck(User user, Long deckId) {
+        return deckRepository.findById(deckId)
+                .filter(deck -> canStudyDeck(user, deck))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deck not found"));
+    }
+
+    @Transactional(readOnly = true)
+    public boolean canStudyDeck(User user, Deck deck) {
+        return deck.getOwner().getId().equals(user.getId())
+                || classroomDeckRepository.existsStudyAccess(deck.getId(), user.getId());
+    }
+
     @Transactional
     public DeckResponse resetDeckProgress(Authentication authentication, Long deckId) {
         User owner = userService.currentUser(authentication);
-        Deck deck = findOwnedDeck(owner, deckId);
+        Deck deck = findStudyDeck(owner, deckId);
         List<Long> vocabIds = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
                 .stream()
                 .map(item -> item.getId())
