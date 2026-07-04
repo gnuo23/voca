@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 
+import com.voca.backend.deck.DeckResponse;
+
 @RestController
 @RequestMapping("/api/classes")
 public class ClassroomController {
@@ -37,14 +39,14 @@ public class ClassroomController {
     }
 
     @GetMapping("/{classroomId}")
-    public ClassroomResponse get(Authentication authentication, @PathVariable Long classroomId) {
+    public ClassroomResponse get(Authentication authentication, @PathVariable String classroomId) {
         return classroomService.get(authentication, classroomId);
     }
 
     @PutMapping("/{classroomId}")
     public ClassroomResponse update(
             Authentication authentication,
-            @PathVariable Long classroomId,
+            @PathVariable String classroomId,
             @Valid @RequestBody ClassroomRequest request
     ) {
         return classroomService.update(authentication, classroomId, request);
@@ -52,7 +54,7 @@ public class ClassroomController {
 
     @DeleteMapping("/{classroomId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(Authentication authentication, @PathVariable Long classroomId) {
+    public void delete(Authentication authentication, @PathVariable String classroomId) {
         classroomService.delete(authentication, classroomId);
     }
 
@@ -62,23 +64,32 @@ public class ClassroomController {
     }
 
     @PostMapping("/{classroomId}/rotate-code")
-    public ClassroomResponse rotateCode(Authentication authentication, @PathVariable Long classroomId) {
+    public ClassroomResponse rotateCode(Authentication authentication, @PathVariable String classroomId) {
         return classroomService.rotateCode(authentication, classroomId);
     }
 
     @PostMapping("/{classroomId}/decks")
     public ClassroomResponse addDeck(
             Authentication authentication,
-            @PathVariable Long classroomId,
+            @PathVariable String classroomId,
             @Valid @RequestBody AddClassroomDeckRequest request
     ) {
         return classroomService.addDeck(authentication, classroomId, request);
     }
 
+    @GetMapping("/{classroomId}/deck/{deckId}")
+    public DeckResponse getDeck(
+            Authentication authentication,
+            @PathVariable String classroomId,
+            @PathVariable Long deckId
+    ) {
+        return classroomService.getDeck(authentication, classroomId, deckId);
+    }
+
     @DeleteMapping("/{classroomId}/decks/{deckId}")
     public ClassroomResponse removeDeck(
             Authentication authentication,
-            @PathVariable Long classroomId,
+            @PathVariable String classroomId,
             @PathVariable Long deckId
     ) {
         return classroomService.removeDeck(authentication, classroomId, deckId);

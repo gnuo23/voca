@@ -20,6 +20,7 @@ import {
 type VocabStudyPanelProps = {
   token: string;
   deckId: string;
+  canEdit?: boolean;
   refreshDeck: () => void;
   refreshKey: number;
 };
@@ -30,7 +31,7 @@ const emptyForm: VocabItemPayload = {
   meaningVi: ""
 };
 
-export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: VocabStudyPanelProps) {
+export function VocabStudyPanel({ token, deckId, canEdit = true, refreshDeck, refreshKey }: VocabStudyPanelProps) {
   const [items, setItems] = useState<VocabItem[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -89,6 +90,9 @@ export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: Voca
   }
 
   function startEdit(item: VocabItem) {
+    if (!canEdit) {
+      return;
+    }
     setEditing(item);
     setForm({
       word: item.word,
@@ -143,6 +147,9 @@ export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: Voca
   }
 
   async function handleEnrichDeck() {
+    if (!canEdit) {
+      return;
+    }
     setError("");
     try {
       const job = await enrichDeck(token, deckId);
@@ -216,15 +223,17 @@ export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: Voca
           <p>{isLoading ? "Loading" : `${items.length} item${items.length === 1 ? "" : "s"}`}</p>
         </div>
         <div className="button-row">
-          <button
-            className="button secondary-button"
-            type="button"
-            onClick={handleEnrichDeck}
-            disabled={items.length === 0 || isEnriching}
-          >
-            <Sparkles size={18} aria-hidden="true" />
-            {isEnriching ? "Generating" : "Generate AI"}
-          </button>
+          {canEdit && (
+            <button
+              className="button secondary-button"
+              type="button"
+              onClick={handleEnrichDeck}
+              disabled={items.length === 0 || isEnriching}
+            >
+              <Sparkles size={18} aria-hidden="true" />
+              {isEnriching ? "Generating" : "Generate AI"}
+            </button>
+          )}
           <button
             className="button"
             type="button"
@@ -308,7 +317,7 @@ export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: Voca
         </div>
       )}
 
-      {editing && (
+      {editing && canEdit && (
         <div className="edit-vocab-form">
           <div className="form-grid">
             <div className="field">
@@ -352,7 +361,7 @@ export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: Voca
       {items.length === 0 && !isLoading ? (
         <div className="empty-state">
           <h2>No vocabulary yet</h2>
-          <p>Import a list below to start building this deck.</p>
+          <p>{canEdit ? "Import a list below to start building this deck." : "Deck này chưa có từ vựng."}</p>
         </div>
       ) : (
         <div className="preview-wrap">
@@ -392,12 +401,16 @@ export function VocabStudyPanel({ token, deckId, refreshDeck, refreshKey }: Voca
                       <button className="icon-button" type="button" onClick={() => playPronunciation(item, true, "DEFAULT")} aria-label={`Listen slowly to ${item.word}`}>
                         <Volume1 size={17} aria-hidden="true" />
                       </button>
-                      <button className="icon-button" type="button" onClick={() => startEdit(item)} aria-label={`Edit ${item.word}`}>
-                        <Pencil size={17} aria-hidden="true" />
-                      </button>
-                      <button className="icon-button danger-icon" type="button" onClick={() => handleDelete(item)} aria-label={`Delete ${item.word}`}>
-                        <Trash2 size={17} aria-hidden="true" />
-                      </button>
+                      {canEdit && (
+                        <>
+                          <button className="icon-button" type="button" onClick={() => startEdit(item)} aria-label={`Edit ${item.word}`}>
+                            <Pencil size={17} aria-hidden="true" />
+                          </button>
+                          <button className="icon-button danger-icon" type="button" onClick={() => handleDelete(item)} aria-label={`Delete ${item.word}`}>
+                            <Trash2 size={17} aria-hidden="true" />
+                          </button>
+                        </>
+                      )}
                     </div>
                   </td>
                 </tr>

@@ -73,7 +73,7 @@ export default function DecksPage() {
       ) : (
         <section className="deck-list" aria-label="Vocabulary decks">
           {decks.map((deck) => (
-            <Link className="card deck-card" key={deck.id} href={`/decks/${deck.id}`}>
+            <Link className="card deck-card" key={deck.id} href={`/mydeck/${deck.id}`}>
               <div>
                 <h2>{deck.name}</h2>
                 <p>{deck.description || "Chưa có mô tả"}</p>

@@ -16,7 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.voca.backend.deck.Deck;
+import com.voca.backend.deck.DeckResponse;
 import com.voca.backend.deck.DeckRepository;
+import com.voca.backend.deck.DeckService;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
 import com.voca.backend.vocab.UserProgress;
@@ -42,6 +44,7 @@ public class ClassroomService {
     private final VocabItemRepository vocabItemRepository;
     private final UserProgressRepository progressRepository;
     private final UserService userService;
+    private final DeckService deckService;
 
     public ClassroomService(
             ClassroomRepository classroomRepository,
@@ -50,7 +53,8 @@ public class ClassroomService {
             DeckRepository deckRepository,
             VocabItemRepository vocabItemRepository,
             UserProgressRepository progressRepository,
-            UserService userService
+            UserService userService,
+            DeckService deckService
     ) {
         this.classroomRepository = classroomRepository;
         this.memberRepository = memberRepository;
@@ -59,6 +63,7 @@ public class ClassroomService {
         this.vocabItemRepository = vocabItemRepository;
         this.progressRepository = progressRepository;
         this.userService = userService;
+        this.deckService = deckService;
     }
 
     @Transactional
@@ -90,14 +95,14 @@ public class ClassroomService {
     }
 
     @Transactional(readOnly = true)
-    public ClassroomResponse get(Authentication authentication, Long classroomId) {
+    public ClassroomResponse get(Authentication authentication, String classroomId) {
         User user = userService.currentUser(authentication);
         ClassroomMember membership = requireMembership(classroomId, user);
         return toResponse(membership.getClassroom(), membership, true);
     }
 
     @Transactional
-    public ClassroomResponse update(Authentication authentication, Long classroomId, ClassroomRequest request) {
+    public ClassroomResponse update(Authentication authentication, String classroomId, ClassroomRequest request) {
         User user = userService.currentUser(authentication);
         ClassroomMember membership = requireOwner(classroomId, user);
         Classroom classroom = membership.getClassroom();
@@ -106,7 +111,7 @@ public class ClassroomService {
     }
 
     @Transactional
-    public void delete(Authentication authentication, Long classroomId) {
+    public void delete(Authentication authentication, String classroomId) {
         User user = userService.currentUser(authentication);
         ClassroomMember membership = requireOwner(classroomId, user);
         classroomRepository.delete(membership.getClassroom());
@@ -132,7 +137,7 @@ public class ClassroomService {
     }
 
     @Transactional
-    public ClassroomResponse rotateCode(Authentication authentication, Long classroomId) {
+    public ClassroomResponse rotateCode(Authentication authentication, String classroomId) {
         User user = userService.currentUser(authentication);
         ClassroomMember membership = requireOwner(classroomId, user);
         Classroom classroom = membership.getClassroom();
@@ -141,7 +146,7 @@ public class ClassroomService {
     }
 
     @Transactional
-    public ClassroomResponse addDeck(Authentication authentication, Long classroomId, AddClassroomDeckRequest request) {
+    public ClassroomResponse addDeck(Authentication authentication, String classroomId, AddClassroomDeckRequest request) {
         User user = userService.currentUser(authentication);
         ClassroomMember membership = requireOwner(classroomId, user);
         Classroom classroom = membership.getClassroom();
@@ -158,8 +163,17 @@ public class ClassroomService {
         return toResponse(classroom, membership, true);
     }
 
+    @Transactional(readOnly = true)
+    public DeckResponse getDeck(Authentication authentication, String classroomId, Long deckId) {
+        User user = userService.currentUser(authentication);
+        ClassroomMember membership = requireMembership(classroomId, user);
+        ClassroomDeck classroomDeck = classroomDeckRepository.findByClassroomIdAndDeckId(membership.getClassroom().getId(), deckId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deck not found in class"));
+        return deckService.toResponse(classroomDeck.getDeck(), user);
+    }
+
     @Transactional
-    public ClassroomResponse removeDeck(Authentication authentication, Long classroomId, Long deckId) {
+    public ClassroomResponse removeDeck(Authentication authentication, String classroomId, Long deckId) {
         User user = userService.currentUser(authentication);
         ClassroomMember membership = requireOwner(classroomId, user);
         Classroom classroom = membership.getClassroom();
@@ -168,17 +182,33 @@ public class ClassroomService {
         return toResponse(classroom, membership, true);
     }
 
-    private ClassroomMember requireMembership(Long classroomId, User user) {
-        return memberRepository.findByClassroomIdAndUserId(classroomId, user.getId())
+    private ClassroomMember requireMembership(String classroomId, User user) {
+        Classroom classroom = findClassroom(classroomId);
+        return memberRepository.findByClassroomIdAndUserId(classroom.getId(), user.getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Class not found"));
     }
 
-    private ClassroomMember requireOwner(Long classroomId, User user) {
+    private ClassroomMember requireOwner(String classroomId, User user) {
         ClassroomMember membership = requireMembership(classroomId, user);
         if (membership.getRole() != ClassroomRole.OWNER) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only the class owner can do this");
         }
         return membership;
+    }
+
+    private Classroom findClassroom(String classroomId) {
+        String normalized = cleanCode(classroomId);
+        if (normalized.matches("\\d+")) {
+            try {
+                return classroomRepository.findById(Long.parseLong(normalized))
+                        .or(() -> classroomRepository.findByInviteCode(normalized))
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Class not found"));
+            } catch (NumberFormatException ignored) {
+                // Fall through to invite-code lookup below.
+            }
+        }
+        return classroomRepository.findByInviteCode(normalized)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Class not found"));
     }
 
     private ClassroomResponse toResponse(Classroom classroom, ClassroomMember viewerMembership, boolean includeDetails) {

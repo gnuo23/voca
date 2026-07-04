@@ -170,7 +170,7 @@ public class DeckService {
                 .filter(progress -> progress.getNextReviewAt() != null)
                 .filter(progress -> !progress.getNextReviewAt().isAfter(java.time.LocalDateTime.now()))
                 .count();
-        long savedQuestionCount = questionRepository.countByDeckIdAndOwnerId(deck.getId(), owner.getId());
-        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount);
+        long savedQuestionCount = questionRepository.countByDeckIdAndOwnerId(deck.getId(), deck.getOwner().getId());
+        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount, owner.getId());
     }
 }

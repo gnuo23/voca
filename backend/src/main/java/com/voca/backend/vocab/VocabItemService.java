@@ -76,7 +76,7 @@ public class VocabItemService {
     @Transactional
     public VocabItemResponse update(Authentication authentication, Long vocabId, VocabItemRequest request) {
         User user = userService.currentUser(authentication);
-        VocabItem item = findStudyVocab(user, vocabId);
+        VocabItem item = findOwnedVocab(user, vocabId);
         apply(item, request);
 
         UserProgress progress = userProgressRepository
@@ -114,7 +114,7 @@ public class VocabItemService {
     @Transactional
     public VocabItemResponse mark(Authentication authentication, Long vocabId, VocabMarkRequest request) {
         User user = userService.currentUser(authentication);
-        VocabItem item = findOwnedVocab(user, vocabId);
+        VocabItem item = findStudyVocab(user, vocabId);
         UserProgress progress = userProgressRepository
                 .findByUserIdAndVocabItemId(user.getId(), item.getId())
                 .orElseGet(() -> createProgress(user, item));

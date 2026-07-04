@@ -46,7 +46,7 @@ export default function ClassesPage() {
       setName("");
       setDescription("");
       await refresh();
-      router.push(`/classes/${classroom.id}`);
+      router.push(`/classes/${classroom.inviteCode}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không tạo được lớp");
     } finally {
@@ -63,7 +63,7 @@ export default function ClassesPage() {
       const classroom = await joinClass(token, joinCode.trim());
       setJoinCode("");
       await refresh();
-      router.push(`/classes/${classroom.id}`);
+      router.push(`/classes/${classroom.inviteCode}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không vào được lớp");
     } finally {
@@ -132,7 +132,7 @@ export default function ClassesPage() {
       ) : (
         <section className="deck-list" aria-label="Classes">
           {classes.map((classroom) => (
-            <Link className="card deck-card classroom-card" key={classroom.id} href={`/classes/${classroom.id}`}>
+            <Link className="card deck-card classroom-card" key={classroom.id} href={`/classes/${classroom.inviteCode}`}>
               <div>
                 <h2>{classroom.name}</h2>
                 <p>{classroom.description || "Chưa có mô tả"}</p>

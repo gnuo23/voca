@@ -20,6 +20,7 @@ type QuizPanelProps = {
   deckId: string;
   totalWords: number;
   savedQuestionCount: number;
+  canManageQuestions?: boolean;
   refreshDeck: () => void;
 };
 
@@ -49,7 +50,7 @@ function PronounceButton({ text, className = "" }: { text: string; className?: s
   );
 }
 
-export function QuizPanel({ token, deckId, totalWords, savedQuestionCount, refreshDeck }: QuizPanelProps) {
+export function QuizPanel({ token, deckId, totalWords, savedQuestionCount, canManageQuestions = true, refreshDeck }: QuizPanelProps) {
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null);
   const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -243,17 +244,19 @@ export function QuizPanel({ token, deckId, totalWords, savedQuestionCount, refre
           <h2>Quiz</h2>
           <p>{attempt ? `Đã trả lời ${answeredCount}/${attempt.totalQuestions}` : `Trắc nghiệm 4 lựa chọn · ${savedQuestionCount} câu hỏi đã lưu`}</p>
         </div>
-        <div className="button-row">
-          <button
-            className="button secondary-button"
-            type="button"
-            onClick={() => setShowBulkImport((current) => !current)}
-            disabled={isLoading || totalWords < 4}
-          >
-            <Eye size={18} aria-hidden="true" />
-            {showBulkImport ? "Đóng" : "Thêm câu hỏi"}
-          </button>
-        </div>
+        {canManageQuestions && (
+          <div className="button-row">
+            <button
+              className="button secondary-button"
+              type="button"
+              onClick={() => setShowBulkImport((current) => !current)}
+              disabled={isLoading || totalWords < 4}
+            >
+              <Eye size={18} aria-hidden="true" />
+              {showBulkImport ? "Đóng" : "Thêm câu hỏi"}
+            </button>
+          </div>
+        )}
       </div>
 
       {error && <p className="form-error">{error}</p>}
@@ -265,15 +268,21 @@ export function QuizPanel({ token, deckId, totalWords, savedQuestionCount, refre
             <div className="quiz-empty-state">
               <ListChecks size={28} aria-hidden="true" />
               <h3>Chưa có câu hỏi quiz</h3>
-              <p>Hãy thêm danh sách câu hỏi <code>từ -- câu hỏi</code> để bắt đầu.</p>
-              <button
-                className="button"
-                type="button"
-                onClick={() => setShowBulkImport(true)}
-              >
-                <Eye size={18} aria-hidden="true" />
-                Thêm câu hỏi ngay
-              </button>
+              <p>
+                {canManageQuestions
+                  ? <>Hãy thêm danh sách câu hỏi <code>từ -- câu hỏi</code> để bắt đầu.</>
+                  : "Deck lớp này chưa có câu hỏi quiz. Chủ lớp cần thêm câu hỏi trước."}
+              </p>
+              {canManageQuestions && (
+                <button
+                  className="button"
+                  type="button"
+                  onClick={() => setShowBulkImport(true)}
+                >
+                  <Eye size={18} aria-hidden="true" />
+                  Thêm câu hỏi ngay
+                </button>
+              )}
             </div>
           ) : (
             <>
@@ -319,7 +328,7 @@ export function QuizPanel({ token, deckId, totalWords, savedQuestionCount, refre
         </div>
       )}
 
-      {showBulkImport && (
+      {showBulkImport && canManageQuestions && (
         <div className="quiz-manual-panel">
           <div className="field">
             <label htmlFor="bulk-quiz-text">Danh sách câu hỏi</label>

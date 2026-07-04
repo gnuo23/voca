@@ -34,7 +34,7 @@ export default function NewDeckPage() {
           submitLabel="Create deck"
           onSubmit={async (payload) => {
             const deck = await createDeck(token, payload);
-            router.push(`/decks/${deck.id}`);
+            router.push(`/mydeck/${deck.id}`);
           }}
         />
       </section>

@@ -63,6 +63,9 @@ export type Deck = {
   dueWords: number;
   dueTodayCount: number;
   savedQuestionCount: number;
+  ownerId: number;
+  ownerName: string;
+  ownedByCurrentUser: boolean;
   createdAt: string;
   updatedAt: string;
 };
@@ -620,7 +623,7 @@ export async function listDecks(token: string): Promise<Deck[]> {
 }
 
 export async function listStudyDecks(token: string): Promise<Deck[]> {
-  return apiRequest<Deck[]>("/api/decks/study", {
+  return apiRequest<Deck[]>("/api/study-decks", {
     token
   });
 }
@@ -843,6 +846,10 @@ export async function createClass(token: string, payload: ClassroomPayload): Pro
 
 export async function getClass(token: string, classId: string): Promise<Classroom> {
   return apiRequest<Classroom>(`/api/classes/${classId}`, { token });
+}
+
+export async function getClassDeck(token: string, classId: string, deckId: string): Promise<Deck> {
+  return apiRequest<Deck>(`/api/classes/${classId}/deck/${deckId}`, { token });
 }
 
 export async function updateClass(token: string, classId: string, payload: ClassroomPayload): Promise<Classroom> {

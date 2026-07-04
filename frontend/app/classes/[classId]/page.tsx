@@ -61,7 +61,9 @@ export default function ClassDetailPage() {
     setIsSaving(true);
     setError("");
     try {
-      setClassroom(await rotateClassCode(token, params.classId));
+      const updated = await rotateClassCode(token, classroom.inviteCode);
+      setClassroom(updated);
+      router.replace(`/classes/${updated.inviteCode}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không đổi được mã lớp");
     } finally {
@@ -75,7 +77,7 @@ export default function ClassDetailPage() {
     setIsSaving(true);
     setError("");
     try {
-      setClassroom(await addClassDeck(token, params.classId, selectedDeckId));
+      setClassroom(await addClassDeck(token, classroom?.inviteCode ?? params.classId, selectedDeckId));
       setSelectedDeckId("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không thêm được deck");
@@ -89,7 +91,7 @@ export default function ClassDetailPage() {
     setIsSaving(true);
     setError("");
     try {
-      setClassroom(await removeClassDeck(token, params.classId, String(deckId)));
+      setClassroom(await removeClassDeck(token, classroom?.inviteCode ?? params.classId, String(deckId)));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không gỡ được deck");
     } finally {
@@ -200,14 +202,12 @@ export default function ClassDetailPage() {
                   </span>
                 </div>
                 <div className="button-row">
-                  <Link className="button secondary-button" href={`/decks/${deck.deckId}/learn`}>
+                  <Link className="button secondary-button" href={`/classes/${classroom.inviteCode}/deck/${deck.deckId}/learn`}>
                     Học
                   </Link>
-                  {classroom.role === "OWNER" && (
-                    <Link className="button secondary-button" href={`/decks/${deck.deckId}`}>
-                      Xem
-                    </Link>
-                  )}
+                  <Link className="button secondary-button" href={`/classes/${classroom.inviteCode}/deck/${deck.deckId}`}>
+                    Xem / Quiz
+                  </Link>
                   {classroom.role === "OWNER" && (
                     <button className="icon-button danger-icon" type="button" onClick={() => handleRemoveDeck(deck.deckId)} disabled={isSaving} aria-label="Remove deck">
                       <Trash2 size={16} />

@@ -48,7 +48,7 @@ export function DeckImportFromCodePanel({ token, onImported }: DeckImportFromCod
       onImported?.();
       resetState();
       setIsOpen(false);
-      router.push(`/decks/${newDeck.id}`);
+      router.push(`/mydeck/${newDeck.id}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không nhập được deck");
     } finally {

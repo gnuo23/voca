@@ -153,7 +153,7 @@ export default function DashboardPage() {
                     <div className="progress-track dashboard-progress-track" aria-hidden="true">
                       <div style={{ width: `${Math.min(activeDeck.progressScore, 100)}%` }} />
                     </div>
-                    <Link className="dashboard-continue-btn" href={`/decks/${activeDeck.deckId}`}>
+                    <Link className="dashboard-continue-btn" href={`/mydeck/${activeDeck.deckId}`}>
                       Continue learning
                       <span aria-hidden="true">→</span>
                     </Link>

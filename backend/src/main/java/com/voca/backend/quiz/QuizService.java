@@ -58,7 +58,7 @@ public class QuizService {
     public QuizImportPreviewResponse previewImport(Authentication authentication, Long deckId, QuizImportRequest request) {
         User user = userService.currentUser(authentication);
         deckService.findOwnedDeck(user, deckId);
-        List<VocabItem> deckItems = loadDeckItems(deckId, user);
+        List<VocabItem> deckItems = loadDeckItems(deckId);
         return buildImportPreview(deckItems, request);
     }
 
@@ -66,7 +66,7 @@ public class QuizService {
     public QuizImportPreviewResponse saveImport(Authentication authentication, Long deckId, QuizImportRequest request) {
         User user = userService.currentUser(authentication);
         Deck deck = deckService.findOwnedDeck(user, deckId);
-        List<VocabItem> deckItems = loadDeckItems(deckId, user);
+        List<VocabItem> deckItems = loadDeckItems(deckId);
         QuizImportPreviewResponse preview = buildImportPreview(deckItems, request);
 
         Map<Long, VocabItem> deckItemById = deckItems.stream().collect(Collectors.toMap(VocabItem::getId, item -> item));
@@ -104,14 +104,14 @@ public class QuizService {
     @Transactional
     public QuizAttemptResponse startQuiz(Authentication authentication, Long deckId, StartQuizRequest request) {
         User user = userService.currentUser(authentication);
-        Deck deck = deckService.findOwnedDeck(user, deckId);
-        List<VocabItem> deckItems = loadDeckItems(deckId, user);
+        Deck deck = deckService.findStudyDeck(user, deckId);
+        List<VocabItem> deckItems = loadDeckItems(deck.getId());
         if (deckItems.size() < 4) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need at least 4 vocabulary items to start a quiz");
         }
 
         List<Question> questions = new ArrayList<>(
-                questionRepository.findAllByDeckIdAndOwnerIdOrderByCreatedAtAsc(deck.getId(), user.getId())
+                questionRepository.findAllByDeckIdAndOwnerIdOrderByCreatedAtAsc(deck.getId(), deck.getOwner().getId())
         );
         if (questions.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No quiz questions saved for this deck yet");
@@ -135,11 +135,14 @@ public class QuizService {
     public QuizAnswerResponse answer(Authentication authentication, Long attemptId, AnswerQuizQuestionRequest request) {
         User user = userService.currentUser(authentication);
         QuizAttempt attempt = findOwnedAttempt(user, attemptId);
-        Question question = questionRepository.findByIdAndOwnerId(request.questionId(), user.getId())
+        Question question = questionRepository.findById(request.questionId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Question not found"));
 
         if (!question.getDeck().getId().equals(attempt.getDeck().getId())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Question does not belong to this attempt deck");
+        }
+        if (!question.getOwner().getId().equals(attempt.getDeck().getOwner().getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Question does not belong to this attempt deck owner");
         }
         if (quizAnswerRepository.findByAttemptIdAndQuestionId(attempt.getId(), question.getId()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Question already answered");
@@ -182,8 +185,8 @@ public class QuizService {
         );
     }
 
-    private List<VocabItem> loadDeckItems(Long deckId, User user) {
-        return vocabItemRepository.findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(deckId, user.getId());
+    private List<VocabItem> loadDeckItems(Long deckId) {
+        return vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deckId);
     }
 
     private QuizImportPreviewResponse buildImportPreview(List<VocabItem> deckItems, QuizImportRequest request) {
