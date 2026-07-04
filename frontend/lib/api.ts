@@ -461,15 +461,43 @@ export type StreakDay = {
   today: boolean;
 };
 
+export type LearningLevel = {
+  level: number;
+  xp: number;
+  xpForCurrentLevel: number;
+  xpForNextLevel: number;
+  progressPercent: number;
+};
+
+export type WeeklyStat = {
+  label: string;
+  date: string;
+  learned: number;
+  reviewed: number;
+  total: number;
+};
+
+export type RecentActivity = {
+  type: "DECK_CREATED" | "DECK_UPDATED" | "VOCAB_REVIEWED" | "HARD_WORD" | string;
+  title: string;
+  description: string | null;
+  deckId: number | null;
+  vocabId: number | null;
+  occurredAt: string;
+};
+
 export type DashboardMetrics = {
   wordsLearnedToday: number;
   wordsReviewedToday: number;
   wordsToReview: number;
   overdueWords: number;
   accuracy: number;
+  level: LearningLevel;
   streakDays: number;
   streakActiveToday: boolean;
   streakWeek: StreakDay[];
+  weeklyStats: WeeklyStat[];
+  recentActivities: RecentActivity[];
   hardWords: HardWord[];
   deckProgress: DeckProgress[];
 };

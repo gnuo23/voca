@@ -61,7 +61,11 @@ export default function DashboardPage() {
   const learnedToday = metrics?.wordsLearnedToday ?? 0;
   const missionProgress = Math.min(100, Math.round((learnedToday / Math.max(dailyGoal, 1)) * 100));
   const level = user?.englishLevel.replaceAll("_", " ") ?? "BEGINNER";
+  const numericLevel = metrics?.level?.level ?? 1;
+  const xpProgress = metrics?.level?.progressPercent ?? 0;
   const statusOk = health.toUpperCase() === "UP";
+  const weeklyStats = metrics?.weeklyStats?.length ? metrics.weeklyStats : [];
+  const weeklyMax = Math.max(1, ...weeklyStats.map((item) => item.total));
 
   const metricCards = [
     {
@@ -110,7 +114,7 @@ export default function DashboardPage() {
             <h1>{getGreeting()}, {user?.displayName ?? "nganh"} 👋</h1>
             <p>{level} level · Your learning overview</p>
             <div className="dashboard-chips" aria-label="Learning summary">
-              <span className="dash-chip green"><Star size={16} aria-hidden="true" />{level}</span>
+              <span className="dash-chip green"><Star size={16} aria-hidden="true" />Lv. {numericLevel}</span>
               <span className="dash-chip red"><Flame size={16} aria-hidden="true" />{metrics?.streakDays ?? 0} streak day</span>
               <span className="dash-chip purple"><Target size={16} aria-hidden="true" />{learnedToday} learned today</span>
             </div>
@@ -176,8 +180,11 @@ export default function DashboardPage() {
             <article className="dashboard-paper-card study-note-card">
               <div className="study-note-icon"><Zap size={24} aria-hidden="true" /></div>
               <div>
-                <h2>Study Tip</h2>
-                <p>Review a little every day helps you remember for longer. Keep it up, you’re doing great!</p>
+                <h2>Level Progress</h2>
+                <p>Lv. {numericLevel} · {metrics?.level?.xp ?? 0} XP · {xpProgress}% tới level tiếp theo.</p>
+                <div className="progress-track dashboard-progress-track" aria-hidden="true">
+                  <div style={{ width: `${xpProgress}%` }} />
+                </div>
               </div>
               <span className="pencil-mark" aria-hidden="true">✎</span>
             </article>
@@ -214,6 +221,18 @@ export default function DashboardPage() {
               </div>
               <div className="progress-track mission-track" aria-hidden="true">
                 <div style={{ width: `${missionProgress}%` }} />
+              </div>
+            </article>
+
+            <article className="dashboard-paper-card weekly-card">
+              <h2>Weekly Stats</h2>
+              <div className="weekly-bars" aria-label="Weekly learning stats">
+                {weeklyStats.map((item) => (
+                  <div key={item.date} className="weekly-bar-item">
+                    <span style={{ height: `${Math.max(10, Math.round((item.total / weeklyMax) * 100))}%` }} />
+                    <strong>{item.label}</strong>
+                  </div>
+                ))}
               </div>
             </article>
           </aside>

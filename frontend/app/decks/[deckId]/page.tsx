@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   BarChart3,
+  BookOpen,
   CalendarCheck,
   ChevronRight,
   Gift,
@@ -24,14 +25,46 @@ import { MatchGamePanel } from "@/components/match/MatchGamePanel";
 import { QuizPanel } from "@/components/quiz/QuizPanel";
 import { VocabImportPanel } from "@/components/vocab/VocabImportPanel";
 import { VocabStudyPanel } from "@/components/vocab/VocabStudyPanel";
-import { Deck, deleteDeck, getDeck, getStoredToken, resetDeckProgress, updateDeck } from "@/lib/api";
+import {
+  DashboardMetrics,
+  Deck,
+  RecentActivity,
+  deleteDeck,
+  getDashboardMetrics,
+  getDeck,
+  getStoredToken,
+  resetDeckProgress,
+  updateDeck
+} from "@/lib/api";
 import { clearStoredLearnState } from "@/lib/learnStorage";
+
+function formatRelativeTime(value: string): string {
+  const occurredAt = new Date(value).getTime();
+  const diffMs = Date.now() - occurredAt;
+  const minute = 60 * 1000;
+  const hour = 60 * minute;
+  const day = 24 * hour;
+
+  if (!Number.isFinite(occurredAt)) return "";
+  if (diffMs < minute) return "Vừa xong";
+  if (diffMs < hour) return `${Math.max(1, Math.floor(diffMs / minute))} phút trước`;
+  if (diffMs < day) return `${Math.floor(diffMs / hour)} giờ trước`;
+  if (diffMs < day * 7) return `${Math.floor(diffMs / day)} ngày trước`;
+  return new Intl.DateTimeFormat("vi-VN", { day: "2-digit", month: "2-digit" }).format(new Date(value));
+}
+
+function activityIcon(type: RecentActivity["type"]) {
+  if (type === "DECK_CREATED" || type === "DECK_UPDATED") return PencilLine;
+  if (type === "HARD_WORD") return BarChart3;
+  return BookOpen;
+}
 
 export default function DeckDetailPage() {
   const params = useParams<{ deckId: string }>();
   const router = useRouter();
   const [token, setToken] = useState("");
   const [deck, setDeck] = useState<Deck | null>(null);
+  const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
   const [vocabRefreshKey, setVocabRefreshKey] = useState(0);
@@ -47,6 +80,9 @@ export default function DeckDetailPage() {
     getDeck(storedToken, params.deckId)
       .then(setDeck)
       .catch(() => router.push("/decks"));
+    getDashboardMetrics(storedToken)
+      .then(setMetrics)
+      .catch(() => setMetrics(null));
   }, [params.deckId, router]);
 
   async function handleDelete() {
@@ -80,6 +116,9 @@ export default function DeckDetailPage() {
 
     const refreshed = await getDeck(token, params.deckId);
     setDeck(refreshed);
+    getDashboardMetrics(token)
+      .then(setMetrics)
+      .catch(() => setMetrics(null));
   }
 
   async function handleImported() {
@@ -87,12 +126,22 @@ export default function DeckDetailPage() {
     setVocabRefreshKey((value) => value + 1);
   }
 
+  const level = metrics?.level?.level ?? 1;
+  const weeklyStats = metrics?.weeklyStats?.length ? metrics.weeklyStats : [];
+  const weeklyMax = Math.max(1, ...weeklyStats.map((item) => item.total));
+  const deckActivities = (metrics?.recentActivities ?? [])
+    .filter((item) => item.deckId === Number(params.deckId))
+    .slice(0, 4);
+
   return (
     <AppShell>
       <header className="topbar deck-hero-topbar">
         <div>
           <p className="deck-welcome">Chào mừng trở lại,</p>
-          <h1>{deck?.name ?? "Deck Detail"}</h1>
+          <h1>
+            {deck?.name ?? "Deck Detail"}
+            <span className="deck-level-pill">Lv. {level}</span>
+          </h1>
           <p className="deck-hero-meta">
             {deck ? `🔥 ${deck.totalWords} từ · ${deck.learnedWords} đã thuộc · ${deck.dueTodayCount ?? 0} cần ôn hôm nay` : "Đang tải deck"}
           </p>
@@ -185,18 +234,21 @@ export default function DeckDetailPage() {
               <span>7 ngày</span>
             </div>
             <div className="mini-chart" aria-hidden="true">
-              <svg viewBox="0 0 260 150" role="img">
-                <defs>
-                  <linearGradient id="deckChartFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.02" />
-                  </linearGradient>
-                </defs>
-                <path d="M12 98 C42 118 52 52 86 66 C122 80 117 28 154 48 C190 70 190 112 222 82 C240 64 244 42 252 34" fill="none" stroke="#8b5cf6" strokeWidth="5" strokeLinecap="round" />
-                <path d="M12 98 C42 118 52 52 86 66 C122 80 117 28 154 48 C190 70 190 112 222 82 C240 64 244 42 252 34 L252 142 L12 142 Z" fill="url(#deckChartFill)" />
-              </svg>
+              <div className="mini-bar-chart">
+                {weeklyStats.map((item) => (
+                  <span key={item.date} style={{ height: `${Math.max(8, Math.round((item.total / weeklyMax) * 100))}%` }} />
+                ))}
+              </div>
               <div className="mini-chart-labels">
-                <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+                {(weeklyStats.length ? weeklyStats : [
+                  { label: "T2" },
+                  { label: "T3" },
+                  { label: "T4" },
+                  { label: "T5" },
+                  { label: "T6" },
+                  { label: "T7" },
+                  { label: "CN" }
+                ]).map((item) => <span key={item.label}>{item.label}</span>)}
               </div>
             </div>
           </section>
@@ -212,18 +264,17 @@ export default function DeckDetailPage() {
 
           <section className="card recent-card">
             <h2>Hoạt động gần đây</h2>
-            <div className="recent-row">
-              <span><PencilLine size={18} aria-hidden="true" /></span>
-              <div><strong>Tạo deck mới</strong><p>2 giờ trước</p></div>
-            </div>
-            <div className="recent-row">
-              <span><GraduationCap size={18} aria-hidden="true" /></span>
-              <div><strong>Bắt đầu học</strong><p>2 giờ trước</p></div>
-            </div>
-            <div className="recent-row">
-              <span><BarChart3 size={18} aria-hidden="true" /></span>
-              <div><strong>Làm quiz</strong><p>Hôm qua</p></div>
-            </div>
+            {deckActivities.length > 0 ? deckActivities.map((activity) => {
+              const Icon = activityIcon(activity.type);
+              return (
+                <div key={`${activity.type}-${activity.vocabId ?? activity.deckId}-${activity.occurredAt}`} className="recent-row">
+                  <span><Icon size={18} aria-hidden="true" /></span>
+                  <div><strong>{activity.title}</strong><p>{activity.description} · {formatRelativeTime(activity.occurredAt)}</p></div>
+                </div>
+              );
+            }) : (
+              <p className="recent-empty">Chưa có hoạt động thật cho deck này.</p>
+            )}
           </section>
         </aside>
       </div>
