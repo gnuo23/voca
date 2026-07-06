@@ -207,6 +207,59 @@ class LearnIntegrationTest {
     }
 
     @Test
+    void writtenEnglishToVietnameseAcceptsReviewStyleMeaningAlternatives() throws Exception {
+        String token = register("learn-review-style-en-vi@example.com");
+        long deckId = createDeck(token, "Learn Review Style Deck");
+        importItems(token, deckId, """
+                absent ; vang mat, nghi hoc
+                eager ; hao huc
+                """);
+
+        StartLearnSessionRequest startRequest = new StartLearnSessionRequest(
+                deckId,
+                LearnSessionScope.ALL,
+                LearnGoal.MASTER_ALL,
+                LearnAnswerDirection.BOTH,
+                LearnGradingMode.EXACT,
+                List.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
+        );
+        long sessionId = startSession(token, startRequest);
+
+        JsonNode question = findQuestion(token, sessionId, "absent", "LEARNING", 20);
+        JsonNode response = answerQuestionForResponse(token, sessionId, question, "nghi hoc");
+
+        org.assertj.core.api.Assertions.assertThat(response.get("correct").asBoolean()).isTrue();
+        org.assertj.core.api.Assertions.assertThat(response.get("verdict").asText()).isEqualTo("CORRECT");
+        org.assertj.core.api.Assertions.assertThat(response.get("newStage").asText()).isEqualTo("FAMILIAR");
+    }
+
+    @Test
+    void reviewStyleMeaningAlternativesDoNotApplyToWrittenVietnameseToEnglish() throws Exception {
+        String token = register("learn-review-style-vi-en@example.com");
+        long deckId = createDeck(token, "Learn Direction Deck");
+        importItems(token, deckId, """
+                set up, establish ; thiet lap
+                absent ; vang mat
+                """);
+
+        StartLearnSessionRequest startRequest = new StartLearnSessionRequest(
+                deckId,
+                LearnSessionScope.ALL,
+                LearnGoal.MASTER_ALL,
+                LearnAnswerDirection.BOTH,
+                LearnGradingMode.EXACT,
+                List.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
+        );
+        long sessionId = startSession(token, startRequest);
+
+        JsonNode question = findQuestion(token, sessionId, "set up, establish", "FAMILIAR", 30);
+        JsonNode response = answerQuestionForResponse(token, sessionId, question, "establish");
+
+        org.assertj.core.api.Assertions.assertThat(response.get("correct").asBoolean()).isFalse();
+        org.assertj.core.api.Assertions.assertThat(response.get("verdict").asText()).isEqualTo("INCORRECT");
+    }
+
+    @Test
     void learnMasteryUpdatesReviewAndSeparateLearnProgress() throws Exception {
         String token = register("learn-hard-result@example.com");
         long deckId = createDeck(token, "Hard Learn Deck");
@@ -506,6 +559,10 @@ class LearnIntegrationTest {
     }
 
     private void answerQuestion(String token, long sessionId, JsonNode question, String answer) throws Exception {
+        answerQuestionForResponse(token, sessionId, question, answer);
+    }
+
+    private JsonNode answerQuestionForResponse(String token, long sessionId, JsonNode question, String answer) throws Exception {
         SubmitLearnAnswerRequest request = new SubmitLearnAnswerRequest(
                 question.get("sessionItemId").asLong(),
                 answer,
@@ -513,11 +570,31 @@ class LearnIntegrationTest {
                 5000L,
                 question.get("questionToken").asText()
         );
-        mockMvc.perform(post("/api/learn/sessions/{id}/answer", sessionId)
+        String body = mockMvc.perform(post("/api/learn/sessions/{id}/answer", sessionId)
                         .header("Authorization", bearer(token))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        return objectMapper.readTree(body);
+    }
+
+    private JsonNode findQuestion(String token, long sessionId, String word, String stage, int maxTurns) throws Exception {
+        for (int i = 0; i < maxTurns; i++) {
+            JsonNode question = nextQuestion(token, sessionId);
+            if (question.get("sessionItemId").isNull()) {
+                break;
+            }
+            if (word.equals(question.get("word").asText())
+                    && stage.equals(question.get("stage").asText())
+                    && "WRITTEN".equals(question.get("questionType").asText())) {
+                return question;
+            }
+            answerQuestion(token, sessionId, question, correctAnswerFor(question));
+        }
+        throw new AssertionError("Could not find " + word + " at stage " + stage);
     }
 
     private String correctAnswerFor(JsonNode question) {

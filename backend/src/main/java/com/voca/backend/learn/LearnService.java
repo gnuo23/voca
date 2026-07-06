@@ -234,7 +234,13 @@ public class LearnService {
             }
         }
 
-        GradeResult grade = gradeAnswer(request.answer(), generated.correctAnswer(), generated.type(), session.getGradingMode());
+        GradeResult grade = gradeAnswer(
+                request.answer(),
+                generated.correctAnswer(),
+                generated.type(),
+                generated.direction(),
+                session.getGradingMode()
+        );
         boolean correct = grade.verdict() == GradeVerdict.CORRECT;
         LearnItemStage stageBefore = normalizeStage(item.getStage());
 
@@ -488,6 +494,7 @@ public class LearnService {
             TrueFalseQuestion trueFalse = buildTrueFalseQuestion(session, item, direction, allDeckItems);
             return new GeneratedLearnQuestion(
                     type,
+                    direction,
                     "Is this statement True or False?",
                     List.of("True", "False"),
                     trueFalse.statement(),
@@ -502,7 +509,7 @@ public class LearnService {
                     : "Choose the word for this meaning: \"" + vocab.getMeaningVi() + "\".";
             String correctAnswer = wordToMeaning ? vocab.getMeaningVi() : vocab.getWord();
             List<String> options = buildMcqOptions(session, item, allDeckItems, wordToMeaning);
-            return new GeneratedLearnQuestion(type, prompt, options, null, correctAnswer);
+            return new GeneratedLearnQuestion(type, direction, prompt, options, null, correctAnswer);
         }
 
         boolean wordToMeaning = direction == LearnAnswerDirection.WORD_TO_MEANING;
@@ -510,7 +517,7 @@ public class LearnService {
                 ? "Type the meaning of \"" + vocab.getWord() + "\"."
                 : "Type the word for this meaning: \"" + vocab.getMeaningVi() + "\".";
         String correctAnswer = wordToMeaning ? vocab.getMeaningVi() : vocab.getWord();
-        return new GeneratedLearnQuestion(type, prompt, null, null, correctAnswer);
+        return new GeneratedLearnQuestion(type, direction, prompt, null, null, correctAnswer);
     }
 
     private List<String> buildMcqOptions(LearnSession session, LearnSessionItem item, List<VocabItem> allDeckItems, boolean wordToMeaning) {
@@ -859,7 +866,13 @@ public class LearnService {
         );
     }
 
-    private GradeResult gradeAnswer(String userAnswer, String correctAnswer, LearnQuestionType questionType, LearnGradingMode gradingMode) {
+    private GradeResult gradeAnswer(
+            String userAnswer,
+            String correctAnswer,
+            LearnQuestionType questionType,
+            LearnAnswerDirection answerDirection,
+            LearnGradingMode gradingMode
+    ) {
         if (questionType == LearnQuestionType.TRUE_FALSE || questionType == LearnQuestionType.MCQ) {
             boolean correct = normalizeExact(userAnswer).equals(normalizeExact(correctAnswer));
             return new GradeResult(
@@ -874,6 +887,12 @@ public class LearnService {
         String correctExact = normalizeExact(correctAnswer);
         String userNormalized = normalizeForAnswer(userAnswer);
         String correctNormalized = normalizeForAnswer(correctAnswer);
+
+        if (questionType == LearnQuestionType.WRITTEN
+                && answerDirection == LearnAnswerDirection.WORD_TO_MEANING
+                && isReviewStyleMeaningCorrect(userAnswer, correctAnswer)) {
+            return new GradeResult(GradeVerdict.CORRECT, 1.0, userNormalized, correctNormalized);
+        }
 
         if (gradingMode == LearnGradingMode.EXACT) {
             if (userExact.equals(correctExact)) {
@@ -902,6 +921,22 @@ public class LearnService {
             return new GradeResult(GradeVerdict.CLOSE, 1.0, userNormalized, correctNormalized);
         }
         return closeOrIncorrect(userNormalized, correctNormalized, 2);
+    }
+
+    private boolean isReviewStyleMeaningCorrect(String userAnswer, String meaning) {
+        String normalizedAnswer = normalizeForAnswer(userAnswer);
+        if (normalizedAnswer.isEmpty()) {
+            return false;
+        }
+        if (normalizeForAnswer(meaning).equals(normalizedAnswer)) {
+            return true;
+        }
+        for (String accepted : (meaning == null ? "" : meaning).split("[,;/\\n]")) {
+            if (normalizeForAnswer(accepted).equals(normalizedAnswer)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private GradeResult closeOrIncorrect(String userAnswer, String correctAnswer, int closeDistance) {
@@ -1023,6 +1058,7 @@ public class LearnService {
 
     private record GeneratedLearnQuestion(
             LearnQuestionType type,
+            LearnAnswerDirection direction,
             String prompt,
             List<String> options,
             String trueFalseStatement,
