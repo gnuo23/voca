@@ -52,6 +52,9 @@ class LearnIntegrationTest {
     LearnSessionRepository learnSessionRepository;
 
     @Autowired
+    LearnProgressRepository learnProgressRepository;
+
+    @Autowired
     UserProgressRepository userProgressRepository;
 
     @Autowired
@@ -77,6 +80,7 @@ class LearnIntegrationTest {
         learnAnswerRepository.deleteAll();
         learnSessionItemRepository.deleteAll();
         learnSessionRepository.deleteAll();
+        learnProgressRepository.deleteAll();
         userProgressRepository.deleteAll();
         quizAnswerRepository.deleteAll();
         quizAttemptRepository.deleteAll();
@@ -84,6 +88,47 @@ class LearnIntegrationTest {
         vocabItemRepository.deleteAll();
         deckRepository.deleteAll();
         userRepository.deleteAll();
+    }
+
+    @Test
+    void activeSessionCanBeResumedForDeck() throws Exception {
+        String token = register("learn-resume@example.com");
+        long deckId = createDeck(token, "Resume Learn Deck");
+        importItems(token, deckId, """
+                absent ; (adj) vang mat
+                eager ; (adj) hao huc
+                careful ; (adj) can than
+                """);
+
+        StartLearnSessionRequest startRequest = new StartLearnSessionRequest(
+                deckId,
+                LearnSessionScope.ALL,
+                LearnGoal.MASTER_ALL,
+                LearnAnswerDirection.BOTH,
+                LearnGradingMode.EXACT,
+                List.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
+        );
+        String sessionBody = mockMvc.perform(post("/api/learn/sessions")
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(startRequest)))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        long sessionId = objectMapper.readTree(sessionBody).get("id").asLong();
+
+        JsonNode question = nextQuestion(token, sessionId);
+        answerQuestion(token, sessionId, question, correctAnswerFor(question));
+
+        mockMvc.perform(get("/api/learn/sessions/active")
+                        .param("deckId", String.valueOf(deckId))
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(sessionId))
+                .andExpect(jsonPath("$.deckId").value(deckId))
+                .andExpect(jsonPath("$.status").value("IN_PROGRESS"))
+                .andExpect(jsonPath("$.totalAnswers").value(1));
     }
 
     @Test
@@ -162,7 +207,7 @@ class LearnIntegrationTest {
     }
 
     @Test
-    void learnResultKeepsRepeatedMistakesDifficultAfterMastery() throws Exception {
+    void learnMasteryUpdatesReviewAndSeparateLearnProgress() throws Exception {
         String token = register("learn-hard-result@example.com");
         long deckId = createDeck(token, "Hard Learn Deck");
         importItems(token, deckId, """
@@ -208,12 +253,65 @@ class LearnIntegrationTest {
             }
         }
 
-        UserProgress progress = userProgressRepository.findAllByVocabItemId(vocabId).getFirst();
-        org.assertj.core.api.Assertions.assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.DIFFICULT);
-        org.assertj.core.api.Assertions.assertThat(progress.getLastQuality()).isEqualTo("AGAIN");
-        org.assertj.core.api.Assertions.assertThat(progress.getWrongCount()).isEqualTo(2);
-        org.assertj.core.api.Assertions.assertThat(progress.getUnknownCount()).isEqualTo(2);
-        org.assertj.core.api.Assertions.assertThat(progress.getCorrectCount()).isZero();
+        UserProgress reviewProgress = userProgressRepository.findAllByVocabItemId(vocabId).getFirst();
+        org.assertj.core.api.Assertions.assertThat(reviewProgress.getStatus()).isEqualTo(VocabProgressStatus.DIFFICULT);
+        org.assertj.core.api.Assertions.assertThat(reviewProgress.getLastQuality()).isEqualTo("AGAIN");
+        org.assertj.core.api.Assertions.assertThat(reviewProgress.getWrongCount()).isEqualTo(2);
+        org.assertj.core.api.Assertions.assertThat(reviewProgress.getUnknownCount()).isEqualTo(2);
+        org.assertj.core.api.Assertions.assertThat(reviewProgress.getCorrectCount()).isZero();
+
+        LearnProgress progress = learnProgressRepository.findByUserIdAndVocabItemId(
+                userRepository.findByEmailIgnoreCase("learn-hard-result@example.com").orElseThrow().getId(),
+                vocabId
+        ).orElseThrow();
+        org.assertj.core.api.Assertions.assertThat(progress.isMastered()).isTrue();
+        org.assertj.core.api.Assertions.assertThat(progress.getCorrectAttempts()).isEqualTo(3);
+        org.assertj.core.api.Assertions.assertThat(progress.getIncorrectAttempts()).isEqualTo(2);
+        org.assertj.core.api.Assertions.assertThat(progress.getMasteredAt()).isNotNull();
+    }
+
+    @Test
+    void notMasteredScopeContinuesFromLearnOnlyUnmasteredTerms() throws Exception {
+        String token = register("learn-continue@example.com");
+        long userId = userRepository.findByEmailIgnoreCase("learn-continue@example.com").orElseThrow().getId();
+        long deckId = createDeck(token, "Continue Learn Deck");
+        importItems(token, deckId, """
+                absent ; (adj) vang mat
+                eager ; (adj) hao huc
+                """);
+
+        StartLearnSessionRequest startRequest = new StartLearnSessionRequest(
+                deckId,
+                LearnSessionScope.NOT_MASTERED,
+                LearnGoal.MASTER_ALL,
+                LearnAnswerDirection.BOTH,
+                LearnGradingMode.EXACT,
+                List.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
+        );
+        long firstSessionId = startSession(token, startRequest);
+        List<Long> vocabIds = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deckId)
+                .stream()
+                .map(item -> item.getId())
+                .toList();
+
+        Long masteredVocabId = null;
+        for (int i = 0; i < 10 && masteredVocabId == null; i++) {
+            JsonNode question = nextQuestion(token, firstSessionId);
+            answerQuestion(token, firstSessionId, question, correctAnswerFor(question));
+            masteredVocabId = learnProgressRepository.findAllByUserIdAndVocabItemIdIn(userId, vocabIds)
+                    .stream()
+                    .filter(LearnProgress::isMastered)
+                    .map(progress -> progress.getVocabItem().getId())
+                    .findFirst()
+                    .orElse(null);
+        }
+
+        org.assertj.core.api.Assertions.assertThat(masteredVocabId).isNotNull();
+        long secondSessionId = startSession(token, startRequest);
+        JsonNode next = nextQuestion(token, secondSessionId);
+
+        org.assertj.core.api.Assertions.assertThat(next.get("progress").get("totalTerms").asInt()).isEqualTo(1);
+        org.assertj.core.api.Assertions.assertThat(next.get("vocabId").asLong()).isNotEqualTo(masteredVocabId);
     }
 
     @Test
@@ -383,6 +481,18 @@ class LearnIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk());
+    }
+
+    private long startSession(String token, StartLearnSessionRequest request) throws Exception {
+        String body = mockMvc.perform(post("/api/learn/sessions")
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        return objectMapper.readTree(body).get("id").asLong();
     }
 
     private JsonNode nextQuestion(String token, long sessionId) throws Exception {

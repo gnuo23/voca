@@ -12,6 +12,7 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -43,6 +44,7 @@ public class LearnService {
     private final LearnSessionRepository sessionRepo;
     private final LearnSessionItemRepository sessionItemRepo;
     private final LearnAnswerRepository answerRepo;
+    private final LearnProgressRepository learnProgressRepo;
     private final VocabItemRepository vocabRepo;
     private final UserProgressRepository progressRepo;
     private final DeckService deckService;
@@ -54,6 +56,7 @@ public class LearnService {
             LearnSessionRepository sessionRepo,
             LearnSessionItemRepository sessionItemRepo,
             LearnAnswerRepository answerRepo,
+            LearnProgressRepository learnProgressRepo,
             VocabItemRepository vocabRepo,
             UserProgressRepository progressRepo,
             DeckService deckService,
@@ -63,11 +66,22 @@ public class LearnService {
         this.sessionRepo = sessionRepo;
         this.sessionItemRepo = sessionItemRepo;
         this.answerRepo = answerRepo;
+        this.learnProgressRepo = learnProgressRepo;
         this.vocabRepo = vocabRepo;
         this.progressRepo = progressRepo;
         this.deckService = deckService;
         this.userService = userService;
         this.reviewService = reviewService;
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<LearnSessionResponse> getActiveSession(Authentication auth, Long deckId) {
+        User user = userService.currentUser(auth);
+        Deck deck = deckService.findStudyDeck(user, deckId);
+        return sessionRepo.findFirstByUserIdAndDeckIdAndStatusOrderByCreatedAtDesc(
+                        user.getId(), deck.getId(), LearnSessionStatus.IN_PROGRESS
+                )
+                .map(LearnSessionResponse::from);
     }
 
     @Transactional
@@ -256,6 +270,7 @@ public class LearnService {
             item.setPriority(item.getPriority() + 5);
         }
         sessionItemRepo.save(item);
+        applyLearnProgress(user, item);
         applyLearnReviewIfComplete(user, item, request.responseTimeMs() == null ? null : request.responseTimeMs().intValue());
 
         session.incrementTotalAnswers();
@@ -318,6 +333,7 @@ public class LearnService {
         item.setStage(nextCorrectStage(session, item, answer.getQuestionType()));
         item.setPriority(Math.max(0, item.getPriority() - 7));
         sessionItemRepo.save(item);
+        applyLearnProgress(user, item);
         applyLearnReviewIfComplete(user, item, responseTimeMsAsInteger(answer));
 
         session.incrementCorrectAnswers();
@@ -382,19 +398,22 @@ public class LearnService {
             return allVocabs;
         }
 
-        Map<Long, UserProgress> progressMap = progressRepo.findAllByUserIdAndVocabItemIdIn(
+        Map<Long, LearnProgress> learnProgressMap = learnProgressRepo.findAllByUserIdAndVocabItemIdIn(
                 user.getId(), allVocabs.stream().map(VocabItem::getId).toList()
         ).stream().collect(Collectors.toMap(p -> p.getVocabItem().getId(), Function.identity()));
 
         if (scope == LearnSessionScope.NOT_MASTERED) {
             return allVocabs.stream()
                     .filter(v -> {
-                        UserProgress p = progressMap.get(v.getId());
-                        return p == null || p.getStatus() != VocabProgressStatus.MASTERED;
+                        LearnProgress p = learnProgressMap.get(v.getId());
+                        return p == null || !p.isMastered();
                     })
                     .toList();
         }
         if (scope == LearnSessionScope.DIFFICULT_ONLY) {
+            Map<Long, UserProgress> progressMap = progressRepo.findAllByUserIdAndVocabItemIdIn(
+                    user.getId(), allVocabs.stream().map(VocabItem::getId).toList()
+            ).stream().collect(Collectors.toMap(p -> p.getVocabItem().getId(), Function.identity()));
             return allVocabs.stream()
                     .filter(v -> {
                         UserProgress p = progressMap.get(v.getId());
@@ -405,8 +424,8 @@ public class LearnService {
         if (scope == LearnSessionScope.NEW_ONLY) {
             return allVocabs.stream()
                     .filter(v -> {
-                        UserProgress p = progressMap.get(v.getId());
-                        return p == null || p.getStatus() == VocabProgressStatus.NEW;
+                        LearnProgress p = learnProgressMap.get(v.getId());
+                        return p == null;
                     })
                     .toList();
         }
@@ -772,6 +791,42 @@ public class LearnService {
         item.setReviewQualityOverride(request.quality());
         sessionItemRepo.save(item);
         applyLearnReviewIfComplete(user, item, null);
+    }
+
+    @Transactional
+    public void resetLearnProgress(Authentication auth, Long deckId) {
+        User user = userService.currentUser(auth);
+        Deck deck = deckService.findStudyDeck(user, deckId);
+        List<Long> vocabIds = vocabRepo.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
+                .stream()
+                .map(VocabItem::getId)
+                .toList();
+        if (!vocabIds.isEmpty()) {
+            learnProgressRepo.deleteAllByUserIdAndVocabItemIdIn(user.getId(), vocabIds);
+        }
+        sessionRepo.deleteAllByUserIdAndDeckId(user.getId(), deck.getId());
+    }
+
+    private void applyLearnProgress(User user, LearnSessionItem item) {
+        LearnProgress progress = learnProgressRepo.findByUserIdAndVocabItemId(user.getId(), item.getVocabItem().getId())
+                .orElseGet(() -> {
+                    LearnProgress created = new LearnProgress();
+                    created.setUser(user);
+                    created.setVocabItem(item.getVocabItem());
+                    return created;
+                });
+        progress.setCorrectAttempts(item.getCorrectAttempts());
+        progress.setIncorrectAttempts(item.getIncorrectAttempts());
+        progress.setLastPracticedAt(LocalDateTime.now());
+
+        if (isFinishedItem(item.getSession(), item)) {
+            progress.setMastered(true);
+            if (progress.getMasteredAt() == null) {
+                progress.setMasteredAt(LocalDateTime.now());
+            }
+        }
+
+        learnProgressRepo.save(progress);
     }
 
     private void applyLearnReviewIfComplete(User user, LearnSessionItem item, Integer responseTimeMs) {

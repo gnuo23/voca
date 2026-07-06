@@ -2,10 +2,18 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Check, X, Send, ChevronRight, HelpCircle, AlertTriangle, Volume2, Frown, Meh, Smile, Zap } from "lucide-react";
-import { LearnQuestion as LearnQuestionData, LearnAnswer, LearnVerdict, ReviewQuality } from "@/lib/api";
+import {
+  getVocabAudio,
+  LearnQuestion as LearnQuestionData,
+  LearnAnswer,
+  LearnVerdict,
+  ReviewQuality,
+  VocabAudio
+} from "@/lib/api";
 import { computeDiff, DiffSegment } from "@/lib/diffUtil";
 
 type LearnQuestionProps = {
+  token: string | null;
   question: LearnQuestionData;
   onSubmit: (answer: string) => Promise<LearnAnswer | null>;
   onNext: () => void;
@@ -79,23 +87,54 @@ function canUseWrittenOverride(
   return Boolean(normalizeLetters(feedback.userAnswer) && hasSharedLetter(feedback.userAnswer, feedback.correctAnswer));
 }
 
-function playEnglishPronunciation(text: string) {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+function pickAudioUrl(audio: VocabAudio | null) {
+  return audio?.audioUrl ?? audio?.audioUsUrl ?? audio?.audioUkUrl ?? null;
+}
+
+async function playAudioUrl(audioUrl: string) {
+  const audio = new Audio(audioUrl);
+  await audio.play();
+}
+
+async function playEnglishPronunciation(text: string) {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+    throw new Error("Browser speech is not available");
+  }
+
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-US";
   utterance.rate = 0.92;
-  window.speechSynthesis.speak(utterance);
+
+  await new Promise<void>((resolve, reject) => {
+    utterance.onend = () => resolve();
+    utterance.onerror = (event) => reject(new Error(event.error || "Browser speech failed"));
+    window.speechSynthesis.speak(utterance);
+  });
 }
 
-function PronounceButton({ text, className = "" }: { text: string; className?: string }) {
+async function playPronunciation(text: string, audio: VocabAudio | null) {
+  const audioUrl = pickAudioUrl(audio);
+  if (audioUrl) {
+    try {
+      await playAudioUrl(audioUrl);
+      return;
+    } catch {
+      // Fall back to browser speech below.
+    }
+  }
+
+  await playEnglishPronunciation(text);
+}
+
+function PronounceButton({ text, audio = null, className = "" }: { text: string; audio?: VocabAudio | null; className?: string }) {
   return (
     <button
       type="button"
       className={`learn-audio-btn ${className}`}
       onClick={(event) => {
         event.stopPropagation();
-        playEnglishPronunciation(text);
+        void playPronunciation(text, audio).catch(() => undefined);
       }}
       aria-label={`Nghe phát âm ${text}`}
       title={`Nghe phát âm ${text}`}
@@ -119,6 +158,7 @@ function DiffDisplay({ segments }: { segments: DiffSegment[] }) {
 }
 
 export function LearnQuestion({
+  token,
   question,
   onSubmit,
   onNext,
@@ -134,6 +174,7 @@ export function LearnQuestion({
   const [overriding, setOverriding] = useState(false);
   const [pickedQuality, setPickedQuality] = useState<ReviewQuality | null>(null);
   const [hintRevealed, setHintRevealed] = useState(false);
+  const [questionAudio, setQuestionAudio] = useState<VocabAudio | null>(null);
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -162,6 +203,33 @@ export function LearnQuestion({
       }
     };
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    setQuestionAudio(null);
+
+    if (!token || !question.vocabId) {
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    getVocabAudio(token, question.vocabId)
+      .then((audio) => {
+        if (!cancelled) {
+          setQuestionAudio(audio);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setQuestionAudio(null);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [question.vocabId, token]);
 
   const handleSubmit = useCallback(
     async (value: string) => {
@@ -329,7 +397,7 @@ export function LearnQuestion({
         <span className="learn-q-type-label">{questionTypeLabel(question)}</span>
         <div className="learn-prompt-row">
           <div className="learn-prompt">{displayPrompt}</div>
-          {promptAudioText && <PronounceButton text={promptAudioText} className="learn-prompt-audio-btn" />}
+          {promptAudioText && <PronounceButton text={promptAudioText} audio={questionAudio} className="learn-prompt-audio-btn" />}
         </div>
 
         {/* Answer Section */}
@@ -388,7 +456,13 @@ export function LearnQuestion({
                           <span className="learn-option-number">{idx + 1}</span>
                           <span className="learn-option-text">{option}</span>
                         </button>
-                        {showOptionAudio && <PronounceButton text={option} className="learn-option-audio-btn" />}
+                        {showOptionAudio && (
+                          <PronounceButton
+                            text={option}
+                            audio={option === question.word ? questionAudio : null}
+                            className="learn-option-audio-btn"
+                          />
+                        )}
                       </div>
                     );
                   })}
@@ -549,6 +623,7 @@ export function LearnQuestion({
             <VocabDetails
               word={feedback.correctAnswer || question.word || ""}
               vocab={feedback.vocab ?? question.vocab}
+              audio={questionAudio}
             />
           )}
 
@@ -624,7 +699,7 @@ export function LearnQuestion({
   );
 }
 
-function VocabDetails({ word, vocab }: { word: string; vocab: { ipa: string | null; meaningVi: string | null; partOfSpeech: string | null; exampleEn: string | null; exampleVi: string | null } | null }) {
+function VocabDetails({ word, vocab, audio }: { word: string; vocab: { ipa: string | null; meaningVi: string | null; partOfSpeech: string | null; exampleEn: string | null; exampleVi: string | null } | null; audio: VocabAudio | null }) {
   if (!vocab) return null;
   const { ipa, meaningVi, partOfSpeech, exampleEn, exampleVi } = vocab;
   if (!ipa && !meaningVi && !exampleEn && !exampleVi) return null;
@@ -637,7 +712,7 @@ function VocabDetails({ word, vocab }: { word: string; vocab: { ipa: string | nu
         <span className="learn-vocab-word">{word}</span>
         {partOfSpeech && <span className="learn-vocab-pos">{partOfSpeech}</span>}
         {ipa && <span className="learn-vocab-ipa">/{ipa.replace(/^\/|\/$/g, "")}/</span>}
-        {word && <PronounceButton text={word} className="learn-vocab-audio-btn" />}
+        {word && <PronounceButton text={word} audio={audio} className="learn-vocab-audio-btn" />}
       </div>
       {meaningVi && <p className="learn-vocab-meaning">{meaningVi}</p>}
       {highlighted && (

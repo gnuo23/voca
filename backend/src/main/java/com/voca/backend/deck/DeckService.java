@@ -1,6 +1,7 @@
 package com.voca.backend.deck;
 
 import com.voca.backend.classroom.ClassroomDeckRepository;
+import com.voca.backend.learn.LearnProgressRepository;
 import com.voca.backend.learn.LearnSessionRepository;
 import com.voca.backend.quiz.QuestionRepository;
 import com.voca.backend.user.User;
@@ -25,6 +26,7 @@ public class DeckService {
     private final UserService userService;
     private final VocabItemRepository vocabItemRepository;
     private final UserProgressRepository userProgressRepository;
+    private final LearnProgressRepository learnProgressRepository;
     private final QuestionRepository questionRepository;
     private final LearnSessionRepository learnSessionRepository;
     private final ClassroomDeckRepository classroomDeckRepository;
@@ -34,6 +36,7 @@ public class DeckService {
             UserService userService,
             VocabItemRepository vocabItemRepository,
             UserProgressRepository userProgressRepository,
+            LearnProgressRepository learnProgressRepository,
             QuestionRepository questionRepository,
             LearnSessionRepository learnSessionRepository,
             ClassroomDeckRepository classroomDeckRepository
@@ -42,6 +45,7 @@ public class DeckService {
         this.userService = userService;
         this.vocabItemRepository = vocabItemRepository;
         this.userProgressRepository = userProgressRepository;
+        this.learnProgressRepository = learnProgressRepository;
         this.questionRepository = questionRepository;
         this.learnSessionRepository = learnSessionRepository;
         this.classroomDeckRepository = classroomDeckRepository;
@@ -143,6 +147,7 @@ public class DeckService {
                 .toList();
         if (!vocabIds.isEmpty()) {
             userProgressRepository.deleteAllByUserIdAndVocabItemIdIn(owner.getId(), vocabIds);
+            learnProgressRepository.deleteAllByUserIdAndVocabItemIdIn(owner.getId(), vocabIds);
         }
         learnSessionRepository.deleteAllByUserIdAndDeckId(owner.getId(), deck.getId());
         return toResponse(deck, owner);

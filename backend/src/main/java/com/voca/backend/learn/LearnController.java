@@ -1,12 +1,14 @@
 package com.voca.backend.learn;
 
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,6 +19,16 @@ public class LearnController {
 
     public LearnController(LearnService learnService) {
         this.learnService = learnService;
+    }
+
+    @GetMapping("/sessions/active")
+    public ResponseEntity<LearnSessionResponse> getActiveSession(
+            Authentication auth,
+            @RequestParam Long deckId
+    ) {
+        return learnService.getActiveSession(auth, deckId)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.noContent().build());
     }
 
     @PostMapping("/sessions")
@@ -60,6 +72,14 @@ public class LearnController {
             @Valid @RequestBody AdjustLearnQualityRequest request
     ) {
         learnService.adjustQuality(auth, id, request);
+    }
+
+    @PostMapping("/decks/{deckId}/reset-progress")
+    public void resetLearnProgress(
+            Authentication auth,
+            @PathVariable Long deckId
+    ) {
+        learnService.resetLearnProgress(auth, deckId);
     }
 
     @GetMapping("/sessions/{id}/result")

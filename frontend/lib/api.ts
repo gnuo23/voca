@@ -668,6 +668,13 @@ export async function resetDeckProgress(token: string, deckId: string): Promise<
   });
 }
 
+export async function resetLearnProgress(token: string, deckId: string): Promise<void> {
+  await apiRequest<void>(`/api/learn/decks/${deckId}/reset-progress`, {
+    method: "POST",
+    token
+  });
+}
+
 export async function previewVocabImport(
   token: string,
   deckId: string,
@@ -927,6 +934,13 @@ export async function startLearnSession(
     token,
     body: JSON.stringify({ deckId: Number(deckId), ...options })
   });
+}
+
+export async function getActiveLearnSession(token: string, deckId: string): Promise<LearnSession | null> {
+  const session = await apiRequest<LearnSession | undefined>(`/api/learn/sessions/active?deckId=${encodeURIComponent(deckId)}`, {
+    token
+  });
+  return session ?? null;
 }
 
 export async function getNextLearnQuestion(token: string, sessionId: number): Promise<LearnQuestion> {

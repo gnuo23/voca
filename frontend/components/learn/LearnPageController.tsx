@@ -24,8 +24,9 @@ import {
   getLearnSessionResult,
   overrideLearnAnswer,
   adjustLearnQuality,
-  resetDeckProgress,
+  resetLearnProgress,
   ReviewQuality,
+  getActiveLearnSession,
 } from "@/lib/api";
 
 type LearnPageControllerProps = {
@@ -33,6 +34,10 @@ type LearnPageControllerProps = {
   classId?: string;
   backHref: string;
 };
+
+function isLearnSessionMissingError(error: unknown) {
+  return error instanceof Error && error.message.toLowerCase().includes("learn session not found");
+}
 
 export function LearnPageController({ deckId, classId, backHref }: LearnPageControllerProps) {
   const router = useRouter();
@@ -66,9 +71,68 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
   useEffect(() => {
     if (!token || restoredSessionRef.current) return;
     restoredSessionRef.current = true;
+    let cancelled = false;
+
+    const resumeSession = async (
+      activeSession: LearnSession,
+      preferences: { questionTurn: number; showWrittenHint: boolean }
+    ) => {
+      const nextQuestion = await getNextLearnQuestion(token, activeSession.id);
+      if (cancelled) return;
+
+      setSession(activeSession);
+      setShowWrittenHint(preferences.showWrittenHint);
+
+      if (!nextQuestion.sessionItemId) {
+        clearStoredLearnState(deckId);
+        const sessionResult = await getLearnSessionResult(token, activeSession.id);
+        if (!cancelled) {
+          setResult(sessionResult);
+          setQuestion(null);
+          setProgress(nextQuestion.progress);
+        }
+        return;
+      }
+
+      setQuestion(nextQuestion);
+      setProgress(nextQuestion.progress);
+      setQuestionTurn(preferences.questionTurn);
+      writeStoredLearnState(deckId, {
+        session: activeSession,
+        question: nextQuestion,
+        questionTurn: preferences.questionTurn,
+        progress: nextQuestion.progress,
+        pendingNext: false,
+        showWrittenHint: preferences.showWrittenHint,
+      });
+    };
+
+    const resumeActiveSession = async (preferences?: { questionTurn?: number; showWrittenHint?: boolean }) => {
+      const activeSession = await getActiveLearnSession(token, deckId);
+      if (!activeSession || cancelled) return false;
+      await resumeSession(activeSession, {
+        questionTurn: preferences?.questionTurn ?? 1,
+        showWrittenHint: preferences?.showWrittenHint ?? true,
+      });
+      return true;
+    };
 
     const stored = readStoredLearnState(deckId);
-    if (!stored) return;
+    if (!stored) {
+      setIsLoading(true);
+      resumeActiveSession()
+        .catch((err: unknown) => {
+          if (!cancelled) {
+            setError(err instanceof Error ? err.message : "Failed to resume session");
+          }
+        })
+        .finally(() => {
+          if (!cancelled) setIsLoading(false);
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
 
     setSession(stored.session);
     setProgress(stored.progress ?? stored.question?.progress ?? null);
@@ -95,25 +159,76 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
             showWrittenHint: stored.showWrittenHint ?? true,
           });
         })
-        .catch((err: unknown) => {
+        .catch(async (err: unknown) => {
           clearStoredLearnState(deckId);
-          setSession(null);
-          setQuestion(null);
-          setProgress(null);
-          setError(err instanceof Error ? err.message : "Failed to resume session");
+          try {
+            const resumed = await resumeActiveSession({
+              questionTurn: stored.questionTurn + 1,
+              showWrittenHint: stored.showWrittenHint ?? true,
+            });
+            if (!resumed && !cancelled) {
+              setSession(null);
+              setQuestion(null);
+              setProgress(null);
+              setError(err instanceof Error ? err.message : "Failed to resume session");
+            }
+          } catch (fallbackErr: unknown) {
+            if (!cancelled) {
+              setSession(null);
+              setQuestion(null);
+              setProgress(null);
+              setError(fallbackErr instanceof Error ? fallbackErr.message : "Failed to resume session");
+            }
+          }
         })
-        .finally(() => setIsLoading(false));
-      return;
+        .finally(() => {
+          if (!cancelled) setIsLoading(false);
+        });
+      return () => {
+        cancelled = true;
+      };
     }
 
     if (stored.question?.sessionItemId) {
-      setQuestion(stored.question);
-      setProgress(stored.question.progress);
-      return;
+      setIsLoading(true);
+      resumeActiveSession({
+        questionTurn: stored.questionTurn,
+        showWrittenHint: stored.showWrittenHint ?? true,
+      })
+        .then((resumed) => {
+          if (!resumed && !cancelled) {
+            clearStoredLearnState(deckId);
+            setSession(null);
+            setQuestion(null);
+            setProgress(null);
+            setQuestionTurn(0);
+          }
+        })
+        .catch((err: unknown) => {
+          if (!cancelled) {
+            clearStoredLearnState(deckId);
+            setSession(null);
+            setQuestion(null);
+            setProgress(null);
+            setQuestionTurn(0);
+            if (!isLearnSessionMissingError(err)) {
+              setError(err instanceof Error ? err.message : "Failed to resume session");
+            }
+          }
+        })
+        .finally(() => {
+          if (!cancelled) setIsLoading(false);
+        });
+      return () => {
+        cancelled = true;
+      };
     }
 
     clearStoredLearnState(deckId);
     setSession(null);
+    return () => {
+      cancelled = true;
+    };
   }, [token, deckId]);
 
   useEffect(() => {
@@ -201,7 +316,16 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
 
         return result;
       } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : "Failed to submit answer");
+        if (isLearnSessionMissingError(err)) {
+          clearStoredLearnState(deckId);
+          setSession(null);
+          setQuestion(null);
+          setProgress(null);
+          setQuestionTurn(0);
+          setResult(null);
+        } else {
+          setError(err instanceof Error ? err.message : "Failed to submit answer");
+        }
         return null;
       }
     },
@@ -232,7 +356,14 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
       }
     } catch (err: unknown) {
       clearStoredLearnState(deckId);
-      setError(err instanceof Error ? err.message : "Failed to load next question");
+      setSession(null);
+      setQuestion(null);
+      setProgress(null);
+      setQuestionTurn(0);
+      setResult(null);
+      if (!isLearnSessionMissingError(err)) {
+        setError(err instanceof Error ? err.message : "Failed to load next question");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -255,7 +386,8 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
     setIsLoading(true);
     setError(null);
     try {
-      const updatedDeck = await resetDeckProgress(token, deckId);
+      await resetLearnProgress(token, deckId);
+      const updatedDeck = classId ? await getClassDeck(token, classId, deckId) : await getDeck(token, deckId);
       clearStoredLearnState(deckId);
       setDeck(updatedDeck);
       setSession(null);
@@ -268,7 +400,7 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
     } finally {
       setIsLoading(false);
     }
-  }, [token, deck, deckId]);
+  }, [token, deck, deckId, classId]);
 
   const handleBack = useCallback(() => {
     router.push(backHref);
@@ -303,7 +435,16 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
 
         return overrideResult;
       } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : "Failed to override answer");
+        if (isLearnSessionMissingError(err)) {
+          clearStoredLearnState(deckId);
+          setSession(null);
+          setQuestion(null);
+          setProgress(null);
+          setQuestionTurn(0);
+          setResult(null);
+        } else {
+          setError(err instanceof Error ? err.message : "Failed to override answer");
+        }
         return null;
       }
     },
@@ -410,6 +551,7 @@ export function LearnPageController({ deckId, classId, backHref }: LearnPageCont
         {session && question && !result && (
           <LearnQuestion
             key={questionTurn}
+            token={token}
             question={question}
             onSubmit={handleSubmitAnswer}
             onNext={handleNext}
