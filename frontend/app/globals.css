@@ -2628,6 +2628,74 @@ html[data-theme="light"] .weekly-bar-item strong {
   max-width: 640px;
 }
 
+.difficult-deck-flow {
+  display: grid;
+  gap: 14px;
+  max-width: 900px;
+  margin-bottom: 18px;
+}
+
+.difficult-deck-flow .section-heading {
+  margin-bottom: 0;
+}
+
+.difficult-deck-flow .section-heading > span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.difficult-deck-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.difficult-deck-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 78px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  padding: 14px;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.difficult-deck-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.difficult-deck-card svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+.difficult-deck-card div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.difficult-deck-card strong,
+.difficult-deck-card span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.difficult-deck-card span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .difficult-practice {
   display: grid;
   gap: 18px;

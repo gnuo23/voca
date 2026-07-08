@@ -14,16 +14,17 @@ public record DeckResponse(
         Long ownerId,
         String ownerName,
         boolean ownedByCurrentUser,
+        boolean difficultDeck,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
 
     public static DeckResponse from(Deck deck) {
-        return from(deck, 0, 0, 0, 0, 0, deck.getOwner().getId(), deck.getOwner().getDisplayName(), true);
+        return from(deck, 0, 0, 0, 0, 0, deck.getOwner().getId(), deck.getOwner().getDisplayName(), true, false);
     }
 
     public static DeckResponse from(Deck deck, long totalWords, long learnedWords, long dueWords, long dueTodayCount, long savedQuestionCount) {
-        return from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount, deck.getOwner().getId(), deck.getOwner().getDisplayName(), true);
+        return from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount, deck.getOwner().getId(), deck.getOwner().getDisplayName(), true, false);
     }
 
     public static DeckResponse from(
@@ -35,6 +36,19 @@ public record DeckResponse(
             long savedQuestionCount,
             Long currentUserId
     ) {
+        return from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount, currentUserId, false);
+    }
+
+    public static DeckResponse from(
+            Deck deck,
+            long totalWords,
+            long learnedWords,
+            long dueWords,
+            long dueTodayCount,
+            long savedQuestionCount,
+            Long currentUserId,
+            boolean difficultDeck
+    ) {
         return from(
                 deck,
                 totalWords,
@@ -44,7 +58,8 @@ public record DeckResponse(
                 savedQuestionCount,
                 deck.getOwner().getId(),
                 deck.getOwner().getDisplayName(),
-                deck.getOwner().getId().equals(currentUserId)
+                deck.getOwner().getId().equals(currentUserId),
+                difficultDeck
         );
     }
 
@@ -57,7 +72,8 @@ public record DeckResponse(
             long savedQuestionCount,
             Long ownerId,
             String ownerName,
-            boolean ownedByCurrentUser
+            boolean ownedByCurrentUser,
+            boolean difficultDeck
     ) {
         return new DeckResponse(
                 deck.getId(),
@@ -71,6 +87,7 @@ public record DeckResponse(
                 ownerId,
                 ownerName,
                 ownedByCurrentUser,
+                difficultDeck,
                 deck.getCreatedAt(),
                 deck.getUpdatedAt()
         );

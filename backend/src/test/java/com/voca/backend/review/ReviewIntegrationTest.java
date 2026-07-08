@@ -21,6 +21,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.stream.StreamSupport;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.startsWith;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -110,6 +113,25 @@ class ReviewIntegrationTest {
     }
 
     @Test
+    void incorrectReviewResultImmediatelyMarksWordDifficult() throws Exception {
+        String token = register("review-wrong-difficult@example.com");
+        long deckId = createDeck(token, "Wrong Deck");
+        importItems(token, deckId, "absent ; (adj) vang mat");
+        long vocabId = listVocab(token, deckId).get(0).get("id").asLong();
+
+        mockMvc.perform(post("/api/review/{vocabId}/result", vocabId)
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.vocabId").value(vocabId))
+                .andExpect(jsonPath("$.status").value("DIFFICULT"))
+                .andExpect(jsonPath("$.quality").value("AGAIN"))
+                .andExpect(jsonPath("$.wrongCount").value(1))
+                .andExpect(jsonPath("$.lapseCount").value(1));
+    }
+
+    @Test
     void scheduleReturnsLearnedItemsOnly() throws Exception {
         String token = register("review-schedule@example.com");
         long deckId = createDeck(token, "Schedule Preview Deck");
@@ -163,6 +185,91 @@ class ReviewIntegrationTest {
                 .andExpect(jsonPath("$.hardWords[0].word").value("absent"))
                 .andExpect(jsonPath("$.deckProgress[0].totalWords").value(2))
                 .andExpect(jsonPath("$.deckProgress[0].difficultCount").value(1));
+    }
+
+    @Test
+    void createDifficultDeckCopiesWordsWithoutCarryingDifficultProgress() throws Exception {
+        String token = register("review-create-difficult-deck@example.com");
+        long deckId = createDeck(token, "Source Deck");
+        importItems(token, deckId, """
+                absent ; (adj) vang mat
+                accumulate ; (v) tich luy
+                """);
+        JsonNode items = listVocab(token, deckId);
+        long difficultVocabId = items.get(0).get("id").asLong();
+        long reviewVocabId = items.get(1).get("id").asLong();
+
+        submitReview(token, difficultVocabId, new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD));
+        submitReview(token, reviewVocabId, new ReviewResultRequest(ReviewQuality.GOOD, null, 4200, ReviewSource.FLASHCARD));
+
+        String body = mockMvc.perform(post("/api/decks/difficult")
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", startsWith("difficult_day_")))
+                .andExpect(jsonPath("$.totalWords").value(1))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long difficultDeckId = objectMapper.readTree(body).get("id").asLong();
+        JsonNode normalDecks = objectMapper.readTree(mockMvc.perform(get("/api/decks")
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString());
+        assertThat(StreamSupport.stream(normalDecks.spliterator(), false)
+                .map(deck -> deck.get("id").asLong())
+                .toList()).doesNotContain(difficultDeckId);
+
+        JsonNode generatedDecks = objectMapper.readTree(mockMvc.perform(get("/api/decks/difficult")
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].difficultDeck").value(true))
+                .andReturn()
+                .getResponse()
+                .getContentAsString());
+        assertThat(generatedDecks.get(0).get("id").asLong()).isEqualTo(difficultDeckId);
+
+        mockMvc.perform(get("/api/decks/{deckId}", difficultDeckId)
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(difficultDeckId))
+                .andExpect(jsonPath("$.difficultDeck").value(true));
+
+        mockMvc.perform(get("/api/decks/{deckId}/vocab", difficultDeckId)
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].word").value("absent"))
+                .andExpect(jsonPath("$[0].progressStatus").value("NEW"));
+
+        mockMvc.perform(get("/api/review/schedule")
+                        .header("Authorization", bearer(token))
+                        .param("status", "DIFFICULT"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.totalItems").value(1))
+                .andExpect(jsonPath("$.items[0].deckId").value(deckId))
+                .andExpect(jsonPath("$.items[0].word").value("absent"));
+
+        long generatedVocabId = listVocab(token, difficultDeckId).get(0).get("id").asLong();
+        submitReview(token, generatedVocabId, new ReviewResultRequest(ReviewQuality.AGAIN, null, 9000, ReviewSource.FLASHCARD));
+
+        mockMvc.perform(get("/api/review/schedule")
+                        .header("Authorization", bearer(token))
+                        .param("deckId", String.valueOf(difficultDeckId))
+                        .param("status", "DIFFICULT"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.totalItems").value(1))
+                .andExpect(jsonPath("$.items[0].deckId").value(difficultDeckId))
+                .andExpect(jsonPath("$.items[0].word").value("absent"));
+
+        mockMvc.perform(post("/api/decks/difficult")
+                        .header("Authorization", bearer(token)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", startsWith("difficult_day_")))
+                .andExpect(jsonPath("$.totalWords").value(1));
     }
 
     private String register(String email) throws Exception {

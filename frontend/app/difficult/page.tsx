@@ -1,14 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AlertTriangle, Check, RefreshCw, RotateCcw, Volume2, X } from "lucide-react";
+import { AlertTriangle, BookOpen, Check, FolderPlus, RefreshCw, RotateCcw, Volume2, X } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import {
+  createDifficultDeck,
   Deck,
   getReviewSchedule,
   getStoredToken,
   listDecks,
+  listDifficultDecks,
   listDeckVocab,
   ReviewScheduleItem,
   VocabItem
@@ -55,6 +58,7 @@ export default function DifficultPracticePage() {
   const router = useRouter();
   const [token, setToken] = useState("");
   const [decks, setDecks] = useState<Deck[]>([]);
+  const [difficultDecks, setDifficultDecks] = useState<Deck[]>([]);
   const [deckId, setDeckId] = useState("");
   const [difficultItems, setDifficultItems] = useState<ReviewScheduleItem[]>([]);
   const [vocabPool, setVocabPool] = useState<VocabItem[]>([]);
@@ -63,6 +67,7 @@ export default function DifficultPracticePage() {
   const [correctCount, setCorrectCount] = useState(0);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [error, setError] = useState("");
+  const [isCreatingDeck, setIsCreatingDeck] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -72,9 +77,15 @@ export default function DifficultPracticePage() {
       return;
     }
     setToken(storedToken);
-    listDecks(storedToken)
-      .then(setDecks)
-      .catch(() => setDecks([]));
+    Promise.all([listDecks(storedToken), listDifficultDecks(storedToken)])
+      .then(([normalDecks, generatedDecks]) => {
+        setDecks(normalDecks);
+        setDifficultDecks(generatedDecks);
+      })
+      .catch(() => {
+        setDecks([]);
+        setDifficultDecks([]);
+      });
   }, [router]);
 
   useEffect(() => {
@@ -127,6 +138,21 @@ export default function DifficultPracticePage() {
     setQuestion(buildQuestion(difficultItems, vocabPool, question?.item.vocabId));
   }
 
+  async function handleCreateDifficultDeck() {
+    if (!token || difficultItems.length === 0 || isCreatingDeck) return;
+    setIsCreatingDeck(true);
+    setError("");
+    try {
+      const createdDeck = await createDifficultDeck(token, deckId || undefined);
+      setDifficultDecks((currentDecks) => [createdDeck, ...currentDecks.filter((deck) => deck.id !== createdDeck.id)]);
+      router.push(`/decks/${createdDeck.id}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not create difficult deck");
+    } finally {
+      setIsCreatingDeck(false);
+    }
+  }
+
   const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount * 100) / answeredCount);
   const hasEnoughData = difficultItems.length > 0 && vocabPool.length >= 2;
 
@@ -156,6 +182,15 @@ export default function DifficultPracticePage() {
           <button
             className="button secondary-button"
             type="button"
+            onClick={handleCreateDifficultDeck}
+            disabled={isLoading || isCreatingDeck || difficultItems.length === 0}
+          >
+            <FolderPlus size={18} aria-hidden="true" />
+            {isCreatingDeck ? "Creating" : "Create deck"}
+          </button>
+          <button
+            className="button secondary-button"
+            type="button"
             onClick={() => {
               setCorrectCount(0);
               setAnsweredCount(0);
@@ -171,6 +206,29 @@ export default function DifficultPracticePage() {
       </header>
 
       {error && <p className="form-error">{error}</p>}
+
+      {difficultDecks.length > 0 && (
+        <section className="difficult-deck-flow" aria-label="Difficult decks">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Flow riêng</p>
+              <h2>Deck luyện từ khó</h2>
+            </div>
+            <span>{difficultDecks.length} deck</span>
+          </div>
+          <div className="difficult-deck-list">
+            {difficultDecks.map((deck) => (
+              <Link className="difficult-deck-card" key={deck.id} href={`/decks/${deck.id}`}>
+                <BookOpen size={20} aria-hidden="true" />
+                <div>
+                  <strong>{deck.name}</strong>
+                  <span>{deck.totalWords} từ · {deck.learnedWords} đã thuộc · {deck.dueTodayCount ?? 0} cần ôn</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {!isLoading && !hasEnoughData && (
         <section className="empty-state difficult-empty">

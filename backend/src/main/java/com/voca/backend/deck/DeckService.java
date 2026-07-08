@@ -6,7 +6,9 @@ import com.voca.backend.learn.LearnSessionRepository;
 import com.voca.backend.quiz.QuestionRepository;
 import com.voca.backend.user.User;
 import com.voca.backend.user.UserService;
+import com.voca.backend.vocab.UserProgress;
 import com.voca.backend.vocab.UserProgressRepository;
+import com.voca.backend.vocab.VocabItem;
 import com.voca.backend.vocab.VocabItemRepository;
 import com.voca.backend.vocab.VocabProgressStatus;
 import org.springframework.http.HttpStatus;
@@ -15,12 +17,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.function.Function;
 
 @Service
 public class DeckService {
+
+    private static final DateTimeFormatter DIFFICULT_DECK_DAY_FORMAT = DateTimeFormatter.ofPattern("dd");
 
     private final DeckRepository deckRepository;
     private final UserService userService;
@@ -62,11 +70,59 @@ public class DeckService {
         return toResponse(deckRepository.save(deck), owner);
     }
 
+    @Transactional
+    public DeckResponse createDifficultDeck(Authentication authentication, Long sourceDeckId) {
+        User owner = userService.currentUser(authentication);
+        Deck sourceDeck = sourceDeckId == null ? null : findStudyDeck(owner, sourceDeckId);
+        List<UserProgress> difficultProgress = userProgressRepository
+                .findAllByUserIdAndStatusOrderByLastMarkedAtDesc(owner.getId(), VocabProgressStatus.DIFFICULT)
+                .stream()
+                .filter(progress -> canStudyDeck(owner, progress.getVocabItem().getDeck()))
+                .filter(progress -> !isGeneratedDifficultDeck(progress.getVocabItem().getDeck()))
+                .filter(progress -> sourceDeck == null || progress.getVocabItem().getDeck().getId().equals(sourceDeck.getId()))
+                .collect(java.util.stream.Collectors.toMap(
+                        progress -> progress.getVocabItem().getNormalizedWord(),
+                        Function.identity(),
+                        (left, right) -> left,
+                        LinkedHashMap::new
+                ))
+                .values()
+                .stream()
+                .toList();
+
+        if (difficultProgress.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No difficult words found");
+        }
+
+        Deck deck = new Deck();
+        deck.setOwner(owner);
+        deck.setName(generateDifficultDeckName(owner.getId()));
+        deck.setDescription(sourceDeck == null
+                ? "Auto-generated from difficult words"
+                : "Auto-generated from difficult words in " + sourceDeck.getName());
+        Deck savedDeck = deckRepository.save(deck);
+
+        difficultProgress.forEach(sourceProgress -> vocabItemRepository.save(copyDifficultItem(sourceProgress.getVocabItem(), savedDeck)));
+
+        return toResponse(savedDeck, owner);
+    }
+
     @Transactional(readOnly = true)
     public List<DeckResponse> list(Authentication authentication) {
         User owner = userService.currentUser(authentication);
         return deckRepository.findAllByOwnerIdOrderByUpdatedAtDesc(owner.getId())
                 .stream()
+                .filter(deck -> !isGeneratedDifficultDeck(deck))
+                .map(deck -> toResponse(deck, owner))
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<DeckResponse> listDifficultDecks(Authentication authentication) {
+        User owner = userService.currentUser(authentication);
+        return deckRepository.findAllByOwnerIdOrderByUpdatedAtDesc(owner.getId())
+                .stream()
+                .filter(this::isGeneratedDifficultDeck)
                 .map(deck -> toResponse(deck, owner))
                 .toList();
     }
@@ -158,6 +214,54 @@ public class DeckService {
         deck.setDescription(request.description() == null ? null : request.description().trim());
     }
 
+    private VocabItem copyDifficultItem(VocabItem source, Deck deck) {
+        VocabItem copy = new VocabItem();
+        copy.setDeck(deck);
+        copy.setWord(source.getWord());
+        copy.setNormalizedWord(source.getNormalizedWord());
+        copy.setPartOfSpeech(source.getPartOfSpeech());
+        copy.setMeaningVi(source.getMeaningVi());
+        copy.setIpa(source.getIpa());
+        copy.setPronunciationHint(source.getPronunciationHint());
+        copy.setExampleEn(source.getExampleEn());
+        copy.setExampleVi(source.getExampleVi());
+        copy.setTopic(source.getTopic());
+        copy.setLevel(source.getLevel());
+        copy.setSynonyms(source.getSynonyms());
+        copy.setAntonyms(source.getAntonyms());
+        copy.setCollocations(source.getCollocations());
+        copy.setEnrichedAt(source.getEnrichedAt());
+        copy.setAudioUrl(source.getAudioUrl());
+        copy.setAudioUsUrl(source.getAudioUsUrl());
+        copy.setAudioUkUrl(source.getAudioUkUrl());
+        copy.setAudioAccent(source.getAudioAccent());
+        copy.setAudioSource(source.getAudioSource());
+        copy.setAudioRefreshedAt(source.getAudioRefreshedAt());
+        return copy;
+    }
+
+    private String generateDifficultDeckName(Long ownerId) {
+        for (int attempt = 0; attempt < 20; attempt++) {
+            String name = "difficult_day_%s_%s".formatted(
+                    LocalDate.now().format(DIFFICULT_DECK_DAY_FORMAT),
+                    UUID.randomUUID().toString().replace("-", "").substring(0, 6)
+            );
+            if (!deckRepository.existsByOwnerIdAndName(ownerId, name)) {
+                return name;
+            }
+        }
+        return "difficult_day_%s_%s".formatted(
+                LocalDate.now().format(DIFFICULT_DECK_DAY_FORMAT),
+                UUID.randomUUID().toString().replace("-", "")
+        );
+    }
+
+    private boolean isGeneratedDifficultDeck(Deck deck) {
+        String description = deck.getDescription() == null ? "" : deck.getDescription();
+        return deck.getName().startsWith("difficult_day_")
+                || description.startsWith("Auto-generated from difficult words");
+    }
+
     public DeckResponse toResponse(Deck deck, User owner) {
         long totalWords = vocabItemRepository.countByDeckId(deck.getId());
         List<Long> vocabIds = vocabItemRepository.findAllByDeckIdOrderByCreatedAtAsc(deck.getId())
@@ -176,6 +280,6 @@ public class DeckService {
                 .filter(progress -> !progress.getNextReviewAt().isAfter(java.time.LocalDateTime.now()))
                 .count();
         long savedQuestionCount = questionRepository.countByDeckIdAndOwnerId(deck.getId(), deck.getOwner().getId());
-        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount, owner.getId());
+        return DeckResponse.from(deck, totalWords, learnedWords, dueWords, dueTodayCount, savedQuestionCount, owner.getId(), isGeneratedDifficultDeck(deck));
     }
 }

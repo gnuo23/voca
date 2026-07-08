@@ -55,8 +55,9 @@ public class ReviewSchedulingService {
         progress.setEaseFactor(Math.max(1.3, progress.getEaseFactor() - 0.2));
         progress.setIntervalDays(0);
         progress.setNextReviewAt(now.plusMinutes(AGAIN_REVIEW_MINUTES));
-        progress.setStatus(progress.getLapseCount() >= 4 ? VocabProgressStatus.DIFFICULT : VocabProgressStatus.LEARNING);
+        progress.setStatus(VocabProgressStatus.DIFFICULT);
         progress.incrementUnknownCount();
+        progress.incrementDifficultCount();
     }
 
     private void applyHard(UserProgress progress, LocalDateTime now) {

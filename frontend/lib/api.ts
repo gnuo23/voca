@@ -66,6 +66,7 @@ export type Deck = {
   ownerId: number;
   ownerName: string;
   ownedByCurrentUser: boolean;
+  difficultDeck: boolean;
   createdAt: string;
   updatedAt: string;
 };
@@ -622,6 +623,12 @@ export async function listDecks(token: string): Promise<Deck[]> {
   });
 }
 
+export async function listDifficultDecks(token: string): Promise<Deck[]> {
+  return apiRequest<Deck[]>("/api/decks/difficult", {
+    token
+  });
+}
+
 export async function listStudyDecks(token: string): Promise<Deck[]> {
   return apiRequest<Deck[]>("/api/study-decks", {
     token
@@ -633,6 +640,14 @@ export async function createDeck(token: string, payload: DeckPayload): Promise<D
     method: "POST",
     token,
     body: JSON.stringify(payload)
+  });
+}
+
+export async function createDifficultDeck(token: string, deckId?: string): Promise<Deck> {
+  const query = deckId ? `?deckId=${encodeURIComponent(deckId)}` : "";
+  return apiRequest<Deck>(`/api/decks/difficult${query}`, {
+    method: "POST",
+    token
   });
 }
 

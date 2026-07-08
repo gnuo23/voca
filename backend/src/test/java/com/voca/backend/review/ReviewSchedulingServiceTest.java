@@ -20,7 +20,7 @@ class ReviewSchedulingServiceTest {
         service.apply(progress, ReviewQuality.AGAIN, 9000, now);
 
         assertThat(progress.getNextReviewAt()).isEqualTo(now.plusMinutes(10));
-        assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.LEARNING);
+        assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.DIFFICULT);
     }
 
     @Test
@@ -53,6 +53,16 @@ class ReviewSchedulingServiceTest {
 
         assertThat(progress.getIntervalDays()).isEqualTo(1);
         assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(1));
+    }
+
+    @Test
+    void goodReviewMovesDifficultWordBackToReview() {
+        UserProgress progress = progress();
+        progress.setStatus(VocabProgressStatus.DIFFICULT);
+
+        service.apply(progress, ReviewQuality.GOOD, 4200, now);
+
+        assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.REVIEW);
     }
 
     @Test
@@ -133,14 +143,14 @@ class ReviewSchedulingServiceTest {
     }
 
     @Test
-    void thirdLapseStaysLearning() {
+    void thirdLapseSetsStatusDifficult() {
         UserProgress progress = progress();
         progress.setLapseCount(2);
 
         service.apply(progress, ReviewQuality.AGAIN, 9000, now);
 
         assertThat(progress.getLapseCount()).isEqualTo(3);
-        assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.LEARNING);
+        assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.DIFFICULT);
     }
 
     private UserProgress progress() {

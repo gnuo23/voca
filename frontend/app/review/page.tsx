@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CalendarClock, Check, RotateCcw, Send, X } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { getStoredToken, getTodayReview, ReviewItem, submitReviewAnswer, submitReviewResult } from "@/lib/api";
 
 type ReviewFeedback = "correct" | "pendingIncorrect" | "incorrect";
+
+const CORRECT_AUTO_ADVANCE_MS = 700;
 
 export default function ReviewPage() {
   const router = useRouter();
@@ -21,6 +23,8 @@ export default function ReviewPage() {
   const [feedback, setFeedback] = useState<ReviewFeedback | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const answerInputRef = useRef<HTMLInputElement | null>(null);
+  const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const storedToken = getStoredToken();
@@ -40,7 +44,35 @@ export default function ReviewPage() {
 
   const currentCard = useMemo(() => items[currentIndex] ?? null, [items, currentIndex]);
 
-  async function submit() {
+  const clearAutoAdvance = useCallback(() => {
+    if (autoAdvanceTimer.current) {
+      clearTimeout(autoAdvanceTimer.current);
+      autoAdvanceTimer.current = null;
+    }
+  }, []);
+
+  const nextCard = useCallback(() => {
+    clearAutoAdvance();
+    setReviewed((value) => value + 1);
+    setCurrentIndex((index) => index + 1);
+    setStartedAt(Date.now());
+    setResponseTimeMs(null);
+    setAnswer("");
+    setFeedback(null);
+  }, [clearAutoAdvance]);
+
+  useEffect(() => {
+    return () => clearAutoAdvance();
+  }, [clearAutoAdvance]);
+
+  useEffect(() => {
+    if (!currentCard || feedback !== null || isLoading) {
+      return;
+    }
+    answerInputRef.current?.focus();
+  }, [currentCard?.vocabId, feedback, isLoading]);
+
+  const submit = useCallback(async () => {
     if (!currentCard) {
       return;
     }
@@ -61,23 +93,25 @@ export default function ReviewPage() {
     try {
       await submitReviewAnswer(token, currentCard.vocabId, true, elapsedMs);
       setFeedback("correct");
+      clearAutoAdvance();
+      autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not submit review");
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [answer, clearAutoAdvance, currentCard, nextCard, startedAt, token]);
 
-  async function reveal() {
+  const reveal = useCallback(async () => {
     if (!currentCard) {
       return;
     }
     setError("");
     setResponseTimeMs(Date.now() - startedAt);
     setFeedback("pendingIncorrect");
-  }
+  }, [currentCard, startedAt]);
 
-  async function markPending(correct: boolean) {
+  const markPending = useCallback(async (correct: boolean) => {
     if (!currentCard) {
       return;
     }
@@ -85,21 +119,61 @@ export default function ReviewPage() {
     try {
       await submitReviewResult(token, currentCard.vocabId, correct ? "GOOD" : "AGAIN", responseTimeMs ?? Date.now() - startedAt);
       setFeedback(correct ? "correct" : "incorrect");
+      clearAutoAdvance();
+      if (correct) {
+        autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not submit review");
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [clearAutoAdvance, currentCard, nextCard, responseTimeMs, startedAt, token]);
 
-  function nextCard() {
-    setReviewed((value) => value + 1);
-    setCurrentIndex((index) => index + 1);
-    setStartedAt(Date.now());
-    setResponseTimeMs(null);
-    setAnswer("");
-    setFeedback(null);
-  }
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.isComposing || isLoading || !currentCard) {
+        return;
+      }
+
+      if ((event.ctrlKey && event.key === "Enter") || (event.altKey && event.key.toLowerCase() === "d")) {
+        event.preventDefault();
+        if (feedback === null) {
+          void reveal();
+          return;
+        }
+        if (feedback === "pendingIncorrect") {
+          void markPending(false);
+        }
+        return;
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        if (feedback === null) {
+          void submit();
+          return;
+        }
+        if (feedback === "correct" || feedback === "incorrect") {
+          nextCard();
+        }
+      }
+
+      if (feedback === "pendingIncorrect") {
+        if (event.key === "ArrowUp") {
+          event.preventDefault();
+          void markPending(true);
+        }
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          void markPending(false);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentCard, feedback, isLoading, markPending, nextCard, reveal, submit]);
 
   const complete = !isLoading && currentIndex >= items.length;
 
@@ -119,6 +193,7 @@ export default function ReviewPage() {
             className="button secondary-button"
             type="button"
             onClick={() => {
+              clearAutoAdvance();
               setCurrentIndex(0);
               setReviewed(0);
               setStartedAt(Date.now());
@@ -146,14 +221,11 @@ export default function ReviewPage() {
               <div className="field review-answer-field">
                 <label htmlFor="review-answer">Meaning</label>
                 <input
+                  ref={answerInputRef}
                   id="review-answer"
                   value={answer}
                   onChange={(event) => setAnswer(event.target.value)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      void submit();
-                    }
-                  }}
+                  autoFocus
                 />
               </div>
             ) : (

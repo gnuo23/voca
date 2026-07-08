@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +39,19 @@ public class DeckController {
     @GetMapping("/study")
     public List<DeckResponse> listStudyDecks(Authentication authentication) {
         return deckService.listStudyDecks(authentication);
+    }
+
+    @GetMapping("/difficult")
+    public List<DeckResponse> listDifficultDecks(Authentication authentication) {
+        return deckService.listDifficultDecks(authentication);
+    }
+
+    @PostMapping("/difficult")
+    public DeckResponse createDifficultDeck(
+            Authentication authentication,
+            @RequestParam(required = false) Long deckId
+    ) {
+        return deckService.createDifficultDeck(authentication, deckId);
     }
 
     @GetMapping("/{deckId}")
