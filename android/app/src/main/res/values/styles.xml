@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.Voca" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/voca_bg</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

@@ -1,6 +1,14 @@
 # Java
 backend/target/
 
+# Android
+android/.gradle/
+android/**/build/
+android/local.properties
+android/captures/
+*.apk
+*.aab
+
 # Node / Next.js
 frontend/node_modules/
 frontend/.next/

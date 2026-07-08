@@ -8,6 +8,7 @@ Phase 0 project skeleton with:
 - Swagger/OpenAPI
 - Next.js frontend
 - Docker Compose
+- Android native API client app
 - JWT auth with user profile
 - Vocabulary deck CRUD with ownership checks
 - Vocabulary list import preview and confirm
@@ -117,3 +118,14 @@ npm run dev
 cd backend && mvn test
 cd frontend && npm run build
 ```
+
+## Android App
+
+The Android app lives in `android/` and calls the Voca backend API directly with native Android screens.
+
+```bash
+cd android
+gradle :app:assembleDebug
+```
+
+Open `android/` in Android Studio if Gradle or the Android SDK is not installed locally. The backend API URL is configured by `vocaApiUrl` in `android/gradle.properties`.
