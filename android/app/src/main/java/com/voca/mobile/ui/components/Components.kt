@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -31,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.clickable
+import com.voca.mobile.ui.theme.Spacing
 import com.voca.mobile.ui.theme.VocaTheme
 
 @Composable
@@ -39,13 +39,14 @@ fun DuoCard(
     content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit,
 ) {
     val scheme = MaterialTheme.colorScheme
+    val shape = MaterialTheme.shapes.medium
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
+            .clip(shape)
             .background(scheme.surface)
-            .border(2.dp, VocaTheme.brand.border, RoundedCornerShape(16.dp))
-            .padding(16.dp),
+            .border(2.dp, VocaTheme.brand.border, shape)
+            .padding(Spacing.lg),
         content = content,
     )
 }
@@ -56,7 +57,7 @@ fun SectionHeading(text: String, modifier: Modifier = Modifier) {
         text = text,
         style = MaterialTheme.typography.titleLarge,
         color = MaterialTheme.colorScheme.onBackground,
-        modifier = modifier.padding(top = 20.dp, bottom = 8.dp),
+        modifier = modifier.padding(top = Spacing.xl, bottom = Spacing.sm),
     )
 }
 
@@ -73,14 +74,15 @@ fun MutedText(text: String, modifier: Modifier = Modifier) {
 @Composable
 fun StatTile(label: String, value: String, accent: Color, modifier: Modifier = Modifier) {
     val scheme = MaterialTheme.colorScheme
+    val shape = MaterialTheme.shapes.medium
     Column(
         modifier = modifier
-            .clip(RoundedCornerShape(16.dp))
+            .clip(shape)
             .background(scheme.surface)
-            .border(2.dp, VocaTheme.brand.border, RoundedCornerShape(16.dp))
-            .padding(vertical = 16.dp, horizontal = 8.dp),
+            .border(2.dp, VocaTheme.brand.border, shape)
+            .padding(vertical = Spacing.lg, horizontal = Spacing.sm),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(Spacing.xs),
     ) {
         Text(value, style = MaterialTheme.typography.headlineLarge, color = accent)
         Text(
@@ -168,6 +170,33 @@ fun AudioButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
             contentDescription = "Nghe",
             tint = brand.blue,
             modifier = Modifier.size(24.dp),
+        )
+    }
+}
+
+/** Audio button with a label, for prompts where a bare icon reads as ambiguous. */
+@Composable
+fun AudioPill(label: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    val brand = VocaTheme.brand
+    Row(
+        modifier = modifier
+            .clip(CircleShape)
+            .background(brand.blue.copy(alpha = 0.15f))
+            .clickable(onClick = onClick)
+            .padding(horizontal = Spacing.lg, vertical = Spacing.sm),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+    ) {
+        Icon(
+            Icons.AutoMirrored.Filled.VolumeUp,
+            contentDescription = null,
+            tint = brand.blue,
+            modifier = Modifier.size(22.dp),
+        )
+        Text(
+            label,
+            style = MaterialTheme.typography.labelLarge,
+            color = brand.blue,
         )
     }
 }

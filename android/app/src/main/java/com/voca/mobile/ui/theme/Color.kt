@@ -15,6 +15,14 @@ val DuoRedShadow = Color(0xFFD63A3A)
 val DuoPurple = Color(0xFF8B5CF6)
 val DuoPurpleShadow = Color(0xFF6E43D6)
 
+// Streak flame accent (used for the day-streak indicator).
+val DuoOrange = Color(0xFFFF9600)
+
+// Softer brand tones for the dark navy surfaces so the bright base hues
+// don't glare against a dark background.
+val DarkGreen = Color(0xFF6DD400)
+val DarkYellow = Color(0xFFFFD23F)
+
 // Light scheme
 val LightBackground = Color(0xFFFFFFFF)
 val LightSurface = Color(0xFFF7F9FC)

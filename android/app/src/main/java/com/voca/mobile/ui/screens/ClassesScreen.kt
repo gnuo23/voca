@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -38,6 +37,7 @@ import com.voca.mobile.ui.components.MutedText
 import com.voca.mobile.ui.components.ScreenList
 import com.voca.mobile.ui.components.UiState
 import com.voca.mobile.ui.components.rememberUiState
+import com.voca.mobile.ui.theme.Spacing
 import com.voca.mobile.ui.theme.VocaTheme
 import kotlinx.coroutines.launch
 
@@ -116,9 +116,9 @@ private fun ClassCard(c: ClassroomResponse) {
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
                     color = VocaTheme.brand.blue,
                     modifier = Modifier
-                        .clip(RoundedCornerShape(10.dp))
+                        .clip(MaterialTheme.shapes.small)
                         .background(VocaTheme.brand.blue.copy(alpha = 0.12f))
-                        .padding(horizontal = 12.dp, vertical = 6.dp),
+                        .padding(horizontal = Spacing.md, vertical = Spacing.sm),
                 )
             }
         }

@@ -41,7 +41,7 @@ private val LightBrand = VocaBrandColors(
     success = DuoGreen,
     successShadow = DuoGreenShadow,
     close = DuoYellow,
-    streak = Color(0xFFFF9600),
+    streak = DuoOrange,
     muted = LightMuted,
     border = LightBorder,
 )
@@ -50,14 +50,14 @@ private val DarkBrand = VocaBrandColors(
     primaryShadow = DuoGreenShadow,
     blue = DuoBlue,
     blueShadow = DuoBlueShadow,
-    yellow = DuoYellow,
+    yellow = DarkYellow,
     yellowShadow = DuoYellowShadow,
     danger = DuoRed,
     dangerShadow = DuoRedShadow,
-    success = DuoGreen,
+    success = DarkGreen,
     successShadow = DuoGreenShadow,
-    close = DuoYellow,
-    streak = Color(0xFFFF9600),
+    close = DarkYellow,
+    streak = DuoOrange,
     muted = DarkMuted,
     border = DarkBorder,
 )
@@ -81,8 +81,8 @@ private val LightColors = lightColorScheme(
 )
 
 private val DarkColors = darkColorScheme(
-    primary = DuoGreen,
-    onPrimary = Color.White,
+    primary = DarkGreen,
+    onPrimary = Color(0xFF0A2600),
     secondary = DuoBlue,
     onSecondary = Color.White,
     background = DarkBackground,

@@ -1,5 +1,6 @@
 package com.voca.mobile.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.TaskAlt
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +26,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -36,6 +43,7 @@ import com.voca.mobile.ui.components.MutedText
 import com.voca.mobile.ui.components.ProgressBarRounded
 import com.voca.mobile.ui.components.UiState
 import com.voca.mobile.ui.components.rememberUiState
+import com.voca.mobile.ui.theme.Spacing
 import com.voca.mobile.ui.theme.VocaTheme
 import kotlinx.coroutines.launch
 
@@ -167,24 +175,38 @@ private fun ReviewCard(
 
 @Composable
 private fun ReviewDone(onHome: () -> Unit) {
+    val brand = VocaTheme.brand
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(24.dp),
+                .padding(Spacing.xl),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Text("🎉", style = MaterialTheme.typography.displayLarge)
-            Spacer(Modifier.height(12.dp))
+            Box(
+                modifier = Modifier
+                    .size(96.dp)
+                    .clip(CircleShape)
+                    .background(brand.success.copy(alpha = 0.18f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    Icons.Filled.TaskAlt,
+                    contentDescription = null,
+                    tint = brand.success,
+                    modifier = Modifier.size(56.dp),
+                )
+            }
+            Spacer(Modifier.height(Spacing.lg))
             Text(
                 "Đã ôn hết!",
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onBackground,
             )
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(Spacing.xs))
             MutedText("Bạn đã hoàn thành danh sách ôn tập hôm nay.")
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(Spacing.xl))
             DuoButton("Xong", onClick = onHome, modifier = Modifier.fillMaxWidth())
         }
         CelebrationOverlay()

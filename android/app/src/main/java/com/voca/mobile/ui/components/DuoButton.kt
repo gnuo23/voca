@@ -6,11 +6,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
@@ -64,11 +62,12 @@ fun DuoButton(
 
     val faceColor = if (enabled) face else face.copy(alpha = 0.5f)
     val baseColor = if (enabled) base else base.copy(alpha = 0.5f)
+    val shape = MaterialTheme.shapes.medium
 
     Box(
         modifier = modifier
-            .height(56.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .defaultMinSize(minHeight = 56.dp)
+            .clip(shape)
             .background(baseColor)
             .clickable(
                 interactionSource = interaction,
@@ -81,16 +80,16 @@ fun DuoButton(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(52.dp)
-                .padding(top = offset)
-                .clip(RoundedCornerShape(16.dp))
+                .padding(top = offset, bottom = depth - offset)
+                .defaultMinSize(minHeight = 52.dp)
+                .clip(shape)
                 .background(faceColor),
             contentAlignment = Alignment.Center,
         ) {
             CompositionLocalProvider(LocalContentColor provides content) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.wrapContentSize(),
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 ) {
                     if (icon != null) {
                         Icon(icon, contentDescription = null, modifier = Modifier.size(20.dp))
@@ -101,6 +100,7 @@ fun DuoButton(
                         style = MaterialTheme.typography.labelLarge,
                         color = content,
                         textAlign = TextAlign.Center,
+                        maxLines = 2,
                     )
                 }
             }
