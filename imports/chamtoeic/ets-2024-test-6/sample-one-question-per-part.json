@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2024 TEST 6",
+    "generatedAt":  "2026-07-09T20:40:32Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "358eda0c-fded-4ef6-8efe-76d0e761d3e1",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "f3c366b0-b9bc-4914-b895-37218d16b236",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-f54412e54c804709ac8430d8595c6ebc.mp3"
+                                           },
+                                           {
+                                               "id":  "5d6b1ec0-a3cc-42de-a895-f9a1e21d5053",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-1b47ce6938f04c4d968ccd677568667a.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) She\u0027s shoveling snow from a walkway.\n(B) She\u0027s using walking sticks.\n(C) She\u0027s removing her cap.\n(D) She\u0027s drinking from a water bottle.",
+                        "groupExplanationText":  "(A) Cô ấy đang xúc tuyết trên lối đi.\n(B) Cô ấy đang dùng gậy chống.\n(C) Cô ấy đang tháo mũ.\n(D) Cô ấy đang uống nước từ bình."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "b016ac79-69b2-4441-ba74-5b0d873a0679",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "5005604c-e7b5-4ca2-9f60-3ba1c13aa34c",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-976da406df704d76908e1206af6f7393.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Who\u0027s going to take home the leftover cake?\n(A) Marcel said he would.\n(B) A lovely selection of desserts.\n(C) No, I thought it started at noon.",
+                        "groupExplanationText":  "Ai sẽ mang phần bánh còn lại về nhà?\n(A) Marcel nói anh ấy sẽ mang.\n(B) Một loạt món tráng miệng thật hấp dẫn.\n(C) Không, tôi tưởng nó bắt đầu lúc trưa."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "3bdf8f29-8b51-4e7c-a3f2-156b554f63f4",
+                        "questionNumber":  1,
+                        "questionText":  "What are the speakers mainly discussing?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "8d8f33a4-9a5c-41e7-b898-9a13ea1ed28a",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-3264c0d9591144579fc37db4ec6202ac.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Theater renovations",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Changes to a performance schedule",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Selection of a new lighting director",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A promotional gift",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "Theater renovations",
+                        "audioTranscriptText":  "Man: The renovations we\u0027re planning for the theater are long overdue.\nWoman: I\u0027m glad we have time between productions so we can get the work done.\nMan: I agree-and even though it\u0027s great that our latest musical production has had such a successful run, we can all use the break.\nWoman: Plus, it gives us time to focus on next month\u0027s fund-raiser.\nMan: Hopefully we\u0027ll raise enough money at that event to replace the old lighting system too.",
+                        "groupExplanationText":  "Man: (32)Việc cải tạo nhà hát mà chúng ta dự định đang bị trì hoãn lâu.\nWoman: (32) Tôi rất vui vì chúng ta có thời gian giữa các lần sản xuất để có thể hoàn thành công việc.\nMan: Tôi đồng ý—và mặc dù (33) thật tuyệt vời khi tác phẩm âm nhạc mới nhất của chúng ta đã thành công như vậy, tất cả chúng ta đều có thể tận dụng thời gian nghỉ ngơi.\nWoman: Thêm vào đó, (34)nó cho chúng ta thời gian để tập trung vào việc gây quỹ vào tháng tới.\nMan: (34)Hy vọng rằng chúng ta sẽ quyên góp đủ tiền tại sự kiện đó để thay thế hệ thống chiếu sáng cũ."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "a4757e54-3dfe-4550-9de2-031a7d160ddb",
+                        "questionNumber":  1,
+                        "questionText":  "Where does the talk most likely take place?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "9b5777de-51da-4515-8732-a24053f14660",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-8adfb1cc219348a7bf0b0923f8b9b8c7.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "At a medical clinic",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "At an airport",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a fitness center",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At a bank",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "At a medical clinic",
+                        "audioTranscriptText":  "Man: Hi, everyone—big news. (71,72)Our clinic is getting a check-in kiosk. (72)What this means is that patients will be able to check themselves in to their medical appointments by clicking through some buttons in the kiosk. You will no longer have to do it for them. I know all of you have been very busy answering phones, scheduling appointments, and checking patients in, so hopefully, this helps to make your work easier. (73)We\u0027ll have a very short training session next Tuesday on how the check-in kiosk works.",
+                        "groupExplanationText":  "Man: Xin chào mọi người—tin tức lớn. (71,72)Phòng khám của chúng tôi đang có một ki-ốt làm thủ tục. (72)Điều này có nghĩa là bệnh nhân sẽ có thể tự kiểm tra các cuộc hẹn khám bệnh của mình bằng cách nhấp vào một số nút trong ki-ốt. Bạn sẽ không còn phải làm điều đó cho họ nữa. Tôi biết tất cả các bạn đều rất bận rộn trả lời điện thoại, lên lịch hẹn và kiểm tra bệnh nhân, vì vậy hy vọng điều này sẽ giúp công việc của các bạn trở nên dễ dàng hơn. (73)Chúng tôi sẽ có một buổi đào tạo rất ngắn vào thứ Ba tới về cách hoạt động của ki-ốt làm thủ tục."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "f1bb2458-4e52-44bd-af28-68def342ada3",
+                        "questionNumber":  1,
+                        "questionText":  "The new policy allows employees to set ------- own working hours under certain conditions.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "they",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "their",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "theirs",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "themselves",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "their",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch đáp án:\nChính sách mới cho phép nhân viên tự thiết lập giờ làm việc ------- dưới những điều kiện nhất định.\n(A) họ\n(B) của họ\n(C) cái của họ\n(D) bản thân họ\nSau chỗ trống là danh từ working hours (giờ làm việc) do đó cần điền một tính từ sở hữu vào phía trước. Trong 4 đáp án chỉ có their là đáp án đúng. Their own working hours (giờ làm việc của chính họ) ở đây ám chỉ nhân viên đã được nhắc đến ở vế câu phía trước.\n=\u003e Đáp án (B)"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "1f0599cf-342c-4f0e-a90f-65aabc7c86e8",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "63e93aed-e433-46ef-add5-4eb43d10f90c",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-e8a957421c4246fcac946b446a572798.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "is",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "or",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "likely",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "from",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "or",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Bài học Guitar Estella: Chơi với điều tuyệt vời nhất\nDù bạn chơi guitar acoustic (131) điện thì học với giáo viên dạy tại Guitar Estella là cách tốt nhất để nâng cao khả năng của bạn. Với nhiều năm kinh nghiệm trong việc tạo ra các kỹ thuật chơi, (132) người hướng dẫn có trình độ có thể điều chỉnh các bài học để tập trung vào các kỹ năng bạn muốn tinh chỉnh. Nhận kế hoạch học tập tùy chỉnh để đặt mục tiêu và vượt qua các thử thách khiến nhiều người chơi nản lòng. (133) . Giáo viên dạy tại Guitar Estella sẽ giúp bạn tăng cường sự tự tin.\nTại Estella Guitar, chúng tôi tin rằng chơi nhạc là một cách thể hiện bản thân. (134), chúng tôi sẽ giúp bạn vượt xa những hợp âm và đoạn riff quen thuộc để phát triển bản sắc riêng của bạn với tư cách là một nhạc sĩ. Sẵn sàng để bắt đầu? Hãy truy cập www.estellaguitar.com/lessons để tìm được người hướng dẫn phù hợp với bạn!\ngiải thích:\n1: Dịch đáp án:\n(A) là\n(B) hoặc\n(C) có thể\n(D) từ\n=\u003e Đáp án (B)\n2: Dịch đáp án:\n(A) của chúng tôi\n(B) chính chúng ta\n(C) của chúng tôi\n(D) chúng tôi\nTrước danh từ qualified instructors (huấn luyện viên đủ khả năng) sẽ điền một tính từ sở hữu, trong 4 đáp án chỉ có our là đáp án đúng.\n=\u003e Đáp án (A)\n3: (A) Liên hệ với kỹ thuật viên nếu có thắc mắc về việc sửa chữa.\n(B) Một nhạc cụ chất lượng cao sẽ giúp bạn biểu diễn tốt nhất.\n(C) Nguồn lực tốt nhất dành cho bạn với tư cách là người học là một chuyên gia để hướng dẫn bạn tiến bộ.\n(D) Họ phải mất vài năm để thành thạo nhạc cụ của mình.\nTrong câu đầu tiên, người ta nói rằng người hướng dẫn cung cấp các kế hoạch học tập tùy chỉnh tập trung vào các kỹ năng mà học sinh muốn điều chỉnh (qualified instructors can tailor lessons ~ to fine-tune), và trong câu phía sau, người ta nói rằng giáo viên dạy Guitar Estella sẽ giúp bạn nâng cao sự tự tin (An Estella Guitar teacher will help boost your confidence), nhấn mạnh vai trò của người hướng dẫn trong việc tiếp thu kỹ năng chơi guitar. Vì vậy, chỗ trống phải chứa thông tin cho biết nguồn lực tốt nhất cho người học là chuyên gia hướng dẫn, tức là người hướng dẫn, sao cho việc kết nối giữa các câu là hợp lý nên (C) là đáp án đúng.\n=\u003e Đáp án (C)\n134:Dịch đáp án:\n(A) Cho đến nay\n(B) Với ý nghĩ đó\n(C) Ở một lưu ý khác\n(D) Tại thời điểm đó\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (B)"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "6b3299ea-721e-45e7-ac0b-7e5c8c7a2861",
+                        "questionNumber":  1,
+                        "questionText":  "What is the purpose of the e-mail?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d89c27fb-ee1a-499a-9c7b-fd98404508d5",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-ded6a210ae6f46afb4e63ae808a27b03.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "To welcome a new user to Rapido Net",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "To remind a user about a forgotten password",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "To confirm that a change was made to a user\u0027s account",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "To inform a user about new company policies",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "To confirm that a change was made to a user\u0027s account",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch nghĩa:\nChúng tôi nhận thấy một số hoạt động trên tài khoản của bạn. Tùy chọn dùng câu hỏi bí mật để khôi phục mật khẩu của bạn đã được cập nhật lúc 3:16 chiều hôm nay. Nếu bạn đã thực hiện thay đổi này thì không cần thực hiện thêm hành động nào. Nếu không, chúng tôi có thể giúp bạn bảo mật tài khoản của mình. Gọi 919-555-1066 để nói chuyện với một đại diện tài khoản.\nNếu bạn muốn bỏ tùy chọn dùng câu hỏi bí mật để khôi phục mật khẩu, thay vào đó, bạn có thể sử dụng địa chỉ email hoặc số điện thoại đã được xác minh để truy cập vào tài khoản của mình. Làm cho quy trình trở nên an toàn hơn nữa bằng cách thiết lập xác minh hai bước. Chỉ cần hỏi đại diện của chúng tôi như thế nào.\nCảm ơn bạn đã tin tưởng Rapido Net là nhà cung cấp dịch vụ Internet của mình.\nPhân tích:\n1: Dịch đáp án:\nMục đích của email là gì?\n(A) Để chào mừng người dùng mới đến Rapido Net\n(B) Để nhắc nhở người dùng về việc quên mật khẩu\n(C) Để xác nhận rằng thay đổi đã được thực hiện đối với tài khoản của người dùng\n(D) Để thông báo cho người dùng về các chính sách mới của công ty\n2: Dịch đáp án:\nĐiều gì được chỉ ra về Rapido Net?\n(A) Nó cung cấp tốc độ Internet nhanh hơn so với các đối thủ cạnh tranh.\n(B) Nó cung cấp bảo mật bổ sung thông qua xác minh hai bước.\n(C) Nó tự động tạo ra các mật khẩu phức tạp cho khách hàng.\n(D) Nó đã tăng phí người dùng hàng tháng.\n3: Dịch đáp án:\nCô Duberville có nhiều khả năng đã ký hợp đồng với loại dịch vụ nào nhất?\n(A) Lắp đặt cửa sổ\n(B) Dọn dẹp nhà cửa\n(C) Thảm phủ kín tường\n(D) Truy cập Internet\n4: Dịch đáp án:\nĐiều gì sẽ xảy ra vào thời gian cô Duberville chọn?\n(A) Cô ấy sẽ đến lấy một số thiết bị tại văn phòng.\n(B) Cô ấy sẽ nhận được một chiếc điện thoại di động Global Tech mới.\n(C) Cô ấy sẽ được một đại diện của Global Tech đến gặp.\n(D) Cô ấy sẽ nhận được email khảo sát về mức độ hài lòng của khách hàng."
+                    }
+                ]
+}

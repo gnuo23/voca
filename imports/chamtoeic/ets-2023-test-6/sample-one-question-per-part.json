@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2023 TEST 6",
+    "generatedAt":  "2026-07-09T20:50:23Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "9e3375f2-6fa5-480f-aff8-ff1393274859",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "cc2833e9-2113-4cb8-9289-4e9ccd8fab54",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-46206780f2b9426aa1ad46fe8e6d4c14.png"
+                                           },
+                                           {
+                                               "id":  "192332a6-578e-456f-aa02-2d1726b3379d",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-0c60772b6e284df88eac64447f098b0d.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) A man is carrying a backpack. (B) A man is tying his shoelace. (C) A woman is purchasing a snack. (D) A woman is picking up a ticket from the ground.",
+                        "groupExplanationText":  null
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "88db9fda-fec8-4550-972c-8dddad65b445",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d7d8de3b-8e8a-4c57-98c8-40ea6f157943",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-2f1da0e31a114c7a942f7688362c809e.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Bạn muốn mua ghế sofa màu xanh hay màu vàng?\n(A) Một căn hộ ba phòng ngủ.\n(B) Tôi thích màu vàng.\n(C) Tôi đã ở đó rồi.",
+                        "groupExplanationText":  "Bạn đã lên lịch hẹn với nha sĩ của bạn chưa?\n(A) Tôi sẽ đặt nó lên gác bây giờ.\n(B) Vâng, tuần trước.\n(C) Một đơn đặt hàng cung ứng mới."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "7aa26236-c248-4de6-bf2f-9b1a3138d27f",
+                        "questionNumber":  1,
+                        "questionText":  "What does the man want to do at the bank?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "c7020412-b63e-4787-9195-18d2d9775aaa",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-765ca8cd1b364d5f9453fd78bca379eb.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Close an account",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Make a deposit",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Apply for a loan",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Interview for a job",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "Close an account",
+                        "audioTranscriptText":  "M-Cn Hello. (32)l\u0027ve come to close my bank account. (33)l received an e-mail informing me that the bank is going to start charging a monthly maintenance fee, and I\u0027d rather keep my money in an account with no fee.\nW-Br Yes, (33)that\u0027s our new policy. Are you aware, though, that we\u0027ll waive the fee if you maintain a minimum balance of 500 dollars?\nM-Cn OK. That shouldn\u0027t be a problem. (34)Where can I find a printed copy of the policy?\nW-Br (34)l can print one out for you right now.",
+                        "groupExplanationText":  "M-Cn Xin chào. (32)Tôi đã đến để đóng tài khoản ngân hàng của tôi.(33)Tôi nhận được e-mail thông báo rằng ngân hàng sẽ bắt đầu tính phí duy trì hàng tháng, và tôi muốn giữ tiền của mình trong một tài khoản không mất phí.\nW-Br Vâng, (33) đó là chính sách mới của chúng tôi. Tuy nhiên, bạn có biết rằng chúng tôi sẽ miễn phí nếu bạn duy trì số dư tối thiểu là 500 đô la không?\nM-Cn OK. Đó không phải là một vấn đề. (34)Tôi có thể tìm bản in của chính sách ở đâu?\nW-Br\n(34) Tôi có thể in một cái ra cho bạn ngay bây giờ.\nTóm tắt: Cuộc hội thoại giữa nhân viên Ngân hàng và Khách hàng diễn ra tại Ngân hàng. Vấn đề: KH muốn đóng tài khoản do phải trả phí duy trì. Hướng giải quyết: Cung cấp tài liệu về chính sách mới để KH tham khảo."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "e02f6833-1469-402f-b3da-35a0f045bfcd",
+                        "questionNumber":  1,
+                        "questionText":  "What product is being advertised?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "49543d26-a24f-4963-aa89-d48617fdcf28",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-aa1eca8e22b6454ea493ea0a8f6808df.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A refrigerator",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "An automobile",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A blender",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A fan",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A fan",
+                        "audioTranscriptText":  "M-Cn (71)Are you tired of relying on noisy, bulky fans to cool you down on hot days? Then look no further than the Deluxe Cool. Its revolutionary design cools you off without the usual noise! Unlike typical rotating fans, the Deluxe Cool fan uses Vibrations to move a single blade to push air. (72)And we\u0027re proud to say that it\u0027s now the quietest fan on the market! Now\u0027s the time to buy, as (73)we are offering a special discount when you type in the code \u0027\u0027DELUXE\u0027\u0027 at online checkout.",
+                        "groupExplanationText":  "M-Cn (71) Bạn cảm thấy mệt mỏi khi dựa vào những chiếc quạt ồn ào, cồng kềnh để hạ nhiệt trong những ngày nắng nóng? Vậy thì không cần tìm đâu xa ngoài Deluxe Cool. Thiết kế mang tính thay đổi mạnh mẽ của nó sẽ giúp làm mát mà không gây ra tiếng ồn thông thường! Không giống như những chiếc quạt quay thông thường, quạt Deluxe Cool sử dụng Rung động để di chuyển một cánh quạt duy nhất để đẩy không khí. (72)Và chúng tôi tự hào nói rằng giờ đây nó là chiếc quạt chạy êm nhất trên thị trường! Bây giờ là lúc để mua, vì (73) chúng tôi đang cung cấp ưu đãi đặc biệt khi bạn nhập mã \u0027\u0027DELUXE\u0027\u0027 khi thanh toán trực tuyến.\nTóm tắt: Nhân viên bán quạt giới thiệu sản phẩm Deluxe Cool. Vấn đề: quạt thường nặng, ồn ào. Hướng giải quyết: quạt Deluxe sử dụng sự Rung động để giảm tiếng ồn nhất có thể."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "8f46f025-9b3e-4657-8420-87b2a29250e1",
+                        "questionNumber":  1,
+                        "questionText":  "Mobile phone upgrades will be discounted with the _______ of a one-year service plan.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "purchase",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "purchaser",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "purchased",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "purchasers",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "purchase",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Chỗ trống cần điền một danh từ và phù hợp với nghĩa của câu\n- purchase (N): đơn hàng\n- purchaser (N): khách hàng\n- purchased (V-ed): mua hàng\n- purchasers (Ns): những khách hàng\nDịch: Nâng cấp điện thoại di động sẽ được giảm giá khi MUA gói dịch vụ một năm"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "60ab59ec-7e34-4d8b-ad5f-e2d996318874",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "79788720-6582-42ce-afff-929d89b6b114",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-fa581520da0c437f86698eb36c06e539.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "resulting",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "attaching",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "competing",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "undergoing",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "undergoing",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Một mùa mua sắm mới tại siêu thị Farmers\nSiêu thị Lee Valley Farmers đã (131) TRẢI QUA những thay đổi thú vị, Jerry Carver, (132) GIÁM ĐỐC thị trường trong suốt 3 năm qua, đã từ chức vào tuần trước. Ông ấy được thay thế bởi Paul Frankson, người giám sát các hoạt động tại Garden Haven Farm.\nKhu vực mua sắm chính đang được mở rộng từ 10 lên 15 gian hàng để có chỗ cho nhiều thứ hơn là chỉ sản xuất. (133) THỊT, PHÔ MAI VÀ MẬT ONG LÀ MỘT TRONG NHỮNG MẶT HÀNG MỚI. Ngoài ra còn có kế hoạch cho một quầy cà phê và khu thủ công nữa. Frankson phát biểu rằng: “Chúng tôi thực sự đánh giá cao những khách hàng trung thành đã mua sản phẩm của chúng tôi trong nhiều năm”. “Chúng tôi hy vọng rằng bằng cách bán (134) NHIỀU LOẠI SẢN PHẨM HƠN, chúng tôi có thể thu hút thêm nhiều người đến mua sắm tại địa phương:.\nSiêu thị Lee Valley Farmers mở cửa suốt cả năm, bảy ngày một tuần từ 8.00 sáng đến 6.00 tối"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "74894f2d-7dfe-4397-abf4-2abc6fcbaece",
+                        "questionNumber":  1,
+                        "questionText":  "What is NOT mentioned about the event?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d953e9db-ea11-4cf9-a3c2-e9f2cb81ec2a",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-aa5c30af935149a89888f6d45358b507.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Its starting time",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Its main purpose",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Its location",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Its duration",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "Its duration",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Thị trưởng Lizette chuẩn bị phát biểu về tình trạng của thành phố\nFALCON HEIGHTS (21 tháng 4) - [147]Thị trưởng Loretta Lizette sẽ có bài phát biểu thứ năm về Tình trạng của Thành phố tại Tòa thị chính Falcon Heights, Phòng 101, vào Thứ Tư, ngày 30 tháng 4, bắt đầu lúc 7:00 tối. Sự kiện mở cửa cho công chúng, nhưng chỗ ngồi đến trước được phục vụ trước.\n[148] Thị trưởng Lizette, người đã tái đắc cử nhiệm kỳ bốn năm lần thứ hai vào tháng trước, sẽ thảo luận về tầm nhìn của bà đối với tương lai của thành phố. Một vấn đề trong chương trình nghị sự của bà là việc Panhandle Eatery, một nhà hàng thức ăn nhanh, xin mở một địa điểm trên Đại lộ Hedgerow lịch sử. Sau bài phát biểu sẽ là phần hỏi đáp. Cửa mở lúc 6:30 P.M."
+                    }
+                ]
+}

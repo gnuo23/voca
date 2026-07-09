@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2024 TEST 7",
+    "generatedAt":  "2026-07-09T20:40:37Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "a03542c0-8e4e-4a09-949e-dcb9fb6645ef",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "50fce4a0-0360-47a2-b421-ac246bc6b8a3",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-2f7d080c97724dd2a29675cbb363d6d1.mp3"
+                                           },
+                                           {
+                                               "id":  "e55af39a-3821-4d08-a70c-16192042f3be",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-f0a4f3ab30994b2383ca26333611cece.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) He\u0027s digging in a garden.\n(B) He\u0027s stacking wooden pallets.\n(C) He\u0027s emptying soil from a pot.\n(D) He\u0027s examining some plants.",
+                        "groupExplanationText":  "(A) Anh ấy đang đào đất trong vườn.\n(B) Anh ấy đang xếp các tấm pallet gỗ.\n(C) Anh ấy đang đổ đất ra khỏi chậu.\n(D) Anh ấy đang kiểm tra một số loại cây."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "2a5bf2b2-5b4c-4fbb-97a4-5a821b0e2904",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "4ced6dc6-9b1e-44a4-9de9-6c69cb4eac39",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-acd4c9b05865418d97726772ca600955.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Who’s providing the floral arrangements for the party?\n(A) The florist on Main Street.\n(B) She’s had a long career.\n(C) Yes, his flight has been arranged.",
+                        "groupExplanationText":  "Ai là người cắm hoa cho bữa tiệc?\n(A) Người bán hoa trên phố Main.\n(B) Cô ấy đã có một sự nghiệp lâu dài.\n(C) Vâng, chuyến bay của anh ấy đã được sắp xếp."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "896ea1c7-7689-42fb-9775-b7a7c6ebd534",
+                        "questionNumber":  1,
+                        "questionText":  "What is the woman preparing to do?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "040c0a4a-2227-427e-9ce9-8212847333ff",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-f998b1437b114d45b0824486c6333c5d.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Conduct an inspection",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Film a cooking demonstration",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Offer some product samples",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Make a purchase",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "Offer some product samples",
+                        "audioTranscriptText":  "W-Am: Hi. I’m Gabriela Alvarez of Organic Easy Meals. (32)I’m scheduled to offer some samples of our new vegetable chips to your customers from three to five p.m.\nM-Cn: Oh yes. Hello, Ms. Alvarez. I’m Ryan Hughes, the manager. (33)We have a table set up for you at the end of aisle eight. That\u0027s our snacks aisle.\nW-Am: Thanks. I\u0027ll start bringing in food and some equipment from my truck. But first I\u0027d like to take a look at the table I’ll be using.\nM-Cn: Sounds good. (34)If you’d like any help bringing in your stuff, just let me know.",
+                        "groupExplanationText":  "W-Am: Chào. Tôi là Gabriela Alvarez của Bữa ăn hữu cơ dễ dàng. (32)Tôi dự kiến sẽ cung cấp một số mẫu rau củ chiên mới của chúng tôi cho khách hàng của bạn từ ba đến năm giờ chiều.\nM-Cn: Ồ vâng. Xin chào cô Alvarez. Tôi là Ryan Hughes, người quản lý. (33)Chúng tôi đã dọn sẵn một bàn cho bạn ở cuối lối đi số tám. Đó là lối đi có đồ ăn nhẹ của chúng tôi.\nW-Am: Cảm ơn. Tôi sẽ bắt đầu mang thức ăn và một số thiết bị từ xe tải của mình vào. Nhưng trước tiên tôi muốn xem cái bàn tôi sẽ sử dụng.\nM-Cn: Nghe hay đấy. (34) Nếu bạn cần bất kỳ trợ giúp nào để mang đồ của mình đến, hãy cho tôi biết."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  59,
+                        "questionId":  "7649e9ff-59f7-4337-b54f-25ad69a85b98",
+                        "questionNumber":  1,
+                        "questionText":  "What is the conversation about?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "63c0d8a4-c515-48a7-8a24-77cbbced1f97",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/59-a3b81bccb729400e832bf806a07ffbce.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Organizing an event",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Preparing for a renovation",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Updating some software",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Selecting a caterer",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "Organizing an event",
+                        "audioTranscriptText":  "W-Br Marcel, (59)I\u0027d like to plan a team-building event with our graphic design group.\nM-Au (59)Sure. We could reserve the conference room upstairs.\nW-Br But the event wouldn’t be just for on-site graphic designers. Nearly a third of our staff will be participating remotely.\nM-Au Oh, (60) you’re right. Everyone needs to feel equally included. Let’s have our on-site staff join the event from their desks.\nW-Br OK. (61)I\u0027ll do a search for effective team- building activities that we can do online.",
+                        "groupExplanationText":  "W-Br Marcel, (59)Tôi muốn tổ chức một sự kiện team-building với nhóm thiết kế đồ họa của chúng ta.\nM-Au (59)Chắc chắn rồi. Chúng ta có thể đặt phòng họp ở tầng trên.\nW-Br Nhưng sự kiện này sẽ không chỉ dành cho các nhà thiết kế đồ họa tại văn phòng. Gần một phần ba nhân viên của chúng ta sẽ tham gia từ xa.\nM-Au Ồ, (60) bạn nói đúng. Mọi người cần cảm thấy được tham gia như nhau. Hãy để nhân viên tại chỗ của chúng ta tham gia sự kiện từ bàn làm việc của họ.\nW-Anh OK. (61)Tôi sẽ tìm kiếm các hoạt động team-building hiệu quả mà chúng ta có thể thực hiện trực tuyến."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "a29d55e6-8892-4c1c-9981-4d3cb6cc4632",
+                        "questionNumber":  1,
+                        "questionText":  "Passengers must keep ------- boarding passes and luggage with them at all times.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "their",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "his",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "my",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "our",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "their",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Hành khách phải giữ thẻ lên máy bay và hành lý ------- bên mình mọi lúc.\n(A) của họ\n(B) của anh ấy\n(C) của tôi\n(D) của chúng tôi\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (A)"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "bd1bffa9-e24b-4461-9fa8-015cfc6990b8",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "141ce2b4-5402-4886-92af-8d8f18a0c012",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-8a5000894d8f4f09856f74c4df333029.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Rather",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Although",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Similarly",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Consequently",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "Although",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch nghĩa:\nTới: Naomi Richter \u003cnaomirichter@mailcurrent.com\u003e\nTừ: Watanu Sakamoto \u003cwsakamoto@RHNimports.com\u003e\nNgày: 23 tháng 11\nChủ đề: Theo dõi\nTệp đính kèm: Mô tả điều phối viên hậu cần\nKính gửi cô Richter,\nCảm ơn bạn đã đến văn phòng chúng tôi để phỏng vấn vị trí trợ lý giám đốc nhập khẩu vào tuần trước. Chúng tôi rất ấn tượng với năng lực và sự nhiệt tình của bạn. (131) chúng tôi đang tuyển dụng một ứng viên khác, chúng tôi muốn đề nghị cho bạn một vị trí khác vừa mới được tuyển dụng: điều phối viên hậu cần.\n(132). Tài liệu đính kèm mô tả công việc chi tiết và mức lương. (133) này vẫn chưa được đăng công khai. Nếu bạn (134), vui lòng cho tôi biết trước cuối tuần này.\nTrân trọng,\nWatanu Sakamoto\nGiám đốc Nhân sự, RHN Imports\nphân tích:\n1: Dịch đáp án:\n(A) Đúng hơn\n(B) Mặc dù\n(C) Tương tự\n(D) Do đó\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (B)\n2: Dịch đáp án:\n(A) Có một số ứng viên nội bộ khác.\n(B) Thật không may, vị trí đó không còn nữa.\n(C) Trợ lý của tôi sẽ lên lịch phỏng vấn lần thứ hai cho bạn.\n(D) Kinh nghiệm và kỹ năng của bạn khiến bạn rất phù hợp.\nTa dựa vào câu trước và câu sau chỗ trống để điền câu tạo thành mạch logic hoàn chỉnh.\nTrước chỗ trống, người viết thư ngỏ ý muốn mời người nhận thư sang một vị trí công việc khác so với buổi phỏng vấn trước đó. Sau chỗ trống, người viết thư cho biết tài liệu đính kèm có chứa thông tin liên quan đến vị trí mới này.\n=\u003e Chỗ trống cần điền một câu nhắc đến vị trí công việc mới.\n=\u003e Đáp án (D)\n3: Dịch đáp án:\n(A) cơ hội\n(B) ủy quyền\n(C) ứng dụng\n(D) năng lực\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (A)\n4: Dịch đáp án:\n(A) lãi suất\n(B) lợi ích\n(C) quan tâm\n(D) thú vị\nCấu trúc: to be interested (in something)\n=\u003e Đáp án (C)"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "8027f72f-7185-4d15-a4e5-a35c8fb5623d",
+                        "questionNumber":  1,
+                        "questionText":  "For whom is the notice most likely intended?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "2568bc5c-c24a-451b-ac4e-9a6185230819",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-9ed2258a532f4c32bbf06c6abf6cf693.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Painting contractors",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Elevator repair workers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Graphic artists",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Apartment residents",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "Apartment residents",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch nghĩa:\nTHÔNG BÁO\nLà một phần trong quá trình bảo trì định kỳ Căn hộ Selino, tất cả các khu vực công cộng trong tòa nhà của chúng tôi sẽ được sơn theo lịch trình sau:\n¢ Cầu thang tầng 1 và tầng 2: Ngày 12 tháng 4\n¢ Hành lang tầng 1 và tầng 2: Ngày 13 tháng 4\n¢ Cầu thang tầng 3 và tầng 4: Ngày 14 tháng 4\n¢ Hành lang tầng 3 và tầng 4: Ngày 15 tháng 4\nThang máy sẽ hoạt động trong thời gian này. Hãy cẩn thận và không chạm vào bất kỳ sơn ướt nào.\nQuản lý, Căn hộ Selino\nphân tích:\n1: Dịch đáp án:\nThông báo này có thể dành cho ai nhất?\n(A) Nhà thầu sơn\n(B) Công nhân sửa chữa thang máy\n(C) Nghệ sĩ thiết kế đồ họa\n(D) Cư dân chung cư\n2: Dịch đáp án:\nKhi nào công việc cầu thang bộ ở tất cả các tầng có thể được hoàn thành?\n(A) Vào ngày 12 tháng 4\n(B) Vào ngày 13 tháng 4\n(C) Vào ngày 14 tháng 4\n(D) Vào ngày 15 tháng 4"
+                    }
+                ]
+}

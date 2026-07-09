@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2023 TEST 3",
+    "generatedAt":  "2026-07-09T20:50:08Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "c859d9ab-1124-45f1-8730-6d2e3309e3d4",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "7f8c5e32-b2fd-4db6-998c-d53d2f0bf118",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-90c33fb3c35344a6bc372e1714ec8de7.png"
+                                           },
+                                           {
+                                               "id":  "e9c2f521-81fb-4cff-98cb-9ea2053a6d3c",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-8b938cb0d0134fcab7f035b817f04f8e.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) A man is standing in a road.\n(B) A man is wearing a coat.\n(C) A man with tools is bending over.\n(D) A man is putting on a hat.",
+                        "groupExplanationText":  "(A) Một người đàn ông đang đứng trên đường\n(B) Một người đàn ông đang mặc áo choàng\n(C) Một người đàn ông cầm dụng cụ đang cúi người xuống\n(D) Một người đàn ông đang đội mũ"
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "f5d0a72b-15d6-4c5f-a0c1-041cb3db1f9c",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "b5a49543-3ae8-4a50-a29b-5f51a5fead50",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-8e317fc4c1c6477c8121b0489a675268.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "W-Br: Kiểm tra bảo mật hôm nay như thế nào? M-Au (A) Tôi có thể bảo vệ chúng. (B) Rất hiệu quả. (C) Nếu bạn thích.",
+                        "groupExplanationText":  "Việc kiểm toán an toàn thông tin hôm nay như thế nào?\n(A) Tôi có thể đảm bảo cho họ\n(B) Rất hiệu quả\n(C) Nếu bạn thích"
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "5fa4842a-dbc1-456f-aaf0-fe4e6b87a807",
+                        "questionNumber":  1,
+                        "questionText":  "Why is the woman talking to the man?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d3d4e10a-9f1c-47b3-bfee-30ea456cc967",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-80b32f37e1954762855803e1a580e919.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "She wants to cancel a reservation.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "She wants to watch a demonstration.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "She wants to rent some equipment.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "She wants to hire a gardener.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "She wants to watch a demonstration.",
+                        "audioTranscriptText":  "W-Br Hello. I heard an announcement on the radio about the garden show you\u0027re organizing. They said it\u0027s running all week, and there will be several demonstrations about innovative gardening tools. Could I attend the demonstration scheduled for Wednesday? M-Au Sorry, but that session\u0027s just been canceled. The person leading it had another commitment. W-Br Oh, too bad. So are all of the demonstrations canceled? M-Au No, the demonstration for Saturday is still on. That\u0027s at 1 P.M. I can register you for that session. Just get there about 15 minutes before it starts so you\u0027ll get a good seat.",
+                        "groupExplanationText":  "W-Br: Xin chào. Tôi đã nghe một thông báo trên đài phát thanh về chương trình làm vườn mà bạn đang tổ chức. Họ nói rằng nó diễn ra cả tuần, và (32)sẽ có một số buổi trình diễn về các công cụ làm vườn đổi mới. Tôi có thể tham gia buổi trình diễn dự kiến vào thứ Tư không?\nM-Au: (33)Xin lỗi, nhưng buổi diễn đó vừa bị hủy. Người dẫn dắt buổi diễn đó đã có việc bận khác.\nW-Br: Thật là đáng tiếc. Vậy thì tất cả các buổi trình diễn đều bị hủy à?\nM-Au: Không, buổi trình diễn vào thứ Bảy vẫn diễn ra. Vào lúc 1 giờ chiều. (34)Tôi có thể đăng ký cho bạn tham gia buổi đó. Chỉ cần đến khoảng 15 phút trước khi nó bắt đầu để bạn có được một chỗ ngồi tốt.\nTóm tắt: W-Br nghe thông báo về chương trình làm vườn có các buổi trình diễn. Cô ấy hỏi về buổi trình diễn vào thứ Tư và được biết rằng nó đã bị hủy. Tuy nhiên, buổi trình diễn vào thứ Bảy vẫn diễn ra và M-Au có thể đăng ký cô ấy tham gia."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "2a17d01f-ddcd-430f-9b11-6bfd6db3a52a",
+                        "questionNumber":  1,
+                        "questionText":  "What is being advertised?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "6d323230-4598-42f5-946d-57ab56c45a4b",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-69c41d417afb440280f6f89b9383b8ae.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "An online supermarket",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A travel guide",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A beverage product",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A hotel chain",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "A beverage product",
+                        "audioTranscriptText":  "M-Au Và bây giờ hãy để tôi cảm ơn nhà tài trợ của chúng tôi, Perfect Tea. Hít thở sâu và nghỉ ngơi với Perfect Tea! Sự pha trộn đặc biệt giữa các loại trà thư giãn của họ được sinh ra tại một trang trại ở đông bắc Ấn Độ, nơi sự kết hợp lý tưởng giữa mưa và nắng mang lại cho Perfect Tea hương vị đậm đà và thơm. Tin tôi đi, bạn sẽ không tìm thấy hương vị này ở bất kỳ nơi nào khác! Ngoài ra, giờ đây bạn có thể đăng ký thành viên để tự động giao các loại trà yêu thích cho bạn mỗi tháng.",
+                        "groupExplanationText":  "M-Au: Và bây giờ(71)hãy để tôi cảm ơn nhà tài trợ của chúng ta. Trà hoàn hảo. Hãy hít một hơi thật sâu và thư giãn với Perfect Tea I Sự pha trộn đặc biệt của các loại trà thư giãn này được tạo ra tại một nông trại ở phía đông bắc Ấn Độ, nơi(72)sự kết hợp lý tưởng giữa mưa và nắng đã mang đến cho Perfect Tea hương vị đậm đà và thơm mát. Tin tôi đi, bạn sẽ không tìm thấy hương vị này ở bất cứ nơi nào khác! Hơn nữa,(73)bây giờ bạn có thể đăng ký thành viên để nhận các loại trà yêu thích được gửi đến bạn tự động hàng tháng.\nTóm tắt: M-Au cảm ơn nhà tài trợ - Perfect Tea. Họ giới thiệu trà với hương vị đậm đà và thơm ngon. Người nghe cũng có thể đăng ký thành viên để nhận trà yêu thích hàng tháng."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "0b1bedeb-a14c-48b5-929e-5742d6623a49",
+                        "questionNumber":  1,
+                        "questionText":  "Video game designers need a broad _______ of computer programming.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "knowledge",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "known",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "knowing",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "know",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "knowledge",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Giải thích: Chỗ trống cần điền một danh từ để tạo thành cụm danh từ làm tân ngữ trong câu, trong đó danh từ này được bổ nghĩa bởi tính từ “broad” phía trước.\n- knowledge (N): kiến thức\n- known (V-PII): đuợc biết đến\n- knowing (V-ing): biết\n- know (V): biết\n*Cấu trúc:\nNeed + to V: cần làm gì\nBroad (Adj): rộng lớn\nDịch: Những người thiết kế trò chơi cần có KIẾN THỨC sâu rộng về lập trình máy tính."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "145f1867-e5fb-4afb-b37f-f634a4129967",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "12c80550-da6d-4398-9d1a-2e127989c271",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-56a00663e0724d288e8682674b6c572e.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "open",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "noticeable",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "practical",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "genuine",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "open",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Cập nhật về Dự án Darway City Park\nBan quản lý Công viên Thành phố Darway cố gắng giữ tất cả các lối đi dành cho du khách được (131) MỞ CỬA trong khi các dự án cải tiến công viên đang được tiến hành. Hiện tại, các đội ngũ đang cắt tỉa cây cối xung quanh các biển chỉ dẫn dọc theo các làn đường dành cho xe đạp Woodmor của công viên, vì vậy những người đi xe đạp nên chú ý đi xe cẩn thận trong khu vực này. Lưu ý rằng (132) BẤT CỨ KHI NÀO có thể, công việc cải tạo dự kiến sẽ được diễn ra trong thời gian thấp điểm vì lúc đó có ít người sử dụng công viên hơn. Các biển thông tin mới làm nổi bật các đặc điểm cụ thể của môi trường tự nhiên xung quanh cũng sẽ được lắp đặt dọc theo các đoạn của làn đường. (133) CHÚNG CÓ MỤC ĐÍCH NHẰM GIA TĂNG SỰ THÍCH THÚ CỦA DU KHÁCH ĐỐI VỚI CÔNG VIÊN. Giai đoạn này của dự án sẽ được hoàn thành vào tháng tới và dự kiến sẽ có rất ít (134) SỰ GIÁN ĐOẠN đối với người sử dụng công viên trong quá trình triển khai dự án. Ban quản lý Công viên của thành phố cố gắng hết sức để tránh tình trạng đóng cửa làn đường và đường vòng trong khi dự án đang diễn ra"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "172417bc-edf8-455c-98f3-1e891f99bcc7",
+                        "questionNumber":  1,
+                        "questionText":  "During which season of the year was the notice most likely written?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "a37bbe5a-aa72-48fd-9880-cb00d081d161",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-a7f0100fe20c4442b52b9938956ecde9.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Winter",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Spring",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Summer",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Autumn",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "Spring",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Người láng giềng thân mến,\n[147] Giờ đây khi mùa đông dài và lạnh giá đã ở phía sau chúng ta, chúng tôi rất muốn mời bạn giúp chúng tôi cải thiện Khu vườn cộng đồng thị trấn Moon mới thành lập. Ủy ban thị trấn đã mua lại khu đất nơi từng đặt hồ bơi cộng đồng và chúng tôi hy vọng sẽ tạo ra trên khu đất này một khu vực để các gia đình đến và tận hưởng không gian xanh trong thị trấn xinh đẹp của chúng ta. Chúng tôi sẽ có các tình nguyện viên túc trực vào những ngày cuối tuần trong thời gian còn lại của tháng để hỗ trợ [148] các gia đình sắp xếp và trồng các loại hoa, cây bụi và cây cối mà họ lựa chọn. Chúng tôi hy vọng bạn sẽ tham gia vào việc trang trí khu vườn cộng đồng xinh đẹp của chúng ta!\nTrân trọng,\nỦy ban không gian xanh thị trấn Moon"
+                    }
+                ]
+}

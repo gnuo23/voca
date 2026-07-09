@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2023 TEST 8",
+    "generatedAt":  "2026-07-09T20:50:33Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "76c96737-4153-443b-974b-7af7435280fa",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "03ecf188-412e-4c4b-9a25-0e05d67dad14",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-006db4216b4f489ebbadd680a810a594.png"
+                                           },
+                                           {
+                                               "id":  "06222373-ff42-404b-a4ee-b3e7a09c40cc",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-e9abc93b6fb14829842a142075dd0a6a.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) She\u0027s writing on a document. (B) She\u0027s looking at some framed artwork. (C) She\u0027s opening a folder. (D) She\u0027s organizing a desk drawer.",
+                        "groupExplanationText":  null
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "18dbc5f0-267d-4a09-a985-f475666ce560",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "dd4ca5a7-20f1-4080-acf8-fe0568ee8202",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-9d92d866c78c44148fa8a3bae9c27bb7.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Khi nào xe buýt của bạn khởi hành?\n(A) Nhà ga nằm trên Đại lộ Liberty.\n(B) Một chỗ ngồi ở phía sau.\n(C) Lúc tám giờ.",
+                        "groupExplanationText":  "Khi nào chuyến xe của bạn rời đi?\n(A) Trạm xe bus ở trên đại lộ Liberty\n(B) Một chỗ ngồi ở phía sau\n(C) Lúc 8 giờ"
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "7c9a4069-6da2-48fc-a29e-42059146b0e4",
+                        "questionNumber":  1,
+                        "questionText":  "Who most likely is the woman?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "0f65497d-a7a9-45f4-b68a-9e38f06908e8",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-a346693ca22e4027a22b7d2d70e834c4.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "An architect",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A building manager",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "An interior decorator",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A real estate agent",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A real estate agent",
+                        "audioTranscriptText":  "M-Cn Xin chào, Ling. Tôi đang gọi về những căn hộ mà bạn đã cho tôi xem tuần trước. W-Am Xin chào, Jinyu. Bạn có thích bất kỳ ai trong số họ không? M-Cn Vâng, tôi thích cái ở bên ngoài thị trấn. Nó rất lớn - tôi rất thích có thêm không gian đó. Nơi ở hiện tại của tôi quá nhỏ. W-Am Ồ, thật không may, căn hộ đó đã được thuê. Nhưng có một cái khác có sẵn trong cùng một khu phố, và nó đẹp và lớn. Bạn có muốn tôi đặt một buổi chiếu không? M-Cn Vâng, làm ơn! Tôi có mặt mỗi sáng trong tuần này.",
+                        "groupExplanationText":  "abc"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "30a78094-63fb-4960-b683-0ed686e50698",
+                        "questionNumber":  1,
+                        "questionText":  "Who is Olga Popova?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "ec2144ba-a5ad-4094-8d7c-4dd69bbcadbf",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-94a510f0a8cf46bfb077040183659742.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A video game designer",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A chess player",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A swimmer",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "An actor",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "A chess player",
+                        "audioTranscriptText":  "M-Au Xin chào, thính giả và chào mừng bạn đến với podcast của tôi! Với tôi hôm nay là nhà vô địch cờ vua quốc gia, Olga Popova. Mới tháng trước, Olga đã bảo vệ thành công danh hiệu của mình lần thứ hai. Vì vậy, việc cô ấy chỉ mới hai mươi mốt tuổi là đặc biệt ấn tượng. Cô ấy vẫn là nhà vô địch quốc gia trẻ nhất từ trước đến nay. Olga gần đây đã ký một thỏa thuận béo bở để quảng bá nước tăng lực yêu thích của mình. Tôi sẽ bắt đầu cuộc thảo luận của chúng tôi hôm nay bằng cách yêu cầu cô ấy cho chúng tôi biết thêm một chút về điều đó.",
+                        "groupExplanationText":  null
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "1a2b6cc0-b328-4de4-87e9-c1158560c8a3",
+                        "questionNumber":  1,
+                        "questionText":  "The building contract was ______ awarded to Zhong Builders of Manchester.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "slowly",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "exactly",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "greatly",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "recently",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "recently",
+                        "audioTranscriptText":  "M-Cn Xin chào, Ling. Tôi đang gọi về những căn hộ mà bạn đã cho tôi xem tuần trước. W-Am Xin chào, Jinyu. Bạn có thích bất kỳ ai trong số họ không? M-Cn Vâng, tôi thích cái ở bên ngoài thị trấn. Nó rất lớn - tôi rất thích có thêm không gian đó. Nơi ở hiện tại của tôi quá nhỏ. W-Am Ồ, thật không may, căn hộ đó đã được thuê. Nhưng có một cái khác có sẵn trong cùng một khu phố, và nó đẹp và lớn. Bạn có muốn tôi đặt một buổi chiếu không? M-Cn Vâng, làm ơn! Tôi có mặt mỗi sáng trong tuần này.",
+                        "groupExplanationText":  "Giải thích: Đây là một câu từ vựng nên cần dựa vào nghĩa để chọn đáp án đúng. Chọn trạng từ phù hợp\n- slowly: chậm rãi\n- exactly: chính xác\n- greatly: nhiều; lắm\n- recently: gần đây\nDịch: Hợp đồng xây dựng đó đã được nhận GẦN ĐÂY bởi công ty Zhong Builders ở Manchester."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "c12e1d53-76a9-4598-99e0-4b30833b201e",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "6423e048-e5e6-4eb1-aec8-ffe15e442242",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-1a1db36f6a17432b8d60872bfac23685.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "is made",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "making",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "to make",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "maker",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "maker",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Giải thích: Chỗ trống cần điền một danh động từ để hoàn thành cụm giới từ \"in ...\"\n- formulating (V-ing): đưa ra/ suy nghĩ kĩ\n- formulate (V): đưa ra/ suy nghĩ kĩ\n- formulated (V-ed): đã đưa ra/ suy nghĩ kĩ\n- Đang được xây dựng: đang được đưa ra/ suy nghĩ kĩ\nDịch: Trong báo cáo, các nhà nghiên cứu đã mô tả phương pháp mà họ đã sử dụng để ĐƯA RA kết luận của mình"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "413b262d-ac12-41ff-b2b9-a3e049a5cca1",
+                        "questionNumber":  1,
+                        "questionText":  "What is NOT listed as something visitors can do during the celebration?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "45f30c30-a1aa-488f-9434-07d9f119f4d9",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-881d72dd414a41dcb964e1b232778447.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "They can meet dance instructors.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "They can take a dance class.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "They can get a discount.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "They can purchase gift cards.",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "They can purchase gift cards.",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "CALLA DANCE STUDIO HIỆN ĐÃ MỞ CỬA!\nHãy đến với phòng tập nhảy xinh đẹp và rộng rãi của chúng tôi ở Vịnh Hopkins để dự lễ khai trương vào thứ Bảy, ngày 5 tháng 3 và Chủ nhật ngày 6 tháng 3, từ buổi trưa đến 5:00 giờ chiều.\nTrong suốt dịp lễ này, bạn có thể:\n[147]•Hòa nhập và trò chuyện cùng những hướng dẫn viên đầy chuyên môn;\n[147]•Tận hưởng những lớp khiêu vũ vui vẻ, miễn phí và thoải mái; và\n[147]•Được giảm giá 10% cho 1 trong các khóa học khiêu vũ của chúng tôi\nChúng tôi tin rằng mọi người đều có thể nhận được lợi ích từ việc khiêu vũ, [148] vì thế cho dù bạn là người mới bắt đầu hay chuyên gia, chúng tôi đều có lớp học dành cho bạn!\nHãy truy cập www.calladancestudio.com để biết thêm thông tin về lớp học, lý lịch của hướng dẫn viên, chỉ dẫn đến phòng tập, …"
+                    }
+                ]
+}

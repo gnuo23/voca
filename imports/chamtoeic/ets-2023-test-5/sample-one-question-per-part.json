@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2023 TEST 5",
+    "generatedAt":  "2026-07-09T20:50:18Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "e23fc32f-9f5c-4605-8d13-059d7338280c",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "9a9b7579-0cef-4d01-ac3b-22642030a5b9",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-4b3ffc04b9b243fda74bf207184fc3fe.png"
+                                           },
+                                           {
+                                               "id":  "7c133e53-ddcd-4cd6-9542-0c045f1d8247",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-49d0b62a94ef4675b2ff35429cc0f4df.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) He\u0027s working on a puzzle.\n(B) He’s lying on a sofa.\n(C) He’s reaching for a book.\n(D) He’s putting on a sweater.",
+                        "groupExplanationText":  "(A) Anh ấy đang giải câu xếp hình.\n(B) Anh ấy đang nằm trên ghế sofa.\n(C) Anh ấy đang với lấy 1 quyển sách.\n(D) Anh ấy đang mặc 1 chiếc áo len."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "c3bda18c-a4c5-4d0f-a3ff-b9fd1a40a1a1",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "b0a6f35d-c3ce-48c3-89db-db9bd213b745",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-765736ad9109425cabf7e905ad21a231.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Where can I buy tickets for the orchestra’s fund-raiser?\n(A) Oyer the next week.\n(B) On the fifth floor.\n(C) I suppose; if you want to.",
+                        "groupExplanationText":  "Tôi có thể mua vé cho buổi biểu diễn nhạc gây quỹ ở đâu?\n(A) Trong tuần tới.\n(B) Ở trên tầng 15.\n(C) Tôi cho rằng; nếu bạn muốn vậy."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "46fb6504-6740-4054-b94e-080175ccc774",
+                        "questionNumber":  1,
+                        "questionText":  "What are the speakers discussing?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "630ef83b-3552-4968-b52e-c816afbda4aa",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-6336b53f77c040b09e68ab815e936d90.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Plans for an upcoming event",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "The quality of the man\u0027s poems",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "The publishing company they work for",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A problem with the woman\u0027s phone",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "Plans for an upcoming event",
+                        "audioTranscriptText":  "W-Br Hi, Martin. It\u0027s Lillian. (32) Are you still planning to read from your book of poetry at the arts festival next weekend? You\u0027re one of this publishing company\u0027s most accomplished writers.\nM-Cn (32),(33) I just need directions to the festival site. It\u0027s in a park, right?\nW-Br Yes. Just know that once you get there, our table will be the one closest to the entrance. (34) l can text you the address when we finish this call.",
+                        "groupExplanationText":  "Dịch nghĩa:\nW-Br Chào Martin. Tôi là Lillian đây. (32)Anh vẫn có ý định đọc tập thơ của mình tại lễ hội nghệ thuật vào cuối tuần tới chứ? Anh là một trong những nhà văn xuất sắc nhất của công ty xuất bản này mà.\nM-Cn (32),(33)Tôi chỉ cần biết hướng đi đến khu vực lễ hội thôi. Có phải ở công viên không?\nW-Br Đúng vậy. Chỉ cần biết rằng khi anh đến đó, bàn của chúng ta sẽ ở gần lối vào nhất. (34)Tôi sẽ nhắn cho anh địa chỉ sau khi cuộc gọi này kết thúc.\nTóm tắt: Hai diễn giả thảo luận về một sự kiện sắp tới. NgườI đàn ông không biết sự kiện được tổ chức ở đâu. Người phụ nữ sau khi tắt máy đã nhắn địa chỉ cho ông ấy"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "b51de272-015f-4cc2-ad32-3aa800192ca1",
+                        "questionNumber":  1,
+                        "questionText":  "Who is the speaker?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "5109aee5-5a46-4538-8fcf-6642d8adb9f2",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-e31cc2819b474e4f9ab9a2618f777cbf.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "An investment banker",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "An attorney",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A real estate agent",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "An architect",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "A real estate agent",
+                        "audioTranscriptText":  "M-Cn Hi, Chara. This is Joe. (71)I found a very nice space for your restaurant. It has everything you\u0027re looking for, including an outdoor terrace. (72)lt\u0027s a bit over your budget, but don’t worry. The owners like the idea that you\u0027re such a successful chef. So they are willing to sit down and come to a compromise on the rent. (73)This place is not downtown, but it\u0027s Ideated in the neighborhood of Peckham, which, as you know, is a busy, vibrant area. I think you\u0027ll like it.",
+                        "groupExplanationText":  "Dịch nghĩa:\nM-Cn Chào, Chara. Đây là Joe. (71)Tôi tìm thấy một không gian rất đẹp cho nhà hàng của chị. Nó có mọi thứ chị tìm kiếm, bao gồm sân hiên ngoài trời. (72)Nó hơi vượt quá ngân sách của chị, nhưng đừng lo. Những người chủ nhà rất thích thú vì chị là một đầu bếp thành công. Vì vậy, họ sẵn sàng ngồi xuống và thương lượng về tiền thuê nhà.(73)Địa điểm này không phải là trung tâm thành phố, nhưng nó tọa lạc ở vùng lân cận Peckham, như bạn biết, là một khu vực sầm uất, sôi động. Tôi nghĩ là bạn sẽ thích nó đấy.\nTóm tắt: Một đại lý bất động sản gọi điện cho người phụ nữ cho biết đã tìm được căn phòng phù hợp cho cô. Gía cả hơi vượt quá ngân sách nhưng hoàn toàn có thể thương lượng được. Địa điểm không phải trung tâm thành phố nhưng cũng gần nơi sầm uất."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "2943b5b2-785c-4f28-8504-3906bef8a633",
+                        "questionNumber":  1,
+                        "questionText":  "Pering Township _______ enough money to build a new library next year.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "raised",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "convinced",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "observed",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "tackled",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "raised",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  null
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "29fb2867-a28f-4a65-9daf-8f83831e93f7",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "0797419e-2471-4d94-ab78-48f129ec2d9c",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-a4f2f3e01dc04d36aed6b3d1165a21ae.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "announce",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "announced",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "announcement",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "to announce",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "announced",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  null
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "05b1430e-1f7c-4d78-b0da-3fab40396631",
+                        "questionNumber":  1,
+                        "questionText":  "According to the invoice, what was purchased?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "adbd1663-79a9-4e5e-88b4-e127c62be2e1",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-bee463c3b64d469b9eff012cf994aae1.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A hotel stay",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Fresh flowers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Chocolate candies",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A custom dessert",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A custom dessert",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  null
+                    }
+                ]
+}

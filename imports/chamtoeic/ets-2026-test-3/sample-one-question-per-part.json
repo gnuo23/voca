@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2026 TEST 3",
+    "generatedAt":  "2026-07-09T20:13:40Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "aba85c14-7ae9-4a48-bb68-96a4720fa759",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "cdef5735-2edc-4cc9-8222-7b4a9bced754",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t03-01-6ccebcd2238e426d8fca67aaa6ca1f70.mp3"
+                                           },
+                                           {
+                                               "id":  "4af5fd64-3c18-4641-b9c1-86dc9abf0261",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-272108ec0f1d43938d2c6069bd7b118f.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "A. He\u0027s fixing a file drawer.\nB. He\u0027s rolling up his sleeves.\nC. He\u0027s closing a laptop computer.\nD. He\u0027s drinking from a mug. ✔",
+                        "groupExplanationText":  "A. Nam giới đang sửa một ngăn kéo đựng hồ sơ.\nB. Nam giới đang xắn tay áo của mình lên.\nC. Nam giới đang đóng máy tính xách tay.\nD. Nam giới đang uống nước từ một chiếc cốc sứ. ✔"
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "a271879c-b811-4b54-8b97-f5998cf3f988",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "9170aafd-b0ca-47ab-b5f3-f70efdb54748",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t03-07-aa97b33a020f4aadbc0eafeaae0a599c.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Where\u0027s the coffeemaker?\nA. On the bottom shelf. ✔\nB. A large serving spoon.\nC. It was discounted.",
+                        "groupExplanationText":  "Máy pha cà phê ở đâu?\nA. Ở ngăn dưới cùng. ✔\nB. Một chiếc thìa phục vụ lớn.\nC. Nó đã được giảm giá."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "02a60586-0907-43ba-85fd-2c9cf3a4df31",
+                        "questionNumber":  1,
+                        "questionText":  "Where do the speakers most likely work?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "4cf872fb-910e-4a36-b860-baaf83e914da",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t03-32-34-00b4ab7821c94279b4b63bd1ec3590d3.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "At a shipping company",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "At a restaurant",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a gift shop",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At a farm",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "At a restaurant",
+                        "audioTranscriptText":  "M: Hi, [32] Chef Ayaka. I was looking over this week\u0027s sales, and I noticed that a lot of people ordered the beef stew special.\nW: Yeah. It\u0027s been very popular with patrons. In fact, I want to add it to the regular menu.\nM: Good idea. [33] Beef prices change frequently, though, so we might need to consider that when we set the price for the dish if we\u0027re going to offer it daily.\nW: OK. [34] I\u0027ll call our supplier too. We need to make sure they can get us enough beef each week.",
+                        "groupExplanationText":  "Nam: Chào [32] đầu bếp Ayaka. Tôi đang xem qua doanh số bán hàng tuần này và tôi nhận thấy có rất nhiều người đã đặt món bò hầm đặc biệt.\nNữ: Vâng. Nó rất được khách hàng ưa chuộng. Thực tế, tôi muốn thêm nó vào thực đơn thông thường.\nNam: Ý hay đấy. Tuy nhiên, [33] giá thịt bò thường xuyên thay đổi, vì vậy chúng ta có thể cần cân nhắc điều đó khi định giá cho món ăn nếu định phục vụ hàng ngày.\nNữ: Được rồi. [34] Tôi cũng sẽ gọi cho nhà cung cấp của chúng ta. Chúng ta cần đảm bảo họ có thể cung cấp đủ thịt bò cho chúng ta mỗi tuần.\n[32] Các diễn giả có khả năng làm việc ở đâu nhất?\nA. Tại một công ty vận chuyển\nB. Tại một nhà hàng ✔\nC. Tại một cửa hàng quà tặng\nD. Tại một trang trại\n[33] Người đàn ông đề nghị cân nhắc điều gì?\nA. Chiến lược quảng cáo\nB. Thực đơn trực tuyến\nC. Giá của một mặt hàng ✔\nD. Kết quả của một cuộc khảo sát\n[34] Người phụ nữ nói cô ấy sẽ làm gì?\nA. Trả tiền đặt cọc\nB. Liên hệ với nhà cung cấp ✔\nC. Thay đổi lịch giao hàng\nD. Sắp xếp một số hàng hóa"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "d46a3595-0678-44c7-98bd-59aad0898d3e",
+                        "questionNumber":  1,
+                        "questionText":  "Which event is being planned?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "0f755ccb-69eb-4df2-b4f4-b46a1b3f4bd1",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t03-71-73-ec01759f4165401eaa7f11d93933a20b.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A holiday parade",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A music festival",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A sports competition",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A company picnic",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "A music festival",
+                        "audioTranscriptText":  "W-Am: [71] The town\u0027s annual music festival is only a few months away, and our committee still has a lot of planning to do. We already have a list of performers who have agreed to appear. Fortunately, we can use the same stage and equipment we\u0027ve used in the past. [72] However, we don\u0027t have enough fencing to create a larger seating area. Eniola, since you\u0027re in charge of accounts, [73] would you check sometime today to see whether we have money for extra fencing?",
+                        "groupExplanationText":  "Nữ: [71] Lễ hội âm nhạc hàng năm của thị trấn chỉ còn vài tháng nữa thôi, và ủy ban của chúng ta vẫn còn rất nhiều việc phải lên kế hoạch. Chúng ta đã có danh sách các nghệ sĩ đã đồng ý xuất hiện. May mắn thay, chúng ta có thể sử dụng cùng một sân khấu và thiết bị mà chúng ta đã sử dụng trước đây. [72] Tuy nhiên, chúng ta không có đủ hàng rào để tạo ra khu vực chỗ ngồi lớn hơn. Eniola, vì bạn phụ trách kế toán, [73] bạn có thể kiểm tra vào lúc nào đó hôm nay xem chúng ta có tiền cho việc mua thêm hàng rào không?\n[71] Sự kiện nào đang được lên kế hoạch?\nA. Một cuộc diễu hành ngày lễ\nB. Một lễ hội âm nhạc ✔\nC. Một cuộc thi thể thao\nD. Một buổi dã ngoại của công ty\n[72] Người nói đề cập đến vấn đề gì?\nA. Một sân khấu cần được sơn lại\nB. Một số người tham gia đã hủy bỏ\nC. Không có đủ hàng rào ✔\nD. Một khu vực đậu xe không thể sử dụng\n[73] Eniola rất có thể sẽ làm gì hôm nay?\nA. Chọn một đơn vị cung cấp đồ ăn\nB. Thuê một nhân viên bảo trì\nC. Xác nhận thời gian bắt đầu\nD. Kiểm tra ngân sách ✔"
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "89b67174-64f5-42cb-bbd0-8e586e8e3ed6",
+                        "questionNumber":  1,
+                        "questionText":  "Despite ------- youth, Ms. Cho is already quite popular on social media.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "she",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "her",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "hers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "herself",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "her",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch câu: Mặc dù cô ấy còn trẻ, bà Cho đã khá nổi tiếng trên mạng xã hội.\nDịch đáp án:\nA. she: cô ấy (đại từ chủ ngữ)B. her: của cô ấy ✔ (tính từ sở hữu)C. hers: cái của cô ấy (đại từ sở hữu)D. herself: chính cô ấy (đại từ phản thân)Giải thích: Trước danh từ \"youth\" cần một tính từ sở hữu để tạo thành cụm danh từ.\nLưu ý: Despite + N/V-ing (mặc dù)."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "851f3f18-dbab-403c-9eee-b1d7f91b4819",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "99f7007a-608f-4c70-90d0-f8ecc52ce15c",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-338abeeb0a9d497a9ae8d2de2fbc96dc.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "purchase",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "purchaser",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "purchased",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "purchasing",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "purchase",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[131]\n(A) mua hàng (purchase) ✔\n(B) người mua (purchaser)\n(C) đã mua (purchased)\n(D) việc mua (purchasing)\nSau tính từ \"every\", ta cần một danh từ đếm được số ít. Dựa vào ngữ cảnh \"mỗi lần mua hàng từ 50 USD trở lên\".\n[132]\n(A) tự động hóa (v)\n(B) tự động (adj)\n(C) sự tự động (n)\n(D) một cách tự động (adv) ✔\nVị trí này cần một trạng từ để bổ nghĩa cho động từ \"deposited\" (được gửi vào).\n[133]\n(A) Hoặc là (Alternatively) ✔\n(B) Tương tự (Likewise)\n(C) Tuy nhiên (Nevertheless)\n(D) Thường xuyên (Frequently)\nCâu trước nói đăng ký qua app, câu sau nói ghé chi nhánh. Đây là hai lựa chọn thay thế cho nhau.\n[134]\n(A) Việc sử dụng phần thưởng gấp đôi là phổ biến trong ngành ngân hàng.\n(B) Đừng chờ đợi - chương trình khuyến mãi sẽ kết thúc vào ngày 31 tháng 1. ✔\n(C) Vui lòng đảm bảo kiểm tra số dư thẻ tín dụng của bạn hàng tuần.\n(D) Cảm ơn bạn đã cung cấp phản hồi về giao dịch gần đây của mình.\nCâu tiếp theo đề cập đến việc phần thưởng quay lại mức cũ vào ngày 1 tháng 2, nên câu trước đó phải thông báo ngày kết thúc khuyến mãi.\nDịch nghĩa:\nHãy tận dụng ưu đãi nhân đôi phần thưởng trong thời gian có hạn! Hãy kéo dài đợt mua sắm mùa lễ hội của bạn sang tháng 1 và chúng tôi sẽ thưởng cho bạn 4 USD tiền mặt cho mỗi lần mua hàng từ 50 USD trở lên. Ngoài ra, phần thưởng hoàn tiền sẽ được tự động gửi vào một tài khoản tiết kiệm Avanti riêng biệt và hưởng lãi suất 3% mỗi năm. Hãy đăng ký chương trình phần thưởng gấp đôi trên ứng dụng di động hoặc máy tính của Avanti, hoặc ghé qua chi nhánh Avanti để được hỗ trợ. Đừng chờ đợi - chương trình khuyến mãi sẽ kết thúc vào ngày 31 tháng 1. Vào ngày 1 tháng 2, phần thưởng hoàn tiền sẽ quay lại mức 2 USD cho mỗi giao dịch 50 USD."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "9a032fb7-1c1d-4942-a470-e1e1a6d1b9c0",
+                        "questionNumber":  1,
+                        "questionText":  "What service is NOT included with the special?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "01ce1363-3a20-417a-871b-6053af307406",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-c626159fb5ec43169275c74f3b5223e0.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "An oil change",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A filter change",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A car inspection",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A car wash",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A car wash",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[147] Dịch vụ nào KHÔNG bao gồm trong chương trình đặc biệt?\n(A) Thay dầu\n(B) Thay bộ lọc\n(C) Kiểm tra xe\n(D) Rửa xe ✔\n[148] Điều gì được chỉ ra về phiếu giảm giá (coupon)?\n(A) Nó có thể được sử dụng tại tất cả các địa điểm của Sumner Auto Supply.\n(B) Nó chỉ dành cho khách hàng lần đầu.\n(C) Nó phải được sử dụng trước cuối tháng Tám. ✔\n(D) Nó có thể được sử dụng nhiều lần.\nSumner Auto Supply - Ưu đãi Dịch vụ Đặc biệt\nGiá: $29.95\nDịch vụ bao gồm:\nThay dầu thông thường [147]\nThay bộ lọc dầu cao cấp [147]\nKiểm tra xe miễn phí [147]\n﻿BẢN DỊCH:\nCung cấp Phụ tùng Ô tô Sumner - Ưu đãi Đặc biệt\nGiá: 29,95 USD. Dịch vụ bao gồm: Thay dầu thông thường; Thay bộ lọc dầu cao cấp; Kiểm tra xe miễn phí. Ưu đãi này chỉ có hiệu lực tại các chi nhánh Smithville và Parkertown của chúng tôi cho đến hết ngày 31 tháng 8. Khách hàng phải trình phiếu giảm giá này khi làm dịch vụ. Giới hạn một phiếu cho mỗi khách hàng.\nƯu đãi này chỉ có giá trị tại các địa điểm Smithville và Parkertown của chúng tôi cho đến hết ngày 31 tháng 8 [148]. Khách hàng phải trình phiếu giảm giá này tại thời điểm làm dịch vụ. Giới hạn một phiếu giảm giá cho mỗi khách hàng [148]."
+                    }
+                ]
+}

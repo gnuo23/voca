@@ -1,0 +1,4959 @@
+﻿{
+  "source": "questions-with-answer-key.json",
+  "generatedAt": "2026-07-09T20:24:09Z",
+  "testSetId": "16c546c6-8d96-4dce-ae8b-69e1fc2c180b",
+  "testSetSlug": "ets-2026-test-8",
+  "testName": "ETS 2026 TEST 8",
+  "counts": {
+    "questions": 200,
+    "questionsWithMedia": 170,
+    "questionsWithAudio": 100,
+    "questionsWithImage": 91,
+    "uniqueMedia": 91
+  },
+  "questions": [
+    {
+      "globalQuestionNumber": 1,
+      "part": "PART_1",
+      "questionGroupOrder": 1,
+      "questionGroupId": "91aaf048-1714-4435-9e5e-b46f09f90e49",
+      "questionId": "34f636c1-09e3-49f0-82f0-0f25a11d079e",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "d5fd1874-5729-4727-9344-00b459e349bf",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-4712357f8ca94f68b346aed3965c97e2.png"
+        },
+        {
+          "id": "72656a9d-3e47-47c8-94d2-e193ef6def1d",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-01-bdb4c8562b43436d9130f8af66167224.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-01-bdb4c8562b43436d9130f8af66167224.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-4712357f8ca94f68b346aed3965c97e2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 2,
+      "part": "PART_1",
+      "questionGroupOrder": 2,
+      "questionGroupId": "bb859b6c-e7d6-4fa4-92ce-23405ef263a8",
+      "questionId": "bf785ff5-7941-4aba-b6e3-f5f64e10c0f4",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "8ad07598-9e67-47be-b402-bc947a7cb65e",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-78943f43342b40b88ac11f2e88973797.png"
+        },
+        {
+          "id": "13b7fa9c-73da-4251-bd58-7ba29f0e20bb",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-02-a53b9998fba3470ca29ef350a79a3833.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-02-a53b9998fba3470ca29ef350a79a3833.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-78943f43342b40b88ac11f2e88973797.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 3,
+      "part": "PART_1",
+      "questionGroupOrder": 3,
+      "questionGroupId": "ac044a37-4c09-41d1-8d98-14b28645f937",
+      "questionId": "ebce67cf-26d3-480d-b0da-a8b60295d9d1",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "bff2fb90-8703-4100-865f-7454990a9334",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-f43e62715b084fa4bc580b3e68e19560.png"
+        },
+        {
+          "id": "390ccbf4-d889-4c4c-b7d9-a8dcb261b389",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-03-34b847c00ee540dabc17acea2aceef63.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-03-34b847c00ee540dabc17acea2aceef63.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-f43e62715b084fa4bc580b3e68e19560.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 4,
+      "part": "PART_1",
+      "questionGroupOrder": 4,
+      "questionGroupId": "32f51df2-f41e-4c39-ba03-57dac0aa7dbb",
+      "questionId": "169a2427-20af-4e39-a946-459d60d0f604",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "1affd0d1-dfd8-4f61-9585-cda2796bbb18",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-18b67aebfeb04d31a5b06bb29a9557d1.png"
+        },
+        {
+          "id": "d5bb4780-c6e7-4a35-af6f-38549eb3c14b",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-04-76a3d4b461ea43fea23731386e0e3dff.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-04-76a3d4b461ea43fea23731386e0e3dff.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-18b67aebfeb04d31a5b06bb29a9557d1.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 5,
+      "part": "PART_1",
+      "questionGroupOrder": 5,
+      "questionGroupId": "5455a053-8622-4d7b-b318-12fb13a9674f",
+      "questionId": "3b6f19b6-c1ab-4803-91ce-215ee76417f9",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "839c9f19-07fa-4d26-ac6b-55f57caa25f8",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-ed04d865087e4bd1a4b65e64a3577588.png"
+        },
+        {
+          "id": "2526b154-1835-45ef-9920-a7b69b8df572",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-05-889b3231fe314f648bba0a347381c7cf.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-05-889b3231fe314f648bba0a347381c7cf.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-ed04d865087e4bd1a4b65e64a3577588.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 6,
+      "part": "PART_1",
+      "questionGroupOrder": 6,
+      "questionGroupId": "f5ef0cf9-8c03-4310-89e3-47db7fe99388",
+      "questionId": "65bf1aba-90b9-425f-9ba8-8da7003da51d",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "fbc0a0d1-3879-4d2e-ac42-32dc208ec74e",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e06bdf9331664e42a2101e16c20f638f.png"
+        },
+        {
+          "id": "548230fd-f75e-4adb-ab96-47c915753d61",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-06-f57f2aaf6871439db342b0444d2ddf5e.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-06-f57f2aaf6871439db342b0444d2ddf5e.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e06bdf9331664e42a2101e16c20f638f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 7,
+      "part": "PART_2",
+      "questionGroupOrder": 7,
+      "questionGroupId": "8d2df41a-53fe-46e9-8d3f-595ce1bfa2b3",
+      "questionId": "18830b9c-ee93-4f99-a642-cfed05b8609f",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "512daf0a-b9b7-4479-9402-37c3d09f8e92",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-07-50d5fa35e54a4b078587f28085e41a6a.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-07-50d5fa35e54a4b078587f28085e41a6a.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 8,
+      "part": "PART_2",
+      "questionGroupOrder": 8,
+      "questionGroupId": "478409c7-5503-432f-8c41-01d8702d6390",
+      "questionId": "bd645567-e3db-40c4-9e43-c46bf0aa2517",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "083d9512-41aa-40f8-aadc-4559e3480b45",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-08-88bf8145c33c44a698d51f02114ec881.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-08-88bf8145c33c44a698d51f02114ec881.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 9,
+      "part": "PART_2",
+      "questionGroupOrder": 9,
+      "questionGroupId": "85102d86-b285-475f-bacd-968e019335c8",
+      "questionId": "fbb56f4c-f9fd-4b6f-bd13-a85c09666bd8",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "447945fe-69a3-4d76-85d8-be4058f26474",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-09-8c146de6e0c4403eadc5b39a23418bf1.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-09-8c146de6e0c4403eadc5b39a23418bf1.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 10,
+      "part": "PART_2",
+      "questionGroupOrder": 10,
+      "questionGroupId": "1a967512-8f20-4c67-8062-0c72af97171c",
+      "questionId": "c1bfaacc-1aa9-4fe6-a898-581431822e9e",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "456c9665-e047-417f-9a87-8873888973af",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-10-40b4405d6bac4df58fe29a104771641a.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-10-40b4405d6bac4df58fe29a104771641a.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 11,
+      "part": "PART_2",
+      "questionGroupOrder": 11,
+      "questionGroupId": "385b8389-ad73-477d-9a4c-c92d0eab76e5",
+      "questionId": "d22effa1-6d00-4b06-85fa-be345387a4f6",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "00ca07bd-ee41-41ae-86e4-ee152dbf6b13",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-11-2015d5bcad854478ba5064e084df5752.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-11-2015d5bcad854478ba5064e084df5752.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 12,
+      "part": "PART_2",
+      "questionGroupOrder": 12,
+      "questionGroupId": "a57aab33-b0b6-4a82-b126-7653aa7b63f7",
+      "questionId": "ec024174-3c6b-4255-a389-1bee6d5a8ce2",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "fdce9390-640c-48d1-8d34-02c3cac437cc",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-12-8fb29b64abc74da2a664cfedecfa1c4d.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-12-8fb29b64abc74da2a664cfedecfa1c4d.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 13,
+      "part": "PART_2",
+      "questionGroupOrder": 13,
+      "questionGroupId": "b3170256-81ae-4f58-a4e5-67f54d5582bd",
+      "questionId": "44297c64-270e-44bb-9169-6ea8effe1b60",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "72a5149b-72cf-4209-ad8a-7c6ebf5d08ec",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-13-bc8ade0834d14acba67d5c537692203a.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-13-bc8ade0834d14acba67d5c537692203a.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 14,
+      "part": "PART_2",
+      "questionGroupOrder": 14,
+      "questionGroupId": "3439fdd9-36ff-4a30-a6f9-744b74cb4921",
+      "questionId": "e915f905-ff53-4590-acc8-1d7047b61a2d",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "883f834a-19aa-4762-85e2-ed7842e3f29e",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-14-b68e4b78f47f447dadb263cf8a9b354a.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-14-b68e4b78f47f447dadb263cf8a9b354a.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 15,
+      "part": "PART_2",
+      "questionGroupOrder": 15,
+      "questionGroupId": "de102d74-709c-4a4c-9772-2815372f0f79",
+      "questionId": "66f56a9e-d305-4090-8509-7e18f2971847",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "7a9d6ee5-4d47-4fbb-adf6-a13c271babc2",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-15-90481bda106e433fb2174dd35fed4986.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-15-90481bda106e433fb2174dd35fed4986.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 16,
+      "part": "PART_2",
+      "questionGroupOrder": 16,
+      "questionGroupId": "6edba001-d2e0-4973-b26b-dd5999e5154a",
+      "questionId": "62dd9256-4e09-4552-93e8-c183b45e77dd",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "403d4e01-8c34-4204-a01c-54a8f1bf65e7",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-16-d807579f9f724a669d6b03d78cd4847a.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-16-d807579f9f724a669d6b03d78cd4847a.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 17,
+      "part": "PART_2",
+      "questionGroupOrder": 17,
+      "questionGroupId": "9a6bc858-5e82-4090-98f5-bdec4b864a9b",
+      "questionId": "14d43e90-a6ce-4bcc-ae3f-d59da29866a2",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "eca4e98a-dda7-4f58-a53e-d68931d4ec1c",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-17-da89e9dc86bd4baa94a2dda481f79e78.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-17-da89e9dc86bd4baa94a2dda481f79e78.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 18,
+      "part": "PART_2",
+      "questionGroupOrder": 18,
+      "questionGroupId": "a60d2d9b-a340-42bf-843e-1c2177d194c1",
+      "questionId": "d0fc4958-6a9a-4bd6-bf66-b9147451be90",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "26aed8a5-813d-4246-8fc3-1f19e13d4a58",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-18-13c1f3a73e0f492d9c043f8e4891de26.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-18-13c1f3a73e0f492d9c043f8e4891de26.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 19,
+      "part": "PART_2",
+      "questionGroupOrder": 19,
+      "questionGroupId": "5ed322f9-ab69-4240-a0e0-96e5dcbcc056",
+      "questionId": "465f081a-6b73-4026-a110-1e49daf1ef29",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "ed386ad0-1664-451f-890c-2b5022554834",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-19-fefce7972c6344139d88b1922cd861f3.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-19-fefce7972c6344139d88b1922cd861f3.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 20,
+      "part": "PART_2",
+      "questionGroupOrder": 20,
+      "questionGroupId": "96e65138-999c-48e7-a5aa-d564293abc57",
+      "questionId": "27e60e97-44e8-4b53-9a5f-aa59dffd0886",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "c3f547e4-813e-49c4-b214-82dace3f123f",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-20-ba9417ae0689426bb2de143b03c1133c.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-20-ba9417ae0689426bb2de143b03c1133c.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 21,
+      "part": "PART_2",
+      "questionGroupOrder": 21,
+      "questionGroupId": "513e0f90-128d-467c-92bc-2c43f8c278f1",
+      "questionId": "f86573f5-ed74-4e9a-bdbc-c7e55f85f0b6",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "857c97ee-3a1d-4346-b3c4-a2f8e653e05c",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-21-1840f604f4954eae9b86c37a34706f36.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-21-1840f604f4954eae9b86c37a34706f36.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 22,
+      "part": "PART_2",
+      "questionGroupOrder": 22,
+      "questionGroupId": "aade07a2-7806-419a-89c5-306da11ff679",
+      "questionId": "8a60d03d-29e7-4e19-aaa6-e8cdda2cd1bb",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "648d2a40-7bf2-4474-a1b1-8ea9ac9e718d",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-22-c9dce920d88c4a119f6c37e719677a93.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-22-c9dce920d88c4a119f6c37e719677a93.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 23,
+      "part": "PART_2",
+      "questionGroupOrder": 23,
+      "questionGroupId": "8f64ea18-1160-45eb-b4fa-a6d5f599b7d9",
+      "questionId": "07dd073f-5a8b-4828-b7b0-5495487c6b3c",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "d177178a-60cf-4573-953b-c7dfc60dca97",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-23-f18437b815294dca8ab92b70c75d67ae.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-23-f18437b815294dca8ab92b70c75d67ae.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 24,
+      "part": "PART_2",
+      "questionGroupOrder": 24,
+      "questionGroupId": "67a0fa1b-0986-44c1-92d7-5ac03bffb8cd",
+      "questionId": "4c69ff3a-997d-4f91-8c41-1fde527e0f4d",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "6fad21d1-9752-49fe-a389-cfcd0bdd37f3",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-24-1b4dc67efae24111ada7cd23ff35b67a.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-24-1b4dc67efae24111ada7cd23ff35b67a.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 25,
+      "part": "PART_2",
+      "questionGroupOrder": 25,
+      "questionGroupId": "8a8a19e7-5868-4df6-9b03-e52753103339",
+      "questionId": "4568ec7c-f831-42a9-8441-411e7d7ce277",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "cd3a2065-6da4-4d2c-a735-7e1119139311",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-25-9af665d4e8864d17bf6bd9cedea742fb.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-25-9af665d4e8864d17bf6bd9cedea742fb.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 26,
+      "part": "PART_2",
+      "questionGroupOrder": 26,
+      "questionGroupId": "c41d4aeb-f35d-4f62-92f1-8b574869a2da",
+      "questionId": "6f26a09f-bb48-4673-9537-cf9523d3a536",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "199868c2-4c88-49c5-adff-140c4df2aae5",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-26-f6089d7b294c4311817f1f4a58f432f9.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-26-f6089d7b294c4311817f1f4a58f432f9.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 27,
+      "part": "PART_2",
+      "questionGroupOrder": 27,
+      "questionGroupId": "ca2ec0b6-7d3c-4c34-ab28-f3f8503189eb",
+      "questionId": "d875b1b5-fab7-4f8b-ab1d-4c1b6feae2bc",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "48160f66-8c80-471d-984d-b27e5d716bb8",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-27-f8fef34d405f4a18ba4367731799ede8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-27-f8fef34d405f4a18ba4367731799ede8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 28,
+      "part": "PART_2",
+      "questionGroupOrder": 28,
+      "questionGroupId": "6da726b1-6302-48dd-9e7c-9ed45d17d13d",
+      "questionId": "91118254-4f82-40a2-aedd-3075e7ee98eb",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "17fb351f-81b7-43ad-a8c4-554a3835d9c8",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-28-0bd6507d3b6e457cb5bffe24a02aecee.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-28-0bd6507d3b6e457cb5bffe24a02aecee.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 29,
+      "part": "PART_2",
+      "questionGroupOrder": 29,
+      "questionGroupId": "3610a112-ab03-44ac-ba3d-f7caae93f30a",
+      "questionId": "81571525-d2a8-4176-a979-7dfe4bc3514a",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "80b02ac7-f644-451c-8d83-c7eaf1ba3129",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-29-6daaeaa408454f7d906e978bb5a53506.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-29-6daaeaa408454f7d906e978bb5a53506.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 30,
+      "part": "PART_2",
+      "questionGroupOrder": 30,
+      "questionGroupId": "9bf3a011-37e2-4c58-9ef7-214515233698",
+      "questionId": "a83970a4-478d-4434-ab0f-5c31da9e8401",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "628f1373-5f2d-42db-bf5e-829b0fedd884",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-30-c641cbc8af004026a739d19307600030.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-30-c641cbc8af004026a739d19307600030.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 31,
+      "part": "PART_2",
+      "questionGroupOrder": 31,
+      "questionGroupId": "5b93115e-31c6-4469-b068-cce3d54d4732",
+      "questionId": "ac09f4b7-2890-4102-82d2-fc66cb001337",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "cc8c57c4-4eec-4d1c-bc6f-8543ed1d1136",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-31-39e40c8251144d35b01f82343cf31d86.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-31-39e40c8251144d35b01f82343cf31d86.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 32,
+      "part": "PART_3",
+      "questionGroupOrder": 32,
+      "questionGroupId": "996bca8f-c3df-4f6d-b22d-e3304525b152",
+      "questionId": "de231fbb-1d13-4139-9bd7-e7a94d38bb10",
+      "questionNumber": 1,
+      "questionText": "Who most likely are the speakers?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "f0c36f1b-1461-4c9d-af1c-f0317f5a9f94",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 33,
+      "part": "PART_3",
+      "questionGroupOrder": 32,
+      "questionGroupId": "996bca8f-c3df-4f6d-b22d-e3304525b152",
+      "questionId": "310e786b-776b-4f7b-adc9-17efad576771",
+      "questionNumber": 2,
+      "questionText": "What do the speakers agree to do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "f0c36f1b-1461-4c9d-af1c-f0317f5a9f94",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 34,
+      "part": "PART_3",
+      "questionGroupOrder": 32,
+      "questionGroupId": "996bca8f-c3df-4f6d-b22d-e3304525b152",
+      "questionId": "b35069fd-dc74-4bd3-ba32-37ff23ef1dbb",
+      "questionNumber": 3,
+      "questionText": "What will the woman do next?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "f0c36f1b-1461-4c9d-af1c-f0317f5a9f94",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 35,
+      "part": "PART_3",
+      "questionGroupOrder": 35,
+      "questionGroupId": "a1c3d1e0-2606-4183-91dd-465d65e40028",
+      "questionId": "2a108baf-0c1e-42d5-8509-4d5f26b552d7",
+      "questionNumber": 1,
+      "questionText": "Where do the speakers work?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "37f89afb-8cdf-4461-a1dc-ad0c97e69f11",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-35-37-425245f432214d05a77dc0765ab04f6d.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-35-37-425245f432214d05a77dc0765ab04f6d.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 36,
+      "part": "PART_3",
+      "questionGroupOrder": 35,
+      "questionGroupId": "a1c3d1e0-2606-4183-91dd-465d65e40028",
+      "questionId": "80b947e3-2f63-423c-8817-5ffc0bbbfa0e",
+      "questionNumber": 2,
+      "questionText": "What problem does the man mention?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "37f89afb-8cdf-4461-a1dc-ad0c97e69f11",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-35-37-425245f432214d05a77dc0765ab04f6d.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-35-37-425245f432214d05a77dc0765ab04f6d.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 37,
+      "part": "PART_3",
+      "questionGroupOrder": 35,
+      "questionGroupId": "a1c3d1e0-2606-4183-91dd-465d65e40028",
+      "questionId": "5931ce3d-7bdb-4ad0-85fa-a3f079e9da55",
+      "questionNumber": 3,
+      "questionText": "What does the man say he will do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "37f89afb-8cdf-4461-a1dc-ad0c97e69f11",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-35-37-425245f432214d05a77dc0765ab04f6d.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-35-37-425245f432214d05a77dc0765ab04f6d.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 38,
+      "part": "PART_3",
+      "questionGroupOrder": 38,
+      "questionGroupId": "f71e2f76-c3ad-42c3-a5c1-5f40f3a4642a",
+      "questionId": "9772d044-16ad-4eb2-811b-21354f877eaf",
+      "questionNumber": 1,
+      "questionText": "What are the speakers mainly discussing?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "25f4f83a-5e08-440f-8012-b6eda0c51bd0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-38-40-1dadf00c8e2a4766959617a50c75efc1.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-38-40-1dadf00c8e2a4766959617a50c75efc1.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 39,
+      "part": "PART_3",
+      "questionGroupOrder": 38,
+      "questionGroupId": "f71e2f76-c3ad-42c3-a5c1-5f40f3a4642a",
+      "questionId": "bebc8695-1d22-45fa-8455-7f53292ccfab",
+      "questionNumber": 2,
+      "questionText": "What does the man like about a project?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "25f4f83a-5e08-440f-8012-b6eda0c51bd0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-38-40-1dadf00c8e2a4766959617a50c75efc1.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-38-40-1dadf00c8e2a4766959617a50c75efc1.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 40,
+      "part": "PART_3",
+      "questionGroupOrder": 38,
+      "questionGroupId": "f71e2f76-c3ad-42c3-a5c1-5f40f3a4642a",
+      "questionId": "3ad74474-3db1-4179-b804-c12f9c949baf",
+      "questionNumber": 3,
+      "questionText": "What does the man suggest doing?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "25f4f83a-5e08-440f-8012-b6eda0c51bd0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-38-40-1dadf00c8e2a4766959617a50c75efc1.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-38-40-1dadf00c8e2a4766959617a50c75efc1.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 41,
+      "part": "PART_3",
+      "questionGroupOrder": 41,
+      "questionGroupId": "cba445ae-b8d8-4a97-b47c-79a5243f6c3d",
+      "questionId": "5368bea8-0673-4697-bf29-35dde4822f90",
+      "questionNumber": 1,
+      "questionText": "Who most likely are the speakers?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "64a8a42c-4c9f-4b8b-82c1-1ae937a60855",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-41-43-f26afc1f79be4ba3a8acad77b425b2f7.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-41-43-f26afc1f79be4ba3a8acad77b425b2f7.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 42,
+      "part": "PART_3",
+      "questionGroupOrder": 41,
+      "questionGroupId": "cba445ae-b8d8-4a97-b47c-79a5243f6c3d",
+      "questionId": "010038fa-044f-4ee8-8eb7-d1fbbae611df",
+      "questionNumber": 2,
+      "questionText": "What will take place next week?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "64a8a42c-4c9f-4b8b-82c1-1ae937a60855",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-41-43-f26afc1f79be4ba3a8acad77b425b2f7.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-41-43-f26afc1f79be4ba3a8acad77b425b2f7.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 43,
+      "part": "PART_3",
+      "questionGroupOrder": 41,
+      "questionGroupId": "cba445ae-b8d8-4a97-b47c-79a5243f6c3d",
+      "questionId": "fffa4ec4-f256-4006-b9e2-c42855b83bdc",
+      "questionNumber": 3,
+      "questionText": "What does the man want to do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "64a8a42c-4c9f-4b8b-82c1-1ae937a60855",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-41-43-f26afc1f79be4ba3a8acad77b425b2f7.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-41-43-f26afc1f79be4ba3a8acad77b425b2f7.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 44,
+      "part": "PART_3",
+      "questionGroupOrder": 44,
+      "questionGroupId": "08201b04-8fc4-4319-aeb1-246b557a4dfe",
+      "questionId": "1267f814-1c86-437c-8f1d-02a077d1a6da",
+      "questionNumber": 1,
+      "questionText": "Where does the man most likely work?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "da8b4d51-0800-456f-ab45-ff863ffe1f22",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-44-46-c6c5e580165a417a8508766985991c42.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-44-46-c6c5e580165a417a8508766985991c42.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 45,
+      "part": "PART_3",
+      "questionGroupOrder": 44,
+      "questionGroupId": "08201b04-8fc4-4319-aeb1-246b557a4dfe",
+      "questionId": "5c074819-ce08-4d14-a16f-cc82647385f5",
+      "questionNumber": 2,
+      "questionText": "What does the woman want to do in the spring?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "da8b4d51-0800-456f-ab45-ff863ffe1f22",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-44-46-c6c5e580165a417a8508766985991c42.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-44-46-c6c5e580165a417a8508766985991c42.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 46,
+      "part": "PART_3",
+      "questionGroupOrder": 44,
+      "questionGroupId": "08201b04-8fc4-4319-aeb1-246b557a4dfe",
+      "questionId": "d45212cf-f8b3-467c-9823-afc1befe6984",
+      "questionNumber": 3,
+      "questionText": "What does the man ask the woman to do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "da8b4d51-0800-456f-ab45-ff863ffe1f22",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-44-46-c6c5e580165a417a8508766985991c42.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-44-46-c6c5e580165a417a8508766985991c42.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 47,
+      "part": "PART_3",
+      "questionGroupOrder": 47,
+      "questionGroupId": "6a00b400-276d-4e6c-8a64-562b4cbc8734",
+      "questionId": "053049b2-8252-4a68-b122-74fc425969da",
+      "questionNumber": 1,
+      "questionText": "What are the speakers working on?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "b611c39c-f7ec-4261-a98c-814de068a34f",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-47-49-ef7b4c3d90eb4f53875a12a520f36fad.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-47-49-ef7b4c3d90eb4f53875a12a520f36fad.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 48,
+      "part": "PART_3",
+      "questionGroupOrder": 47,
+      "questionGroupId": "6a00b400-276d-4e6c-8a64-562b4cbc8734",
+      "questionId": "65a97f02-e098-4a0d-90a0-1f7c74a3fe65",
+      "questionNumber": 2,
+      "questionText": "What does the woman say she will do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "b611c39c-f7ec-4261-a98c-814de068a34f",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-47-49-ef7b4c3d90eb4f53875a12a520f36fad.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-47-49-ef7b4c3d90eb4f53875a12a520f36fad.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 49,
+      "part": "PART_3",
+      "questionGroupOrder": 47,
+      "questionGroupId": "6a00b400-276d-4e6c-8a64-562b4cbc8734",
+      "questionId": "1e13df7d-34ff-4de5-9b5a-27508dede34e",
+      "questionNumber": 3,
+      "questionText": "What does the man suggest that they do later?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "b611c39c-f7ec-4261-a98c-814de068a34f",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-47-49-ef7b4c3d90eb4f53875a12a520f36fad.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-47-49-ef7b4c3d90eb4f53875a12a520f36fad.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 50,
+      "part": "PART_3",
+      "questionGroupOrder": 50,
+      "questionGroupId": "cb92e32e-331a-4af6-a2fa-937dbd59d47d",
+      "questionId": "f2b7fab3-3a2f-47c4-9dfb-d80c63bceb4c",
+      "questionNumber": 1,
+      "questionText": "What does Ms. Stewart like about a restaurant?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "ce1e09eb-ebd0-46ba-b3d9-cbd5567923d8",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-50-52-a1e24bdb560a4edbba5096036aae74b8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-50-52-a1e24bdb560a4edbba5096036aae74b8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 51,
+      "part": "PART_3",
+      "questionGroupOrder": 50,
+      "questionGroupId": "cb92e32e-331a-4af6-a2fa-937dbd59d47d",
+      "questionId": "6a35e1c0-53a3-4b68-a069-6ac2ef75ae5a",
+      "questionNumber": 2,
+      "questionText": "What problem does Sakura mention?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "ce1e09eb-ebd0-46ba-b3d9-cbd5567923d8",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-50-52-a1e24bdb560a4edbba5096036aae74b8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-50-52-a1e24bdb560a4edbba5096036aae74b8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 52,
+      "part": "PART_3",
+      "questionGroupOrder": 50,
+      "questionGroupId": "cb92e32e-331a-4af6-a2fa-937dbd59d47d",
+      "questionId": "c1e18338-ad2f-4a88-a053-566fd6af7ace",
+      "questionNumber": 3,
+      "questionText": "What will the man do next?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "ce1e09eb-ebd0-46ba-b3d9-cbd5567923d8",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-50-52-a1e24bdb560a4edbba5096036aae74b8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-50-52-a1e24bdb560a4edbba5096036aae74b8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 53,
+      "part": "PART_3",
+      "questionGroupOrder": 53,
+      "questionGroupId": "7ffe1189-d04c-49cb-8b52-d751df74425d",
+      "questionId": "7aeaaaf5-6d0a-4b1a-ac84-1a14ee91a551",
+      "questionNumber": 1,
+      "questionText": "Where are the speakers?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "04e57be5-3e45-4f33-851a-380d38ffd997",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-53-55-09975569159e40189446211d82be5c2b.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-53-55-09975569159e40189446211d82be5c2b.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 54,
+      "part": "PART_3",
+      "questionGroupOrder": 53,
+      "questionGroupId": "7ffe1189-d04c-49cb-8b52-d751df74425d",
+      "questionId": "78f33a72-26d0-486a-b26f-28fd2385bd66",
+      "questionNumber": 2,
+      "questionText": "Why does the man say, \"It handles 10,000 plants in an hour\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "04e57be5-3e45-4f33-851a-380d38ffd997",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-53-55-09975569159e40189446211d82be5c2b.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-53-55-09975569159e40189446211d82be5c2b.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 55,
+      "part": "PART_3",
+      "questionGroupOrder": 53,
+      "questionGroupId": "7ffe1189-d04c-49cb-8b52-d751df74425d",
+      "questionId": "8ab5dabd-951e-4d96-bf73-1cf9ef070e2b",
+      "questionNumber": 3,
+      "questionText": "What will the speakers do next?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "04e57be5-3e45-4f33-851a-380d38ffd997",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-53-55-09975569159e40189446211d82be5c2b.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-53-55-09975569159e40189446211d82be5c2b.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 56,
+      "part": "PART_3",
+      "questionGroupOrder": 56,
+      "questionGroupId": "9e062f6c-f033-424c-9f79-2b30483f2dd2",
+      "questionId": "620f5d5d-689b-4020-92a4-eea9fcec73db",
+      "questionNumber": 1,
+      "questionText": "Where is the conversation taking place?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "80d486f3-fa42-471b-bf4f-930a9cd0ac50",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-56-58-9b2337ec410c4a8b90546c963befced9.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-56-58-9b2337ec410c4a8b90546c963befced9.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 57,
+      "part": "PART_3",
+      "questionGroupOrder": 56,
+      "questionGroupId": "9e062f6c-f033-424c-9f79-2b30483f2dd2",
+      "questionId": "f93483b4-190c-47d5-81f1-809f3eb668a3",
+      "questionNumber": 2,
+      "questionText": "Why are the men traveling to Toronto?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "80d486f3-fa42-471b-bf4f-930a9cd0ac50",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-56-58-9b2337ec410c4a8b90546c963befced9.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-56-58-9b2337ec410c4a8b90546c963befced9.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 58,
+      "part": "PART_3",
+      "questionGroupOrder": 56,
+      "questionGroupId": "9e062f6c-f033-424c-9f79-2b30483f2dd2",
+      "questionId": "d58ed6dd-bb45-46f9-8cb6-d191de0abdc3",
+      "questionNumber": 3,
+      "questionText": "What does the woman offer to do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "80d486f3-fa42-471b-bf4f-930a9cd0ac50",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-56-58-9b2337ec410c4a8b90546c963befced9.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-56-58-9b2337ec410c4a8b90546c963befced9.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 59,
+      "part": "PART_3",
+      "questionGroupOrder": 59,
+      "questionGroupId": "8d493db3-32d8-4905-9462-e6624c0975c4",
+      "questionId": "97566e1f-ada6-4944-974e-b5d64e9bed21",
+      "questionNumber": 1,
+      "questionText": "What has the man been doing?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "4d1d37ea-e588-48d2-b21c-f37dac77e2be",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-59-61-87fb82c047a34b57a40bf8b9d66327ba.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-59-61-87fb82c047a34b57a40bf8b9d66327ba.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 60,
+      "part": "PART_3",
+      "questionGroupOrder": 59,
+      "questionGroupId": "8d493db3-32d8-4905-9462-e6624c0975c4",
+      "questionId": "d7dd6836-9d12-4c96-bf1f-d7fcf3f620ed",
+      "questionNumber": 2,
+      "questionText": "Why does the woman say, \"It was Hamdy Equipment that sold it to us\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "4d1d37ea-e588-48d2-b21c-f37dac77e2be",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-59-61-87fb82c047a34b57a40bf8b9d66327ba.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-59-61-87fb82c047a34b57a40bf8b9d66327ba.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 61,
+      "part": "PART_3",
+      "questionGroupOrder": 59,
+      "questionGroupId": "8d493db3-32d8-4905-9462-e6624c0975c4",
+      "questionId": "a2a45501-eebb-42f4-ac18-99c9348e806e",
+      "questionNumber": 3,
+      "questionText": "What will the man check next?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "4d1d37ea-e588-48d2-b21c-f37dac77e2be",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-59-61-87fb82c047a34b57a40bf8b9d66327ba.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-59-61-87fb82c047a34b57a40bf8b9d66327ba.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 62,
+      "part": "PART_3",
+      "questionGroupOrder": 62,
+      "questionGroupId": "a5c04471-7aa7-48e8-bacd-b0d8f5ace453",
+      "questionId": "f55c8807-b727-419e-84be-bfcfb61ab1f3",
+      "questionNumber": 1,
+      "questionText": "Who most likely is the woman?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "5383fda3-39e2-4eb0-aaaa-348e9c2f5eb7",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-62-64-c8f5023a6017494db40f2786a5a9cee6.mp3"
+        },
+        {
+          "id": "e22ca7f2-de45-47dc-bd25-fa974fd63d31",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-a35ee659febf4e0391f46fb038c9471b.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-62-64-c8f5023a6017494db40f2786a5a9cee6.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-a35ee659febf4e0391f46fb038c9471b.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 63,
+      "part": "PART_3",
+      "questionGroupOrder": 62,
+      "questionGroupId": "a5c04471-7aa7-48e8-bacd-b0d8f5ace453",
+      "questionId": "5a2b94d3-ee5c-4a81-a6df-724e066074f8",
+      "questionNumber": 2,
+      "questionText": "Look at the graphic. Which tire model should have been listed on an invoice?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "5383fda3-39e2-4eb0-aaaa-348e9c2f5eb7",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-62-64-c8f5023a6017494db40f2786a5a9cee6.mp3"
+        },
+        {
+          "id": "e22ca7f2-de45-47dc-bd25-fa974fd63d31",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-a35ee659febf4e0391f46fb038c9471b.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-62-64-c8f5023a6017494db40f2786a5a9cee6.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-a35ee659febf4e0391f46fb038c9471b.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 64,
+      "part": "PART_3",
+      "questionGroupOrder": 62,
+      "questionGroupId": "a5c04471-7aa7-48e8-bacd-b0d8f5ace453",
+      "questionId": "5a5782be-8727-49a5-9720-dc211f859e75",
+      "questionNumber": 3,
+      "questionText": "What does the man invite the woman to share?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "5383fda3-39e2-4eb0-aaaa-348e9c2f5eb7",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-62-64-c8f5023a6017494db40f2786a5a9cee6.mp3"
+        },
+        {
+          "id": "e22ca7f2-de45-47dc-bd25-fa974fd63d31",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-a35ee659febf4e0391f46fb038c9471b.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-62-64-c8f5023a6017494db40f2786a5a9cee6.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-a35ee659febf4e0391f46fb038c9471b.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 65,
+      "part": "PART_3",
+      "questionGroupOrder": 65,
+      "questionGroupId": "ea17e5f2-3810-40b6-9181-34a0c3b4acbf",
+      "questionId": "b1c80da2-b936-4b40-8b53-6d01b6d22e08",
+      "questionNumber": 1,
+      "questionText": "Why does the woman want to buy a new pillow?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "92a6fd87-33b9-4a51-9424-31a3a5cd0025",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-65-67-96783941f09d472f91307aafc1abdcc4.mp3"
+        },
+        {
+          "id": "cbca1db1-63bb-4f4c-999f-b9b6c936a8ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e45f49e725044dd2937fb2d2d6ad783b.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-65-67-96783941f09d472f91307aafc1abdcc4.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e45f49e725044dd2937fb2d2d6ad783b.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 66,
+      "part": "PART_3",
+      "questionGroupOrder": 65,
+      "questionGroupId": "ea17e5f2-3810-40b6-9181-34a0c3b4acbf",
+      "questionId": "6dc7c380-6ffb-43ba-a21d-a51d8419c0a7",
+      "questionNumber": 2,
+      "questionText": "Look at the graphic. How much is the pillow that the man recommends?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "92a6fd87-33b9-4a51-9424-31a3a5cd0025",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-65-67-96783941f09d472f91307aafc1abdcc4.mp3"
+        },
+        {
+          "id": "cbca1db1-63bb-4f4c-999f-b9b6c936a8ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e45f49e725044dd2937fb2d2d6ad783b.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-65-67-96783941f09d472f91307aafc1abdcc4.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e45f49e725044dd2937fb2d2d6ad783b.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 67,
+      "part": "PART_3",
+      "questionGroupOrder": 65,
+      "questionGroupId": "ea17e5f2-3810-40b6-9181-34a0c3b4acbf",
+      "questionId": "13fe5c28-7c24-4dbd-9132-897f281d4b21",
+      "questionNumber": 3,
+      "questionText": "What does the woman ask about?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "92a6fd87-33b9-4a51-9424-31a3a5cd0025",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-65-67-96783941f09d472f91307aafc1abdcc4.mp3"
+        },
+        {
+          "id": "cbca1db1-63bb-4f4c-999f-b9b6c936a8ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e45f49e725044dd2937fb2d2d6ad783b.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-65-67-96783941f09d472f91307aafc1abdcc4.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e45f49e725044dd2937fb2d2d6ad783b.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 68,
+      "part": "PART_3",
+      "questionGroupOrder": 68,
+      "questionGroupId": "c302526b-52fe-4e0b-a0c6-7189fc0dfd2d",
+      "questionId": "caeac0f4-288d-45f9-a0d3-ead1c988b23c",
+      "questionNumber": 1,
+      "questionText": "What is the man\u0027s area of expertise?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "04f6dc7d-de32-4f1f-8cbb-0e9f21c77add",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-68-70-de1642004c3a4ef69ff14174af879dc3.mp3"
+        },
+        {
+          "id": "110b8c53-652e-4c2a-a91f-44b74e9b608b",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7109201d759d41ae85ed85bad68b1f69.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-68-70-de1642004c3a4ef69ff14174af879dc3.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-7109201d759d41ae85ed85bad68b1f69.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 69,
+      "part": "PART_3",
+      "questionGroupOrder": 68,
+      "questionGroupId": "c302526b-52fe-4e0b-a0c6-7189fc0dfd2d",
+      "questionId": "79d29d12-d9c3-4443-8dce-2801b1a6a06a",
+      "questionNumber": 2,
+      "questionText": "According to the man, what did he recently do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "04f6dc7d-de32-4f1f-8cbb-0e9f21c77add",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-68-70-de1642004c3a4ef69ff14174af879dc3.mp3"
+        },
+        {
+          "id": "110b8c53-652e-4c2a-a91f-44b74e9b608b",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7109201d759d41ae85ed85bad68b1f69.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-68-70-de1642004c3a4ef69ff14174af879dc3.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-7109201d759d41ae85ed85bad68b1f69.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 70,
+      "part": "PART_3",
+      "questionGroupOrder": 68,
+      "questionGroupId": "c302526b-52fe-4e0b-a0c6-7189fc0dfd2d",
+      "questionId": "bc64592c-4eb0-405f-8925-0e0b2622bbfb",
+      "questionNumber": 3,
+      "questionText": "Look at the graphic. Which step of the sales process does the woman especially enjoy?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "04f6dc7d-de32-4f1f-8cbb-0e9f21c77add",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-68-70-de1642004c3a4ef69ff14174af879dc3.mp3"
+        },
+        {
+          "id": "110b8c53-652e-4c2a-a91f-44b74e9b608b",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7109201d759d41ae85ed85bad68b1f69.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-68-70-de1642004c3a4ef69ff14174af879dc3.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-7109201d759d41ae85ed85bad68b1f69.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 71,
+      "part": "PART_4",
+      "questionGroupOrder": 71,
+      "questionGroupId": "58de84c6-af56-43f2-ad41-b68e6fbda062",
+      "questionId": "fce7c3c3-9e76-4e7f-9ca5-8d678b07d48a",
+      "questionNumber": 1,
+      "questionText": "Who most likely is the speaker?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "1ab03e13-ecdd-48c2-b8e2-70fe678c27f0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 72,
+      "part": "PART_4",
+      "questionGroupOrder": 71,
+      "questionGroupId": "58de84c6-af56-43f2-ad41-b68e6fbda062",
+      "questionId": "4176b54f-5295-4ce4-8257-cc6b71987650",
+      "questionNumber": 2,
+      "questionText": "What is the speaker mainly discussing?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "1ab03e13-ecdd-48c2-b8e2-70fe678c27f0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 73,
+      "part": "PART_4",
+      "questionGroupOrder": 71,
+      "questionGroupId": "58de84c6-af56-43f2-ad41-b68e6fbda062",
+      "questionId": "05f717bd-441a-47ed-a636-02e8eea5013e",
+      "questionNumber": 3,
+      "questionText": "What will happen next?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "1ab03e13-ecdd-48c2-b8e2-70fe678c27f0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 74,
+      "part": "PART_4",
+      "questionGroupOrder": 74,
+      "questionGroupId": "c704bd68-b4fc-4139-8765-01e9f3198f18",
+      "questionId": "d2df4cb5-1e56-4d71-83f2-495b6c89a8ae",
+      "questionNumber": 1,
+      "questionText": "What type of industry does the speaker most likely work in?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "3a00670f-b605-4b56-a231-43f6318d98d5",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-74-76-ce81ea8693024d42bf1b53f86fb2ac69.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-74-76-ce81ea8693024d42bf1b53f86fb2ac69.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 75,
+      "part": "PART_4",
+      "questionGroupOrder": 74,
+      "questionGroupId": "c704bd68-b4fc-4139-8765-01e9f3198f18",
+      "questionId": "40f9c395-9233-4b93-ba06-11edb2e838f4",
+      "questionNumber": 2,
+      "questionText": "What will be Alka Raj\u0027s job responsibility?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "3a00670f-b605-4b56-a231-43f6318d98d5",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-74-76-ce81ea8693024d42bf1b53f86fb2ac69.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-74-76-ce81ea8693024d42bf1b53f86fb2ac69.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 76,
+      "part": "PART_4",
+      "questionGroupOrder": 74,
+      "questionGroupId": "c704bd68-b4fc-4139-8765-01e9f3198f18",
+      "questionId": "ef04facf-9b50-4dbd-aa2b-f5dccefdcfdf",
+      "questionNumber": 3,
+      "questionText": "Why does the speaker say he is thrilled?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "3a00670f-b605-4b56-a231-43f6318d98d5",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-74-76-ce81ea8693024d42bf1b53f86fb2ac69.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-74-76-ce81ea8693024d42bf1b53f86fb2ac69.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 77,
+      "part": "PART_4",
+      "questionGroupOrder": 77,
+      "questionGroupId": "9acc1419-5b3d-47a3-b2f5-bd1689eaa98a",
+      "questionId": "fa92e922-b81d-4907-a018-1e55d52d3c6f",
+      "questionNumber": 1,
+      "questionText": "What problem does the speaker mention?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "b14f5e12-1874-4cc0-b1ce-c0c67853cde0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-77-79-5daf1663f6ab4be48a6396407b34fcfb.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-77-79-5daf1663f6ab4be48a6396407b34fcfb.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 78,
+      "part": "PART_4",
+      "questionGroupOrder": 77,
+      "questionGroupId": "9acc1419-5b3d-47a3-b2f5-bd1689eaa98a",
+      "questionId": "4a4ee35a-27fc-4770-bd81-0a751f9068a1",
+      "questionNumber": 2,
+      "questionText": "What are the listeners temporarily allowed to do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "b14f5e12-1874-4cc0-b1ce-c0c67853cde0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-77-79-5daf1663f6ab4be48a6396407b34fcfb.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-77-79-5daf1663f6ab4be48a6396407b34fcfb.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 79,
+      "part": "PART_4",
+      "questionGroupOrder": 77,
+      "questionGroupId": "9acc1419-5b3d-47a3-b2f5-bd1689eaa98a",
+      "questionId": "1e16512e-d54e-4608-8548-e1a7d3e055f9",
+      "questionNumber": 3,
+      "questionText": "Who most likely is Marion?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "b14f5e12-1874-4cc0-b1ce-c0c67853cde0",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-77-79-5daf1663f6ab4be48a6396407b34fcfb.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-77-79-5daf1663f6ab4be48a6396407b34fcfb.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 80,
+      "part": "PART_4",
+      "questionGroupOrder": 80,
+      "questionGroupId": "f55921ff-5746-4193-8713-78ee052fd0d0",
+      "questionId": "598c184f-91c4-4537-a5f2-fe379f19bdfc",
+      "questionNumber": 1,
+      "questionText": "Where is the meeting taking place?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "be813d75-2a91-4c64-9c3f-b4dd4d278e7b",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-80-82-de73a79a12d74acda770f2f7c4ee1819.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-80-82-de73a79a12d74acda770f2f7c4ee1819.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 81,
+      "part": "PART_4",
+      "questionGroupOrder": 80,
+      "questionGroupId": "f55921ff-5746-4193-8713-78ee052fd0d0",
+      "questionId": "e015aebf-405f-4b67-bf6d-e639e6115eae",
+      "questionNumber": 2,
+      "questionText": "What is the speaker mainly discussing?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "be813d75-2a91-4c64-9c3f-b4dd4d278e7b",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-80-82-de73a79a12d74acda770f2f7c4ee1819.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-80-82-de73a79a12d74acda770f2f7c4ee1819.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 82,
+      "part": "PART_4",
+      "questionGroupOrder": 80,
+      "questionGroupId": "f55921ff-5746-4193-8713-78ee052fd0d0",
+      "questionId": "1f5e5c88-5f2a-4e08-b119-b481d0d8feb0",
+      "questionNumber": 3,
+      "questionText": "Why does the speaker say, \"the break room is open 24 hours a day\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "be813d75-2a91-4c64-9c3f-b4dd4d278e7b",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-80-82-de73a79a12d74acda770f2f7c4ee1819.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-80-82-de73a79a12d74acda770f2f7c4ee1819.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 83,
+      "part": "PART_4",
+      "questionGroupOrder": 83,
+      "questionGroupId": "79418ac4-39c6-4bee-88fb-33bef4f8bb9c",
+      "questionId": "3ad3d351-1f39-4c33-aa5f-15da5309147c",
+      "questionNumber": 1,
+      "questionText": "Who is the advertisement intended for?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "dc94953d-43b5-426a-9e00-a6ed0a268bbc",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-83-85-cfffc73515844222932c496937cb6b78.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-83-85-cfffc73515844222932c496937cb6b78.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 84,
+      "part": "PART_4",
+      "questionGroupOrder": 83,
+      "questionGroupId": "79418ac4-39c6-4bee-88fb-33bef4f8bb9c",
+      "questionId": "c9bb1386-7242-4c00-900d-898ceb36258e",
+      "questionNumber": 2,
+      "questionText": "How can the listeners receive a discount?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "dc94953d-43b5-426a-9e00-a6ed0a268bbc",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-83-85-cfffc73515844222932c496937cb6b78.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-83-85-cfffc73515844222932c496937cb6b78.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 85,
+      "part": "PART_4",
+      "questionGroupOrder": 83,
+      "questionGroupId": "79418ac4-39c6-4bee-88fb-33bef4f8bb9c",
+      "questionId": "e3cf1b54-b17e-443d-86b1-37ef8d9741ba",
+      "questionNumber": 3,
+      "questionText": "What does the speaker emphasize about a product?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "dc94953d-43b5-426a-9e00-a6ed0a268bbc",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-83-85-cfffc73515844222932c496937cb6b78.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-83-85-cfffc73515844222932c496937cb6b78.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 86,
+      "part": "PART_4",
+      "questionGroupOrder": 86,
+      "questionGroupId": "fdc83a1c-58e8-4b45-bcff-77d8380c674d",
+      "questionId": "45b2a080-234d-4671-994f-64978adb3be6",
+      "questionNumber": 1,
+      "questionText": "What is the announcement mostly about?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "4c764f5c-26fc-47bf-9df2-0df431ca6b43",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-86-88-635b9c05234f4e1f96b69c9669585359.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-86-88-635b9c05234f4e1f96b69c9669585359.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 87,
+      "part": "PART_4",
+      "questionGroupOrder": 86,
+      "questionGroupId": "fdc83a1c-58e8-4b45-bcff-77d8380c674d",
+      "questionId": "a3722c91-bd8d-4de7-b9b3-303e5414ed25",
+      "questionNumber": 2,
+      "questionText": "According to the speaker, what can be found on a ticket?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "4c764f5c-26fc-47bf-9df2-0df431ca6b43",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-86-88-635b9c05234f4e1f96b69c9669585359.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-86-88-635b9c05234f4e1f96b69c9669585359.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 88,
+      "part": "PART_4",
+      "questionGroupOrder": 86,
+      "questionGroupId": "fdc83a1c-58e8-4b45-bcff-77d8380c674d",
+      "questionId": "fd8a590b-0766-4705-8f92-07ff23ef23cd",
+      "questionNumber": 3,
+      "questionText": "What does the speaker mean when he says, \"there\u0027s significant maintenance work on the track ahead\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "4c764f5c-26fc-47bf-9df2-0df431ca6b43",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-86-88-635b9c05234f4e1f96b69c9669585359.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-86-88-635b9c05234f4e1f96b69c9669585359.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 89,
+      "part": "PART_4",
+      "questionGroupOrder": 89,
+      "questionGroupId": "2b696d2d-3c8a-468a-ae66-81d64bb54829",
+      "questionId": "ab84d05e-687b-4e97-ad9d-09a5f9856986",
+      "questionNumber": 1,
+      "questionText": "Who is the speaker?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "990283ce-14e8-4b5d-a88b-52dd459f7a26",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-89-91-ce9c905a225c4f98af0a45fa2527cb09.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-89-91-ce9c905a225c4f98af0a45fa2527cb09.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 90,
+      "part": "PART_4",
+      "questionGroupOrder": 89,
+      "questionGroupId": "2b696d2d-3c8a-468a-ae66-81d64bb54829",
+      "questionId": "704d7bcb-7ed7-4d02-b699-98428c9af710",
+      "questionNumber": 2,
+      "questionText": "Why is the woman calling?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "990283ce-14e8-4b5d-a88b-52dd459f7a26",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-89-91-ce9c905a225c4f98af0a45fa2527cb09.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-89-91-ce9c905a225c4f98af0a45fa2527cb09.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 91,
+      "part": "PART_4",
+      "questionGroupOrder": 89,
+      "questionGroupId": "2b696d2d-3c8a-468a-ae66-81d64bb54829",
+      "questionId": "881688ff-e78d-41df-bee5-2cbcaafc23d7",
+      "questionNumber": 3,
+      "questionText": "What does the speaker say about Lihong Hao?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "990283ce-14e8-4b5d-a88b-52dd459f7a26",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-89-91-ce9c905a225c4f98af0a45fa2527cb09.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-89-91-ce9c905a225c4f98af0a45fa2527cb09.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 92,
+      "part": "PART_4",
+      "questionGroupOrder": 92,
+      "questionGroupId": "2dd789cd-16d7-4a24-a14c-c80799adad73",
+      "questionId": "24e0185c-d52b-4e6c-8ff9-d014bf7cd2f5",
+      "questionNumber": 1,
+      "questionText": "What industry does the speaker most likely work in?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "1712d3be-3404-4e83-aad3-91404af6e3f3",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-92-94-43a4fc79cd8b476a877e8617fcf78bf5.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-92-94-43a4fc79cd8b476a877e8617fcf78bf5.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 93,
+      "part": "PART_4",
+      "questionGroupOrder": 92,
+      "questionGroupId": "2dd789cd-16d7-4a24-a14c-c80799adad73",
+      "questionId": "78c13e0c-1a99-4d9d-9af2-56cce4464d9e",
+      "questionNumber": 2,
+      "questionText": "Why does the speaker say, \"I only use the highest-quality materials in my work\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "1712d3be-3404-4e83-aad3-91404af6e3f3",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-92-94-43a4fc79cd8b476a877e8617fcf78bf5.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-92-94-43a4fc79cd8b476a877e8617fcf78bf5.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 94,
+      "part": "PART_4",
+      "questionGroupOrder": 92,
+      "questionGroupId": "2dd789cd-16d7-4a24-a14c-c80799adad73",
+      "questionId": "6104d098-9e65-4860-8413-3dc2326ed05b",
+      "questionNumber": 3,
+      "questionText": "What does the speaker say could happen in April?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "1712d3be-3404-4e83-aad3-91404af6e3f3",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-92-94-43a4fc79cd8b476a877e8617fcf78bf5.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-92-94-43a4fc79cd8b476a877e8617fcf78bf5.mp3"
+      ],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 95,
+      "part": "PART_4",
+      "questionGroupOrder": 95,
+      "questionGroupId": "477a9fc8-a00c-4365-b569-bafcc0acd3ab",
+      "questionId": "b2ea053c-de62-4003-988e-b0d4190dbe77",
+      "questionNumber": 1,
+      "questionText": "What is the talk mainly about?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "f19d6241-267d-44bf-b32c-67d25eecb117",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-95-97-1470185eb3ca42cead3dad83dc8ab0fc.mp3"
+        },
+        {
+          "id": "a8e46e09-3d0c-4a5a-8db4-bd95db13926f",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-93371c72ad524959b5e754e4d3e8f44d.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-95-97-1470185eb3ca42cead3dad83dc8ab0fc.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-93371c72ad524959b5e754e4d3e8f44d.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 96,
+      "part": "PART_4",
+      "questionGroupOrder": 95,
+      "questionGroupId": "477a9fc8-a00c-4365-b569-bafcc0acd3ab",
+      "questionId": "f8b8cff0-de43-405a-9cdc-cf992e173654",
+      "questionNumber": 2,
+      "questionText": "Look at the graphic. What is the company\u0027s top-selling refrigerator model?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "f19d6241-267d-44bf-b32c-67d25eecb117",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-95-97-1470185eb3ca42cead3dad83dc8ab0fc.mp3"
+        },
+        {
+          "id": "a8e46e09-3d0c-4a5a-8db4-bd95db13926f",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-93371c72ad524959b5e754e4d3e8f44d.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-95-97-1470185eb3ca42cead3dad83dc8ab0fc.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-93371c72ad524959b5e754e4d3e8f44d.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 97,
+      "part": "PART_4",
+      "questionGroupOrder": 95,
+      "questionGroupId": "477a9fc8-a00c-4365-b569-bafcc0acd3ab",
+      "questionId": "c91ab804-1d98-462f-96dc-56dccbe86bcb",
+      "questionNumber": 3,
+      "questionText": "What does the speaker say he will do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "f19d6241-267d-44bf-b32c-67d25eecb117",
+          "type": "AUDIO",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-95-97-1470185eb3ca42cead3dad83dc8ab0fc.mp3"
+        },
+        {
+          "id": "a8e46e09-3d0c-4a5a-8db4-bd95db13926f",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-93371c72ad524959b5e754e4d3e8f44d.png"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-95-97-1470185eb3ca42cead3dad83dc8ab0fc.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-93371c72ad524959b5e754e4d3e8f44d.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 98,
+      "part": "PART_4",
+      "questionGroupOrder": 98,
+      "questionGroupId": "53d2e064-4105-4e4f-9cd3-8da910eb8d01",
+      "questionId": "5f0996ad-7fe9-4999-89d0-6a7cdf754278",
+      "questionNumber": 1,
+      "questionText": "What does the speaker encourage the listeners to do?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "aef7d604-9e2e-4a10-8af7-7dee395aa88c",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-1b70e87b24464f65b63ccaa74fc141a8.png"
+        },
+        {
+          "id": "97fb9922-59cd-4955-a8b8-9d453224e225",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-98-100-c3d63d4ba58742db927c953155077399.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-98-100-c3d63d4ba58742db927c953155077399.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-1b70e87b24464f65b63ccaa74fc141a8.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 99,
+      "part": "PART_4",
+      "questionGroupOrder": 98,
+      "questionGroupId": "53d2e064-4105-4e4f-9cd3-8da910eb8d01",
+      "questionId": "581a2553-2cb7-452d-a777-784c2a06bec0",
+      "questionNumber": 2,
+      "questionText": "Look at the graphic. When can the listeners book a tour today?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "aef7d604-9e2e-4a10-8af7-7dee395aa88c",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-1b70e87b24464f65b63ccaa74fc141a8.png"
+        },
+        {
+          "id": "97fb9922-59cd-4955-a8b8-9d453224e225",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-98-100-c3d63d4ba58742db927c953155077399.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-98-100-c3d63d4ba58742db927c953155077399.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-1b70e87b24464f65b63ccaa74fc141a8.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 100,
+      "part": "PART_4",
+      "questionGroupOrder": 98,
+      "questionGroupId": "53d2e064-4105-4e4f-9cd3-8da910eb8d01",
+      "questionId": "b2ebcfa5-fd9a-4020-add1-70157f135a15",
+      "questionNumber": 3,
+      "questionText": "What does the speaker say about some brochures?4",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "aef7d604-9e2e-4a10-8af7-7dee395aa88c",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-1b70e87b24464f65b63ccaa74fc141a8.png"
+        },
+        {
+          "id": "97fb9922-59cd-4955-a8b8-9d453224e225",
+          "type": "AUDIO",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/audio/e26-t08-98-100-c3d63d4ba58742db927c953155077399.mp3"
+        }
+      ],
+      "audioUrls": [
+        "https://chamtoeic.edu.vn/media/audio/e26-t08-98-100-c3d63d4ba58742db927c953155077399.mp3"
+      ],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-1b70e87b24464f65b63ccaa74fc141a8.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 101,
+      "part": "PART_5",
+      "questionGroupOrder": 101,
+      "questionGroupId": "8cbe03f8-e4e4-4387-a2a9-80fd8e7d8256",
+      "questionId": "f01adbaa-af5e-4f1a-8381-64480505d83c",
+      "questionNumber": 1,
+      "questionText": "Sydney Fashion Week drew thousands of ------- visitors to the city last week.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 102,
+      "part": "PART_5",
+      "questionGroupOrder": 102,
+      "questionGroupId": "a94b5ef9-e2fa-4f77-ad35-c735762761d4",
+      "questionId": "e54a7e53-2296-4498-af26-55c7c342ce24",
+      "questionNumber": 1,
+      "questionText": "Ms. Choi was pleased to learn that ------- is a finalist in the technology competition.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 103,
+      "part": "PART_5",
+      "questionGroupOrder": 103,
+      "questionGroupId": "19ca524d-c0c9-4380-9cfe-0acf3071795a",
+      "questionId": "225f50f6-ebe4-4115-a0d6-6d3d915b2fbf",
+      "questionNumber": 1,
+      "questionText": "All visitors to the factory should use the ------- on the north side of the building.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 104,
+      "part": "PART_5",
+      "questionGroupOrder": 104,
+      "questionGroupId": "67c91cb8-9b93-4613-9615-91078cae4e5e",
+      "questionId": "8a6905e5-f578-457c-828d-4a0408dbceaf",
+      "questionNumber": 1,
+      "questionText": "Unfortunately, we cannot provide an ------- time for the delivery of the new laptops.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 105,
+      "part": "PART_5",
+      "questionGroupOrder": 105,
+      "questionGroupId": "b2f2049e-e74d-412a-b4c1-ff60298c64e4",
+      "questionId": "d202c9a9-508c-4ef9-90a4-4b2de997b189",
+      "questionNumber": 1,
+      "questionText": "Tourists visiting Star Island are asked ------- the privacy of residents.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 106,
+      "part": "PART_5",
+      "questionGroupOrder": 106,
+      "questionGroupId": "9b74483c-107c-422b-9677-85ffc3c09a2a",
+      "questionId": "53e16096-baf0-4186-b758-969651b1dfbe",
+      "questionNumber": 1,
+      "questionText": "Rivlyn, Inc., has recycled ------- 11 million kilograms of paper waste over the past decade.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 107,
+      "part": "PART_5",
+      "questionGroupOrder": 107,
+      "questionGroupId": "b1463116-0ac5-4e3b-bdcb-10978ee87be3",
+      "questionId": "4c94599d-3c03-4925-a6c2-6dc8e20f1404",
+      "questionNumber": 1,
+      "questionText": "The new Dorvale 500 exercise machine is significantly heavier and sturdier than the previous -------.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 108,
+      "part": "PART_5",
+      "questionGroupOrder": 108,
+      "questionGroupId": "4b59a1af-2bd8-4b14-b4e2-054809cfdf75",
+      "questionId": "4fe3ef15-3fb2-448b-8536-718c7729885b",
+      "questionNumber": 1,
+      "questionText": "Beachside Inn is the perfect place to ------- an event for your corporate clients.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 109,
+      "part": "PART_5",
+      "questionGroupOrder": 109,
+      "questionGroupId": "f9ce6a05-027e-49d6-aff1-4ee15b482c23",
+      "questionId": "bed76154-292b-487f-9e83-168da17f150a",
+      "questionNumber": 1,
+      "questionText": "------- in cloud computing have transformed the gaming industry in many ways.",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 110,
+      "part": "PART_5",
+      "questionGroupOrder": 110,
+      "questionGroupId": "07795b95-339d-4a75-a8d1-8cb3269f54ac",
+      "questionId": "7b112359-149e-449b-a77c-9767d8e914c8",
+      "questionNumber": 1,
+      "questionText": "To provide feedback ------- your recent dental appointment, please respond to this brief survey.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 111,
+      "part": "PART_5",
+      "questionGroupOrder": 111,
+      "questionGroupId": "5fd7e97e-5fed-4e71-92b8-7467af8a5942",
+      "questionId": "146c0dc7-dd6e-408f-9254-6411aef9c9bc",
+      "questionNumber": 1,
+      "questionText": "If your company computer is not ------- functional, please call the IT Department at extension 12.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 112,
+      "part": "PART_5",
+      "questionGroupOrder": 112,
+      "questionGroupId": "786b46d6-84a4-48e2-89db-d06cb8042ad2",
+      "questionId": "28217a1a-4384-40a4-b9c9-dbf286b4ec39",
+      "questionNumber": 1,
+      "questionText": "The ------- of electric buses to our current fleet has made commuting much more pleasant.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 113,
+      "part": "PART_5",
+      "questionGroupOrder": 113,
+      "questionGroupId": "178e70e4-c997-4239-9007-4ed4e60a73f2",
+      "questionId": "e6c94a07-6e39-448e-96c5-1136038b95f7",
+      "questionNumber": 1,
+      "questionText": "The Zwick Air Wave generates a powerful blast to cool your workspace -------.",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 114,
+      "part": "PART_5",
+      "questionGroupOrder": 114,
+      "questionGroupId": "ab151457-4a58-4dd6-bb10-790ded3f32fe",
+      "questionId": "98b60eb5-04f2-4fc4-b453-14dbfc58ce62",
+      "questionNumber": 1,
+      "questionText": "The Oak Hill Art Museum offers several ------- exhibits and a series of limited-time exhibits.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 115,
+      "part": "PART_5",
+      "questionGroupOrder": 115,
+      "questionGroupId": "820d37c6-5fa0-463c-8d2c-6f3579cdcb96",
+      "questionId": "de7f5557-bd9f-4ada-bee2-764c8c9ed175",
+      "questionNumber": 1,
+      "questionText": "Any remote employees wanting an additional computer monitor should ------- Ms. Suzuki.",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 116,
+      "part": "PART_5",
+      "questionGroupOrder": 116,
+      "questionGroupId": "65cc25c2-5986-47d9-aaf8-5465a2e0a76a",
+      "questionId": "2ae577bc-2dab-4c9e-8811-f2e817c73a79",
+      "questionNumber": 1,
+      "questionText": "Customer loyalty programs are ------- for many retail businesses.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 117,
+      "part": "PART_5",
+      "questionGroupOrder": 117,
+      "questionGroupId": "2a9f06b7-5a5b-4b4b-8c0d-c00e2b3d3c7d",
+      "questionId": "cdd75dca-b6dd-4bad-a370-343e0dd15a2a",
+      "questionNumber": 1,
+      "questionText": "Prompt submission of travel vouchers ------- the accounts department will expedite refunds.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 118,
+      "part": "PART_5",
+      "questionGroupOrder": 118,
+      "questionGroupId": "5a1be44a-052c-4599-af32-e6cc5c43c31f",
+      "questionId": "94ab1b31-a862-47d4-b59e-9fa6dc0d47d4",
+      "questionNumber": 1,
+      "questionText": "After extensively ------- our hiring policies, the consultant recommended a simpler process.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 119,
+      "part": "PART_5",
+      "questionGroupOrder": 119,
+      "questionGroupId": "43bd3fc1-6f56-412f-8701-4b5a0c146ea6",
+      "questionId": "14856032-b566-4db0-a686-b5f3c128fb88",
+      "questionNumber": 1,
+      "questionText": "Under the ------- of Ms. Kenu, the historical society\u0027s fund-raiser went very well this year.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 120,
+      "part": "PART_5",
+      "questionGroupOrder": 120,
+      "questionGroupId": "2fb4b4eb-bdbb-47c7-9f76-5cd08c74acb0",
+      "questionId": "8cc77e52-ac5b-4098-87bd-2808c21b6ba5",
+      "questionNumber": 1,
+      "questionText": "The company decided to proceed ------- with plans to expand into new sales territories.",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 121,
+      "part": "PART_5",
+      "questionGroupOrder": 121,
+      "questionGroupId": "47281389-eee8-4f15-8405-add9af9a9b68",
+      "questionId": "2abbac90-5418-4e8c-8c15-874f8226ef0d",
+      "questionNumber": 1,
+      "questionText": "------- access the building, enter the code listed on the tenant directory.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 122,
+      "part": "PART_5",
+      "questionGroupOrder": 122,
+      "questionGroupId": "0998e300-6c52-4c84-aa08-4fe66e5e5cc9",
+      "questionId": "5e99ce33-c846-4db3-869d-95a038a4b40f",
+      "questionNumber": 1,
+      "questionText": "Mr. Davis ------- the marketing department will attend Monday\u0027s meeting with the client.",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 123,
+      "part": "PART_5",
+      "questionGroupOrder": 123,
+      "questionGroupId": "7c642f1f-052b-4d8c-a1ef-0846c6f2a75b",
+      "questionId": "1913de5c-a7dd-4f04-ab7f-9764bf545ab0",
+      "questionNumber": 1,
+      "questionText": "Several ------- reviews helped make the debut novel a best seller.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 124,
+      "part": "PART_5",
+      "questionGroupOrder": 124,
+      "questionGroupId": "3c88a7d9-abf5-4ef8-8691-3505239a4e82",
+      "questionId": "0c8ac7fa-f0c4-4dd5-9ec0-bd4eed8eb0c3",
+      "questionNumber": 1,
+      "questionText": "Please ------- us in welcoming Dr. Sito, who brings ten years of experience in the aerospace industry to his new position.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 125,
+      "part": "PART_5",
+      "questionGroupOrder": 125,
+      "questionGroupId": "3162624b-3dcb-44e9-977a-22bdf487ae22",
+      "questionId": "72903fd1-e79d-4f04-9dda-87143b7363e6",
+      "questionNumber": 1,
+      "questionText": "A survey of new car buyers asked them to ------- features in order from most to least important.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 126,
+      "part": "PART_5",
+      "questionGroupOrder": 126,
+      "questionGroupId": "b9d96f1f-1459-48c3-a096-3064a4ec4444",
+      "questionId": "2d903276-6ca8-41d4-9899-0ec1206dd798",
+      "questionNumber": 1,
+      "questionText": "As head of the Poels Museum, Mr. Ahuja oversaw the ------- of several significant works of art.",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 127,
+      "part": "PART_5",
+      "questionGroupOrder": 127,
+      "questionGroupId": "684abb59-aca3-432a-b36d-7565ee66c8e9",
+      "questionId": "fedc8050-858f-42e8-a5c7-8c0c1f9d33ad",
+      "questionNumber": 1,
+      "questionText": "Later today, we will hold a meeting to discuss changes to protocols ------- they go into effect next month.",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 128,
+      "part": "PART_5",
+      "questionGroupOrder": 128,
+      "questionGroupId": "39920c99-36b7-432e-8b9b-b274e9ac73ce",
+      "questionId": "b175d4b0-90b7-4f05-a3d0-82a18a86547d",
+      "questionNumber": 1,
+      "questionText": "Customer service representatives can be reached ------- calling 800-555-0121 between 8:00 A.M. and 4:00 P.M.",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 129,
+      "part": "PART_5",
+      "questionGroupOrder": 129,
+      "questionGroupId": "86857a2e-4356-4ff4-a683-fb709b5a7c5e",
+      "questionId": "12405f52-df10-4a8c-94e5-6cbc0cfced0a",
+      "questionNumber": 1,
+      "questionText": "Collaboration between multiple agencies is ------- challenging, but our project-based consulting can simplify the process for you.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 130,
+      "part": "PART_5",
+      "questionGroupOrder": 130,
+      "questionGroupId": "21fc212f-5432-4298-ad6e-57e8def7e5ee",
+      "questionId": "ee510699-28d5-4c47-842f-7048e8ac5ec9",
+      "questionNumber": 1,
+      "questionText": "The desserts we had at Giovanni\u0027s Bistro were not as delicious as ------- we enjoyed at Monteverdi\u0027s Taverna.",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [],
+      "audioUrls": [],
+      "imageUrls": []
+    },
+    {
+      "globalQuestionNumber": 131,
+      "part": "PART_6",
+      "questionGroupOrder": 131,
+      "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+      "questionId": "b10b2ec9-0d26-40b9-9280-9975c1498984",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "9f3d1781-1702-46d7-b85b-d2bff393d143",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 132,
+      "part": "PART_6",
+      "questionGroupOrder": 131,
+      "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+      "questionId": "0db67eb6-1d52-47f1-b28b-16fb9872df5b",
+      "questionNumber": 2,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "9f3d1781-1702-46d7-b85b-d2bff393d143",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 133,
+      "part": "PART_6",
+      "questionGroupOrder": 131,
+      "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+      "questionId": "93ca75ba-6f3f-4f3a-b43d-ba7b6e45b0c4",
+      "questionNumber": 3,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "9f3d1781-1702-46d7-b85b-d2bff393d143",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 134,
+      "part": "PART_6",
+      "questionGroupOrder": 131,
+      "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+      "questionId": "83c703e9-9071-47b7-807a-f63dc61ffec3",
+      "questionNumber": 4,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "9f3d1781-1702-46d7-b85b-d2bff393d143",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 135,
+      "part": "PART_6",
+      "questionGroupOrder": 135,
+      "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+      "questionId": "8c5df470-a33b-4a71-8955-f7b97f45ddfb",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "d85f737d-1817-4344-b8a9-cd98aeb4ac95",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 136,
+      "part": "PART_6",
+      "questionGroupOrder": 135,
+      "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+      "questionId": "e2f63828-069f-41c2-90cd-8263efafe8d7",
+      "questionNumber": 2,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "d85f737d-1817-4344-b8a9-cd98aeb4ac95",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 137,
+      "part": "PART_6",
+      "questionGroupOrder": 135,
+      "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+      "questionId": "785cd0e2-037f-4ecf-88cb-7f1dc01c3b28",
+      "questionNumber": 3,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "d85f737d-1817-4344-b8a9-cd98aeb4ac95",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 138,
+      "part": "PART_6",
+      "questionGroupOrder": 135,
+      "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+      "questionId": "8ba971a5-426b-49a5-9457-129c5d4872d2",
+      "questionNumber": 4,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "d85f737d-1817-4344-b8a9-cd98aeb4ac95",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2fc332dec3f54853b565925a1f9bdb67.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 139,
+      "part": "PART_6",
+      "questionGroupOrder": 139,
+      "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+      "questionId": "30851eb8-193d-47dd-8f20-9aa13fe2c766",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "e069c814-a188-4ad5-91b4-e7472f1b36aa",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 140,
+      "part": "PART_6",
+      "questionGroupOrder": 139,
+      "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+      "questionId": "f98f70d0-0992-479a-b997-c2894c461583",
+      "questionNumber": 2,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "e069c814-a188-4ad5-91b4-e7472f1b36aa",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 141,
+      "part": "PART_6",
+      "questionGroupOrder": 139,
+      "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+      "questionId": "3ab703b3-3c3c-4eab-8ac5-06f68f6d5a8a",
+      "questionNumber": 3,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "e069c814-a188-4ad5-91b4-e7472f1b36aa",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 142,
+      "part": "PART_6",
+      "questionGroupOrder": 139,
+      "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+      "questionId": "c152630d-bd95-497d-8326-b5e495ad6efa",
+      "questionNumber": 4,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "e069c814-a188-4ad5-91b4-e7472f1b36aa",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-fc5b0870376543529a8a9e296851a26f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 143,
+      "part": "PART_6",
+      "questionGroupOrder": 143,
+      "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+      "questionId": "9ca0eb58-d0f9-4274-9e9f-449054393b0b",
+      "questionNumber": 1,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "afaf7618-0698-4aef-bee8-33752533af29",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 144,
+      "part": "PART_6",
+      "questionGroupOrder": 143,
+      "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+      "questionId": "19b415e2-42cd-45ac-9fe9-855c1ac04c44",
+      "questionNumber": 2,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "afaf7618-0698-4aef-bee8-33752533af29",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 145,
+      "part": "PART_6",
+      "questionGroupOrder": 143,
+      "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+      "questionId": "76caef4d-c795-4a26-a096-008ef7bb68b7",
+      "questionNumber": 3,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "afaf7618-0698-4aef-bee8-33752533af29",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 146,
+      "part": "PART_6",
+      "questionGroupOrder": 143,
+      "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+      "questionId": "40b90f7c-0cb4-49c1-b904-01f106cb3b17",
+      "questionNumber": 4,
+      "questionText": "",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "afaf7618-0698-4aef-bee8-33752533af29",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-9fdbadd27267414a8f3f0eef983a580f.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 147,
+      "part": "PART_7",
+      "questionGroupOrder": 147,
+      "questionGroupId": "7fd0dfb0-d562-4461-aae3-e490769e6e59",
+      "questionId": "3c6d899b-8e72-46e1-b2e5-810bdfffedbe",
+      "questionNumber": 1,
+      "questionText": "What is the purpose of the e-mail?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "cf168928-3004-4fff-bb73-d298c817ed79",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-45ebd762eea34bebb0d1f69c197a4281.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-45ebd762eea34bebb0d1f69c197a4281.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 148,
+      "part": "PART_7",
+      "questionGroupOrder": 147,
+      "questionGroupId": "7fd0dfb0-d562-4461-aae3-e490769e6e59",
+      "questionId": "97fa4fe1-0718-47a4-a79a-b241ac4d65b7",
+      "questionNumber": 2,
+      "questionText": "According to the e-mail, what should staff members do by February 16?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "cf168928-3004-4fff-bb73-d298c817ed79",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-45ebd762eea34bebb0d1f69c197a4281.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-45ebd762eea34bebb0d1f69c197a4281.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 149,
+      "part": "PART_7",
+      "questionGroupOrder": 149,
+      "questionGroupId": "22fd3667-5bfd-47da-b49f-176591f9e496",
+      "questionId": "f5c02f7a-2675-49c2-9d5d-4774119fe822",
+      "questionNumber": 1,
+      "questionText": "What is the purpose of the flyer?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "764a0d9d-d06d-4148-a235-72dcc3ef78a5",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-acf3af9067904b33adb4772e0df3c0bb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-acf3af9067904b33adb4772e0df3c0bb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 150,
+      "part": "PART_7",
+      "questionGroupOrder": 149,
+      "questionGroupId": "22fd3667-5bfd-47da-b49f-176591f9e496",
+      "questionId": "e26dbdeb-66d4-4192-b191-85423fd0500d",
+      "questionNumber": 2,
+      "questionText": "What information is NOT included in the flyer?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "764a0d9d-d06d-4148-a235-72dcc3ef78a5",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-acf3af9067904b33adb4772e0df3c0bb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-acf3af9067904b33adb4772e0df3c0bb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 151,
+      "part": "PART_7",
+      "questionGroupOrder": 151,
+      "questionGroupId": "75eab273-1958-47a7-97ff-348a6d882e3d",
+      "questionId": "113b0733-549c-42d9-bd65-bc4f4a0b12a7",
+      "questionNumber": 1,
+      "questionText": "What is most likely true about Ms. Trujillo?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "af413041-1dfa-4bb7-99e3-2976e24fbc1b",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2757b1123d794bfe946039bfda7698c0.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2757b1123d794bfe946039bfda7698c0.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 152,
+      "part": "PART_7",
+      "questionGroupOrder": 151,
+      "questionGroupId": "75eab273-1958-47a7-97ff-348a6d882e3d",
+      "questionId": "0b4720a1-d1a1-4834-9b19-17457277b14e",
+      "questionNumber": 2,
+      "questionText": "At 10:10 A.M., what does Ms. Kim most likely mean when she writes, \"I\u0027ll handle it\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "af413041-1dfa-4bb7-99e3-2976e24fbc1b",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2757b1123d794bfe946039bfda7698c0.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2757b1123d794bfe946039bfda7698c0.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 153,
+      "part": "PART_7",
+      "questionGroupOrder": 153,
+      "questionGroupId": "6fb48d22-140d-46fd-baf3-fe4ac87ebb19",
+      "questionId": "408f0b31-99d6-4d79-8d1a-662883c99459",
+      "questionNumber": 1,
+      "questionText": "What is NOT indicated about the Westover Zoo?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "3b3bf88e-0acb-450a-a9f1-1b0af375800f",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5aa9628720f34a108aae42966796da05.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-5aa9628720f34a108aae42966796da05.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 154,
+      "part": "PART_7",
+      "questionGroupOrder": 153,
+      "questionGroupId": "6fb48d22-140d-46fd-baf3-fe4ac87ebb19",
+      "questionId": "ddbebaaf-0f29-4ad6-af5c-87268d534aaf",
+      "questionNumber": 2,
+      "questionText": "What is mentioned about transportation in the notice?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "3b3bf88e-0acb-450a-a9f1-1b0af375800f",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5aa9628720f34a108aae42966796da05.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-5aa9628720f34a108aae42966796da05.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 155,
+      "part": "PART_7",
+      "questionGroupOrder": 155,
+      "questionGroupId": "76acf88d-afbd-4d26-b56c-34175cd9b40d",
+      "questionId": "459e08bd-e272-425f-b0a4-dd9eb1f4adaa",
+      "questionNumber": 1,
+      "questionText": "What is suggested about the town of Hillsdale?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "03d9c366-2d7e-4974-8c8e-a99f284ae28e",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-bcff62521ab94dd78919a58583cbddc2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-bcff62521ab94dd78919a58583cbddc2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 156,
+      "part": "PART_7",
+      "questionGroupOrder": 155,
+      "questionGroupId": "76acf88d-afbd-4d26-b56c-34175cd9b40d",
+      "questionId": "092da9ec-c602-4f83-943e-5f068fd058d1",
+      "questionNumber": 2,
+      "questionText": "What is indicated about the proposed commercial area?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "03d9c366-2d7e-4974-8c8e-a99f284ae28e",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-bcff62521ab94dd78919a58583cbddc2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-bcff62521ab94dd78919a58583cbddc2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 157,
+      "part": "PART_7",
+      "questionGroupOrder": 155,
+      "questionGroupId": "76acf88d-afbd-4d26-b56c-34175cd9b40d",
+      "questionId": "369532c7-d2f5-4963-98af-3dd563d28050",
+      "questionNumber": 3,
+      "questionText": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?\n\"This area will include apartments as well as single-family homes.\"",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "03d9c366-2d7e-4974-8c8e-a99f284ae28e",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-bcff62521ab94dd78919a58583cbddc2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-bcff62521ab94dd78919a58583cbddc2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 158,
+      "part": "PART_7",
+      "questionGroupOrder": 158,
+      "questionGroupId": "64a49f04-8594-4708-808c-0f859b56278b",
+      "questionId": "321f10be-28fe-431c-9dd2-60904b917896",
+      "questionNumber": 1,
+      "questionText": "For whom is the information most likely intended?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "65794977-a2ed-4627-90d4-0762f90a6c2d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-16deafe4ad824a90a30c2e2cfaf49623.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-16deafe4ad824a90a30c2e2cfaf49623.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 159,
+      "part": "PART_7",
+      "questionGroupOrder": 158,
+      "questionGroupId": "64a49f04-8594-4708-808c-0f859b56278b",
+      "questionId": "8a6ceb5c-fdc1-4a80-a642-7ff2b908f3ee",
+      "questionNumber": 2,
+      "questionText": "What strategy is proposed to make the company more widely known by the public?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "65794977-a2ed-4627-90d4-0762f90a6c2d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-16deafe4ad824a90a30c2e2cfaf49623.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-16deafe4ad824a90a30c2e2cfaf49623.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 160,
+      "part": "PART_7",
+      "questionGroupOrder": 158,
+      "questionGroupId": "64a49f04-8594-4708-808c-0f859b56278b",
+      "questionId": "9edf5135-839b-45c6-b7fa-b21a6a4c5925",
+      "questionNumber": 3,
+      "questionText": "What is NOT listed as a potential benefit?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "65794977-a2ed-4627-90d4-0762f90a6c2d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-16deafe4ad824a90a30c2e2cfaf49623.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-16deafe4ad824a90a30c2e2cfaf49623.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 161,
+      "part": "PART_7",
+      "questionGroupOrder": 161,
+      "questionGroupId": "c33eae96-4054-4c9f-a0e5-366e4e840499",
+      "questionId": "dbf773fa-b8ab-43a0-ab86-18f7f7644c31",
+      "questionNumber": 1,
+      "questionText": "According to the policy, what is considered a personal item?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "c25be1ea-ba39-4658-8e0f-a2bbecb3a266",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b6f6bdb49d8e4a9c9ec5992b45245eb7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b6f6bdb49d8e4a9c9ec5992b45245eb7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 162,
+      "part": "PART_7",
+      "questionGroupOrder": 161,
+      "questionGroupId": "c33eae96-4054-4c9f-a0e5-366e4e840499",
+      "questionId": "545cf84f-316c-42fa-a218-9c11d8d586b1",
+      "questionNumber": 2,
+      "questionText": "What is indicated about carry-on items?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "c25be1ea-ba39-4658-8e0f-a2bbecb3a266",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b6f6bdb49d8e4a9c9ec5992b45245eb7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b6f6bdb49d8e4a9c9ec5992b45245eb7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 163,
+      "part": "PART_7",
+      "questionGroupOrder": 161,
+      "questionGroupId": "c33eae96-4054-4c9f-a0e5-366e4e840499",
+      "questionId": "68d753a5-aff3-4102-984d-8e24b4c7d4a7",
+      "questionNumber": 3,
+      "questionText": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?\n\"Before bringing large items like these on board, please contact a customer service representative.\"",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "c25be1ea-ba39-4658-8e0f-a2bbecb3a266",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-b6f6bdb49d8e4a9c9ec5992b45245eb7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-b6f6bdb49d8e4a9c9ec5992b45245eb7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 164,
+      "part": "PART_7",
+      "questionGroupOrder": 164,
+      "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+      "questionId": "54ce6bee-8f49-4847-b1cb-a66be8d16c45",
+      "questionNumber": 1,
+      "questionText": "What is indicated about the staff event?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "488d6c1c-892c-4e6c-adcf-9c31c1d7e038",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 165,
+      "part": "PART_7",
+      "questionGroupOrder": 164,
+      "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+      "questionId": "490c7606-dd85-4a9c-809a-f79159cd9932",
+      "questionNumber": 2,
+      "questionText": "What do the event\u0027s three competitions have in common?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "488d6c1c-892c-4e6c-adcf-9c31c1d7e038",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 166,
+      "part": "PART_7",
+      "questionGroupOrder": 164,
+      "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+      "questionId": "34678aec-1e27-44dc-bbb1-1a60e47897e7",
+      "questionNumber": 3,
+      "questionText": "Why does the invitation mention Mr. Baxter?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "488d6c1c-892c-4e6c-adcf-9c31c1d7e038",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 167,
+      "part": "PART_7",
+      "questionGroupOrder": 164,
+      "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+      "questionId": "4c4f4fd6-e396-4950-b003-db99454ce27b",
+      "questionNumber": 4,
+      "questionText": "What most likely is Z-Hype?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "488d6c1c-892c-4e6c-adcf-9c31c1d7e038",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2227ea8eb0b54bbda1a8aedc6e005dff.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 168,
+      "part": "PART_7",
+      "questionGroupOrder": 168,
+      "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+      "questionId": "22ba04e1-3d69-4a89-a489-d844cad297d8",
+      "questionNumber": 1,
+      "questionText": "For what type of event has Mr. Kolman most likely been hired?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "bb5f3b9d-3e00-440e-92c2-1a0a4b1d1365",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 169,
+      "part": "PART_7",
+      "questionGroupOrder": 168,
+      "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+      "questionId": "92a1fa14-88dc-4dd6-918a-ab48bd3d0943",
+      "questionNumber": 2,
+      "questionText": "What is indicated about the payment Mr. Kolman will receive?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "bb5f3b9d-3e00-440e-92c2-1a0a4b1d1365",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 170,
+      "part": "PART_7",
+      "questionGroupOrder": 168,
+      "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+      "questionId": "8997ed16-6fa8-4ede-b8fa-6d0ccccb5601",
+      "questionNumber": 3,
+      "questionText": "What information is included with the contract?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "bb5f3b9d-3e00-440e-92c2-1a0a4b1d1365",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 171,
+      "part": "PART_7",
+      "questionGroupOrder": 168,
+      "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+      "questionId": "a74fd943-6d4d-4406-98a0-9c2a5dd16e00",
+      "questionNumber": 4,
+      "questionText": "What is indicated about an event cancellation?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "bb5f3b9d-3e00-440e-92c2-1a0a4b1d1365",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-5586e824383443dd9de015d26c871e97.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 172,
+      "part": "PART_7",
+      "questionGroupOrder": 172,
+      "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+      "questionId": "afb09fb6-aad1-4e47-8750-934c7ab956c8",
+      "questionNumber": 1,
+      "questionText": "Why does Mr. Tennison want to make a video?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "611520e2-3885-4fd9-8817-1257ddcda87d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 173,
+      "part": "PART_7",
+      "questionGroupOrder": 172,
+      "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+      "questionId": "8f690466-c25a-4c11-ba4f-46ac0539ed4d",
+      "questionNumber": 2,
+      "questionText": "Why did Ms. Mehta not respond to an e-mail?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "611520e2-3885-4fd9-8817-1257ddcda87d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 174,
+      "part": "PART_7",
+      "questionGroupOrder": 172,
+      "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+      "questionId": "a9468883-2ff7-4139-b8e0-2800ed062a43",
+      "questionNumber": 3,
+      "questionText": "At 8:21 A.M., what does Ms. Mehta imply when she writes, \"I just work at my computer all day\"?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "611520e2-3885-4fd9-8817-1257ddcda87d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 175,
+      "part": "PART_7",
+      "questionGroupOrder": 172,
+      "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+      "questionId": "ea56c238-aefd-47b9-97ad-23af7cee2204",
+      "questionNumber": 4,
+      "questionText": "What does Ms. Gammon suggest the writers do with a video?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "611520e2-3885-4fd9-8817-1257ddcda87d",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-4510d11d17fc48a189d521917f075250.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 176,
+      "part": "PART_7",
+      "questionGroupOrder": 176,
+      "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+      "questionId": "deee4398-f457-4b48-8ff3-0aa39a757152",
+      "questionNumber": 1,
+      "questionText": "What is Mr. Maalim most famous for doing?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "c93684f7-4ed1-40b3-a9d9-7252c567a5a9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 177,
+      "part": "PART_7",
+      "questionGroupOrder": 176,
+      "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+      "questionId": "a2261658-7105-436b-aeef-40c108af076b",
+      "questionNumber": 2,
+      "questionText": "What does the advertisement indicate about Ms. Mackay?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "c93684f7-4ed1-40b3-a9d9-7252c567a5a9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 178,
+      "part": "PART_7",
+      "questionGroupOrder": 176,
+      "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+      "questionId": "e461bb3b-7118-4fab-9aef-4b9732d82869",
+      "questionNumber": 3,
+      "questionText": "In the advertisement, the word \"accessible\" in paragraph 2, line 4, is closest in meaning to",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "c93684f7-4ed1-40b3-a9d9-7252c567a5a9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 179,
+      "part": "PART_7",
+      "questionGroupOrder": 176,
+      "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+      "questionId": "1faaebe9-7a9e-4666-ae0a-0a2e735dcfbe",
+      "questionNumber": 4,
+      "questionText": "How most likely did Ms. Lugo know Mr. Maalim?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "c93684f7-4ed1-40b3-a9d9-7252c567a5a9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 180,
+      "part": "PART_7",
+      "questionGroupOrder": 176,
+      "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+      "questionId": "3ef4a9b1-f502-4853-a117-87855110796d",
+      "questionNumber": 5,
+      "questionText": "According to the review, what is one problem with A Life in the Spotlight?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "c93684f7-4ed1-40b3-a9d9-7252c567a5a9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-f325a713f80845aa82a25f8f6c4eecfb.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 181,
+      "part": "PART_7",
+      "questionGroupOrder": 181,
+      "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+      "questionId": "e5542747-3f3c-4a0c-b22d-760526eff444",
+      "questionNumber": 1,
+      "questionText": "What can customers do at Big Strike Lanes?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "2cd181c7-d32a-445d-afc7-918664294e77",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png"
+        },
+        {
+          "id": "3c942daa-49c2-43c7-b496-0f932d761603",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png",
+        "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 182,
+      "part": "PART_7",
+      "questionGroupOrder": 181,
+      "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+      "questionId": "e9a8058d-9b10-430f-a512-f5076170c689",
+      "questionNumber": 2,
+      "questionText": "According to the advertisement, what will happen on May 31 ?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "2cd181c7-d32a-445d-afc7-918664294e77",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png"
+        },
+        {
+          "id": "3c942daa-49c2-43c7-b496-0f932d761603",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png",
+        "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 183,
+      "part": "PART_7",
+      "questionGroupOrder": 181,
+      "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+      "questionId": "9025366a-8a0f-4751-bf78-a2c1138ccd04",
+      "questionNumber": 3,
+      "questionText": "What does Ms. Shaw suggest in her review?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "2cd181c7-d32a-445d-afc7-918664294e77",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png"
+        },
+        {
+          "id": "3c942daa-49c2-43c7-b496-0f932d761603",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png",
+        "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 184,
+      "part": "PART_7",
+      "questionGroupOrder": 181,
+      "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+      "questionId": "c0f87b61-82ad-4f18-a5d3-461fa2959405",
+      "questionNumber": 4,
+      "questionText": "How much did Ms. Shaw pay for entertainment activities?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "2cd181c7-d32a-445d-afc7-918664294e77",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png"
+        },
+        {
+          "id": "3c942daa-49c2-43c7-b496-0f932d761603",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png",
+        "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 185,
+      "part": "PART_7",
+      "questionGroupOrder": 181,
+      "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+      "questionId": "9c397f34-af6d-4127-a823-107c5e02249f",
+      "questionNumber": 5,
+      "questionText": "In the review, the word \"situated\" in paragraph 3, line 2, is closest in meaning to",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "2cd181c7-d32a-445d-afc7-918664294e77",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png"
+        },
+        {
+          "id": "3c942daa-49c2-43c7-b496-0f932d761603",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-8a400e443dc34f83ace27f50e0beb4c2.png",
+        "https://chamtoeic.edu.vn/media/images/image-8dbed83eef6c46728d678a961d096196.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 186,
+      "part": "PART_7",
+      "questionGroupOrder": 186,
+      "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+      "questionId": "0e990796-2255-42b8-9b73-1abd8c40efe7",
+      "questionNumber": 1,
+      "questionText": "For what activity will Winglite Airlines and the city of Arlford share expenses?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "633fd2cb-3fd6-48a2-bd51-f076e25b0b8a",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png"
+        },
+        {
+          "id": "c7ed1390-6570-47ad-95aa-c2145570fc76",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png"
+        },
+        {
+          "id": "0826ecb6-6835-493c-addd-cb5e80731308",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png",
+        "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png",
+        "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 187,
+      "part": "PART_7",
+      "questionGroupOrder": 186,
+      "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+      "questionId": "eb97c0d6-1b07-40b0-a58b-889e39511227",
+      "questionNumber": 2,
+      "questionText": "What does the article indicate about Winglite Airlines?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "633fd2cb-3fd6-48a2-bd51-f076e25b0b8a",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png"
+        },
+        {
+          "id": "c7ed1390-6570-47ad-95aa-c2145570fc76",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png"
+        },
+        {
+          "id": "0826ecb6-6835-493c-addd-cb5e80731308",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png",
+        "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png",
+        "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 188,
+      "part": "PART_7",
+      "questionGroupOrder": 186,
+      "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+      "questionId": "8c54ca79-0418-41ad-902d-f35ff5312189",
+      "questionNumber": 3,
+      "questionText": "When should the Aviation Boulevard project be completed?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "633fd2cb-3fd6-48a2-bd51-f076e25b0b8a",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png"
+        },
+        {
+          "id": "c7ed1390-6570-47ad-95aa-c2145570fc76",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png"
+        },
+        {
+          "id": "0826ecb6-6835-493c-addd-cb5e80731308",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png",
+        "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png",
+        "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 189,
+      "part": "PART_7",
+      "questionGroupOrder": 186,
+      "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+      "questionId": "ba9204c5-4fb5-4657-800d-4a3b708cfd3d",
+      "questionNumber": 4,
+      "questionText": "According to the e-mail, what will Mr. Girard do if he moves into the apartment?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "633fd2cb-3fd6-48a2-bd51-f076e25b0b8a",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png"
+        },
+        {
+          "id": "c7ed1390-6570-47ad-95aa-c2145570fc76",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png"
+        },
+        {
+          "id": "0826ecb6-6835-493c-addd-cb5e80731308",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png",
+        "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png",
+        "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 190,
+      "part": "PART_7",
+      "questionGroupOrder": 186,
+      "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+      "questionId": "2994b689-6195-4378-9048-43945d579e3e",
+      "questionNumber": 5,
+      "questionText": "Where will Mr. Girard usually stay when he is not in Arlford?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "633fd2cb-3fd6-48a2-bd51-f076e25b0b8a",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png"
+        },
+        {
+          "id": "c7ed1390-6570-47ad-95aa-c2145570fc76",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png"
+        },
+        {
+          "id": "0826ecb6-6835-493c-addd-cb5e80731308",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-2ac066495bc3429dadc798dd735048a3.png",
+        "https://chamtoeic.edu.vn/media/images/image-40113b66a51f4e9996703ff61639e395.png",
+        "https://chamtoeic.edu.vn/media/images/image-5a3fe927038c4a3da0e2183f016260c2.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 191,
+      "part": "PART_7",
+      "questionGroupOrder": 191,
+      "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+      "questionId": "9884a258-fa52-4bc3-95ec-8f21ab18702d",
+      "questionNumber": 1,
+      "questionText": "What is indicated about Forklift Training Academy courses?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "eb173044-5f2a-428a-9b7c-1444ad4ce0e9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png"
+        },
+        {
+          "id": "581dbb32-eba1-4194-9f74-06702b5574ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png"
+        },
+        {
+          "id": "b0cd2f04-0d83-4496-87e8-a0ff59fee415",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png",
+        "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png",
+        "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 192,
+      "part": "PART_7",
+      "questionGroupOrder": 191,
+      "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+      "questionId": "bc32061a-e85b-4885-8b5b-beba3b4841d6",
+      "questionNumber": 2,
+      "questionText": "What is suggested about Mr. Durand?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "eb173044-5f2a-428a-9b7c-1444ad4ce0e9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png"
+        },
+        {
+          "id": "581dbb32-eba1-4194-9f74-06702b5574ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png"
+        },
+        {
+          "id": "b0cd2f04-0d83-4496-87e8-a0ff59fee415",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png",
+        "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png",
+        "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 193,
+      "part": "PART_7",
+      "questionGroupOrder": 191,
+      "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+      "questionId": "5399979a-35a2-4707-b1b4-b59ed70beeda",
+      "questionNumber": 3,
+      "questionText": "Who taught the course on April 14?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "eb173044-5f2a-428a-9b7c-1444ad4ce0e9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png"
+        },
+        {
+          "id": "581dbb32-eba1-4194-9f74-06702b5574ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png"
+        },
+        {
+          "id": "b0cd2f04-0d83-4496-87e8-a0ff59fee415",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png",
+        "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png",
+        "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 194,
+      "part": "PART_7",
+      "questionGroupOrder": 191,
+      "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+      "questionId": "6b2bd225-5402-4547-8f30-be8ed75de681",
+      "questionNumber": 4,
+      "questionText": "When did Ms. Dye take her course?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "eb173044-5f2a-428a-9b7c-1444ad4ce0e9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png"
+        },
+        {
+          "id": "581dbb32-eba1-4194-9f74-06702b5574ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png"
+        },
+        {
+          "id": "b0cd2f04-0d83-4496-87e8-a0ff59fee415",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png",
+        "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png",
+        "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 195,
+      "part": "PART_7",
+      "questionGroupOrder": 191,
+      "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+      "questionId": "a0afdc37-c092-4363-bb2a-0deb4ecc32cf",
+      "questionNumber": 5,
+      "questionText": "What can be concluded about Ms. Dye?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "eb173044-5f2a-428a-9b7c-1444ad4ce0e9",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png"
+        },
+        {
+          "id": "581dbb32-eba1-4194-9f74-06702b5574ca",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png"
+        },
+        {
+          "id": "b0cd2f04-0d83-4496-87e8-a0ff59fee415",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-af9406c438074f66a2bc811c7627d508.png",
+        "https://chamtoeic.edu.vn/media/images/image-03fd904de9a24dd99d5140c2775e2e87.png",
+        "https://chamtoeic.edu.vn/media/images/image-22ad786f8722476da43f39172298c2c7.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 196,
+      "part": "PART_7",
+      "questionGroupOrder": 196,
+      "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+      "questionId": "12aafc8c-2cd1-4894-b915-260d5e8058d6",
+      "questionNumber": 1,
+      "questionText": "What is suggested in the first e-mail about products made by Stickers Be Yours?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "f2a7b4bc-369d-4535-b387-9d40c38bf147",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png"
+        },
+        {
+          "id": "634e1780-02a5-41d3-afa8-8dfe5d8f32c5",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png"
+        },
+        {
+          "id": "616654aa-809d-4280-8120-b8db8a4b0bc2",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png",
+        "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png",
+        "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 197,
+      "part": "PART_7",
+      "questionGroupOrder": 196,
+      "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+      "questionId": "06d70071-d789-4afc-9a15-c7d2c70d2a24",
+      "questionNumber": 2,
+      "questionText": "What is most likely true about Mr. Cheung?",
+      "answerCount": 4,
+      "correctAnswerLabel": "A",
+      "correctAnswerOrder": 1,
+      "mediaFiles": [
+        {
+          "id": "f2a7b4bc-369d-4535-b387-9d40c38bf147",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png"
+        },
+        {
+          "id": "634e1780-02a5-41d3-afa8-8dfe5d8f32c5",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png"
+        },
+        {
+          "id": "616654aa-809d-4280-8120-b8db8a4b0bc2",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png",
+        "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png",
+        "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 198,
+      "part": "PART_7",
+      "questionGroupOrder": 196,
+      "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+      "questionId": "6d1220e7-0aab-4ad9-86c1-12b9261f3889",
+      "questionNumber": 3,
+      "questionText": "How much does a sticker that features a vehicle cost?",
+      "answerCount": 4,
+      "correctAnswerLabel": "B",
+      "correctAnswerOrder": 2,
+      "mediaFiles": [
+        {
+          "id": "f2a7b4bc-369d-4535-b387-9d40c38bf147",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png"
+        },
+        {
+          "id": "634e1780-02a5-41d3-afa8-8dfe5d8f32c5",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png"
+        },
+        {
+          "id": "616654aa-809d-4280-8120-b8db8a4b0bc2",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png",
+        "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png",
+        "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 199,
+      "part": "PART_7",
+      "questionGroupOrder": 196,
+      "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+      "questionId": "bd6cc8d0-79c8-4c93-ab02-8e849badfb58",
+      "questionNumber": 4,
+      "questionText": "What can be concluded about Nick Beats\u0027 most popular sticker?",
+      "answerCount": 4,
+      "correctAnswerLabel": "C",
+      "correctAnswerOrder": 3,
+      "mediaFiles": [
+        {
+          "id": "f2a7b4bc-369d-4535-b387-9d40c38bf147",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png"
+        },
+        {
+          "id": "634e1780-02a5-41d3-afa8-8dfe5d8f32c5",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png"
+        },
+        {
+          "id": "616654aa-809d-4280-8120-b8db8a4b0bc2",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png",
+        "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png",
+        "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+      ]
+    },
+    {
+      "globalQuestionNumber": 200,
+      "part": "PART_7",
+      "questionGroupOrder": 196,
+      "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+      "questionId": "d84cef87-c35a-4342-a9ea-4d6c052d8518",
+      "questionNumber": 5,
+      "questionText": "What is indicated about the sticker ordered by Ms. Bledstone?",
+      "answerCount": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerOrder": 4,
+      "mediaFiles": [
+        {
+          "id": "f2a7b4bc-369d-4535-b387-9d40c38bf147",
+          "type": "IMAGE",
+          "displayOrder": 1,
+          "url": "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png"
+        },
+        {
+          "id": "634e1780-02a5-41d3-afa8-8dfe5d8f32c5",
+          "type": "IMAGE",
+          "displayOrder": 2,
+          "url": "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png"
+        },
+        {
+          "id": "616654aa-809d-4280-8120-b8db8a4b0bc2",
+          "type": "IMAGE",
+          "displayOrder": 3,
+          "url": "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+        }
+      ],
+      "audioUrls": [],
+      "imageUrls": [
+        "https://chamtoeic.edu.vn/media/images/image-e08f4f029edd441c8286ac3ef86055ef.png",
+        "https://chamtoeic.edu.vn/media/images/image-9639154ab9a04228b8924a309f5ce8b4.png",
+        "https://chamtoeic.edu.vn/media/images/image-7003e0f182ca46f699237c211867bc2c.png"
+      ]
+    }
+  ]
+}

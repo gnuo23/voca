@@ -1,0 +1,3311 @@
+﻿{
+  "source": {
+    "questions": "questions.json",
+    "submitResponse": "submit-one-answer-response.json",
+    "generatedAt": "2026-07-09T20:37:21Z",
+    "note": "Public anonymous submit response includes correct answers but no explanations."
+  },
+  "testSetId": "897e671c-052b-4014-bf50-13f6bb23a610",
+  "testSetSlug": "ets-2024-test-7",
+  "testName": "ETS 2024 TEST 7",
+  "answers": [
+    {
+      "globalQuestionNumber": 1,
+      "questionPart": "PART_1",
+      "questionGroupOrder": 1,
+      "questionNumber": 1,
+      "questionGroupId": "789d8ae6-0456-4bbc-950f-1aea784a3f30",
+      "questionId": "a03542c0-8e4e-4a09-949e-dcb9fb6645ef",
+      "correctAnswerId": "a14b6e66-a4ba-40b4-90a0-2022db5a9eef",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "0ec3d690-a258-4fe1-a6a5-b8b535903c4d",
+          "tagName": "[Part 1] Tranh tả một người"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 2,
+      "questionPart": "PART_1",
+      "questionGroupOrder": 2,
+      "questionNumber": 1,
+      "questionGroupId": "f09a5410-83ea-4206-96dc-00ddc65ed66d",
+      "questionId": "48dae9b6-ca3e-4f20-9407-a30507a7b088",
+      "correctAnswerId": "f3d0d756-b0a9-4e14-b717-27aa710ab37d",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "0ec3d690-a258-4fe1-a6a5-b8b535903c4d",
+          "tagName": "[Part 1] Tranh tả một người"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 3,
+      "questionPart": "PART_1",
+      "questionGroupOrder": 3,
+      "questionNumber": 1,
+      "questionGroupId": "6437186a-1460-43d4-83d1-868911ec4c9a",
+      "questionId": "9f543489-1fcb-4e67-9d73-975a3fea5413",
+      "correctAnswerId": "51247638-0b57-4de8-9b58-78f3a99def28",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "0ec3d690-a258-4fe1-a6a5-b8b535903c4d",
+          "tagName": "[Part 1] Tranh tả một người"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 4,
+      "questionPart": "PART_1",
+      "questionGroupOrder": 4,
+      "questionNumber": 1,
+      "questionGroupId": "28abf6b4-9591-4995-b57f-df667a619b41",
+      "questionId": "4f6c1d8f-1db4-4d63-b363-f70adddefc91",
+      "correctAnswerId": "4d5aead7-409e-49aa-8dc9-7671ca654a82",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1904fbcb-b8cd-4c54-93f0-157aaa7dfd43",
+          "tagName": "[Part 1] Tranh tả vật"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 5,
+      "questionPart": "PART_1",
+      "questionGroupOrder": 5,
+      "questionNumber": 1,
+      "questionGroupId": "010a1231-8e29-47d4-bfa9-b0a0f59275c6",
+      "questionId": "8e05b5cf-4a8d-422e-b698-67d5cb164e80",
+      "correctAnswerId": "93645057-dde3-48b8-9e94-631c422fdf69",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "a6f59139-6452-4ef5-966f-0f87433b9e81",
+          "tagName": "[Part 1] Tranh tả nhiều người"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 6,
+      "questionPart": "PART_1",
+      "questionGroupOrder": 6,
+      "questionNumber": 1,
+      "questionGroupId": "cf3256b4-4880-4701-8f8d-6ac18766c1e8",
+      "questionId": "f55fcbb5-32b3-4343-94ac-6ae49008348f",
+      "correctAnswerId": "9f285ad6-6e68-46f3-8de9-6bef5068ed10",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1904fbcb-b8cd-4c54-93f0-157aaa7dfd43",
+          "tagName": "[Part 1] Tranh tả vật"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 7,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 7,
+      "questionNumber": 1,
+      "questionGroupId": "b92311cb-bca2-4fcf-b699-71a2ccaaf692",
+      "questionId": "2a5bf2b2-5b4c-4fbb-97a4-5a821b0e2904",
+      "correctAnswerId": "69811ff8-9f41-4535-8007-407d9524188f",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "aded8818-db1d-4276-8708-4850b7366165",
+          "tagName": "[Part 2] Câu hỏi WHO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 8,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 8,
+      "questionNumber": 1,
+      "questionGroupId": "6a743387-31ac-40a3-952b-9d59e9c5da73",
+      "questionId": "05f926af-a7df-4f60-b6ca-12f70d1a2c31",
+      "correctAnswerId": "1470c8c5-08d5-46a0-a6c2-917387034270",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "d3e4fa65-da0d-4ff1-8c89-f780dee4b228",
+          "tagName": "[Part 2] Câu hỏi WHY"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 9,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 9,
+      "questionNumber": 1,
+      "questionGroupId": "5741392f-6888-48ee-bcbb-bf65389c92f6",
+      "questionId": "614ad3d6-63c8-4a92-81f7-93aea0dc2642",
+      "correctAnswerId": "9d963fe5-b374-429b-9ce0-06227a267458",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "8bb4e554-ac36-444f-95bd-fc817a4234ed",
+          "tagName": "[Part 2] Câu hỏi WHAT"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 10,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 10,
+      "questionNumber": 1,
+      "questionGroupId": "08225f7f-6e31-4cd0-8d95-8889ac25e51e",
+      "questionId": "4153fe87-1192-4154-86a4-8681cdbb2ef2",
+      "correctAnswerId": "295af143-1366-413b-aa09-53a00b1339dd",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "422e7552-8199-45f5-bbec-00901b32b96a",
+          "tagName": "[Part 2] Câu hỏi HOW"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 11,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 11,
+      "questionNumber": 1,
+      "questionGroupId": "12c9cac5-67dd-4802-8ccc-0a5b4a059c88",
+      "questionId": "524c7264-3dac-4b3f-bc3c-b165a56edc1f",
+      "correctAnswerId": "06bfb6b0-15a8-435b-bb85-43225be32fe1",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "aded8818-db1d-4276-8708-4850b7366165",
+          "tagName": "[Part 2] Câu hỏi WHO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 12,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 12,
+      "questionNumber": 1,
+      "questionGroupId": "e82c6efa-c227-4569-a823-41fecb8c5a94",
+      "questionId": "73f06860-58b4-4849-9440-1a52552e392b",
+      "correctAnswerId": "18ad0024-539a-4637-bba7-54f5ce2cccaf",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+          "tagName": "[Part 2] Câu hỏi YES/NO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 13,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 13,
+      "questionNumber": 1,
+      "questionGroupId": "5eb8e5b9-9ffc-41d5-9662-b77191ac0b78",
+      "questionId": "5cfbb311-96c4-4131-9e09-62bb601e5f72",
+      "correctAnswerId": "e04bedde-f71a-4b3d-8273-72ab8dd42b28",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+          "tagName": "[Part 2] Câu hỏi YES/NO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 14,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 14,
+      "questionNumber": 1,
+      "questionGroupId": "73e70c0e-72e4-4e5d-a1dd-be012909f984",
+      "questionId": "6cb35db1-889c-401f-abbc-6cb5f349bf4e",
+      "correctAnswerId": "be34b958-4d2a-4b6e-b7c4-a9653f93f020",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "958d11fc-6703-47c3-b3d6-b2f3e4a80ecc",
+          "tagName": "[Part 2] Câu hỏi WHEN"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 15,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 15,
+      "questionNumber": 1,
+      "questionGroupId": "357d6d57-93fd-46ab-a50e-a0da3c37805c",
+      "questionId": "77a9c02d-6dbf-4b2d-9613-4f59da3e124f",
+      "correctAnswerId": "d787de7e-fbf8-4e70-af2b-e48e8017c880",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "f87aec04-bdc9-4f31-90b8-442341d554da",
+          "tagName": "[Part 2] Câu hỏi đuôi"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 16,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 16,
+      "questionNumber": 1,
+      "questionGroupId": "80e8b87a-1c7f-44dd-9ace-43e4c28d68d0",
+      "questionId": "cfef47b9-b2b6-4994-9b09-2fe8411c0df0",
+      "correctAnswerId": "1e7aad77-206a-4703-b3a9-79cb7c0d60c6",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ff732c4-8b8c-4bb3-ba66-4ee98d490a2d",
+          "tagName": "[Part 2] Câu hỏi WHERE"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 17,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 17,
+      "questionNumber": 1,
+      "questionGroupId": "d086005e-40fd-4b0c-9a19-1b52b5599886",
+      "questionId": "565531db-6818-461b-a7c4-d0a48f0be4c5",
+      "correctAnswerId": "a7baa581-3ffe-446c-a649-97fc68bae30e",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+          "tagName": "[Part 2] Câu hỏi YES/NO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 18,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 18,
+      "questionNumber": 1,
+      "questionGroupId": "11178254-4970-46c6-8d64-6b4424e577d3",
+      "questionId": "6b9ac0fd-f53a-4e43-904c-0d95f3173c7b",
+      "correctAnswerId": "58cc7141-a8e2-46d9-9a9b-75e8748ee1ed",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "25525544-02d4-4a41-98be-40564f5832ff",
+          "tagName": "[Part 2] Câu hỏi lựa chọn"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 19,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 19,
+      "questionNumber": 1,
+      "questionGroupId": "0b6fa8ee-6ab3-4e98-9769-6f999a6d2900",
+      "questionId": "5aba42d9-d0fb-4745-86c1-e23e6006f587",
+      "correctAnswerId": "93d5e56f-06ec-4ca7-a9e3-389b32c0a5eb",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "422e7552-8199-45f5-bbec-00901b32b96a",
+          "tagName": "[Part 2] Câu hỏi HOW"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 20,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 20,
+      "questionNumber": 1,
+      "questionGroupId": "188d2ba3-1c42-41eb-877e-cf7a5f694df6",
+      "questionId": "6f62d5f3-8f6c-4563-9be4-fa40836962da",
+      "correctAnswerId": "d721afee-6c66-4f98-a8b9-3a5e69ba4d19",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+          "tagName": "[Part 2] Câu hỏi YES/NO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 21,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 21,
+      "questionNumber": 1,
+      "questionGroupId": "27ef9272-cc29-4685-9004-8519b516d211",
+      "questionId": "037dee73-2c92-4a44-a5e6-f750e8f9e9c3",
+      "correctAnswerId": "98289482-35be-453a-901c-48d6960c8613",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "958d11fc-6703-47c3-b3d6-b2f3e4a80ecc",
+          "tagName": "[Part 2] Câu hỏi WHEN"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 22,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 22,
+      "questionNumber": 1,
+      "questionGroupId": "65876b5f-ab48-4519-924f-0d8ee327ba35",
+      "questionId": "71760110-5837-46b7-a228-7ab87476da7d",
+      "correctAnswerId": "d1b1756a-083c-44c4-a81f-1df13d92df2a",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "885a8d1b-643e-4886-b070-781f97d9a31a",
+          "tagName": "[Part 2] Câu trần thuật"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 23,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 23,
+      "questionNumber": 1,
+      "questionGroupId": "80aa095b-5882-4bb5-bdb7-8128a22581b4",
+      "questionId": "fb791a79-65f2-4f7b-ab16-537cf4456dbe",
+      "correctAnswerId": "f18d853e-3a77-4d96-9bab-f3b8de09aaa4",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "0d6453fb-9a99-4fc7-914d-14bd8d260668",
+          "tagName": "[Part 2] Câu yêu cầu, đề nghị"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 24,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 24,
+      "questionNumber": 1,
+      "questionGroupId": "48b8fd7c-99a6-43f7-9370-69f87ad25b9d",
+      "questionId": "fc06034f-a063-40e0-8182-fd53a281fe50",
+      "correctAnswerId": "d973843f-d3f8-4d0a-b257-29f77203f531",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "8bb4e554-ac36-444f-95bd-fc817a4234ed",
+          "tagName": "[Part 2] Câu hỏi WHAT"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 25,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 25,
+      "questionNumber": 1,
+      "questionGroupId": "17032c2b-d7ab-46c5-9f2c-3a4bc659fa0f",
+      "questionId": "a2476189-6974-493a-a203-fad6fab99d9d",
+      "correctAnswerId": "9cbcccf5-f52b-4699-a6c2-0ea2661db60a",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "422e7552-8199-45f5-bbec-00901b32b96a",
+          "tagName": "[Part 2] Câu hỏi HOW"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 26,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 26,
+      "questionNumber": 1,
+      "questionGroupId": "924d5c33-9e8e-40a4-a494-2f00eb9e35f1",
+      "questionId": "50b246cd-1399-4f4f-96ee-f52e804f1746",
+      "correctAnswerId": "b4dbe8ce-4df6-4ac6-bdbc-dc9d042c2ea1",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ff732c4-8b8c-4bb3-ba66-4ee98d490a2d",
+          "tagName": "[Part 2] Câu hỏi WHERE"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 27,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 27,
+      "questionNumber": 1,
+      "questionGroupId": "8ef2d861-2b08-4eed-97e0-23630d558033",
+      "questionId": "f12cd009-30ea-4cfa-8853-957e0565c80e",
+      "correctAnswerId": "ad292f45-4dc4-40b5-bb49-68cb85a29c10",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "885a8d1b-643e-4886-b070-781f97d9a31a",
+          "tagName": "[Part 2] Câu trần thuật"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 28,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 28,
+      "questionNumber": 1,
+      "questionGroupId": "6e60610d-becb-42a9-985c-05c70b49d9ad",
+      "questionId": "8123e5a1-f449-4e52-b26f-141d29961f5d",
+      "correctAnswerId": "defb7974-e056-4173-91e4-505a75d895a8",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "958d11fc-6703-47c3-b3d6-b2f3e4a80ecc",
+          "tagName": "[Part 2] Câu hỏi WHEN"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 29,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 29,
+      "questionNumber": 1,
+      "questionGroupId": "19b34b54-0511-471b-97d6-7e0c8bd9bdfd",
+      "questionId": "1915029a-d2e9-49ad-b166-7632c320f762",
+      "correctAnswerId": "e724418f-9dc3-46bf-9ca5-7062393a0c07",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "0d6453fb-9a99-4fc7-914d-14bd8d260668",
+          "tagName": "[Part 2] Câu yêu cầu, đề nghị"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 30,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 30,
+      "questionNumber": 1,
+      "questionGroupId": "064ab9de-bc13-4377-ad9f-3ff7e9c64748",
+      "questionId": "8f084737-b638-432f-96c6-f24025748cc7",
+      "correctAnswerId": "9f752cf3-3c55-466b-a47a-ccda9310ca02",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+          "tagName": "[Part 2] Câu hỏi YES/NO"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 31,
+      "questionPart": "PART_2",
+      "questionGroupOrder": 31,
+      "questionNumber": 1,
+      "questionGroupId": "4fc11540-eac9-4528-a73e-b78dc4c27b54",
+      "questionId": "93c9c833-0d4e-49ff-bfb7-3e141f092a88",
+      "correctAnswerId": "818fa268-2597-400a-8627-ced7c43c2afc",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "25525544-02d4-4a41-98be-40564f5832ff",
+          "tagName": "[Part 2] Câu hỏi lựa chọn"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 32,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 32,
+      "questionNumber": 1,
+      "questionGroupId": "a826f60b-05d3-4d93-ab84-0a8be21e1ff2",
+      "questionId": "896ea1c7-7689-42fb-9775-b7a7c6ebd534",
+      "correctAnswerId": "e4135021-a97f-491c-bb8a-53703e6ca894",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Offer some product samples",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        },
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 33,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 32,
+      "questionNumber": 2,
+      "questionGroupId": "a826f60b-05d3-4d93-ab84-0a8be21e1ff2",
+      "questionId": "3476d75e-9232-4a95-b2c5-96bcab4fa611",
+      "correctAnswerId": "7a710dbc-75d1-4b32-b3c5-d57348b4f551",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "At a grocery store",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 34,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 32,
+      "questionNumber": 3,
+      "questionGroupId": "a826f60b-05d3-4d93-ab84-0a8be21e1ff2",
+      "questionId": "e9fb47e5-2a64-4c53-bcd1-659e7c3d9386",
+      "correctAnswerId": "e8354992-8ac4-4ed5-bd99-633f96c22b2e",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Carrying some supplies",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        },
+        {
+          "id": "0d6453fb-9a99-4fc7-914d-14bd8d260668",
+          "tagName": "[Part 2] Câu yêu cầu, đề nghị"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 35,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 35,
+      "questionNumber": 1,
+      "questionGroupId": "ade53eba-c48c-477c-9bb5-4ade055c68b5",
+      "questionId": "b9b76b43-8890-4072-9d0b-ff8c645218df",
+      "correctAnswerId": "ddb09bbd-a32e-4111-bc42-de446fa1b456",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "A librarian",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 36,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 35,
+      "questionNumber": 2,
+      "questionGroupId": "ade53eba-c48c-477c-9bb5-4ade055c68b5",
+      "questionId": "104b2126-6b06-4693-b83f-b2a3e67280a6",
+      "correctAnswerId": "76c8b062-8f54-44f9-891b-3dbdbdcd5569",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "A method of payment",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 37,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 35,
+      "questionNumber": 3,
+      "questionGroupId": "ade53eba-c48c-477c-9bb5-4ade055c68b5",
+      "questionId": "cacd0a0d-8305-4e6e-aa8a-945657ac583d",
+      "correctAnswerId": "29543e92-b33e-47b8-929e-ba4e71293ff2",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Check on a machine",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 38,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 38,
+      "questionNumber": 1,
+      "questionGroupId": "d58b6a25-e201-4dc9-a9a1-4fa59755ab70",
+      "questionId": "f635ecc7-8d52-4f01-b161-1fbc7df2e849",
+      "correctAnswerId": "b8938e18-a23f-4480-8130-45c71c18e54c",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Preparing some materials",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        },
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 39,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 38,
+      "questionNumber": 2,
+      "questionGroupId": "d58b6a25-e201-4dc9-a9a1-4fa59755ab70",
+      "questionId": "be93f589-dbb6-462c-907a-f2fafd2950e8",
+      "correctAnswerId": "ebe692e3-7d1e-4b22-a7a8-5b157a65a356",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "A room was already taken.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 40,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 38,
+      "questionNumber": 3,
+      "questionGroupId": "d58b6a25-e201-4dc9-a9a1-4fa59755ab70",
+      "questionId": "eb4d7d43-0133-4527-9644-5b6a08aaf70c",
+      "correctAnswerId": "8c5c6920-3222-4d95-9303-2f613ca5cfc5",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "The availability of some equipment",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 41,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 41,
+      "questionNumber": 1,
+      "questionGroupId": "bd391d49-8df6-47ff-a5d6-58076db954b1",
+      "questionId": "748fbeec-ee05-4071-8733-c0b7994ae7d4",
+      "correctAnswerId": "1a9c1ab0-cfda-49f8-bef6-ae98429aaf7d",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "A street is closed.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 42,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 41,
+      "questionNumber": 2,
+      "questionGroupId": "bd391d49-8df6-47ff-a5d6-58076db954b1",
+      "questionId": "a471fde7-4db9-460a-a7f4-aacf8c810960",
+      "correctAnswerId": "25b5839c-0c03-4d12-bb98-96e199d1f9e5",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Park in a different area",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 43,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 41,
+      "questionNumber": 3,
+      "questionGroupId": "bd391d49-8df6-47ff-a5d6-58076db954b1",
+      "questionId": "3045fcea-d0e2-402d-82f0-32fe7bce46d5",
+      "correctAnswerId": "d437f58f-31d5-45c2-b52e-4b6cf6ed3378",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Post an update on social media",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 44,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 44,
+      "questionNumber": 1,
+      "questionGroupId": "0f383dc3-0fd6-499a-b602-09d98413133f",
+      "questionId": "76708d61-f803-4c4a-83a0-1cfbb53949b9",
+      "correctAnswerId": "276eeb36-02f6-4b39-b7d5-bd0092e69095",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "At a nature preserve",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 45,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 44,
+      "questionNumber": 2,
+      "questionGroupId": "0f383dc3-0fd6-499a-b602-09d98413133f",
+      "questionId": "b7b6c0af-cd1d-405b-af16-6554aacba4cb",
+      "correctAnswerId": "c8f89bbf-a31d-44ab-83d1-d63086d3337c",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Send them to a laboratory",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 46,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 44,
+      "questionNumber": 3,
+      "questionGroupId": "0f383dc3-0fd6-499a-b602-09d98413133f",
+      "questionId": "90746d12-93b4-418f-860e-741aef89b319",
+      "correctAnswerId": "bfe4b329-cd74-4bea-8318-965e06d34473",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Take some photographs",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 47,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 47,
+      "questionNumber": 1,
+      "questionGroupId": "ae5f9cbb-f470-45b1-82c2-7c6584fb96a3",
+      "questionId": "3297bcdb-85da-4000-8bec-f6bac084787c",
+      "correctAnswerId": "8c485884-a3e0-4b1c-a924-d91c3483c50c",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Postal workers",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 48,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 47,
+      "questionNumber": 2,
+      "questionGroupId": "ae5f9cbb-f470-45b1-82c2-7c6584fb96a3",
+      "questionId": "66361aba-7066-432d-8bff-208070932c7b",
+      "correctAnswerId": "9612d355-9ac6-4315-87a3-4bab2c75e38a",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Some vehicles will be replaced.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 49,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 47,
+      "questionNumber": 3,
+      "questionGroupId": "ae5f9cbb-f470-45b1-82c2-7c6584fb96a3",
+      "questionId": "3bb7da1e-f0c1-4052-a677-ab065910baac",
+      "correctAnswerId": "4e2f15e5-e04c-4568-acce-58e1862844fc",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "How long a battery will last",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 50,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 50,
+      "questionNumber": 1,
+      "questionGroupId": "19b78697-fc08-47ea-be39-daec368926bf",
+      "questionId": "94769614-cea3-4f18-85b7-adfad211c0e4",
+      "correctAnswerId": "319768e6-b7b7-4665-8143-46b1ed114685",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Assist a new employee",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        },
+        {
+          "id": "0d6453fb-9a99-4fc7-914d-14bd8d260668",
+          "tagName": "[Part 2] Câu yêu cầu, đề nghị"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 51,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 50,
+      "questionNumber": 2,
+      "questionGroupId": "19b78697-fc08-47ea-be39-daec368926bf",
+      "questionId": "020617ee-8ff8-4099-ac40-d2da0db0205d",
+      "correctAnswerId": "fb3ad6d9-1410-48c3-8516-f6eb1bc08c6f",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "At a hotel",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 52,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 50,
+      "questionNumber": 3,
+      "questionGroupId": "19b78697-fc08-47ea-be39-daec368926bf",
+      "questionId": "2276aa8b-3f47-4f4c-9eab-b9c14668cdc8",
+      "correctAnswerId": "9c87d1c1-58e4-498a-9be0-32f3b01a4da1",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Demonstrate a computer program",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 53,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 53,
+      "questionNumber": 1,
+      "questionGroupId": "9fc50cea-2019-4913-a95b-b3f3ce870712",
+      "questionId": "8891a041-8ec2-44fa-9358-cdba72150af7",
+      "correctAnswerId": "265a2e9b-6648-4090-b91b-e4cf40edf738",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Its popularity",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 54,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 53,
+      "questionNumber": 2,
+      "questionGroupId": "9fc50cea-2019-4913-a95b-b3f3ce870712",
+      "questionId": "fa311e04-f78f-402d-916a-3d45c6894209",
+      "correctAnswerId": "02217824-2218-4391-b43d-085d5573d8b9",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "They will be leading a training session.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 55,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 53,
+      "questionNumber": 3,
+      "questionGroupId": "9fc50cea-2019-4913-a95b-b3f3ce870712",
+      "questionId": "55179418-a1f1-45c6-83eb-6d36c5b07ff2",
+      "correctAnswerId": "9e96c266-191d-46e8-b941-5ef2fb43a569",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Order food to go",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 56,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 56,
+      "questionNumber": 1,
+      "questionGroupId": "4f8ae70a-0e30-4813-a4d5-f6690f7a46c5",
+      "questionId": "65948c6d-05b5-456d-9788-222f486b5499",
+      "correctAnswerId": "d4670312-9c87-4394-8442-2445d79a13be",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "At a fitness center",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 57,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 56,
+      "questionNumber": 2,
+      "questionGroupId": "4f8ae70a-0e30-4813-a4d5-f6690f7a46c5",
+      "questionId": "6e91b047-8f67-4b0c-8a40-ddf50dce82fb",
+      "correctAnswerId": "e61d6894-ad1e-469f-ad80-31120cbe7872",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "To explain a decision",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 58,
+      "questionPart": "PART_3",
+      "questionGroupOrder": 56,
+      "questionNumber": 3,
+      "questionGroupId": "4f8ae70a-0e30-4813-a4d5-f6690f7a46c5",
+      "questionId": "4942cc8b-4f93-44b7-843a-e37d8884fd1a",
+      "correctAnswerId": "480f9f7f-09de-4141-ab42-90e9461c09ce",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Hire more employees",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 59,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 59,
+      "questionNumber": 1,
+      "questionGroupId": "d3305145-eaed-43dd-9496-0cc0cf25ec88",
+      "questionId": "7649e9ff-59f7-4337-b54f-25ad69a85b98",
+      "correctAnswerId": "219b163f-99af-4e9c-919a-66bc772dda33",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Organizing an event",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 60,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 59,
+      "questionNumber": 2,
+      "questionGroupId": "d3305145-eaed-43dd-9496-0cc0cf25ec88",
+      "questionId": "f15d3a3e-8268-45f9-b17e-40ecd61ac0ba",
+      "correctAnswerId": "e0f32db1-1a39-469c-9b3e-dda2a0b2ce03",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Some workers may feel excluded.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 61,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 59,
+      "questionNumber": 3,
+      "questionGroupId": "d3305145-eaed-43dd-9496-0cc0cf25ec88",
+      "questionId": "1b55129d-464d-4253-8a8d-020138b5f5da",
+      "correctAnswerId": "c91f0f72-213a-4bff-94d7-4a3b0673d131",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Research some online activities",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 62,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 62,
+      "questionNumber": 1,
+      "questionGroupId": "becd6a5c-d4a4-4179-ae98-b43a90bb873f",
+      "questionId": "d89c137f-e0cc-45de-aa72-7e25ca6503d4",
+      "correctAnswerId": "83f4ec08-ece0-4d22-a231-be9f69db63bd",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Floor 3",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        },
+        {
+          "id": "b7688d9b-eda0-40de-80d5-975dc569eac5",
+          "tagName": "[Part 4] Câu hỏi kết hợp bảng biểu"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 63,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 62,
+      "questionNumber": 2,
+      "questionGroupId": "becd6a5c-d4a4-4179-ae98-b43a90bb873f",
+      "questionId": "33e211a2-2031-41dd-b8ac-057383189685",
+      "correctAnswerId": "02149672-a690-48cd-8c40-62482e53b641",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "To ask about seeing some merchandise",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 64,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 62,
+      "questionNumber": 3,
+      "questionGroupId": "becd6a5c-d4a4-4179-ae98-b43a90bb873f",
+      "questionId": "560c6b52-a3ab-4ad1-a581-cd8a3d8d92a6",
+      "correctAnswerId": "17bbb041-1542-4ff8-acab-2b22d8fa9875",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "A building is wheelchair accessible.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 65,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 65,
+      "questionNumber": 1,
+      "questionGroupId": "7b5133c5-976a-4b2e-b3d0-8f29193d0a23",
+      "questionId": "682754b7-c009-43ff-81bd-057674696b19",
+      "correctAnswerId": "1e1e421c-2e22-4b64-afdf-8f644aea9de5",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "To report on a project",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 66,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 65,
+      "questionNumber": 2,
+      "questionGroupId": "7b5133c5-976a-4b2e-b3d0-8f29193d0a23",
+      "questionId": "60720a39-00de-4dba-9899-53b317b4acf3",
+      "correctAnswerId": "23d2ed98-d8cf-4f56-aec3-bba76e069d56",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "At 9:07 A.M.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 67,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 65,
+      "questionNumber": 3,
+      "questionGroupId": "7b5133c5-976a-4b2e-b3d0-8f29193d0a23",
+      "questionId": "1d867600-0869-44d7-8b61-0e9d6ea43f08",
+      "correctAnswerId": "2900f15c-723f-4ed8-8a9a-1b11bec90459",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "E-mail some information",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 68,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 68,
+      "questionNumber": 1,
+      "questionGroupId": "5a21e79c-3038-4f19-9df4-d22846c2f21b",
+      "questionId": "ec79cfc0-ff90-410b-aea0-45d42fc43fe8",
+      "correctAnswerId": "68cbb371-c974-4967-815e-acddbecb4bb2",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "News reporters",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 69,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 68,
+      "questionNumber": 2,
+      "questionGroupId": "5a21e79c-3038-4f19-9df4-d22846c2f21b",
+      "questionId": "ebb923d5-c9ed-4a7d-9ded-a3036fa6df26",
+      "correctAnswerId": "5c58d1ae-144f-4488-9c39-abfc905a2142",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Bid proposals",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 70,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 68,
+      "questionNumber": 3,
+      "questionGroupId": "5a21e79c-3038-4f19-9df4-d22846c2f21b",
+      "questionId": "170ec099-6077-49d8-9a6a-b15b3f3f625e",
+      "correctAnswerId": "0d2e3034-0fa3-4d62-9525-43c3fce1e6e8",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "At site C",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 71,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 71,
+      "questionNumber": 1,
+      "questionGroupId": "75b15213-cc1e-4429-b5b3-2ecc2fad9539",
+      "questionId": "0bc00e81-78c6-41fe-b5b8-b7fc76d16706",
+      "correctAnswerId": "de1fad56-4a9b-45a2-8f0c-ab63776d0ee5",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "A community college",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 72,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 71,
+      "questionNumber": 2,
+      "questionGroupId": "75b15213-cc1e-4429-b5b3-2ecc2fad9539",
+      "questionId": "00caa7a5-4ec3-4be7-86ba-afbd3213327a",
+      "correctAnswerId": "2e626c66-de42-4f26-ad90-06ef8a8fb066",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "A new location was opened.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 73,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 71,
+      "questionNumber": 3,
+      "questionGroupId": "75b15213-cc1e-4429-b5b3-2ecc2fad9539",
+      "questionId": "0a870814-7962-4aa8-a3f7-04452a44e1d2",
+      "correctAnswerId": "7e5d16ec-f990-440d-a6bd-5ca6d3540b4f",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Submit an application",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 74,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 74,
+      "questionNumber": 1,
+      "questionGroupId": "ca32cd11-51e0-4d4e-91dd-5a5d64ad6dc9",
+      "questionId": "c31434a9-8693-4109-9f41-9e4138e76e01",
+      "correctAnswerId": "4d5f8729-516d-4024-a05d-f473f345186c",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "A company celebration",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 75,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 74,
+      "questionNumber": 2,
+      "questionGroupId": "ca32cd11-51e0-4d4e-91dd-5a5d64ad6dc9",
+      "questionId": "6da322b2-e15b-4688-8bb7-7f5b6654207d",
+      "correctAnswerId": "4c113a08-5c1c-4cf0-bc71-d8bd9d85ce4b",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Reserving some space",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 76,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 74,
+      "questionNumber": 3,
+      "questionGroupId": "ca32cd11-51e0-4d4e-91dd-5a5d64ad6dc9",
+      "questionId": "4e9a9e1b-2c43-41e1-91fe-652164cc740c",
+      "correctAnswerId": "3be3114f-6341-4015-abf9-4d2210088a0b",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "To encourage the listeners to make suggestions",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 77,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 77,
+      "questionNumber": 1,
+      "questionGroupId": "31cf9aef-cd60-4951-b928-5128aea7074d",
+      "questionId": "133b69ec-bc84-41bc-836c-835abdb5a435",
+      "correctAnswerId": "01ecb162-1932-4099-bc36-fbc01fb20e92",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "To request an appointment",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 78,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 77,
+      "questionNumber": 2,
+      "questionGroupId": "31cf9aef-cd60-4951-b928-5128aea7074d",
+      "questionId": "6b0cdb76-afb4-4fdf-a457-45d10620a1ee",
+      "correctAnswerId": "2464dd87-1828-402d-8fe1-69369e3202eb",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "An athletic competition",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 79,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 77,
+      "questionNumber": 3,
+      "questionGroupId": "31cf9aef-cd60-4951-b928-5128aea7074d",
+      "questionId": "8efec428-c9be-45a9-8938-22826a3491e8",
+      "correctAnswerId": "e1a3ee50-faed-43e2-8d72-7b1e30f2bad1",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Holding interviews",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 80,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 80,
+      "questionNumber": 1,
+      "questionGroupId": "e9f0d364-8e44-4352-86ec-29c55ee8b761",
+      "questionId": "8bee97f4-5bbf-45a8-a893-1bd97ef87c06",
+      "correctAnswerId": "ebecd414-a35b-48a6-8ce0-291996b883c2",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Food",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 81,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 80,
+      "questionNumber": 2,
+      "questionGroupId": "e9f0d364-8e44-4352-86ec-29c55ee8b761",
+      "questionId": "3cfb16ee-70bd-4db2-8ec0-7a319f3938d3",
+      "correctAnswerId": "8a6d89e8-0775-4264-b982-6d39859b44e5",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "A contract",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 82,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 80,
+      "questionNumber": 3,
+      "questionGroupId": "e9f0d364-8e44-4352-86ec-29c55ee8b761",
+      "questionId": "74f92312-1ada-4115-8c5f-f38e15536df1",
+      "correctAnswerId": "8ad666ce-edde-4917-b04d-a2c944894dcf",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Sending plenty of inventory",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 83,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 83,
+      "questionNumber": 1,
+      "questionGroupId": "5a4bad72-9c5a-45dc-b32f-cda9cf4a4123",
+      "questionId": "9f7c6ec9-f4ee-4ee9-9076-85060f1d5e1a",
+      "correctAnswerId": "24a2907d-a08a-41fb-ae7b-cf4cc34fb8d7",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "A satellite dish for Internet access",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 84,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 83,
+      "questionNumber": 2,
+      "questionGroupId": "5a4bad72-9c5a-45dc-b32f-cda9cf4a4123",
+      "questionId": "2a4626d5-5159-4a09-a97a-af353bba6607",
+      "correctAnswerId": "6c3e1eb4-27c4-4cef-9a7e-bdfc8aae548a",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Poor weather conditions",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 85,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 83,
+      "questionNumber": 3,
+      "questionGroupId": "5a4bad72-9c5a-45dc-b32f-cda9cf4a4123",
+      "questionId": "a7f1dc1f-a64a-4d48-aa1e-d901d74ed425",
+      "correctAnswerId": "2b1e780d-f944-41bf-a472-1de369546190",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Work in small groups",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 86,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 86,
+      "questionNumber": 1,
+      "questionGroupId": "a6863465-8cbe-4b96-b3bf-cb09e252e17e",
+      "questionId": "084c8e6c-ac84-4ca0-a75c-9cb064fe9aeb",
+      "correctAnswerId": "5dc79905-854c-4089-b74d-d4834dc99c44",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "To apologize for a delay",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "bd7d03f9-4ecf-450f-b125-16e178846095",
+          "tagName": "[Part 4] Câu hỏi về hàm ý câu nói"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 87,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 86,
+      "questionNumber": 2,
+      "questionGroupId": "a6863465-8cbe-4b96-b3bf-cb09e252e17e",
+      "questionId": "c7399cc5-b1f6-4b4f-b749-6bd38921fec2",
+      "correctAnswerId": "9e7920f1-6b31-4f77-ac2f-90881fcbc50f",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Become volunteers",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 88,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 86,
+      "questionNumber": 3,
+      "questionGroupId": "a6863465-8cbe-4b96-b3bf-cb09e252e17e",
+      "questionId": "bfd27dce-2e4b-48d9-aec8-039c078e675f",
+      "correctAnswerId": "baf3c878-3e5c-486d-8396-7728ce23a06f",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "In a program booklet",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 89,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 89,
+      "questionNumber": 1,
+      "questionGroupId": "2fa972d9-d757-4954-abf3-5a39d7197810",
+      "questionId": "18a28951-2bd6-41c9-a2d9-ebd257901013",
+      "correctAnswerId": "ee01628e-5dce-40af-b651-cca359b323f4",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Using some software",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 90,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 89,
+      "questionNumber": 2,
+      "questionGroupId": "2fa972d9-d757-4954-abf3-5a39d7197810",
+      "questionId": "9da6fd2f-f2b4-424b-a5f8-3d5274faf8a6",
+      "correctAnswerId": "d5d2f25f-a857-40c2-bbcb-58359e0089db",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "At a conference center",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 91,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 89,
+      "questionNumber": 3,
+      "questionGroupId": "2fa972d9-d757-4954-abf3-5a39d7197810",
+      "questionId": "b2263110-b076-4da7-81e7-f5c9ef412668",
+      "correctAnswerId": "2a18bf83-4b95-40fb-98a0-1a3c852a355a",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Take out an electronic device",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 92,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 92,
+      "questionNumber": 1,
+      "questionGroupId": "b5024462-add8-46e9-8886-735174b73abf",
+      "questionId": "34ebb256-3dc4-4b73-9ceb-246b77c9c000",
+      "correctAnswerId": "171ebbdd-434e-406d-ae53-2cc1fecea083",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Energy efficiency",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 93,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 92,
+      "questionNumber": 2,
+      "questionGroupId": "b5024462-add8-46e9-8886-735174b73abf",
+      "questionId": "dda85188-f7b1-4852-b269-a1c1a5eaaf39",
+      "correctAnswerId": "934d4340-b4f5-428f-b99d-ec425c51f76b",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "To encourage participation",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 94,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 92,
+      "questionNumber": 3,
+      "questionGroupId": "b5024462-add8-46e9-8886-735174b73abf",
+      "questionId": "ce6c4be9-3b77-4700-85dd-baa2280b8988",
+      "correctAnswerId": "9abc5e78-5f71-4b18-a75e-ffe317551f31",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "A recording will be shared.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 95,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 95,
+      "questionNumber": 1,
+      "questionGroupId": "99be0e99-b387-4357-becc-ffa8435b73c7",
+      "questionId": "52106b07-d16a-4702-a8f1-a2e2b858ed96",
+      "correctAnswerId": "4815b05c-55b5-4787-92c2-72fd28527f22",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Truck drivers",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 96,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 95,
+      "questionNumber": 2,
+      "questionGroupId": "99be0e99-b387-4357-becc-ffa8435b73c7",
+      "questionId": "52445422-b15f-4659-8a35-54190ee6b683",
+      "correctAnswerId": "e94d7708-5a54-405a-bdb7-b9760c753282",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Follow a checklist",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 97,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 95,
+      "questionNumber": 3,
+      "questionGroupId": "99be0e99-b387-4357-becc-ffa8435b73c7",
+      "questionId": "df531c28-9abf-43d6-82e5-aca75f601551",
+      "correctAnswerId": "46501198-760f-4777-ae22-c116cda3a50a",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "20 meters",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 98,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 98,
+      "questionNumber": 1,
+      "questionGroupId": "1819fb9d-4ddb-4a8d-98fb-4bc0a67cf951",
+      "questionId": "1548b40f-e880-47e4-bdf0-3ab3ca497ce3",
+      "correctAnswerId": "5d766cfe-7c1e-45a1-8a99-485f00fcf6ae",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "A holiday parade",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 99,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 98,
+      "questionNumber": 2,
+      "questionGroupId": "1819fb9d-4ddb-4a8d-98fb-4bc0a67cf951",
+      "questionId": "1e1ca008-7640-48c2-a106-51d393e4b855",
+      "correctAnswerId": "9f141a13-9ae0-4879-90dc-3eda0a838283",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Broad Street",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 100,
+      "questionPart": "PART_4",
+      "questionGroupOrder": 98,
+      "questionNumber": 3,
+      "questionGroupId": "1819fb9d-4ddb-4a8d-98fb-4bc0a67cf951",
+      "questionId": "29c2935b-5a15-4313-9fc1-bda1fb20a7b1",
+      "correctAnswerId": "c8630cdb-4cdd-4981-abf2-1f8a1b1413e1",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "A weather forecast",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 101,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 101,
+      "questionNumber": 1,
+      "questionGroupId": "22d8d3e5-3c41-4d58-b023-6e69b2aa99a1",
+      "questionId": "a29d55e6-8892-4c1c-9981-4d3cb6cc4632",
+      "correctAnswerId": "4c34ace3-0aaf-461d-b471-17ba7f81cad2",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "their",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+          "tagName": "[Part 5] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 102,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 102,
+      "questionNumber": 1,
+      "questionGroupId": "5633b57e-97d7-4301-b4f6-dfa11b0a0a9c",
+      "questionId": "ee35978b-b052-43ec-86cf-822f138d622d",
+      "correctAnswerId": "b96804f5-84e3-46ea-a61f-10f17659ed30",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "both",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 103,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 103,
+      "questionNumber": 1,
+      "questionGroupId": "1558f0ea-8227-4e84-ab91-2b179a7563e5",
+      "questionId": "81830054-64c5-4124-834b-add3a27be128",
+      "correctAnswerId": "fe976fdb-9230-4ae0-b687-b2b53df1b893",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "responsible",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 104,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 104,
+      "questionNumber": 1,
+      "questionGroupId": "d69d0195-33f5-45fc-b30a-e061581b5f87",
+      "questionId": "6a4b069c-1feb-40b4-8d63-333980fe02c6",
+      "correctAnswerId": "d7ffca2b-e076-4b39-a4fb-013cc0f75b61",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "helpful",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "25731db2-e895-4a13-95a8-3958db139c31",
+          "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 105,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 105,
+      "questionNumber": 1,
+      "questionGroupId": "7ac8160b-7c8d-421b-9689-29e3a7015867",
+      "questionId": "c7fea259-e339-4f6e-8668-60a1cb3cabe9",
+      "correctAnswerId": "f478d5c5-dad6-4330-9bac-e4a497ec2859",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "arrived",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 106,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 106,
+      "questionNumber": 1,
+      "questionGroupId": "a0635dc4-edd1-45b5-a0be-2a38fb9f581f",
+      "questionId": "1ee56210-85eb-430f-aae3-d36a0c50076f",
+      "correctAnswerId": "bb44af31-8ee7-4f0b-8bd3-1d61beea532c",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "by",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 107,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 107,
+      "questionNumber": 1,
+      "questionGroupId": "d1117fd4-80ad-409d-9e7c-8c3909570033",
+      "questionId": "5cf2a109-4656-4533-a406-da4a8a03bf20",
+      "correctAnswerId": "10ce2ddf-b6d0-49c3-a5ad-53a03e0fe2c0",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "expert",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 108,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 108,
+      "questionNumber": 1,
+      "questionGroupId": "eae4cccb-b08d-4252-be26-2b2294602d2a",
+      "questionId": "b8133445-601b-4031-a182-03772317985a",
+      "correctAnswerId": "169806d0-a1d4-4d49-a249-2da51b789cb8",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "now",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+          "tagName": "[Part 5] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 109,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 109,
+      "questionNumber": 1,
+      "questionGroupId": "a7ab324a-a012-4701-8708-75a8c550810c",
+      "questionId": "9442d213-a2a6-44db-9305-5916036c71cf",
+      "correctAnswerId": "4ebe64ec-21dd-4150-b8b6-08558196a11e",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "though",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 110,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 110,
+      "questionNumber": 1,
+      "questionGroupId": "90d34182-e603-4f91-9ef7-b54d8f8a54c5",
+      "questionId": "1604b2c2-0387-4269-a3df-d2d11a59929f",
+      "correctAnswerId": "1d216576-ffa2-47d0-959e-7b0ff882f692",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "check",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+          "tagName": "[Part 5] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 111,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 111,
+      "questionNumber": 1,
+      "questionGroupId": "570c4ab8-8f2b-4081-baa4-fcd164601f8d",
+      "questionId": "2073f1e5-f64b-403c-83fd-55c94979f0fd",
+      "correctAnswerId": "8c45d871-23bc-4d2e-b763-5cb5291ec12d",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "to counsel",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 112,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 112,
+      "questionNumber": 1,
+      "questionGroupId": "ce85a9a9-8638-43ab-a4eb-863e22a25af8",
+      "questionId": "081e2eb4-5f72-42dd-a9b3-c08ad82b809c",
+      "correctAnswerId": "b4f6aeef-769c-46a9-8414-7af5bd42bcd9",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "figures",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+          "tagName": "[Part 5] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 113,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 113,
+      "questionNumber": 1,
+      "questionGroupId": "acfea3ba-16af-4b6b-add5-fccc1cc13e30",
+      "questionId": "b92470ef-04f5-45e7-8de9-6408c6c7b0ba",
+      "correctAnswerId": "cdab4bb7-ce0b-4ce2-8e75-89dc49032f8a",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Brighten",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 114,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 114,
+      "questionNumber": 1,
+      "questionGroupId": "8a059581-61c4-4f02-aa50-1c4612a3caf2",
+      "questionId": "b0cf8e61-2257-44b5-8889-c5cd0e23a076",
+      "correctAnswerId": "a9e0764f-4ffe-4a21-a41e-f97cb0928a27",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "control",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+          "tagName": "[Part 5] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 115,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 115,
+      "questionNumber": 1,
+      "questionGroupId": "8c07bde1-1585-4eb1-9622-fb94e5eb22e2",
+      "questionId": "b82fed49-6f57-4766-8fba-26f94b492a04",
+      "correctAnswerId": "dc085b4d-86cc-43a6-b3be-3f5555b0230d",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Aside from",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 116,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 116,
+      "questionNumber": 1,
+      "questionGroupId": "5dbc2f47-12e4-4a5b-952a-0cc471d60806",
+      "questionId": "9fced5de-e1d1-4719-9ad3-6ccddf6794c1",
+      "correctAnswerId": "c66e9588-2a10-47f1-93f4-cf72f6a1dfc4",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "eagerly",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 117,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 117,
+      "questionNumber": 1,
+      "questionGroupId": "658ad6b3-65ed-4266-af3e-123815508c0c",
+      "questionId": "9050251c-7be7-4b91-8d0c-bb59e72d922b",
+      "correctAnswerId": "e5715ac4-5359-409f-a8a5-e9b262bb27ff",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "approval",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 118,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 118,
+      "questionNumber": 1,
+      "questionGroupId": "9824068a-c44b-4eee-8a3d-b5893a389ea9",
+      "questionId": "93cf2d1b-2dc7-45f6-96ad-70523960535f",
+      "correctAnswerId": "a7a8faee-3305-46cc-b3c5-3e58b03e5b8f",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "extensive",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 119,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 119,
+      "questionNumber": 1,
+      "questionGroupId": "32526e9f-db72-4173-aa4e-4d0e50c213ec",
+      "questionId": "c15bb93b-4189-420c-9c52-b1cdc5f12493",
+      "correctAnswerId": "d7a1f0e2-0c8c-46e5-a56e-08e2313d1652",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "effectively",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 120,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 120,
+      "questionNumber": 1,
+      "questionGroupId": "eeb861aa-1417-40c9-a918-57a317fc07ec",
+      "questionId": "a1d76bec-0fbe-46d5-bb54-46c95eb97f00",
+      "correctAnswerId": "661b5501-804e-414c-bb32-b168549d3bc6",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "refrain",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+          "tagName": "[Part 5] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 121,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 121,
+      "questionNumber": 1,
+      "questionGroupId": "56c7dd5c-3aa0-4b65-ae09-795aa98ce8f6",
+      "questionId": "cbbcfb54-729b-40fd-b206-d218deab2200",
+      "correctAnswerId": "39cee237-3b2b-4c85-9f2f-aaf8e63f623f",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "proposals",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 122,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 122,
+      "questionNumber": 1,
+      "questionGroupId": "59f41dda-6911-4d85-9796-35633cb24518",
+      "questionId": "ccce8739-7973-49ea-9e4b-293d35b88ca0",
+      "correctAnswerId": "fbee76da-367d-48c8-bd5d-c44e323c6a5b",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "within",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 123,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 123,
+      "questionNumber": 1,
+      "questionGroupId": "0938e0e9-99c6-4042-8308-5686f16640b7",
+      "questionId": "1031bee2-a8df-4620-a2a1-6bc75284e4d0",
+      "correctAnswerId": "fbe18107-2a62-40a3-b320-1d7f9002804f",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Anyone",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 124,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 124,
+      "questionNumber": 1,
+      "questionGroupId": "ff453ac8-7d93-47bf-9fec-0d7a4c84b359",
+      "questionId": "a9935b6f-7164-4bdd-9afd-f74b794722b5",
+      "correctAnswerId": "1a01eb9a-60f9-486e-8fd2-cdc646170fd2",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "immediately",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 125,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 125,
+      "questionNumber": 1,
+      "questionGroupId": "1eb0b625-cb33-479b-bfac-bd2285c266b1",
+      "questionId": "97bf68eb-a95d-46c3-83ee-2f0ae7baa1f7",
+      "correctAnswerId": "95c5b0af-0772-4384-a44c-40d724ee5f02",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "initiative",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 126,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 126,
+      "questionNumber": 1,
+      "questionGroupId": "d11904c2-5e6e-4ec3-ae25-04d95b6500b9",
+      "questionId": "8b82f4a5-b998-4d09-9b72-1577683be833",
+      "correctAnswerId": "c9100a1f-cacb-4853-bd0d-16dc59166018",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "as long as",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 127,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 127,
+      "questionNumber": 1,
+      "questionGroupId": "0d72458b-9502-47af-b299-f9884ed1d534",
+      "questionId": "c4d732e9-8502-4c47-94d6-b802ea00412c",
+      "correctAnswerId": "0fe31067-b2cf-4d63-a855-ac348431a40e",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "dramatically",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 128,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 128,
+      "questionNumber": 1,
+      "questionGroupId": "518c0b2f-66a3-4f02-83fa-608ace1e1b40",
+      "questionId": "c624bdd1-a41c-45be-b82a-52c2aa521f5c",
+      "correctAnswerId": "064d9067-c12f-4acd-96c7-eb6a8b5f5d74",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "recognition",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 129,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 129,
+      "questionNumber": 1,
+      "questionGroupId": "5cfe0e3e-2778-4949-963f-eff531015d21",
+      "questionId": "b15f9855-eacb-4d0d-a685-9adec004b9b2",
+      "correctAnswerId": "68f0c355-8ca3-4394-a0ca-881e990638c9",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "repetitious",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 130,
+      "questionPart": "PART_5",
+      "questionGroupOrder": 130,
+      "questionNumber": 1,
+      "questionGroupId": "61cf31ee-5109-4691-8b76-e509dab4cd98",
+      "questionId": "b936b8c3-6884-43a6-856f-2a605a01280b",
+      "correctAnswerId": "9b003d10-1bec-470b-923f-ee8f9d77aa1c",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "exclusive",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 131,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 131,
+      "questionNumber": 1,
+      "questionGroupId": "f22f1916-1401-48b3-8a18-dfc02de2376c",
+      "questionId": "bd1bffa9-e24b-4461-9fa8-015cfc6990b8",
+      "correctAnswerId": "e58d9cc6-fe6e-452b-ac44-16f6ac239367",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Although",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+          "tagName": "[Part 6] Câu hỏi ngữ pháp"
+        },
+        {
+          "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+          "tagName": "[Part 6] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 132,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 131,
+      "questionNumber": 2,
+      "questionGroupId": "f22f1916-1401-48b3-8a18-dfc02de2376c",
+      "questionId": "d0b8680b-620d-4560-9ec6-13457b49de98",
+      "correctAnswerId": "a7fdc753-bef8-4d97-a361-5133a09bba11",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Your experience and skill set make you a great fit.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+          "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 133,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 131,
+      "questionNumber": 3,
+      "questionGroupId": "f22f1916-1401-48b3-8a18-dfc02de2376c",
+      "questionId": "e9036e0a-0720-4584-afda-23abd1f61408",
+      "correctAnswerId": "b28af600-c82f-4e70-8d98-bc34ad467e75",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "opportunity",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 134,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 131,
+      "questionNumber": 4,
+      "questionGroupId": "f22f1916-1401-48b3-8a18-dfc02de2376c",
+      "questionId": "ef912701-4f28-44a5-9458-20ec1c2114e5",
+      "correctAnswerId": "1931dfd6-5702-4d50-b9dd-917dac5e902a",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "interested",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 135,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 135,
+      "questionNumber": 1,
+      "questionGroupId": "b8c70a63-bb3c-4c84-9f9e-2249f2949e8d",
+      "questionId": "b0362341-c424-4cae-846e-7079478cc2a9",
+      "correctAnswerId": "28e9242f-c74f-4964-8818-b6c12eb52871",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "is hosting",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+          "tagName": "[Part 6] Câu hỏi ngữ pháp"
+        },
+        {
+          "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+          "tagName": "[Part 6] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 136,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 135,
+      "questionNumber": 2,
+      "questionGroupId": "b8c70a63-bb3c-4c84-9f9e-2249f2949e8d",
+      "questionId": "70ea1b26-7fe4-4d24-98e6-27d10665f080",
+      "correctAnswerId": "f5abc009-2303-4c28-a526-67b26f0e49a5",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Come early to get the best selection.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+          "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 137,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 135,
+      "questionNumber": 3,
+      "questionGroupId": "b8c70a63-bb3c-4c84-9f9e-2249f2949e8d",
+      "questionId": "67c01268-e4b5-40cc-9efe-2a0154a28f9f",
+      "correctAnswerId": "527cb8b4-0aa4-4e30-a54d-95633e18fefe",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "also",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 138,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 135,
+      "questionNumber": 4,
+      "questionGroupId": "b8c70a63-bb3c-4c84-9f9e-2249f2949e8d",
+      "questionId": "23f758c3-4627-452a-8f40-94cc358193ce",
+      "correctAnswerId": "20031dab-9309-4fde-9ce6-3240867ab06c",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "throughout",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 139,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 139,
+      "questionNumber": 1,
+      "questionGroupId": "57e4ad76-6810-4c1d-ba59-81f4babca2d3",
+      "questionId": "0b473f88-33e9-4728-b7d6-a62372cfc5be",
+      "correctAnswerId": "7cbafc9f-5f0f-410e-94d6-15830174743e",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "will be",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+          "tagName": "[Part 6] Câu hỏi ngữ pháp"
+        },
+        {
+          "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+          "tagName": "[Part 6] Câu hỏi từ vựng"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 140,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 139,
+      "questionNumber": 2,
+      "questionGroupId": "57e4ad76-6810-4c1d-ba59-81f4babca2d3",
+      "questionId": "4a36f6b8-8dff-44ef-ade6-d6bbb34a1368",
+      "correctAnswerId": "b6119e35-32dc-4f97-9808-8ff1ebc1e90a",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Please refer to the enclosed map of the affected area.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+          "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 141,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 139,
+      "questionNumber": 3,
+      "questionGroupId": "57e4ad76-6810-4c1d-ba59-81f4babca2d3",
+      "questionId": "96f312e3-55a3-4f48-94e6-8e5a6a727618",
+      "correctAnswerId": "bf869152-555d-4c50-863c-5772cf2969c3",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "business",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 142,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 139,
+      "questionNumber": 4,
+      "questionGroupId": "57e4ad76-6810-4c1d-ba59-81f4babca2d3",
+      "questionId": "c10a22cf-060c-46e4-8c6c-019ab27b0191",
+      "correctAnswerId": "deccb382-2483-47d7-857c-a4c187ad8f68",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "therefore",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 143,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 143,
+      "questionNumber": 1,
+      "questionGroupId": "0ab3569c-a0ce-4e3f-a647-bd36096adaaf",
+      "questionId": "69267082-d817-4b9b-8a7b-48d62a7b1856",
+      "correctAnswerId": "ca84cc4d-f06e-4669-bf6e-1addaf781209",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "buildings",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "77f0150d-30f5-4a59-814b-e8d0e988d555",
+          "tagName": "[Part 6] Câu hỏi từ loại"
+        },
+        {
+          "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+          "tagName": "[Part 6] Câu hỏi ngữ pháp"
+        },
+        {
+          "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+          "tagName": "[Part 6] Câu hỏi từ vựng"
+        },
+        {
+          "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+          "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 144,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 143,
+      "questionNumber": 2,
+      "questionGroupId": "0ab3569c-a0ce-4e3f-a647-bd36096adaaf",
+      "questionId": "6a1fd66e-3f23-4167-8db6-69804f6d4ab2",
+      "correctAnswerId": "e65dc68f-daf7-41cd-bac0-a2af84dc5562",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "In addition to",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 145,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 143,
+      "questionNumber": 3,
+      "questionGroupId": "0ab3569c-a0ce-4e3f-a647-bd36096adaaf",
+      "questionId": "ad55f8bb-cbbf-4557-811e-6d73c4aa4121",
+      "correctAnswerId": "e8ad5773-c501-4906-a132-d86099b29f2a",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "There will be room for three short-term exhibits as well.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 146,
+      "questionPart": "PART_6",
+      "questionGroupOrder": 143,
+      "questionNumber": 4,
+      "questionGroupId": "0ab3569c-a0ce-4e3f-a647-bd36096adaaf",
+      "questionId": "7df7bb1e-22e6-4fbd-83a2-b9d144ec3974",
+      "correctAnswerId": "57fd406e-bd22-4d09-812b-377f3b9afa62",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "to see",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 147,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 147,
+      "questionNumber": 1,
+      "questionGroupId": "285d6789-1d41-4fa2-90eb-9d903fcdc2f8",
+      "questionId": "8027f72f-7185-4d15-a4e5-a35c8fb5623d",
+      "correctAnswerId": "9e8765de-936a-48bd-b3f8-095636c0450d",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Apartment residents",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 148,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 147,
+      "questionNumber": 2,
+      "questionGroupId": "285d6789-1d41-4fa2-90eb-9d903fcdc2f8",
+      "questionId": "dcd5606d-7467-496c-bea4-b830f865cb35",
+      "correctAnswerId": "b5377876-bd9b-41f1-900c-40fb6afcfa21",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "On April 14",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 149,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 149,
+      "questionNumber": 1,
+      "questionGroupId": "37360b47-12f0-4b49-aba1-6537364a5319",
+      "questionId": "6683c209-9bb2-4a58-a6bd-dabc189b5b68",
+      "correctAnswerId": "79156ef7-1fa0-4c68-a689-8292de466203",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "By ordering two meals",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 150,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 149,
+      "questionNumber": 2,
+      "questionGroupId": "37360b47-12f0-4b49-aba1-6537364a5319",
+      "questionId": "a3af0fc5-43c7-4282-9086-6390e4020670",
+      "correctAnswerId": "0d12a49b-1f31-413e-a616-5265e10fc881",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "It has more than one location.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 151,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 151,
+      "questionNumber": 1,
+      "questionGroupId": "ebc8222f-6d66-4e22-bbe8-e985477bae29",
+      "questionId": "dfeae612-5249-42d6-a66a-35430d9685f1",
+      "correctAnswerId": "4f0aa3d1-ec9d-4709-be4d-1d470ad1b8d7",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "To confirm some spoken instructions",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+          "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 152,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 151,
+      "questionNumber": 2,
+      "questionGroupId": "ebc8222f-6d66-4e22-bbe8-e985477bae29",
+      "questionId": "d7eeea1e-fabc-4261-bb68-84d70efbced0",
+      "correctAnswerId": "e14c5dcd-e0ca-4b65-8a08-c66d43a59474",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Flowers",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 153,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 153,
+      "questionNumber": 1,
+      "questionGroupId": "431e7db2-ae9a-4d52-808f-dd9b4b6a582b",
+      "questionId": "4c73e009-e88b-49e0-8c92-ce621bd47abd",
+      "correctAnswerId": "3c9126ba-098e-44dc-83b4-f38ddbcdee3c",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Her order has not arrived.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 154,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 153,
+      "questionNumber": 2,
+      "questionGroupId": "431e7db2-ae9a-4d52-808f-dd9b4b6a582b",
+      "questionId": "5caa35ed-1f67-43de-984f-9b9a4cc42e3a",
+      "correctAnswerId": "15017f47-6da8-4469-93b9-837c3407a7c5",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "He is surprised about the warehouse issue.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 155,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 155,
+      "questionNumber": 1,
+      "questionGroupId": "bce259a3-b4b1-4c6e-875e-7e4c91913ae6",
+      "questionId": "38e358b4-0691-4513-8bab-6d2d831fce0d",
+      "correctAnswerId": "f55481a4-aa60-49c0-81ba-edf2bca35998",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "To ask a customer to confirm personal data",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+          "tagName": "[Part 4] Câu hỏi về chi tiết"
+        },
+        {
+          "id": "be8de804-4f6f-4213-b054-2f4ebba4ca1e",
+          "tagName": "[Part 7] Câu hỏi điền câu"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 156,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 155,
+      "questionNumber": 2,
+      "questionGroupId": "bce259a3-b4b1-4c6e-875e-7e4c91913ae6",
+      "questionId": "f04ae765-6a3f-4818-ae16-8758bb8c6225",
+      "correctAnswerId": "6d87bd85-6c48-4268-a5c2-3787f492a549",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "Go to the bank\u0027s Web site",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 157,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 155,
+      "questionNumber": 3,
+      "questionGroupId": "bce259a3-b4b1-4c6e-875e-7e4c91913ae6",
+      "questionId": "aba1b129-49aa-4c4e-b269-a6433746a477",
+      "correctAnswerId": "1c2bab41-2d77-4e0a-82be-e6a4e59bed47",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "[2]",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 158,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 158,
+      "questionNumber": 1,
+      "questionGroupId": "12575d21-96cb-4b45-858e-40296b2a5b3d",
+      "questionId": "32e42511-9b2a-4a3a-8628-6b059509e124",
+      "correctAnswerId": "e6d932f0-d0c6-4dad-bc48-4ca986145957",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Its founder handles telephone inquiries.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 159,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 158,
+      "questionNumber": 2,
+      "questionGroupId": "12575d21-96cb-4b45-858e-40296b2a5b3d",
+      "questionId": "12718d81-6b3e-4f89-ada9-1ded6e6c8f6f",
+      "correctAnswerId": "934786d5-4130-46dc-a525-078d144636de",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "skillful",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 160,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 158,
+      "questionNumber": 3,
+      "questionGroupId": "12575d21-96cb-4b45-858e-40296b2a5b3d",
+      "questionId": "bd8a8514-8466-4571-a185-d6315a5f6de4",
+      "correctAnswerId": "0a9ecd2e-c180-4d63-9eba-73192375123d",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "They are extremely long-lasting.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 161,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 161,
+      "questionNumber": 1,
+      "questionGroupId": "a2f98bbb-77be-4b04-b153-dff36c80288c",
+      "questionId": "7e292f19-b5d4-428e-9bf9-af45e3e3edd0",
+      "correctAnswerId": "e2d46a1b-ebdf-41dd-944f-5f4e9df8cf5c",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "The changes in costs faced by producers",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "06e80ea4-15d8-4b8d-91a8-d7513a8a8af7",
+          "tagName": "[Part 7] Câu hỏi tìm từ đồng nghĩa"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 162,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 161,
+      "questionNumber": 2,
+      "questionGroupId": "a2f98bbb-77be-4b04-b153-dff36c80288c",
+      "questionId": "ef0dfa9d-546f-4cc2-a468-0a9e876c1803",
+      "correctAnswerId": "2650e3c5-9fd5-420e-bbd4-8a421fecd8bf",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "To make a comparison between industries",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 163,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 161,
+      "questionNumber": 3,
+      "questionGroupId": "a2f98bbb-77be-4b04-b153-dff36c80288c",
+      "questionId": "f98290e9-120f-4e59-8a0c-14fffd00c71d",
+      "correctAnswerId": "33ccdcc0-d85b-44f5-9945-8e101dec6369",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "moderate",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 164,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 164,
+      "questionNumber": 1,
+      "questionGroupId": "16d344a6-77a1-4561-a4e2-caf55d0cc773",
+      "questionId": "bd67c372-1b37-4dbe-8b61-24f69dd98313",
+      "correctAnswerId": "e9ab4e45-12a1-41ce-92e5-d442ccfa76f6",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "A presentation by a book author",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        },
+        {
+          "id": "be8de804-4f6f-4213-b054-2f4ebba4ca1e",
+          "tagName": "[Part 7] Câu hỏi điền câu"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 165,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 164,
+      "questionNumber": 2,
+      "questionGroupId": "16d344a6-77a1-4561-a4e2-caf55d0cc773",
+      "questionId": "8f39cfc0-2eb9-4413-8a5c-c674307089db",
+      "correctAnswerId": "640fab39-e9cd-4bb4-a87c-880cf3f876d2",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "A mystery novel",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 166,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 164,
+      "questionNumber": 3,
+      "questionGroupId": "16d344a6-77a1-4561-a4e2-caf55d0cc773",
+      "questionId": "f621bac6-d791-4f38-9008-cac1fb17cf7a",
+      "correctAnswerId": "352828b8-f786-49f6-98a9-caabbe3ff63e",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "It closes on April 9.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 167,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 164,
+      "questionNumber": 4,
+      "questionGroupId": "16d344a6-77a1-4561-a4e2-caf55d0cc773",
+      "questionId": "cbee40c7-abac-4a50-88aa-062e20803234",
+      "correctAnswerId": "5d4da3be-4774-4363-9e61-dc2b0de4d72c",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "[3]",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 168,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 168,
+      "questionNumber": 1,
+      "questionGroupId": "556a3568-1843-443b-8624-2966b02b497b",
+      "questionId": "6e036e2e-09d7-4fdc-840e-b54c2878a5cb",
+      "correctAnswerId": "4ddda321-1053-411b-8a2f-fc0369acc8c0",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "He cannot move audio files to his computer.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 169,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 168,
+      "questionNumber": 2,
+      "questionGroupId": "556a3568-1843-443b-8624-2966b02b497b",
+      "questionId": "64127b10-eaad-4855-a78e-593f2becdd49",
+      "correctAnswerId": "8d84da59-87dc-43b5-adc7-5e2885912287",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "To explain that he obtained additional information",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 170,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 168,
+      "questionNumber": 3,
+      "questionGroupId": "556a3568-1843-443b-8624-2966b02b497b",
+      "questionId": "60421562-09da-47b0-b515-84001729d93b",
+      "correctAnswerId": "18f1e6d2-112e-490a-bc6c-b08eceebd006",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "report on",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 171,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 168,
+      "questionNumber": 4,
+      "questionGroupId": "556a3568-1843-443b-8624-2966b02b497b",
+      "questionId": "6d2bf7bc-b91a-4e42-89ce-c75d8013c4f9",
+      "correctAnswerId": "93097e58-dbe5-49f8-8ba8-8a09cb2d90d2",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "He will share conference material with his colleagues.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 172,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 172,
+      "questionNumber": 1,
+      "questionGroupId": "bc4e524b-fd24-42a7-8697-414eb62e4c0f",
+      "questionId": "d31ae8c1-6277-40be-aecf-68e1ea15afe3",
+      "correctAnswerId": "a0346f9c-c55e-4de2-9d8f-d9d0ae2bf19f",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "The type of device she is trying to buy",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 173,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 172,
+      "questionNumber": 2,
+      "questionGroupId": "bc4e524b-fd24-42a7-8697-414eb62e4c0f",
+      "questionId": "3497cb12-daf2-480c-97a3-628b2ce5c472",
+      "correctAnswerId": "890a557f-4e84-4342-b5cd-ad40726acbf0",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Jewelry",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 174,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 172,
+      "questionNumber": 3,
+      "questionGroupId": "bc4e524b-fd24-42a7-8697-414eb62e4c0f",
+      "questionId": "7f8b3c02-027b-4a5e-9691-63ea20e75c86",
+      "correctAnswerId": "5b556f7c-57ba-4ccb-9663-bd8fb4ea4e18",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Submitting some documentation",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 175,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 172,
+      "questionNumber": 4,
+      "questionGroupId": "bc4e524b-fd24-42a7-8697-414eb62e4c0f",
+      "questionId": "71d8f930-7384-49b9-bd14-ab2e19a1aaf7",
+      "correctAnswerId": "ae64c19e-a84f-4342-8678-e6105f54ced2",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "She has previously called the support line.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 176,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 176,
+      "questionNumber": 1,
+      "questionGroupId": "a7974515-e1a1-466b-a5ea-9211b53709ac",
+      "questionId": "f061304a-d306-469f-b584-b72fd1c9fe46",
+      "correctAnswerId": "e9ca150e-2c28-420c-9d27-8fe6e1da1fe9",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Proof of identification",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 177,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 176,
+      "questionNumber": 2,
+      "questionGroupId": "a7974515-e1a1-466b-a5ea-9211b53709ac",
+      "questionId": "833b2b80-dfe5-47f4-bb55-e38c74aa9f1f",
+      "correctAnswerId": "7ccf8f6b-c0d8-4960-aa8b-674f40ac726b",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "A light breakfast",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 178,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 176,
+      "questionNumber": 3,
+      "questionGroupId": "a7974515-e1a1-466b-a5ea-9211b53709ac",
+      "questionId": "28b3d8dc-1122-4fd7-b8d0-24f994e24a90",
+      "correctAnswerId": "3a14521a-903b-4e35-b8f2-3d5d5c23bf46",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "He has stayed at the Sunny Welcome Hotel before.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 179,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 176,
+      "questionNumber": 4,
+      "questionGroupId": "a7974515-e1a1-466b-a5ea-9211b53709ac",
+      "questionId": "075d0f9c-4ab8-4366-926a-ccd0a770da6b",
+      "correctAnswerId": "dd2371e8-a36f-4203-b900-269f59205f60",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "He canceled a reservation less than a day before arrival.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 180,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 176,
+      "questionNumber": 5,
+      "questionGroupId": "a7974515-e1a1-466b-a5ea-9211b53709ac",
+      "questionId": "1aa4ea49-7bd8-4436-b92e-92fff6c076f1",
+      "correctAnswerId": "5bc30200-1199-4451-b0ee-10cef680c93f",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "A credit to his account",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 181,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 181,
+      "questionNumber": 1,
+      "questionGroupId": "e1da293f-383e-4539-8be8-7ea1467e142d",
+      "questionId": "348dc8a0-92e3-4352-854f-96ab10808c93",
+      "correctAnswerId": "2fde01ee-f49e-4ed4-adb6-b2375b7fe163",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "It has more than one floor.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 182,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 181,
+      "questionNumber": 2,
+      "questionGroupId": "e1da293f-383e-4539-8be8-7ea1467e142d",
+      "questionId": "bee89ef3-7cf4-416f-b1d5-18b66c647860",
+      "correctAnswerId": "ff0ef0a5-f3d8-4018-bdbe-ec1a8eba7673",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "Research interior design options online",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 183,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 181,
+      "questionNumber": 3,
+      "questionGroupId": "e1da293f-383e-4539-8be8-7ea1467e142d",
+      "questionId": "56c5bcfb-13cb-48e2-aa5f-d023ee654b99",
+      "correctAnswerId": "2f66a1ba-4ea5-432b-8be3-e592f2a0cf45",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Mr. Willis",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 184,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 181,
+      "questionNumber": 4,
+      "questionGroupId": "e1da293f-383e-4539-8be8-7ea1467e142d",
+      "questionId": "720049b8-7139-49fb-afa7-0ccc517e039f",
+      "correctAnswerId": "34891be3-7e29-472e-8dcb-5da12a2eaeef",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Align",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 185,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 181,
+      "questionNumber": 5,
+      "questionGroupId": "e1da293f-383e-4539-8be8-7ea1467e142d",
+      "questionId": "8c5a622b-6764-4934-aeca-a221f9a1b11e",
+      "correctAnswerId": "d942f337-2174-404f-b73e-b9398fec95bc",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "By attending a consultation with Ms. Lowenbruck",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 186,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 186,
+      "questionNumber": 1,
+      "questionGroupId": "0c29c3dd-d941-4546-8d5f-e5b985d4c2ad",
+      "questionId": "d1fb2e28-5a8c-467b-9817-f78e3ac54c46",
+      "correctAnswerId": "2c60ea36-8fc7-4556-8e65-42c0ef7f274c",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "By changing the format of some questions",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 187,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 186,
+      "questionNumber": 2,
+      "questionGroupId": "0c29c3dd-d941-4546-8d5f-e5b985d4c2ad",
+      "questionId": "dfd1d8d3-3c87-4983-9d2a-f618c6754c5c",
+      "correctAnswerId": "e1378554-2d75-4c96-935e-eb47b03d1708",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "Suggestion 2",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 188,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 186,
+      "questionNumber": 3,
+      "questionGroupId": "0c29c3dd-d941-4546-8d5f-e5b985d4c2ad",
+      "questionId": "f49c5d69-3414-4129-abf8-3fce35a5ab9a",
+      "correctAnswerId": "8b2382c2-03aa-4603-baf0-69c67809a1a6",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "A room had space limitations.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 189,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 186,
+      "questionNumber": 4,
+      "questionGroupId": "0c29c3dd-d941-4546-8d5f-e5b985d4c2ad",
+      "questionId": "b073d151-4eda-4eb0-9aa0-3415d0b88578",
+      "correctAnswerId": "316a2466-36a1-4d15-8456-0901dc62cebf",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "He paid for some items using the company\u0027s money.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 190,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 186,
+      "questionNumber": 5,
+      "questionGroupId": "0c29c3dd-d941-4546-8d5f-e5b985d4c2ad",
+      "questionId": "c093fc5a-5dae-4823-8cec-1d878798e08b",
+      "correctAnswerId": "ff1b1105-b83d-462c-86cd-237f8d5a7997",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Display signs",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 191,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 191,
+      "questionNumber": 1,
+      "questionGroupId": "6a103e27-770b-4bcf-b8e1-b2f28b31dcdf",
+      "questionId": "eb061fef-fb45-4cef-9a26-a6beee52d4c9",
+      "correctAnswerId": "451f37e4-958f-431e-bd0b-e4c05a539ebc",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "It starts at the end of August.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 192,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 191,
+      "questionNumber": 2,
+      "questionGroupId": "6a103e27-770b-4bcf-b8e1-b2f28b31dcdf",
+      "questionId": "49ed03ef-9ebe-46e2-9a52-1e0112752394",
+      "correctAnswerId": "c63b9f99-74a0-4ed6-ae04-5ed02d54cfba",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "It requires an appointment for an eye exam.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 193,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 191,
+      "questionNumber": 3,
+      "questionGroupId": "6a103e27-770b-4bcf-b8e1-b2f28b31dcdf",
+      "questionId": "c5400adf-2128-493a-b963-5848d87fbe76",
+      "correctAnswerId": "cb31629a-1fea-40bc-9a2b-bfe8bab2ddfd",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "She works with Ms. Mosley.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 194,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 191,
+      "questionNumber": 4,
+      "questionGroupId": "6a103e27-770b-4bcf-b8e1-b2f28b31dcdf",
+      "questionId": "56fe0af5-b4fc-4fd8-ab2c-3e20e13625fc",
+      "correctAnswerId": "244c5070-214e-452b-8c04-ca7b273d9a2d",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "By recommending frames that fit his face",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 195,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 191,
+      "questionNumber": 5,
+      "questionGroupId": "6a103e27-770b-4bcf-b8e1-b2f28b31dcdf",
+      "questionId": "bc79750f-4dab-41ea-9457-05e782158956",
+      "correctAnswerId": "76cf8313-306d-4a11-be36-76ec58f94982",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "He received a discount on his purchase.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 196,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 196,
+      "questionNumber": 1,
+      "questionGroupId": "50ca5059-7ade-43a9-a898-d05fa9f5d2b1",
+      "questionId": "f6aaf7d4-b7b8-44cf-a3f5-a8ef7284e523",
+      "correctAnswerId": "3975130d-2e34-4d95-b2ce-6fcb89aedd42",
+      "correctAnswerOrder": 2,
+      "correctAnswerLabel": "B",
+      "correctAnswerContent": "It allows users to pay electronically.",
+      "explanation": null,
+      "tags": [
+        {
+          "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+          "tagName": "[Part 7] Câu hỏi suy luận"
+        },
+        {
+          "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+          "tagName": "[Part 7] Câu hỏi tìm thông tin"
+        }
+      ]
+    },
+    {
+      "globalQuestionNumber": 197,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 196,
+      "questionNumber": 2,
+      "questionGroupId": "50ca5059-7ade-43a9-a898-d05fa9f5d2b1",
+      "questionId": "58cee32f-85eb-467a-9039-8097c6309174",
+      "correctAnswerId": "d6ebba2c-0921-4c81-9a9f-8517d2e99003",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "It is currently empty.",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 198,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 196,
+      "questionNumber": 3,
+      "questionGroupId": "50ca5059-7ade-43a9-a898-d05fa9f5d2b1",
+      "questionId": "1a9455ed-5788-4961-9aa6-384ab0e34971",
+      "correctAnswerId": "0195f99d-1adc-4efe-8ff4-bd2e499617ec",
+      "correctAnswerOrder": 4,
+      "correctAnswerLabel": "D",
+      "correctAnswerContent": "A model number",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 199,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 196,
+      "questionNumber": 4,
+      "questionGroupId": "50ca5059-7ade-43a9-a898-d05fa9f5d2b1",
+      "questionId": "59691d9e-4e89-43bd-9a6f-4b298dd2f1d5",
+      "correctAnswerId": "30655317-b933-4714-b90d-537317cecab6",
+      "correctAnswerOrder": 1,
+      "correctAnswerLabel": "A",
+      "correctAnswerContent": "The snacks that his company offers",
+      "explanation": null,
+      "tags": []
+    },
+    {
+      "globalQuestionNumber": 200,
+      "questionPart": "PART_7",
+      "questionGroupOrder": 196,
+      "questionNumber": 5,
+      "questionGroupId": "50ca5059-7ade-43a9-a898-d05fa9f5d2b1",
+      "questionId": "635d2358-5498-49fe-a245-47c9bcd99b1d",
+      "correctAnswerId": "0e1c79c1-a80e-49ba-a38b-8c916f486905",
+      "correctAnswerOrder": 3,
+      "correctAnswerLabel": "C",
+      "correctAnswerContent": "Service 4",
+      "explanation": null,
+      "tags": []
+    }
+  ]
+}

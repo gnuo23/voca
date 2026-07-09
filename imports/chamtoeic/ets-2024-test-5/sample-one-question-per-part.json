@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2024 TEST 5",
+    "generatedAt":  "2026-07-09T20:40:27Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "75badf18-d0be-4063-ac8f-74830d4a28de",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "208beb58-59e2-458b-9537-2c29deb80f18",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-3676068dcff84ff792237e018090ad18.png"
+                                           },
+                                           {
+                                               "id":  "0a73b153-b584-4230-b7f3-324f2f73d2d1",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-a2da685f466e4a9c845fdba3ed5877a3.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) The worker is carrying some plants.\n(B) The worker is reading a sign.\n(C) The worker is pushing a cart.\n(D) The worker is writing some notes.",
+                        "groupExplanationText":  "(A) Người công nhân đang bê một số cây.\n(B) Người công nhân đang đọc một tấm biển.\n(C) Người công nhân đang đẩy xe đẩy.\n(D) Người công nhân đang viết một số ghi chú."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "7264fbbc-cd8c-4503-9dc4-fc7df18aa0f4",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "b2496157-0f4c-4d37-9869-e31242c224ca",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-bbe4d38cbcd74f4d94a5144a1f0a0cf9.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "W-Br There\u0027s a meeting in the conference room soon, right?\nM-Au (A) Yes, it\u0027s for the whole department. (B) No, put it in the closet. (C) The rent is too high.",
+                        "groupExplanationText":  "W-Br Sắp có cuộc họp ở phòng họp phải không?\nM-Au (A) Vâng, toàn bộ phòng ban đều họp. (B) Không, cất vào tủ đi. (C) Tiền thuê nhà cao quá."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "9b47a3aa-5307-47fc-8525-412be27dfec4",
+                        "questionNumber":  1,
+                        "questionText":  "What problem does the woman describe?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "4ed4e68a-e12a-4423-8182-77e4d1b9e486",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-49038ae97f774d9babe1686b3f1ffa9a.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A room is not available.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A window will not open.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A projector is not working.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "The weather has changed suddenly.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "A projector is not working.",
+                        "audioTranscriptText":  "W-Br Hi, Shenchao. I\u0027m practicing my presentation in the conference room across the hall, and the projector in there keeps shutting off. I think it\u0027s overheating. Has this happened to you?\nM-Cn Oh, that projector is old. It really needs to be replaced. If I were you, I\u0027d just move to room 204 and practice there. Also, that room has a window. It\u0027s much nicer.\nW-Br OK. Thanks.\nM-Cn By the way, you\u0027ll need a special cable to connect to the control panel in that room. Here, you can use this one. Just leave it plugged in when you\u0027re finished.",
+                        "groupExplanationText":  "W-Br Xin chào, Shenchao, (32) Tôi đang luyện tập bài thuyết trình của mình trong phòng họp bên kia hành lang và máy chiếu ở đó liên tục tắt. Tôi nghĩ nó quá nóng. Điều này có xảy ra với bạn không?\nM-Cn Ồ, máy chiếu đó cũ rồi. Nó thực sự cần phải được thay thế. (33) Nếu tôi là bạn, tôi sẽ chuyển đến phòng 204 và luyện tập ở đó. Ngoài ra, căn phòng đó còn có cửa sổ. Nó tốt hơn nhiều.\nW-Br OK. Cảm ơn.\nM-Cn Nhân tiện, (34)bạn sẽ cần một dây cáp đặc biệt để kết nối với bảng điều khiển trong phòng đó. Đây, bạn có thể sử dụng cái này. Chỉ cần cắm nó vào khi bạn hoàn tất."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "ecdd18cd-73e8-43ff-ac36-a629bddfcbe0",
+                        "questionNumber":  1,
+                        "questionText":  "What did the listener do yesterday?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "7ff54eb4-77a3-459f-8159-c225ed5afdc6",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-58f080cb9f2540f2a05f3a462f19648d.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "She placed an order.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "She scheduled an event.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "She called a manager.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "She painted some rooms.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "She placed an order.",
+                        "audioTranscriptText":  "W-Br Hi, Ms. Cho. I\u0027m calling from Springdale Lights. Yesterday, you ordered 24 of our purple solar lanterns for your upcoming event. Unfortunately, our supplier won\u0027t be able to get us purple lanterns for another three weeks, so we only have yellow ones in stock. We would like to offer you a ten percent discount on them to apologize for this. Please call us back to confirm whether you\u0027d like the yellow solar lights, and we\u0027ll set them aside for you.",
+                        "groupExplanationText":  "Xin chào cô Cho. Tôi đang gọi từ Springdale Lights. (71)Hôm qua, bạn đã đặt mua 24 chiếc đèn lồng năng lượng mặt trời màu tím của chúng tôi cho sự kiện sắp tới của mình. (72)Thật không may, nhà cung cấp của chúng tôi sẽ không thể cung cấp cho chúng tôi những chiếc đèn lồng màu tím trong ba tuần nữa, vì vậy chúng tôi chỉ còn những chiếc đèn lồng màu vàng trong kho. (73)Chúng tôi muốn giảm giá 10% cho bạn để xin lỗi về điều này. Vui lòng gọi lại cho chúng tôi để xác nhận xem bạn có muốn đèn năng lượng mặt trời màu vàng hay không và chúng tôi sẽ dành chúng cho bạn."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "a10a549e-ebb3-4342-bf61-96a35f03aa21",
+                        "questionNumber":  1,
+                        "questionText":  "After upgrading to Pro Data Whiz, our clients began ------- problems with spreadsheets.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "has",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "had",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "have",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "having",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "having",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Sau khi nâng cấp lên Pro Data Whiz, khách hàng của chúng tôi bắt đầu ------- vấn đề với bảng tính.\n(A) có\n(B) đã có\n(C) có\n(D) đang có\nTa có cấu trúc: begin + V-ing = bắt đầu làm gì =\u003e having là đáp án đúng.\n=\u003e Đáp án (D)"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "7bed490f-68d4-4379-929f-33f116737336",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "7704ca1a-e0f6-4e3d-aa70-77b2357c6e37",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-146844a222c647d6a53004293c78a5a1.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "manufacturing",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "hiring",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "political",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "sporting",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "hiring",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "(131) (A) sản xuất\n(B) tuyển dụng\n(C) chính trị\n(D) thể thao\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (B)\n(132) (A) Nếu không\n(B) Rốt cuộc thì\n(C) Ngoài ra\n(D) Ví dụ\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (C)\n(133) (A) Lễ khai trương dự kiến ​​diễn ra vào giữa tháng 11.\n(B) Hầu hết các ứng viên đều đã có kinh nghiệm trước đó.\n(C) Việc bổ nhiệm Linda Okumu làm Giám đốc điều hành đã khiến các nhà phân tích ngạc nhiên.\n(D) Các đối thủ cạnh tranh địa phương không thể sánh được với giá của nó.\nTrước khoảng trống, có thông tin cho rằng họ đang tuyển nhân viên cho địa điểm Westside mới, nơi mà vẫn đang được xây dựng nên khoảng trống sẽ chứa thông tin về địa điểm mới này là điều đương nhiên. Vì vậy, câu (A) đề cập đến thời gian dự kiến ​​khai trương địa điểm mới là đáp án đúng.\n=\u003e Đáp án (A)\n(134) (A) tham dự\n(B) tham dự\n(C) đã tham dự\n(D) sẽ tham dự\nKhoảng trống là vị trí động từ của mệnh đề quan hệ (who ~ the event) bổ nghĩa cho những tiền đề đó. Ngày bài viết được xuất bản là ngày 8 tháng 10 và sự kiện sau khoảng trống ám chỉ sự kiện tuyển dụng sẽ được tổ chức vào ngày 20 tháng 10 đã đề cập trước đó, do đó phải điền động từ ở thì tương lai. Vì vậy, câu trả lời đúng là thì hiện tại tiếp diễn (D) are doing.\n=\u003e Đáp án (D)\nDịch nghĩa:\nChuỗi cửa hàng tạp hóa tổ chức sự kiện\nLEIGHTON (ngày 8 tháng 10)—Ohale Foods, một trong những chuỗi siêu thị lớn nhất khu vực, đang tìm cách lấp đầy gần 100 vị trí còn trống. Vì lý do đó, công ty đang tổ chức một sự kiện (131) vào ngày 20 tháng 10. Cơ hội việc làm có ở tất cả 14 cửa hàng hiện tại của Ohale. (132), Ohale đang tìm kiếm nhân viên cho địa điểm Westside mới vẫn đang được xây dựng. (133).\nNhững người (134) sự kiện nên mang bản sao lý lịch của họ đến Phòng khiêu vũ lớn của Khách sạn Palace Suites trong khoảng thời gian từ 10 giờ sáng đến 7 giờ tối. Không cần phải hẹn trước."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "80adcdc8-2800-43ff-92a3-1ae61d1aa747",
+                        "questionNumber":  1,
+                        "questionText":  "What types of products are being advertised?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "93ce7dfb-0c27-4bea-a298-3d19a9eda396",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-a0c76795291a4d168a03270b09fde8e0.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Camping gear",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Household items",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Office equipment",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Automobile accessories",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "Household items",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "(147) Những loại sản phẩm đang được quảng cáo?\n(A) Dụng cụ cắm trại\n(B) Đồ gia dụng\n(C) Thiết bị văn phòng\n(D) Phụ kiện ô tô\n(148) Điều gì được chỉ ra về công ty?\n(A) Nó đã hoạt động được hai năm.\n(B) Nó chấp nhận trả lại sản phẩm.\n(C) Nó được giao hàng trong ngày.\n(D) Nó có đợt giảm giá hàng năm.\nDịch nghĩa:\nCú và Mặt trăng\nHãy mua một tấm nệm và chọn miễn phí một trong những tấm thảm đẹp của chúng tôi!\nSử dụng mã phiếu giảm giá sau khi bạn thanh toán tại Owlandmoon.co.uk: ESSZRS4T.\nNệm của chúng tôi được vận chuyển trực tiếp đến nhà bạn và thường đến trong vòng một tuần. Hãy dùng thử một tấm nệm trong 90 ngày và nếu bạn không hài lòng với nó, hãy gửi nó lại để được hoàn lại tiền đầy đủ. Chúng tôi cũng cung cấp tài chính lãi suất thấp trong hai năm cho tất cả đồ nội thất của chúng tôi."
+                    }
+                ]
+}

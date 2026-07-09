@@ -1,0 +1,3708 @@
+﻿{
+  "status": 200,
+  "message": "Test submitted and scored successfully",
+  "data": {
+    "createdDate": null,
+    "createdBy": null,
+    "modifiedDate": null,
+    "modifiedBy": null,
+    "status": null,
+    "attemptId": null,
+    "attemptNumber": 0,
+    "completionTime": 1,
+    "partsTaken": [
+      "PART_1",
+      "PART_2",
+      "PART_3",
+      "PART_4",
+      "PART_5",
+      "PART_6",
+      "PART_7"
+    ],
+    "summaryInfo": {
+      "createdDate": null,
+      "createdBy": null,
+      "modifiedDate": null,
+      "modifiedBy": null,
+      "status": null,
+      "summaryId": null,
+      "userId": null,
+      "testsetId": null,
+      "testsetName": null,
+      "totalAttempts": 0,
+      "bestScore": 0,
+      "latestScore": null,
+      "bestListeningScore": 0,
+      "bestReadingScore": 0,
+      "averageScore": 0.0
+    },
+    "totalScore": null,
+    "listeningScore": null,
+    "readingScore": null,
+    "lcCorrectAnswers": 0,
+    "rcCorrectAnswers": 0,
+    "correctAnswers": 0,
+    "incorrectAnswers": 1,
+    "unansweredQuestions": 199,
+    "answerDetails": {
+      "0c8ac7fa-f0c4-4dd5-9ec0-bd4eed8eb0c3": {
+        "questionGroupId": "3c88a7d9-abf5-4ef8-8691-3505239a4e82",
+        "questionId": "0c8ac7fa-f0c4-4dd5-9ec0-bd4eed8eb0c3",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2729f0a7-3be6-4ba5-835c-a7a914348fc0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6c580089-dbf3-45b1-8dc0-150ed4edb286",
+            "tagName": "[Part 5] Câu hỏi ngữ pháp"
+          }
+        ]
+      },
+      "6dc7c380-6ffb-43ba-a21d-a51d8419c0a7": {
+        "questionGroupId": "ea17e5f2-3810-40b6-9181-34a0c3b4acbf",
+        "questionId": "6dc7c380-6ffb-43ba-a21d-a51d8419c0a7",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c937b8bd-d130-458b-a9ea-506d4cf677f3",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "84ebf8c7-a206-407f-b565-7fb187e5cb3e",
+            "tagName": "[Part 3] Câu hỏi biểu đồ"
+          }
+        ]
+      },
+      "68d753a5-aff3-4102-984d-8e24b4c7d4a7": {
+        "questionGroupId": "c33eae96-4054-4c9f-a0e5-366e4e840499",
+        "questionId": "68d753a5-aff3-4102-984d-8e24b4c7d4a7",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ad724549-e4bb-49b7-9708-7403175196e0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "be8de804-4f6f-4213-b054-2f4ebba4ca1e",
+            "tagName": "[Part 7] Câu hỏi điền câu"
+          }
+        ]
+      },
+      "6104d098-9e65-4860-8413-3dc2326ed05b": {
+        "questionGroupId": "2dd789cd-16d7-4a24-a14c-c80799adad73",
+        "questionId": "6104d098-9e65-4860-8413-3dc2326ed05b",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "226f4d55-64bc-41ae-a776-f60cd550bf86",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "7b112359-149e-449b-a77c-9767d8e914c8": {
+        "questionGroupId": "07795b95-339d-4a75-a8d1-8cb3269f54ac",
+        "questionId": "7b112359-149e-449b-a77c-9767d8e914c8",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "5b45e11f-940b-4751-87dd-741157ba080e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "31fe0ad0-6f6f-4025-b90d-5949f6571f9c",
+            "tagName": "[Part 5] Câu hỏi giới từ"
+          }
+        ]
+      },
+      "1e13df7d-34ff-4de5-9b5a-27508dede34e": {
+        "questionGroupId": "6a00b400-276d-4e6c-8a64-562b4cbc8734",
+        "questionId": "1e13df7d-34ff-4de5-9b5a-27508dede34e",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "0ddc2adc-7d1d-441b-b217-1c8c18f845ba",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "3c6d899b-8e72-46e1-b2e5-810bdfffedbe": {
+        "questionGroupId": "7fd0dfb0-d562-4461-aae3-e490769e6e59",
+        "questionId": "3c6d899b-8e72-46e1-b2e5-810bdfffedbe",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "249677e1-db45-42ac-a613-33e02da60962",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+            "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "bf785ff5-7941-4aba-b6e3-f5f64e10c0f4": {
+        "questionGroupId": "bb859b6c-e7d6-4fa4-92ce-23405ef263a8",
+        "questionId": "bf785ff5-7941-4aba-b6e3-f5f64e10c0f4",
+        "questionNumber": 1,
+        "questionPart": "PART_1",
+        "selectedAnswerId": null,
+        "correctAnswerId": "0e5213c4-cfc7-4640-98fb-9dbc09768605",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6ff797c4-f844-442f-837f-2f07b26f97c1",
+            "tagName": "[Part 1] Tranh tả cả người và vật"
+          }
+        ]
+      },
+      "98b60eb5-04f2-4fc4-b453-14dbfc58ce62": {
+        "questionGroupId": "ab151457-4a58-4dd6-bb10-790ded3f32fe",
+        "questionId": "98b60eb5-04f2-4fc4-b453-14dbfc58ce62",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "41a455a8-be90-4c6e-876d-28671e9a6764",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "8ba971a5-426b-49a5-9457-129c5d4872d2": {
+        "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+        "questionId": "8ba971a5-426b-49a5-9457-129c5d4872d2",
+        "questionNumber": 4,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ea522e2e-8e70-49a3-b817-985cf071ab72",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+            "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+          }
+        ]
+      },
+      "9025366a-8a0f-4751-bf78-a2c1138ccd04": {
+        "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+        "questionId": "9025366a-8a0f-4751-bf78-a2c1138ccd04",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2bfb174f-678e-4129-ac50-5ff3f7c0b93d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "f8b8cff0-de43-405a-9cdc-cf992e173654": {
+        "questionGroupId": "477a9fc8-a00c-4365-b569-bafcc0acd3ab",
+        "questionId": "f8b8cff0-de43-405a-9cdc-cf992e173654",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "bd244bb8-44eb-45cd-abea-53aee1cd0e1a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "b7688d9b-eda0-40de-80d5-975dc569eac5",
+            "tagName": "[Part 4] Câu hỏi kết hợp bảng biểu"
+          }
+        ]
+      },
+      "881688ff-e78d-41df-bee5-2cbcaafc23d7": {
+        "questionGroupId": "2b696d2d-3c8a-468a-ae66-81d64bb54829",
+        "questionId": "881688ff-e78d-41df-bee5-2cbcaafc23d7",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4abb2a38-0db5-4544-abf2-50ec6bcb6c2e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "a74fd943-6d4d-4406-98a0-9c2a5dd16e00": {
+        "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+        "questionId": "a74fd943-6d4d-4406-98a0-9c2a5dd16e00",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "cfe05551-e52e-4640-a0dc-1f13d1f65ed0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "45b2a080-234d-4671-994f-64978adb3be6": {
+        "questionGroupId": "fdc83a1c-58e8-4b45-bcff-77d8380c674d",
+        "questionId": "45b2a080-234d-4671-994f-64978adb3be6",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "7d3500da-9c92-4453-887a-3193b0388003",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "d45212cf-f8b3-467c-9823-afc1befe6984": {
+        "questionGroupId": "08201b04-8fc4-4319-aeb1-246b557a4dfe",
+        "questionId": "d45212cf-f8b3-467c-9823-afc1befe6984",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "b8aeae51-827d-4c9c-971c-615bfe8e0168",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "c152630d-bd95-497d-8326-b5e495ad6efa": {
+        "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+        "questionId": "c152630d-bd95-497d-8326-b5e495ad6efa",
+        "questionNumber": 4,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "db4eaafd-b7dd-4b10-8ff9-523435255ea7",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+            "tagName": "[Part 6] Câu hỏi ngữ pháp"
+          }
+        ]
+      },
+      "a2a45501-eebb-42f4-ac18-99c9348e806e": {
+        "questionGroupId": "8d493db3-32d8-4905-9462-e6624c0975c4",
+        "questionId": "a2a45501-eebb-42f4-ac18-99c9348e806e",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "5de1f048-57b1-4ff2-a211-9958c94ce233",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "c9bb1386-7242-4c00-900d-898ceb36258e": {
+        "questionGroupId": "79418ac4-39c6-4bee-88fb-33bef4f8bb9c",
+        "questionId": "c9bb1386-7242-4c00-900d-898ceb36258e",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "f8d3b657-2e83-4962-a6bc-2a2c4affa9b3",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "e3cf1b54-b17e-443d-86b1-37ef8d9741ba": {
+        "questionGroupId": "79418ac4-39c6-4bee-88fb-33bef4f8bb9c",
+        "questionId": "e3cf1b54-b17e-443d-86b1-37ef8d9741ba",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "b8aff13c-be93-43cc-acbb-6b4403e49cd1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "ab84d05e-687b-4e97-ad9d-09a5f9856986": {
+        "questionGroupId": "2b696d2d-3c8a-468a-ae66-81d64bb54829",
+        "questionId": "ab84d05e-687b-4e97-ad9d-09a5f9856986",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1e202f32-913c-4314-9280-defa417785ab",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "12405f52-df10-4a8c-94e5-6cbc0cfced0a": {
+        "questionGroupId": "86857a2e-4356-4ff4-a683-fb709b5a7c5e",
+        "questionId": "12405f52-df10-4a8c-94e5-6cbc0cfced0a",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "167bb545-ef69-46bc-a1f7-277d8157b3ce",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "f01adbaa-af5e-4f1a-8381-64480505d83c": {
+        "questionGroupId": "8cbe03f8-e4e4-4387-a2a9-80fd8e7d8256",
+        "questionId": "f01adbaa-af5e-4f1a-8381-64480505d83c",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "736b84a0-b211-4ff8-bbf2-4c3b21e9d701",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "ee510699-28d5-4c47-842f-7048e8ac5ec9": {
+        "questionGroupId": "21fc212f-5432-4298-ad6e-57e8def7e5ee",
+        "questionId": "ee510699-28d5-4c47-842f-7048e8ac5ec9",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ae89fef9-76fb-4d50-817f-2008a92f00b5",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "e438a03a-0a25-4214-8d7c-ae2b8487abbd",
+            "tagName": "[Part 5] Câu hỏi đại từ"
+          }
+        ]
+      },
+      "9c397f34-af6d-4127-a823-107c5e02249f": {
+        "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+        "questionId": "9c397f34-af6d-4127-a823-107c5e02249f",
+        "questionNumber": 5,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "7559f2be-3597-44c8-bb3b-8b3d0118e3a5",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "06e80ea4-15d8-4b8d-91a8-d7513a8a8af7",
+            "tagName": "[Part 7] Câu hỏi tìm từ đồng nghĩa"
+          }
+        ]
+      },
+      "12aafc8c-2cd1-4894-b915-260d5e8058d6": {
+        "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+        "questionId": "12aafc8c-2cd1-4894-b915-260d5e8058d6",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2b5322d9-4451-42ab-92f8-7d9ee226c63a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "b2ea053c-de62-4003-988e-b0d4190dbe77": {
+        "questionGroupId": "477a9fc8-a00c-4365-b569-bafcc0acd3ab",
+        "questionId": "b2ea053c-de62-4003-988e-b0d4190dbe77",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "64260c50-8828-4003-8144-4a81e7102048",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "05f717bd-441a-47ed-a636-02e8eea5013e": {
+        "questionGroupId": "58de84c6-af56-43f2-ad41-b68e6fbda062",
+        "questionId": "05f717bd-441a-47ed-a636-02e8eea5013e",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "8c454e39-83a0-42f0-a1c2-23ca47b42b46",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "169a2427-20af-4e39-a946-459d60d0f604": {
+        "questionGroupId": "32f51df2-f41e-4c39-ba03-57dac0aa7dbb",
+        "questionId": "169a2427-20af-4e39-a946-459d60d0f604",
+        "questionNumber": 1,
+        "questionPart": "PART_1",
+        "selectedAnswerId": null,
+        "correctAnswerId": "be1f8b87-1e1b-4ff2-9dfb-1b7e21411d4c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1904fbcb-b8cd-4c54-93f0-157aaa7dfd43",
+            "tagName": "[Part 1] Tranh tả vật"
+          }
+        ]
+      },
+      "ef04facf-9b50-4dbd-aa2b-f5dccefdcfdf": {
+        "questionGroupId": "c704bd68-b4fc-4139-8765-01e9f3198f18",
+        "questionId": "ef04facf-9b50-4dbd-aa2b-f5dccefdcfdf",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "0e7baedc-cd75-4dd5-a414-061c9fa122ed",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "e915f905-ff53-4590-acc8-1d7047b61a2d": {
+        "questionGroupId": "3439fdd9-36ff-4a30-a6f9-744b74cb4921",
+        "questionId": "e915f905-ff53-4590-acc8-1d7047b61a2d",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ac4ab91d-01da-4505-8437-5220b8ceba70",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "d3e4fa65-da0d-4ff1-8c89-f780dee4b228",
+            "tagName": "[Part 2] Câu hỏi WHY"
+          }
+        ]
+      },
+      "5f0996ad-7fe9-4999-89d0-6a7cdf754278": {
+        "questionGroupId": "53d2e064-4105-4e4f-9cd3-8da910eb8d01",
+        "questionId": "5f0996ad-7fe9-4999-89d0-6a7cdf754278",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c5531550-3321-49c9-be5c-66c5340c655a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "310e786b-776b-4f7b-adc9-17efad576771": {
+        "questionGroupId": "996bca8f-c3df-4f6d-b22d-e3304525b152",
+        "questionId": "310e786b-776b-4f7b-adc9-17efad576771",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "b459715a-f25f-46b1-9c52-b19b4316d759",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "490c7606-dd85-4a9c-809a-f79159cd9932": {
+        "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+        "questionId": "490c7606-dd85-4a9c-809a-f79159cd9932",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "46706147-714b-4a48-804d-42675711dbbf",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "4a4ee35a-27fc-4770-bd81-0a751f9068a1": {
+        "questionGroupId": "9acc1419-5b3d-47a3-b2f5-bd1689eaa98a",
+        "questionId": "4a4ee35a-27fc-4770-bd81-0a751f9068a1",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "709f5869-d760-4a3b-841f-47bc9a6e599b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "581a2553-2cb7-452d-a777-784c2a06bec0": {
+        "questionGroupId": "53d2e064-4105-4e4f-9cd3-8da910eb8d01",
+        "questionId": "581a2553-2cb7-452d-a777-784c2a06bec0",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "f16e84a3-759d-4406-895d-f8f7e9613d47",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "b7688d9b-eda0-40de-80d5-975dc569eac5",
+            "tagName": "[Part 4] Câu hỏi kết hợp bảng biểu"
+          }
+        ]
+      },
+      "e54a7e53-2296-4498-af26-55c7c342ce24": {
+        "questionGroupId": "a94b5ef9-e2fa-4f77-ad35-c735762761d4",
+        "questionId": "e54a7e53-2296-4498-af26-55c7c342ce24",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "06140340-04f3-4c38-8c2b-f5eb3dc5be68",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "e438a03a-0a25-4214-8d7c-ae2b8487abbd",
+            "tagName": "[Part 5] Câu hỏi đại từ"
+          }
+        ]
+      },
+      "1faaebe9-7a9e-4666-ae0a-0a2e735dcfbe": {
+        "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+        "questionId": "1faaebe9-7a9e-4666-ae0a-0a2e735dcfbe",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "b45983f4-085b-47e5-a6f6-74f061e3a1d1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "d58ed6dd-bb45-46f9-8cb6-d191de0abdc3": {
+        "questionGroupId": "9e062f6c-f033-424c-9f79-2b30483f2dd2",
+        "questionId": "d58ed6dd-bb45-46f9-8cb6-d191de0abdc3",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4a282061-4758-4b5c-bebc-4da1bb9cfafa",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "bc64592c-4eb0-405f-8925-0e0b2622bbfb": {
+        "questionGroupId": "c302526b-52fe-4e0b-a0c6-7189fc0dfd2d",
+        "questionId": "bc64592c-4eb0-405f-8925-0e0b2622bbfb",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "46770505-d9e0-4400-85ec-19acac26c581",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "84ebf8c7-a206-407f-b565-7fb187e5cb3e",
+            "tagName": "[Part 3] Câu hỏi biểu đồ"
+          }
+        ]
+      },
+      "4176b54f-5295-4ce4-8257-cc6b71987650": {
+        "questionGroupId": "58de84c6-af56-43f2-ad41-b68e6fbda062",
+        "questionId": "4176b54f-5295-4ce4-8257-cc6b71987650",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "9c5b6559-d535-420c-8fea-56424bffdce2",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "4c94599d-3c03-4925-a6c2-6dc8e20f1404": {
+        "questionGroupId": "b1463116-0ac5-4e3b-bdcb-10978ee87be3",
+        "questionId": "4c94599d-3c03-4925-a6c2-6dc8e20f1404",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2e74819e-1203-401b-b93c-4887e87c58fb",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "e6c94a07-6e39-448e-96c5-1136038b95f7": {
+        "questionGroupId": "178e70e4-c997-4239-9007-4ed4e60a73f2",
+        "questionId": "e6c94a07-6e39-448e-96c5-1136038b95f7",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "427c60cf-3748-49cb-93b1-5d2aeb2931d0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "c1e18338-ad2f-4a88-a053-566fd6af7ace": {
+        "questionGroupId": "cb92e32e-331a-4af6-a2fa-937dbd59d47d",
+        "questionId": "c1e18338-ad2f-4a88-a053-566fd6af7ace",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "41bc2797-3220-4e0a-8d36-ec5aedf712e4",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "408f0b31-99d6-4d79-8d1a-662883c99459": {
+        "questionGroupId": "6fb48d22-140d-46fd-baf3-fe4ac87ebb19",
+        "questionId": "408f0b31-99d6-4d79-8d1a-662883c99459",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "571d133f-1551-46ef-9f7b-58a09ead89dd",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "4a26b578-fdde-4ed4-8b70-1c3efab8d75c",
+            "tagName": "[Part 7] Câu hỏi tìm chi tiết sai"
+          }
+        ]
+      },
+      "3ad3d351-1f39-4c33-aa5f-15da5309147c": {
+        "questionGroupId": "79418ac4-39c6-4bee-88fb-33bef4f8bb9c",
+        "questionId": "3ad3d351-1f39-4c33-aa5f-15da5309147c",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d891a403-5bdf-4102-8421-91210fc31af7",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "a2261658-7105-436b-aeef-40c108af076b": {
+        "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+        "questionId": "a2261658-7105-436b-aeef-40c108af076b",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "85674179-fcbd-422f-987c-59faf67dcc0c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "d0fc4958-6a9a-4bd6-bf66-b9147451be90": {
+        "questionGroupId": "a60d2d9b-a340-42bf-843e-1c2177d194c1",
+        "questionId": "d0fc4958-6a9a-4bd6-bf66-b9147451be90",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "a930938e-57c1-448c-8a2c-47e896fa065e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+            "tagName": "[Part 2] Câu hỏi YES/NO"
+          }
+        ]
+      },
+      "34f636c1-09e3-49f0-82f0-0f25a11d079e": {
+        "questionGroupId": "91aaf048-1714-4435-9e5e-b46f09f90e49",
+        "questionId": "34f636c1-09e3-49f0-82f0-0f25a11d079e",
+        "questionNumber": 1,
+        "questionPart": "PART_1",
+        "selectedAnswerId": "1e2bb132-de4d-48ce-a57b-54d0e12c31bf",
+        "correctAnswerId": "d6cac70f-d7bd-4906-96c9-339cdabd6fc3",
+        "isCorrect": false,
+        "isSkipped": false,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1904fbcb-b8cd-4c54-93f0-157aaa7dfd43",
+            "tagName": "[Part 1] Tranh tả vật"
+          }
+        ]
+      },
+      "785cd0e2-037f-4ecf-88cb-7f1dc01c3b28": {
+        "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+        "questionId": "785cd0e2-037f-4ecf-88cb-7f1dc01c3b28",
+        "questionNumber": 3,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e034650b-bbbc-4009-92b3-469a848e589a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "80b947e3-2f63-423c-8817-5ffc0bbbfa0e": {
+        "questionGroupId": "a1c3d1e0-2606-4183-91dd-465d65e40028",
+        "questionId": "80b947e3-2f63-423c-8817-5ffc0bbbfa0e",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "9b38e893-bee6-4f7a-9718-a76febe88348",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "6f26a09f-bb48-4673-9537-cf9523d3a536": {
+        "questionGroupId": "c41d4aeb-f35d-4f62-92f1-8b574869a2da",
+        "questionId": "6f26a09f-bb48-4673-9537-cf9523d3a536",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c3fcef43-ec76-4e54-b17d-a105a33dc24d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "0d6453fb-9a99-4fc7-914d-14bd8d260668",
+            "tagName": "[Part 2] Câu yêu cầu, đề nghị"
+          }
+        ]
+      },
+      "f98f70d0-0992-479a-b997-c2894c461583": {
+        "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+        "questionId": "f98f70d0-0992-479a-b997-c2894c461583",
+        "questionNumber": 2,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "88421ad6-1992-4e6f-aa05-52ad03de2e66",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+            "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+          }
+        ]
+      },
+      "18830b9c-ee93-4f99-a642-cfed05b8609f": {
+        "questionGroupId": "8d2df41a-53fe-46e9-8d3f-595ce1bfa2b3",
+        "questionId": "18830b9c-ee93-4f99-a642-cfed05b8609f",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "04c36173-3ceb-444a-9ad5-c7529db0e022",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+            "tagName": "[Part 2] Câu hỏi YES/NO"
+          }
+        ]
+      },
+      "83c703e9-9071-47b7-807a-f63dc61ffec3": {
+        "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+        "questionId": "83c703e9-9071-47b7-807a-f63dc61ffec3",
+        "questionNumber": 4,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "7b4ab848-b6b5-4bce-a0c9-f32e3885ebb7",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+            "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+          }
+        ]
+      },
+      "34678aec-1e27-44dc-bbb1-1a60e47897e7": {
+        "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+        "questionId": "34678aec-1e27-44dc-bbb1-1a60e47897e7",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "5ddd626d-e492-4038-967d-5b8689beb0ad",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "2994b689-6195-4378-9048-43945d579e3e": {
+        "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+        "questionId": "2994b689-6195-4378-9048-43945d579e3e",
+        "questionNumber": 5,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4d9fecdc-ded7-4cf1-abf4-4cc0f46e0180",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "6a35e1c0-53a3-4b68-a069-6ac2ef75ae5a": {
+        "questionGroupId": "cb92e32e-331a-4af6-a2fa-937dbd59d47d",
+        "questionId": "6a35e1c0-53a3-4b68-a069-6ac2ef75ae5a",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "bda1d063-3d95-4123-8d9b-4f4249d28dd1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "65bf1aba-90b9-425f-9ba8-8da7003da51d": {
+        "questionGroupId": "f5ef0cf9-8c03-4310-89e3-47db7fe99388",
+        "questionId": "65bf1aba-90b9-425f-9ba8-8da7003da51d",
+        "questionNumber": 1,
+        "questionPart": "PART_1",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4d95f911-cded-4c7d-9d21-6f1726f9aa29",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "a6f59139-6452-4ef5-966f-0f87433b9e81",
+            "tagName": "[Part 1] Tranh tả nhiều người"
+          }
+        ]
+      },
+      "113b0733-549c-42d9-bd65-bc4f4a0b12a7": {
+        "questionGroupId": "75eab273-1958-47a7-97ff-348a6d882e3d",
+        "questionId": "113b0733-549c-42d9-bd65-bc4f4a0b12a7",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2fae7922-3977-41ca-a3a4-96cccc736373",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "24e0185c-d52b-4e6c-8ff9-d014bf7cd2f5": {
+        "questionGroupId": "2dd789cd-16d7-4a24-a14c-c80799adad73",
+        "questionId": "24e0185c-d52b-4e6c-8ff9-d014bf7cd2f5",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "7a401cc0-10a0-4093-8206-3c403b74c3a8",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "62dd9256-4e09-4552-93e8-c183b45e77dd": {
+        "questionGroupId": "6edba001-d2e0-4973-b26b-dd5999e5154a",
+        "questionId": "62dd9256-4e09-4552-93e8-c183b45e77dd",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "32fb62c0-0b66-4f58-88a6-c602fd4e5c0e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "8bb4e554-ac36-444f-95bd-fc817a4234ed",
+            "tagName": "[Part 2] Câu hỏi WHAT"
+          }
+        ]
+      },
+      "b35069fd-dc74-4bd3-ba32-37ff23ef1dbb": {
+        "questionGroupId": "996bca8f-c3df-4f6d-b22d-e3304525b152",
+        "questionId": "b35069fd-dc74-4bd3-ba32-37ff23ef1dbb",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "34234c7b-c4ea-4173-a235-e6e0cb02aea5",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "8a6905e5-f578-457c-828d-4a0408dbceaf": {
+        "questionGroupId": "67c91cb8-9b93-4613-9615-91078cae4e5e",
+        "questionId": "8a6905e5-f578-457c-828d-4a0408dbceaf",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "a3b00296-6f9b-4e30-b15f-d70988bae06f",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "19b415e2-42cd-45ac-9fe9-855c1ac04c44": {
+        "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+        "questionId": "19b415e2-42cd-45ac-9fe9-855c1ac04c44",
+        "questionNumber": 2,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "27dd6272-c10f-4591-9e17-6fd809edb6b9",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+            "tagName": "[Part 6] Câu hỏi điền câu vào đoạn văn"
+          }
+        ]
+      },
+      "545cf84f-316c-42fa-a218-9c11d8d586b1": {
+        "questionGroupId": "c33eae96-4054-4c9f-a0e5-366e4e840499",
+        "questionId": "545cf84f-316c-42fa-a218-9c11d8d586b1",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "566e1770-de97-433c-8565-60ba85cb60b1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "0b4720a1-d1a1-4834-9b19-17457277b14e": {
+        "questionGroupId": "75eab273-1958-47a7-97ff-348a6d882e3d",
+        "questionId": "0b4720a1-d1a1-4834-9b19-17457277b14e",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d97134d7-d698-4f14-b692-a620575eb877",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "87cf9828-cdc6-46e9-a6d8-8a97426adcce",
+            "tagName": "[Part 7] Câu hỏi về hàm ý câu nói"
+          }
+        ]
+      },
+      "465f081a-6b73-4026-a110-1e49daf1ef29": {
+        "questionGroupId": "5ed322f9-ab69-4240-a0e0-96e5dcbcc056",
+        "questionId": "465f081a-6b73-4026-a110-1e49daf1ef29",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "67a0b875-9479-47c7-b931-529ae7494e20",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "422e7552-8199-45f5-bbec-00901b32b96a",
+            "tagName": "[Part 2] Câu hỏi HOW"
+          }
+        ]
+      },
+      "79d29d12-d9c3-4443-8dce-2801b1a6a06a": {
+        "questionGroupId": "c302526b-52fe-4e0b-a0c6-7189fc0dfd2d",
+        "questionId": "79d29d12-d9c3-4443-8dce-2801b1a6a06a",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "76b5b242-f98a-4af8-8ffa-60a74308bab4",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "de7f5557-bd9f-4ada-bee2-764c8c9ed175": {
+        "questionGroupId": "820d37c6-5fa0-463c-8d2c-6f3579cdcb96",
+        "questionId": "de7f5557-bd9f-4ada-bee2-764c8c9ed175",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "00bd3686-f2ad-4106-8537-6af082082511",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "27e60e97-44e8-4b53-9a5f-aa59dffd0886": {
+        "questionGroupId": "96e65138-999c-48e7-a5aa-d564293abc57",
+        "questionId": "27e60e97-44e8-4b53-9a5f-aa59dffd0886",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6cfcc41b-d342-40cf-a782-33ed287aa4cf",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "f87aec04-bdc9-4f31-90b8-442341d554da",
+            "tagName": "[Part 2] Câu hỏi đuôi"
+          }
+        ]
+      },
+      "78c13e0c-1a99-4d9d-9af2-56cce4464d9e": {
+        "questionGroupId": "2dd789cd-16d7-4a24-a14c-c80799adad73",
+        "questionId": "78c13e0c-1a99-4d9d-9af2-56cce4464d9e",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6b26aafc-ca9c-4061-b6fa-95db8cae792c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "bd7d03f9-4ecf-450f-b125-16e178846095",
+            "tagName": "[Part 4] Câu hỏi về hàm ý câu nói"
+          }
+        ]
+      },
+      "14d43e90-a6ce-4bcc-ae3f-d59da29866a2": {
+        "questionGroupId": "9a6bc858-5e82-4090-98f5-bdec4b864a9b",
+        "questionId": "14d43e90-a6ce-4bcc-ae3f-d59da29866a2",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "be2da2be-1f4e-4993-a887-358b4325e9a4",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "f87aec04-bdc9-4f31-90b8-442341d554da",
+            "tagName": "[Part 2] Câu hỏi đuôi"
+          }
+        ]
+      },
+      "0db67eb6-1d52-47f1-b28b-16fb9872df5b": {
+        "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+        "questionId": "0db67eb6-1d52-47f1-b28b-16fb9872df5b",
+        "questionNumber": 2,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ac75759e-1860-4912-89df-b5d1ae031882",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "1f5e5c88-5f2a-4e08-b119-b481d0d8feb0": {
+        "questionGroupId": "f55921ff-5746-4193-8713-78ee052fd0d0",
+        "questionId": "1f5e5c88-5f2a-4e08-b119-b481d0d8feb0",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1bae5708-cb53-4d60-850e-2448b2ba569b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "bd7d03f9-4ecf-450f-b125-16e178846095",
+            "tagName": "[Part 4] Câu hỏi về hàm ý câu nói"
+          }
+        ]
+      },
+      "d7dd6836-9d12-4c96-bf1f-d7fcf3f620ed": {
+        "questionGroupId": "8d493db3-32d8-4905-9462-e6624c0975c4",
+        "questionId": "d7dd6836-9d12-4c96-bf1f-d7fcf3f620ed",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2fa11da9-91c0-4c5b-985d-939d23bd77b8",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "3a0e32e0-e8cb-445e-80e3-ffca3c0598fa",
+            "tagName": "[Part 3] Câu hỏi đoán ý của người nói"
+          }
+        ]
+      },
+      "4568ec7c-f831-42a9-8441-411e7d7ce277": {
+        "questionGroupId": "8a8a19e7-5868-4df6-9b03-e52753103339",
+        "questionId": "4568ec7c-f831-42a9-8441-411e7d7ce277",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "f199e596-7eda-40d9-8938-246750fe1fc0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "958d11fc-6703-47c3-b3d6-b2f3e4a80ecc",
+            "tagName": "[Part 2] Câu hỏi WHEN"
+          }
+        ]
+      },
+      "6b2bd225-5402-4547-8f30-be8ed75de681": {
+        "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+        "questionId": "6b2bd225-5402-4547-8f30-be8ed75de681",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6d991d41-6157-442b-bb00-c123f82c9b86",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "fd8a590b-0766-4705-8f92-07ff23ef23cd": {
+        "questionGroupId": "fdc83a1c-58e8-4b45-bcff-77d8380c674d",
+        "questionId": "fd8a590b-0766-4705-8f92-07ff23ef23cd",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "345fb199-8207-43e9-b0b3-9eb5ff15a9db",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "bd7d03f9-4ecf-450f-b125-16e178846095",
+            "tagName": "[Part 4] Câu hỏi về hàm ý câu nói"
+          }
+        ]
+      },
+      "0e990796-2255-42b8-9b73-1abd8c40efe7": {
+        "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+        "questionId": "0e990796-2255-42b8-9b73-1abd8c40efe7",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2317dbff-181a-47a2-8bce-5cbade87adfc",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "8c54ca79-0418-41ad-902d-f35ff5312189": {
+        "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+        "questionId": "8c54ca79-0418-41ad-902d-f35ff5312189",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "fc7933f6-57a4-4eb8-9b8c-449286cbfc00",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "8c5df470-a33b-4a71-8955-f7b97f45ddfb": {
+        "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+        "questionId": "8c5df470-a33b-4a71-8955-f7b97f45ddfb",
+        "questionNumber": 1,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4adb1051-8ef6-4ba4-82a2-0c56a17f6f10",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "092da9ec-c602-4f83-943e-5f068fd058d1": {
+        "questionGroupId": "76acf88d-afbd-4d26-b56c-34175cd9b40d",
+        "questionId": "092da9ec-c602-4f83-943e-5f068fd058d1",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "acb68687-6157-43db-81da-716054638f51",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "4c69ff3a-997d-4f91-8c41-1fde527e0f4d": {
+        "questionGroupId": "67a0fa1b-0986-44c1-92d7-5ac03bffb8cd",
+        "questionId": "4c69ff3a-997d-4f91-8c41-1fde527e0f4d",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ce067608-070e-4d16-bb23-5ca80ade8194",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+            "tagName": "[Part 2] Câu hỏi YES/NO"
+          }
+        ]
+      },
+      "7aeaaaf5-6d0a-4b1a-ac84-1a14ee91a551": {
+        "questionGroupId": "7ffe1189-d04c-49cb-8b52-d751df74425d",
+        "questionId": "7aeaaaf5-6d0a-4b1a-ac84-1a14ee91a551",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "8461fd81-2f92-4bf0-8d97-22e5d2bc7167",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "c1bfaacc-1aa9-4fe6-a898-581431822e9e": {
+        "questionGroupId": "1a967512-8f20-4c67-8062-0c72af97171c",
+        "questionId": "c1bfaacc-1aa9-4fe6-a898-581431822e9e",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "f37a49dd-4bbb-4b9e-b0b1-e861daa7ef0a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25525544-02d4-4a41-98be-40564f5832ff",
+            "tagName": "[Part 2] Câu hỏi lựa chọn"
+          }
+        ]
+      },
+      "fedc8050-858f-42e8-a5c7-8c0c1f9d33ad": {
+        "questionGroupId": "684abb59-aca3-432a-b36d-7565ee66c8e9",
+        "questionId": "fedc8050-858f-42e8-a5c7-8c0c1f9d33ad",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1af212de-9a79-4bad-b9a7-858a2b400326",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "f233c80a-9c76-4eca-a7d7-acc7d4f72a73",
+            "tagName": "[Part 5] Câu hỏi liên từ"
+          }
+        ]
+      },
+      "e5542747-3f3c-4a0c-b22d-760526eff444": {
+        "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+        "questionId": "e5542747-3f3c-4a0c-b22d-760526eff444",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1949c011-046e-406b-860f-315a831e2fee",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "66f56a9e-d305-4090-8509-7e18f2971847": {
+        "questionGroupId": "de102d74-709c-4a4c-9772-2815372f0f79",
+        "questionId": "66f56a9e-d305-4090-8509-7e18f2971847",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ea5ea416-0be9-4195-9a51-ac549839339b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "885a8d1b-643e-4886-b070-781f97d9a31a",
+            "tagName": "[Part 2] Câu trần thuật"
+          }
+        ]
+      },
+      "fffa4ec4-f256-4006-b9e2-c42855b83bdc": {
+        "questionGroupId": "cba445ae-b8d8-4a97-b47c-79a5243f6c3d",
+        "questionId": "fffa4ec4-f256-4006-b9e2-c42855b83bdc",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c6d48ffb-0f28-4a35-9c8a-7da12a6a1e6a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "ebce67cf-26d3-480d-b0da-a8b60295d9d1": {
+        "questionGroupId": "ac044a37-4c09-41d1-8d98-14b28645f937",
+        "questionId": "ebce67cf-26d3-480d-b0da-a8b60295d9d1",
+        "questionNumber": 1,
+        "questionPart": "PART_1",
+        "selectedAnswerId": null,
+        "correctAnswerId": "3e355021-e0d0-4a1e-95f5-3e80a02e7e7c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "0ec3d690-a258-4fe1-a6a5-b8b535903c4d",
+            "tagName": "[Part 1] Tranh tả một người"
+          }
+        ]
+      },
+      "eb97c0d6-1b07-40b0-a58b-889e39511227": {
+        "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+        "questionId": "eb97c0d6-1b07-40b0-a58b-889e39511227",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "07e80d3e-1fa4-4538-b54a-531d47731836",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "e9a8058d-9b10-430f-a512-f5076170c689": {
+        "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+        "questionId": "e9a8058d-9b10-430f-a512-f5076170c689",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "693aa9fe-cffe-4684-af1b-ed4c40ccf923",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "704d7bcb-7ed7-4d02-b699-98428c9af710": {
+        "questionGroupId": "2b696d2d-3c8a-468a-ae66-81d64bb54829",
+        "questionId": "704d7bcb-7ed7-4d02-b699-98428c9af710",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ecdbc130-7946-4898-b261-6e840d2c1e41",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "ac09f4b7-2890-4102-82d2-fc66cb001337": {
+        "questionGroupId": "5b93115e-31c6-4469-b068-cce3d54d4732",
+        "questionId": "ac09f4b7-2890-4102-82d2-fc66cb001337",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "07421750-aeaa-4e28-bba9-5c74e6e8ebdf",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "885a8d1b-643e-4886-b070-781f97d9a31a",
+            "tagName": "[Part 2] Câu trần thuật"
+          }
+        ]
+      },
+      "4fe3ef15-3fb2-448b-8536-718c7729885b": {
+        "questionGroupId": "4b59a1af-2bd8-4b14-b4e2-054809cfdf75",
+        "questionId": "4fe3ef15-3fb2-448b-8536-718c7729885b",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "0d743443-e9a2-4cfd-b949-3cd7d01e9207",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "81571525-d2a8-4176-a979-7dfe4bc3514a": {
+        "questionGroupId": "3610a112-ab03-44ac-ba3d-f7caae93f30a",
+        "questionId": "81571525-d2a8-4176-a979-7dfe4bc3514a",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ea558dcc-4fc7-45b0-b176-10b83eddb9f0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "d3e4fa65-da0d-4ff1-8c89-f780dee4b228",
+            "tagName": "[Part 2] Câu hỏi WHY"
+          }
+        ]
+      },
+      "bd6cc8d0-79c8-4c93-ab02-8e849badfb58": {
+        "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+        "questionId": "bd6cc8d0-79c8-4c93-ab02-8e849badfb58",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d06ac6c3-f907-4e34-bf85-bbd8605ce383",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "bd645567-e3db-40c4-9e43-c46bf0aa2517": {
+        "questionGroupId": "478409c7-5503-432f-8c41-01d8702d6390",
+        "questionId": "bd645567-e3db-40c4-9e43-c46bf0aa2517",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "241965e7-1049-4fec-92b9-04ee88e4bb1e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+            "tagName": "[Part 2] Câu hỏi YES/NO"
+          }
+        ]
+      },
+      "2a108baf-0c1e-42d5-8509-4d5f26b552d7": {
+        "questionGroupId": "a1c3d1e0-2606-4183-91dd-465d65e40028",
+        "questionId": "2a108baf-0c1e-42d5-8509-4d5f26b552d7",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "bca31d1b-7e71-469a-9713-8f9c55f30a7c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "cdd75dca-b6dd-4bad-a370-343e0dd15a2a": {
+        "questionGroupId": "2a9f06b7-5a5b-4b4b-8c0d-c00e2b3d3c7d",
+        "questionId": "cdd75dca-b6dd-4bad-a370-343e0dd15a2a",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e6ca9318-5174-4cbd-9771-5326eef66ad6",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "31fe0ad0-6f6f-4025-b90d-5949f6571f9c",
+            "tagName": "[Part 5] Câu hỏi giới từ"
+          }
+        ]
+      },
+      "598c184f-91c4-4537-a5f2-fe379f19bdfc": {
+        "questionGroupId": "f55921ff-5746-4193-8713-78ee052fd0d0",
+        "questionId": "598c184f-91c4-4537-a5f2-fe379f19bdfc",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "3515adc4-918f-411f-99cf-f4e4dee97262",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "e2f63828-069f-41c2-90cd-8263efafe8d7": {
+        "questionGroupId": "af845cc4-8489-446b-82fc-a0e71269258e",
+        "questionId": "e2f63828-069f-41c2-90cd-8263efafe8d7",
+        "questionNumber": 2,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "31b39a02-f8f8-4dda-bec9-180cff3e6df8",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+            "tagName": "[Part 6] Câu hỏi ngữ pháp"
+          }
+        ]
+      },
+      "93ca75ba-6f3f-4f3a-b43d-ba7b6e45b0c4": {
+        "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+        "questionId": "93ca75ba-6f3f-4f3a-b43d-ba7b6e45b0c4",
+        "questionNumber": 3,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "8140a4b1-8cde-4687-be0a-0d80904bc72e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "f93483b4-190c-47d5-81f1-809f3eb668a3": {
+        "questionGroupId": "9e062f6c-f033-424c-9f79-2b30483f2dd2",
+        "questionId": "f93483b4-190c-47d5-81f1-809f3eb668a3",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "5a68d5b2-864a-460a-9e83-102b014692ba",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "5e99ce33-c846-4db3-869d-95a038a4b40f": {
+        "questionGroupId": "0998e300-6c52-4c84-aa08-4fe66e5e5cc9",
+        "questionId": "5e99ce33-c846-4db3-869d-95a038a4b40f",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "3c80bf2e-a409-4cb5-853e-4b919922c661",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "31fe0ad0-6f6f-4025-b90d-5949f6571f9c",
+            "tagName": "[Part 5] Câu hỏi giới từ"
+          }
+        ]
+      },
+      "3b6f19b6-c1ab-4803-91ce-215ee76417f9": {
+        "questionGroupId": "5455a053-8622-4d7b-b318-12fb13a9674f",
+        "questionId": "3b6f19b6-c1ab-4803-91ce-215ee76417f9",
+        "questionNumber": 1,
+        "questionPart": "PART_1",
+        "selectedAnswerId": null,
+        "correctAnswerId": "367a1597-96cf-42d2-95ae-2d15a1fa2672",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "a6f59139-6452-4ef5-966f-0f87433b9e81",
+            "tagName": "[Part 1] Tranh tả nhiều người"
+          }
+        ]
+      },
+      "d2df4cb5-1e56-4d71-83f2-495b6c89a8ae": {
+        "questionGroupId": "c704bd68-b4fc-4139-8765-01e9f3198f18",
+        "questionId": "d2df4cb5-1e56-4d71-83f2-495b6c89a8ae",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ccf137e1-f167-4cf6-9125-11bf729a6bfe",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "b1c80da2-b936-4b40-8b53-6d01b6d22e08": {
+        "questionGroupId": "ea17e5f2-3810-40b6-9181-34a0c3b4acbf",
+        "questionId": "b1c80da2-b936-4b40-8b53-6d01b6d22e08",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d1a08d81-fffe-45a5-a1e5-97977bbde0a3",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "30851eb8-193d-47dd-8f20-9aa13fe2c766": {
+        "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+        "questionId": "30851eb8-193d-47dd-8f20-9aa13fe2c766",
+        "questionNumber": 1,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c3d0fc50-eabf-4452-bedd-6fc71eba48fe",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "40b90f7c-0cb4-49c1-b904-01f106cb3b17": {
+        "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+        "questionId": "40b90f7c-0cb4-49c1-b904-01f106cb3b17",
+        "questionNumber": 4,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "9bc27a0e-2904-4675-9633-44d254793065",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "77f0150d-30f5-4a59-814b-e8d0e988d555",
+            "tagName": "[Part 6] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "9884a258-fa52-4bc3-95ec-8f21ab18702d": {
+        "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+        "questionId": "9884a258-fa52-4bc3-95ec-8f21ab18702d",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "41acee6d-0c6f-48fb-83b6-a6a2d86078a0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "620f5d5d-689b-4020-92a4-eea9fcec73db": {
+        "questionGroupId": "9e062f6c-f033-424c-9f79-2b30483f2dd2",
+        "questionId": "620f5d5d-689b-4020-92a4-eea9fcec73db",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d0d4cd41-8e6d-470d-8c84-5f68a8c558d7",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "c0f87b61-82ad-4f18-a5d3-461fa2959405": {
+        "questionGroupId": "9201d2f2-4699-40c9-8d5c-69c399c16607",
+        "questionId": "c0f87b61-82ad-4f18-a5d3-461fa2959405",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "3849d7de-dd55-4800-9942-69acd903eac4",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "225f50f6-ebe4-4115-a0d6-6d3d915b2fbf": {
+        "questionGroupId": "19ca524d-c0c9-4380-9cfe-0acf3071795a",
+        "questionId": "225f50f6-ebe4-4115-a0d6-6d3d915b2fbf",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "cc04115c-c10b-4deb-af52-1281cb085e64",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "22ba04e1-3d69-4a89-a489-d844cad297d8": {
+        "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+        "questionId": "22ba04e1-3d69-4a89-a489-d844cad297d8",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4dca316a-bf09-4452-a317-ae1d7e779c66",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "a9468883-2ff7-4139-b8e0-2800ed062a43": {
+        "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+        "questionId": "a9468883-2ff7-4139-b8e0-2800ed062a43",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ea46a2f9-a6c7-45ad-b2a7-fea0224e3f18",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "87cf9828-cdc6-46e9-a6d8-8a97426adcce",
+            "tagName": "[Part 7] Câu hỏi về hàm ý câu nói"
+          }
+        ]
+      },
+      "de231fbb-1d13-4139-9bd7-e7a94d38bb10": {
+        "questionGroupId": "996bca8f-c3df-4f6d-b22d-e3304525b152",
+        "questionId": "de231fbb-1d13-4139-9bd7-e7a94d38bb10",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "cef54524-5f23-4189-b82d-2b52556f9fa1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "053049b2-8252-4a68-b122-74fc425969da": {
+        "questionGroupId": "6a00b400-276d-4e6c-8a64-562b4cbc8734",
+        "questionId": "053049b2-8252-4a68-b122-74fc425969da",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "eb2b2d47-77ee-4d19-a8ed-68fd4aaef6d6",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "78f33a72-26d0-486a-b26f-28fd2385bd66": {
+        "questionGroupId": "7ffe1189-d04c-49cb-8b52-d751df74425d",
+        "questionId": "78f33a72-26d0-486a-b26f-28fd2385bd66",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "caa8d9f0-077f-434e-a6e8-8547a46d0f23",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "3a0e32e0-e8cb-445e-80e3-ffca3c0598fa",
+            "tagName": "[Part 3] Câu hỏi đoán ý của người nói"
+          }
+        ]
+      },
+      "fbb56f4c-f9fd-4b6f-bd13-a85c09666bd8": {
+        "questionGroupId": "85102d86-b285-475f-bacd-968e019335c8",
+        "questionId": "fbb56f4c-f9fd-4b6f-bd13-a85c09666bd8",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "905d58c8-b24b-493b-9d4f-b0d86c08079e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ff732c4-8b8c-4bb3-ba66-4ee98d490a2d",
+            "tagName": "[Part 2] Câu hỏi WHERE"
+          }
+        ]
+      },
+      "a3722c91-bd8d-4de7-b9b3-303e5414ed25": {
+        "questionGroupId": "fdc83a1c-58e8-4b45-bcff-77d8380c674d",
+        "questionId": "a3722c91-bd8d-4de7-b9b3-303e5414ed25",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "888e270f-5980-48ef-a21b-557e940874dc",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "1913de5c-a7dd-4f04-ab7f-9764bf545ab0": {
+        "questionGroupId": "7c642f1f-052b-4d8c-a1ef-0846c6f2a75b",
+        "questionId": "1913de5c-a7dd-4f04-ab7f-9764bf545ab0",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "72158d4f-34b9-496e-8512-ae141a4787bf",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "459e08bd-e272-425f-b0a4-dd9eb1f4adaa": {
+        "questionGroupId": "76acf88d-afbd-4d26-b56c-34175cd9b40d",
+        "questionId": "459e08bd-e272-425f-b0a4-dd9eb1f4adaa",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "f55504ca-8f2d-409d-bfd2-3696084604b1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "4c4f4fd6-e396-4950-b003-db99454ce27b": {
+        "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+        "questionId": "4c4f4fd6-e396-4950-b003-db99454ce27b",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "77a232a7-e76f-401e-8aca-64efede5ee4c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "f55c8807-b727-419e-84be-bfcfb61ab1f3": {
+        "questionGroupId": "a5c04471-7aa7-48e8-bacd-b0d8f5ace453",
+        "questionId": "f55c8807-b727-419e-84be-bfcfb61ab1f3",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6f30c2ea-a4a9-47e1-b37f-9d20ca69f71b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "321f10be-28fe-431c-9dd2-60904b917896": {
+        "questionGroupId": "64a49f04-8594-4708-808c-0f859b56278b",
+        "questionId": "321f10be-28fe-431c-9dd2-60904b917896",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2e720f0f-e2a3-4f93-a3de-eaa3ac29cf4f",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "06d70071-d789-4afc-9a15-c7d2c70d2a24": {
+        "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+        "questionId": "06d70071-d789-4afc-9a15-c7d2c70d2a24",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "05a8edb9-a292-4151-a1c0-7b1df0222f6d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "44297c64-270e-44bb-9169-6ea8effe1b60": {
+        "questionGroupId": "b3170256-81ae-4f58-a4e5-67f54d5582bd",
+        "questionId": "44297c64-270e-44bb-9169-6ea8effe1b60",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2c44af30-5f93-4e1a-9c74-fd2622ed9d54",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "958d11fc-6703-47c3-b3d6-b2f3e4a80ecc",
+            "tagName": "[Part 2] Câu hỏi WHEN"
+          }
+        ]
+      },
+      "b175d4b0-90b7-4f05-a3d0-82a18a86547d": {
+        "questionGroupId": "39920c99-36b7-432e-8b9b-b274e9ac73ce",
+        "questionId": "b175d4b0-90b7-4f05-a3d0-82a18a86547d",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "46792706-2d90-481b-b7e8-a963de13907b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "31fe0ad0-6f6f-4025-b90d-5949f6571f9c",
+            "tagName": "[Part 5] Câu hỏi giới từ"
+          }
+        ]
+      },
+      "40f9c395-9233-4b93-ba06-11edb2e838f4": {
+        "questionGroupId": "c704bd68-b4fc-4139-8765-01e9f3198f18",
+        "questionId": "40f9c395-9233-4b93-ba06-11edb2e838f4",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "8404dc06-7b38-4d17-81b3-8c8fdd728db5",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "bc32061a-e85b-4885-8b5b-beba3b4841d6": {
+        "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+        "questionId": "bc32061a-e85b-4885-8b5b-beba3b4841d6",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6722fdde-a435-4529-b593-e0294f6573c4",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "3ad74474-3db1-4179-b804-c12f9c949baf": {
+        "questionGroupId": "f71e2f76-c3ad-42c3-a5c1-5f40f3a4642a",
+        "questionId": "3ad74474-3db1-4179-b804-c12f9c949baf",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "db4e1c9a-fd5a-4817-afca-c344710c78fe",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "ea56c238-aefd-47b9-97ad-23af7cee2204": {
+        "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+        "questionId": "ea56c238-aefd-47b9-97ad-23af7cee2204",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "851c9f38-32cd-4955-85ec-86de09301774",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "d202c9a9-508c-4ef9-90a4-4b2de997b189": {
+        "questionGroupId": "b2f2049e-e74d-412a-b4c1-ff60298c64e4",
+        "questionId": "d202c9a9-508c-4ef9-90a4-4b2de997b189",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c87e1cbc-0119-47b1-a110-72f639558886",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6b45aa87-6f2a-45ff-ae75-ec6fc4d34ad6",
+            "tagName": "[Part 5] Câu hỏi dộng từ nguyên mẫu"
+          }
+        ]
+      },
+      "010038fa-044f-4ee8-8eb7-d1fbbae611df": {
+        "questionGroupId": "cba445ae-b8d8-4a97-b47c-79a5243f6c3d",
+        "questionId": "010038fa-044f-4ee8-8eb7-d1fbbae611df",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "233d9132-44b9-4001-b4ce-a39f392799f1",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "c91ab804-1d98-462f-96dc-56dccbe86bcb": {
+        "questionGroupId": "477a9fc8-a00c-4365-b569-bafcc0acd3ab",
+        "questionId": "c91ab804-1d98-462f-96dc-56dccbe86bcb",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ebd1aa70-3341-4c73-9c05-e34dfd355151",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "5931ce3d-7bdb-4ad0-85fa-a3f079e9da55": {
+        "questionGroupId": "a1c3d1e0-2606-4183-91dd-465d65e40028",
+        "questionId": "5931ce3d-7bdb-4ad0-85fa-a3f079e9da55",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "12de6d29-a477-49d7-aa13-b61da42f5ed0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "53e16096-baf0-4186-b758-969651b1dfbe": {
+        "questionGroupId": "9b74483c-107c-422b-9677-85ffc3c09a2a",
+        "questionId": "53e16096-baf0-4186-b758-969651b1dfbe",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "cbec3435-d657-4366-9ab1-8fc50b2802d3",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "2ae577bc-2dab-4c9e-8811-f2e817c73a79": {
+        "questionGroupId": "65cc25c2-5986-47d9-aaf8-5465a2e0a76a",
+        "questionId": "2ae577bc-2dab-4c9e-8811-f2e817c73a79",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "58583e3d-7606-4060-a4fb-db4b927e4b93",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "d22effa1-6d00-4b06-85fa-be345387a4f6": {
+        "questionGroupId": "385b8389-ad73-477d-9a4c-c92d0eab76e5",
+        "questionId": "d22effa1-6d00-4b06-85fa-be345387a4f6",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "98f54962-2ce1-42e5-ac8c-c63c30898469",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "0d6453fb-9a99-4fc7-914d-14bd8d260668",
+            "tagName": "[Part 2] Câu yêu cầu, đề nghị"
+          }
+        ]
+      },
+      "5368bea8-0673-4697-bf29-35dde4822f90": {
+        "questionGroupId": "cba445ae-b8d8-4a97-b47c-79a5243f6c3d",
+        "questionId": "5368bea8-0673-4697-bf29-35dde4822f90",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6cfc4b7c-e8e0-451c-b404-bd2069f58c6a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "3ab703b3-3c3c-4eab-8ac5-06f68f6d5a8a": {
+        "questionGroupId": "0ca52c53-d678-4a22-8845-ed9a7d359906",
+        "questionId": "3ab703b3-3c3c-4eab-8ac5-06f68f6d5a8a",
+        "questionNumber": 3,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "85719841-c61b-47a1-92f3-ddc3b4fae99b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "8ed69dc1-c74e-4b97-9942-e64de9386849",
+            "tagName": "[Part 6] Câu hỏi ngữ pháp"
+          }
+        ]
+      },
+      "54ce6bee-8f49-4847-b1cb-a66be8d16c45": {
+        "questionGroupId": "75dcb5a8-d7a2-4ac2-9289-bcd4b2f4331b",
+        "questionId": "54ce6bee-8f49-4847-b1cb-a66be8d16c45",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "27436207-db0e-41f0-a8e3-0496d6abe580",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "b2ebcfa5-fd9a-4020-add1-70157f135a15": {
+        "questionGroupId": "53d2e064-4105-4e4f-9cd3-8da910eb8d01",
+        "questionId": "b2ebcfa5-fd9a-4020-add1-70157f135a15",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ffe93491-9201-44be-9894-6e0ddfdd804b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "5c074819-ce08-4d14-a16f-cc82647385f5": {
+        "questionGroupId": "08201b04-8fc4-4319-aeb1-246b557a4dfe",
+        "questionId": "5c074819-ce08-4d14-a16f-cc82647385f5",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e27c62a4-af44-4fcd-aec5-b145c73a7f36",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "13fe5c28-7c24-4dbd-9132-897f281d4b21": {
+        "questionGroupId": "ea17e5f2-3810-40b6-9181-34a0c3b4acbf",
+        "questionId": "13fe5c28-7c24-4dbd-9132-897f281d4b21",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6e7121ed-7740-40f4-86d7-630fdafeb2ac",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "97566e1f-ada6-4944-974e-b5d64e9bed21": {
+        "questionGroupId": "8d493db3-32d8-4905-9462-e6624c0975c4",
+        "questionId": "97566e1f-ada6-4944-974e-b5d64e9bed21",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "202caea4-5a76-45fb-ba96-58c316dd007a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "a0afdc37-c092-4363-bb2a-0deb4ecc32cf": {
+        "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+        "questionId": "a0afdc37-c092-4363-bb2a-0deb4ecc32cf",
+        "questionNumber": 5,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "486889ad-4061-440a-8515-82677d5ba057",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "deee4398-f457-4b48-8ff3-0aa39a757152": {
+        "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+        "questionId": "deee4398-f457-4b48-8ff3-0aa39a757152",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ffc00b2f-9a5f-4c5a-9df3-66c935addd68",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "94ab1b31-a862-47d4-b59e-9fa6dc0d47d4": {
+        "questionGroupId": "5a1be44a-052c-4599-af32-e6cc5c43c31f",
+        "questionId": "94ab1b31-a862-47d4-b59e-9fa6dc0d47d4",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "8eaa6965-51ac-4878-843a-23387d852c7d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ffb2c678-597f-482e-bdfa-abfab3ab4b00",
+            "tagName": "[Part 5] Câu hỏi phân từ và cấu trúc phân từ"
+          }
+        ]
+      },
+      "1267f814-1c86-437c-8f1d-02a077d1a6da": {
+        "questionGroupId": "08201b04-8fc4-4319-aeb1-246b557a4dfe",
+        "questionId": "1267f814-1c86-437c-8f1d-02a077d1a6da",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "a8442046-51b2-4698-8c2f-7ae0af1f5ae7",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "8a6ceb5c-fdc1-4a80-a642-7ff2b908f3ee": {
+        "questionGroupId": "64a49f04-8594-4708-808c-0f859b56278b",
+        "questionId": "8a6ceb5c-fdc1-4a80-a642-7ff2b908f3ee",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "237ef3a3-d1a2-49c2-a2aa-aa94add6b03d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "6d1220e7-0aab-4ad9-86c1-12b9261f3889": {
+        "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+        "questionId": "6d1220e7-0aab-4ad9-86c1-12b9261f3889",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "32ac2223-057f-4a69-84e6-a64aad8deb48",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "bebc8695-1d22-45fa-8455-7f53292ccfab": {
+        "questionGroupId": "f71e2f76-c3ad-42c3-a5c1-5f40f3a4642a",
+        "questionId": "bebc8695-1d22-45fa-8455-7f53292ccfab",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "0e6c6e6f-79ea-484b-a856-60f998fb8e51",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "8ab5dabd-951e-4d96-bf73-1cf9ef070e2b": {
+        "questionGroupId": "7ffe1189-d04c-49cb-8b52-d751df74425d",
+        "questionId": "8ab5dabd-951e-4d96-bf73-1cf9ef070e2b",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1a7fdbf8-65a9-4682-909a-3183aeebb260",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "92a1fa14-88dc-4dd6-918a-ab48bd3d0943": {
+        "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+        "questionId": "92a1fa14-88dc-4dd6-918a-ab48bd3d0943",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4bf91054-d9fc-46cb-9ea9-f7a74d1135be",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ad5cc2b4-ab31-4682-bcbc-510c1f103347",
+            "tagName": "[Part 7] Câu hỏi suy luận"
+          }
+        ]
+      },
+      "5a5782be-8727-49a5-9720-dc211f859e75": {
+        "questionGroupId": "a5c04471-7aa7-48e8-bacd-b0d8f5ace453",
+        "questionId": "5a5782be-8727-49a5-9720-dc211f859e75",
+        "questionNumber": 3,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "3a8500d2-7de3-40d1-ad04-dbf1ec542e69",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "fce7c3c3-9e76-4e7f-9ca5-8d678b07d48a": {
+        "questionGroupId": "58de84c6-af56-43f2-ad41-b68e6fbda062",
+        "questionId": "fce7c3c3-9e76-4e7f-9ca5-8d678b07d48a",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2b05f87f-6bd8-4fd7-a300-56422af0dd29",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "a83970a4-478d-4434-ab0f-5c31da9e8401": {
+        "questionGroupId": "9bf3a011-37e2-4c58-9ef7-214515233698",
+        "questionId": "a83970a4-478d-4434-ab0f-5c31da9e8401",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "134f3866-5d66-43c5-81b7-25647ddce05e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "885a8d1b-643e-4886-b070-781f97d9a31a",
+            "tagName": "[Part 2] Câu trần thuật"
+          }
+        ]
+      },
+      "369532c7-d2f5-4963-98af-3dd563d28050": {
+        "questionGroupId": "76acf88d-afbd-4d26-b56c-34175cd9b40d",
+        "questionId": "369532c7-d2f5-4963-98af-3dd563d28050",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6713c04d-1bd5-4fc5-b471-a6278ce4b85f",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "be8de804-4f6f-4213-b054-2f4ebba4ca1e",
+            "tagName": "[Part 7] Câu hỏi điền câu"
+          }
+        ]
+      },
+      "65a97f02-e098-4a0d-90a0-1f7c74a3fe65": {
+        "questionGroupId": "6a00b400-276d-4e6c-8a64-562b4cbc8734",
+        "questionId": "65a97f02-e098-4a0d-90a0-1f7c74a3fe65",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "26963818-0689-450b-8736-66be00928337",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "dbf773fa-b8ab-43a0-ab86-18f7f7644c31": {
+        "questionGroupId": "c33eae96-4054-4c9f-a0e5-366e4e840499",
+        "questionId": "dbf773fa-b8ab-43a0-ab86-18f7f7644c31",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4bbf3ae5-6d6f-43e2-bf4a-c140039433d3",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "2abbac90-5418-4e8c-8c15-874f8226ef0d": {
+        "questionGroupId": "47281389-eee8-4f15-8405-add9af9a9b68",
+        "questionId": "2abbac90-5418-4e8c-8c15-874f8226ef0d",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1b1abfde-e560-4f6e-b3dd-821fc1766aed",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6c580089-dbf3-45b1-8dc0-150ed4edb286",
+            "tagName": "[Part 5] Câu hỏi ngữ pháp"
+          }
+        ]
+      },
+      "8cc77e52-ac5b-4098-87bd-2808c21b6ba5": {
+        "questionGroupId": "2fb4b4eb-bdbb-47c7-9f76-5cd08c74acb0",
+        "questionId": "8cc77e52-ac5b-4098-87bd-2808c21b6ba5",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e65b8dc1-e8a0-4401-804b-32fe932f8a37",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "8997ed16-6fa8-4ede-b8fa-6d0ccccb5601": {
+        "questionGroupId": "4e256f56-e60e-4ea3-a3ad-f4c116a35e11",
+        "questionId": "8997ed16-6fa8-4ede-b8fa-6d0ccccb5601",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "9a993ea0-5662-43df-9cda-d6e295cfb2a2",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "ddbebaaf-0f29-4ad6-af5c-87268d534aaf": {
+        "questionGroupId": "6fb48d22-140d-46fd-baf3-fe4ac87ebb19",
+        "questionId": "ddbebaaf-0f29-4ad6-af5c-87268d534aaf",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "eb3d2171-eab5-4500-bd13-24410fefe6ac",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "3ef4a9b1-f502-4853-a117-87855110796d": {
+        "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+        "questionId": "3ef4a9b1-f502-4853-a117-87855110796d",
+        "questionNumber": 5,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1f18ab8f-3d8b-4faa-a8a8-911ed5ad86b9",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "e461bb3b-7118-4fab-9aef-4b9732d82869": {
+        "questionGroupId": "43eb4598-5e3c-435f-a4c0-4c702e230da2",
+        "questionId": "e461bb3b-7118-4fab-9aef-4b9732d82869",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e5a9ec80-d203-4a31-8da1-20188831852d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "06e80ea4-15d8-4b8d-91a8-d7513a8a8af7",
+            "tagName": "[Part 7] Câu hỏi tìm từ đồng nghĩa"
+          }
+        ]
+      },
+      "caeac0f4-288d-45f9-a0d3-ead1c988b23c": {
+        "questionGroupId": "c302526b-52fe-4e0b-a0c6-7189fc0dfd2d",
+        "questionId": "caeac0f4-288d-45f9-a0d3-ead1c988b23c",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "5139e84f-becc-4aa4-8dc9-fd0b75df7703",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "97b239f7-1b73-4213-8fa7-4fa3c2d9d357",
+            "tagName": "[Part 3] Câu hỏi chi tiết"
+          }
+        ]
+      },
+      "14856032-b566-4db0-a686-b5f3c128fb88": {
+        "questionGroupId": "43bd3fc1-6f56-412f-8701-4b5a0c146ea6",
+        "questionId": "14856032-b566-4db0-a686-b5f3c128fb88",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "2b287bd7-22c4-4c48-b8d0-793ef2d0f516",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "97fa4fe1-0718-47a4-a79a-b241ac4d65b7": {
+        "questionGroupId": "7fd0dfb0-d562-4461-aae3-e490769e6e59",
+        "questionId": "97fa4fe1-0718-47a4-a79a-b241ac4d65b7",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e361954c-9497-4e0c-8881-9dcd18770b07",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "1e16512e-d54e-4608-8548-e1a7d3e055f9": {
+        "questionGroupId": "9acc1419-5b3d-47a3-b2f5-bd1689eaa98a",
+        "questionId": "1e16512e-d54e-4608-8548-e1a7d3e055f9",
+        "questionNumber": 3,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e28ab401-0704-4b60-8023-15a55ec61a97",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "e015aebf-405f-4b67-bf6d-e639e6115eae": {
+        "questionGroupId": "f55921ff-5746-4193-8713-78ee052fd0d0",
+        "questionId": "e015aebf-405f-4b67-bf6d-e639e6115eae",
+        "questionNumber": 2,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1bb6913b-d57f-4bc5-b243-405b0172ae63",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "25731db2-e895-4a13-95a8-3958db139c31",
+            "tagName": "[Part 4] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "d84cef87-c35a-4342-a9ea-4d6c052d8518": {
+        "questionGroupId": "8e03612f-3d9a-4155-af6d-41ecbadb7933",
+        "questionId": "d84cef87-c35a-4342-a9ea-4d6c052d8518",
+        "questionNumber": 5,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "3282ee26-ba5b-4933-965b-803762b1cb8b",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "91118254-4f82-40a2-aedd-3075e7ee98eb": {
+        "questionGroupId": "6da726b1-6302-48dd-9e7c-9ed45d17d13d",
+        "questionId": "91118254-4f82-40a2-aedd-3075e7ee98eb",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d714b341-7af2-4bcf-92e7-9c2968ca5b9a",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "8bb4e554-ac36-444f-95bd-fc817a4234ed",
+            "tagName": "[Part 2] Câu hỏi WHAT"
+          }
+        ]
+      },
+      "9772d044-16ad-4eb2-811b-21354f877eaf": {
+        "questionGroupId": "f71e2f76-c3ad-42c3-a5c1-5f40f3a4642a",
+        "questionId": "9772d044-16ad-4eb2-811b-21354f877eaf",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "1e8b7b0a-60f5-4497-9fbe-2daabe86f910",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "c1e3c150-0d08-4552-b354-33aecc660a26",
+            "tagName": "[Part 3] Câu hỏi ý chính"
+          }
+        ]
+      },
+      "bed76154-292b-487f-9e83-168da17f150a": {
+        "questionGroupId": "f9ce6a05-027e-49d6-aff1-4ee15b482c23",
+        "questionId": "bed76154-292b-487f-9e83-168da17f150a",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "56f8f096-5861-414a-8c7c-8808aaa45563",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "8a60d03d-29e7-4e19-aaa6-e8cdda2cd1bb": {
+        "questionGroupId": "aade07a2-7806-419a-89c5-306da11ff679",
+        "questionId": "8a60d03d-29e7-4e19-aaa6-e8cdda2cd1bb",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "0a2f72ec-2473-4dec-8c12-e9d37815b740",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ae65618-88bc-4d5e-892e-95910464bd1b",
+            "tagName": "[Part 2] Câu hỏi YES/NO"
+          }
+        ]
+      },
+      "ec024174-3c6b-4255-a389-1bee6d5a8ce2": {
+        "questionGroupId": "a57aab33-b0b6-4a82-b126-7653aa7b63f7",
+        "questionId": "ec024174-3c6b-4255-a389-1bee6d5a8ce2",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "9d57a797-b0ea-4929-aab9-eb403a75eacd",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "885a8d1b-643e-4886-b070-781f97d9a31a",
+            "tagName": "[Part 2] Câu trần thuật"
+          }
+        ]
+      },
+      "146c0dc7-dd6e-408f-9254-6411aef9c9bc": {
+        "questionGroupId": "5fd7e97e-5fed-4e71-92b8-7467af8a5942",
+        "questionId": "146c0dc7-dd6e-408f-9254-6411aef9c9bc",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "b598bab2-04c1-4cee-a0eb-bca32fcb67c2",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "72903fd1-e79d-4f04-9dda-87143b7363e6": {
+        "questionGroupId": "3162624b-3dcb-44e9-977a-22bdf487ae22",
+        "questionId": "72903fd1-e79d-4f04-9dda-87143b7363e6",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "4191a839-807d-4a41-be0d-a12f22647af7",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "9edf5135-839b-45c6-b7fa-b21a6a4c5925": {
+        "questionGroupId": "64a49f04-8594-4708-808c-0f859b56278b",
+        "questionId": "9edf5135-839b-45c6-b7fa-b21a6a4c5925",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "e14185be-0d9b-47ea-8ab9-65b9f84dac56",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "4a26b578-fdde-4ed4-8b70-1c3efab8d75c",
+            "tagName": "[Part 7] Câu hỏi tìm chi tiết sai"
+          }
+        ]
+      },
+      "f5c02f7a-2675-49c2-9d5d-4774119fe822": {
+        "questionGroupId": "22fd3667-5bfd-47da-b49f-176591f9e496",
+        "questionId": "f5c02f7a-2675-49c2-9d5d-4774119fe822",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6329263f-ac85-4c69-a8a2-68e620ba757c",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+            "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "5a2b94d3-ee5c-4a81-a6df-724e066074f8": {
+        "questionGroupId": "a5c04471-7aa7-48e8-bacd-b0d8f5ace453",
+        "questionId": "5a2b94d3-ee5c-4a81-a6df-724e066074f8",
+        "questionNumber": 2,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "16c6ee59-885b-4513-b04b-281477cce6c9",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "84ebf8c7-a206-407f-b565-7fb187e5cb3e",
+            "tagName": "[Part 3] Câu hỏi biểu đồ"
+          }
+        ]
+      },
+      "ba9204c5-4fb5-4657-800d-4a3b708cfd3d": {
+        "questionGroupId": "7ecb4845-902a-4a3c-9e41-8971c27afa88",
+        "questionId": "ba9204c5-4fb5-4657-800d-4a3b708cfd3d",
+        "questionNumber": 4,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "c76f6716-4e98-49ac-82c3-0dad8124ee03",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "5399979a-35a2-4707-b1b4-b59ed70beeda": {
+        "questionGroupId": "b2bdafda-2ad0-4503-a4da-2f35bd7ca148",
+        "questionId": "5399979a-35a2-4707-b1b4-b59ed70beeda",
+        "questionNumber": 3,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "6a970093-4589-4c9b-b3d8-33d653ac9b6d",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "f2b7fab3-3a2f-47c4-9dfb-d80c63bceb4c": {
+        "questionGroupId": "cb92e32e-331a-4af6-a2fa-937dbd59d47d",
+        "questionId": "f2b7fab3-3a2f-47c4-9dfb-d80c63bceb4c",
+        "questionNumber": 1,
+        "questionPart": "PART_3",
+        "selectedAnswerId": null,
+        "correctAnswerId": "7a2048f8-c2bc-4a6c-b0da-b317b513f8fc",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "76caef4d-c795-4a26-a096-008ef7bb68b7": {
+        "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+        "questionId": "76caef4d-c795-4a26-a096-008ef7bb68b7",
+        "questionNumber": 3,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "a58eb0d0-13f1-4cb9-8b5f-089ff23454e0",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "afb09fb6-aad1-4e47-8750-934c7ab956c8": {
+        "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+        "questionId": "afb09fb6-aad1-4e47-8750-934c7ab956c8",
+        "questionNumber": 1,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "019244c0-1a37-41d4-b074-90344f6559ea",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+            "tagName": "[Part 7] Câu hỏi về chủ đề, mục đích"
+          }
+        ]
+      },
+      "2d903276-6ca8-41d4-9899-0ec1206dd798": {
+        "questionGroupId": "b9d96f1f-1459-48c3-a096-3064a4ec4444",
+        "questionId": "2d903276-6ca8-41d4-9899-0ec1206dd798",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "157ecb47-b327-453a-890c-30472350444e",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "19c3bddc-ecd0-4a4b-9783-246308947cd6",
+            "tagName": "[Part 5] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "d875b1b5-fab7-4f8b-ab1d-4c1b6feae2bc": {
+        "questionGroupId": "ca2ec0b6-7d3c-4c34-ab28-f3f8503189eb",
+        "questionId": "d875b1b5-fab7-4f8b-ab1d-4c1b6feae2bc",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "66bd33a7-07a4-4e73-bf7c-ba87ce33bab6",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "2ff732c4-8b8c-4bb3-ba66-4ee98d490a2d",
+            "tagName": "[Part 2] Câu hỏi WHERE"
+          }
+        ]
+      },
+      "e26dbdeb-66d4-4192-b191-85423fd0500d": {
+        "questionGroupId": "22fd3667-5bfd-47da-b49f-176591f9e496",
+        "questionId": "e26dbdeb-66d4-4192-b191-85423fd0500d",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "f5c9338a-5489-43fd-8570-175caa630e84",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "4a26b578-fdde-4ed4-8b70-1c3efab8d75c",
+            "tagName": "[Part 7] Câu hỏi tìm chi tiết sai"
+          }
+        ]
+      },
+      "28217a1a-4384-40a4-b9c9-dbf286b4ec39": {
+        "questionGroupId": "786b46d6-84a4-48e2-89db-d06cb8042ad2",
+        "questionId": "28217a1a-4384-40a4-b9c9-dbf286b4ec39",
+        "questionNumber": 1,
+        "questionPart": "PART_5",
+        "selectedAnswerId": null,
+        "correctAnswerId": "31e0d7bc-f945-43bd-ae21-653391d067ca",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ce2d93c6-e595-49eb-9512-5ec8b71060d3",
+            "tagName": "[Part 5] Câu hỏi từ vựng"
+          }
+        ]
+      },
+      "fa92e922-b81d-4907-a018-1e55d52d3c6f": {
+        "questionGroupId": "9acc1419-5b3d-47a3-b2f5-bd1689eaa98a",
+        "questionId": "fa92e922-b81d-4907-a018-1e55d52d3c6f",
+        "questionNumber": 1,
+        "questionPart": "PART_4",
+        "selectedAnswerId": null,
+        "correctAnswerId": "353293ef-9730-46dc-b69d-85c66404c6fb",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "1eb62064-f8ec-4411-bdb5-fdbf36cc5a0d",
+            "tagName": "[Part 4] Câu hỏi về chi tiết"
+          }
+        ]
+      },
+      "b10b2ec9-0d26-40b9-9280-9975c1498984": {
+        "questionGroupId": "dce48176-9422-4f52-bcb8-a8fbae760d6c",
+        "questionId": "b10b2ec9-0d26-40b9-9280-9975c1498984",
+        "questionNumber": 1,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "ae73d2d6-9d07-4d8f-9082-73e8ab016b95",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "77f0150d-30f5-4a59-814b-e8d0e988d555",
+            "tagName": "[Part 6] Câu hỏi từ loại"
+          }
+        ]
+      },
+      "8f690466-c25a-4c11-ba4f-46ac0539ed4d": {
+        "questionGroupId": "691023c5-5b18-47b1-b65c-5f4624a6ceef",
+        "questionId": "8f690466-c25a-4c11-ba4f-46ac0539ed4d",
+        "questionNumber": 2,
+        "questionPart": "PART_7",
+        "selectedAnswerId": null,
+        "correctAnswerId": "00517d4c-ec3d-4776-bed7-8ee4b9c1d596",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "6673c87b-c5e6-44a9-b186-da2a5e92d6a8",
+            "tagName": "[Part 7] Câu hỏi tìm thông tin"
+          }
+        ]
+      },
+      "f86573f5-ed74-4e9a-bdbc-c7e55f85f0b6": {
+        "questionGroupId": "513e0f90-128d-467c-92bc-2c43f8c278f1",
+        "questionId": "f86573f5-ed74-4e9a-bdbc-c7e55f85f0b6",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "8600a002-c782-4c60-aaf6-e93614e23995",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "422e7552-8199-45f5-bbec-00901b32b96a",
+            "tagName": "[Part 2] Câu hỏi HOW"
+          }
+        ]
+      },
+      "07dd073f-5a8b-4828-b7b0-5495487c6b3c": {
+        "questionGroupId": "8f64ea18-1160-45eb-b4fa-a6d5f599b7d9",
+        "questionId": "07dd073f-5a8b-4828-b7b0-5495487c6b3c",
+        "questionNumber": 1,
+        "questionPart": "PART_2",
+        "selectedAnswerId": null,
+        "correctAnswerId": "d1ebff9c-c7e2-476a-9178-21021357ee62",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "aded8818-db1d-4276-8708-4850b7366165",
+            "tagName": "[Part 2] Câu hỏi WHO"
+          }
+        ]
+      },
+      "9ca0eb58-d0f9-4274-9e9f-449054393b0b": {
+        "questionGroupId": "6364aa53-c465-436c-93c0-3b9feca4f2da",
+        "questionId": "9ca0eb58-d0f9-4274-9e9f-449054393b0b",
+        "questionNumber": 1,
+        "questionPart": "PART_6",
+        "selectedAnswerId": null,
+        "correctAnswerId": "af368beb-48ac-4895-bc02-107790dc23ff",
+        "isCorrect": false,
+        "isSkipped": true,
+        "userContent": null,
+        "correctContent": null,
+        "tags": [
+          {
+            "id": "ac9210b6-59f6-4227-8ade-79f6eb2b5264",
+            "tagName": "[Part 6] Câu hỏi từ vựng"
+          }
+        ]
+      }
+    },
+    "partStatistics": {
+      "PART_6": {
+        "partName": "PART_6",
+        "totalQuestions": 16,
+        "correctAnswers": 0,
+        "incorrectAnswers": 0,
+        "skippedQuestions": 16,
+        "accuracy": 0.0
+      },
+      "PART_7": {
+        "partName": "PART_7",
+        "totalQuestions": 54,
+        "correctAnswers": 0,
+        "incorrectAnswers": 0,
+        "skippedQuestions": 54,
+        "accuracy": 0.0
+      },
+      "PART_4": {
+        "partName": "PART_4",
+        "totalQuestions": 30,
+        "correctAnswers": 0,
+        "incorrectAnswers": 0,
+        "skippedQuestions": 30,
+        "accuracy": 0.0
+      },
+      "PART_5": {
+        "partName": "PART_5",
+        "totalQuestions": 30,
+        "correctAnswers": 0,
+        "incorrectAnswers": 0,
+        "skippedQuestions": 30,
+        "accuracy": 0.0
+      },
+      "PART_2": {
+        "partName": "PART_2",
+        "totalQuestions": 25,
+        "correctAnswers": 0,
+        "incorrectAnswers": 0,
+        "skippedQuestions": 25,
+        "accuracy": 0.0
+      },
+      "PART_3": {
+        "partName": "PART_3",
+        "totalQuestions": 39,
+        "correctAnswers": 0,
+        "incorrectAnswers": 0,
+        "skippedQuestions": 39,
+        "accuracy": 0.0
+      },
+      "PART_1": {
+        "partName": "PART_1",
+        "totalQuestions": 6,
+        "correctAnswers": 0,
+        "incorrectAnswers": 1,
+        "skippedQuestions": 5,
+        "accuracy": 0.0
+      }
+    }
+  }
+}

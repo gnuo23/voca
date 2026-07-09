@@ -1,0 +1,27 @@
+﻿{
+  "status": 200,
+  "message": "Success",
+  "data": {
+    "id": "84b73ab6-db7f-4101-a3c9-73d623a2593d",
+    "testName": "ETS 2026 TEST 6 ",
+    "slug": "ets-2026-test-6",
+    "testNumber": 6,
+    "description": null,
+    "collectionName": "ETS 2026",
+    "totalQuestions": 200,
+    "duration": 120,
+    "isTaken": false,
+    "attemptCount": 9443,
+    "commentCount": 3,
+    "partQuestionCount": {
+      "PART_1": 6,
+      "PART_2": 25,
+      "PART_3": 39,
+      "PART_4": 30,
+      "PART_5": 30,
+      "PART_6": 16,
+      "PART_7": 54
+    },
+    "customName": null
+  }
+}

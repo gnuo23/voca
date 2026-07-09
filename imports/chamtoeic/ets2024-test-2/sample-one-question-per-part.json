@@ -1,0 +1,295 @@
+﻿{
+    "testName":  "ETS2024 TEST 2",
+    "generatedAt":  "2026-07-09T20:40:14Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "aec74742-27c8-429b-8933-e24afc5928ed",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "26823432-73fc-47e1-9212-822ebdcefa95",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-fa61fc52f3674d819c6cc7560d635115.png"
+                                           },
+                                           {
+                                               "id":  "bdfc6bef-3b36-4c52-8e49-0e1a48738663",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-a07fe8fdca6a44a6bb0e4767f383759e.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) She\u0027s inserting a cord into an outlet.\n(B) She\u0027s pressing a button on a machine.\n(C) She\u0027s gripping the handle of a drawer.\n(D) She\u0027s tacking a notice onto the wall.",
+                        "groupExplanationText":  "(A) Cô ấy đang cắm dây điện vào ổ cắm.\n(B) Cô ấy đang nhấn nút trên máy.\n(C) Cô ấy đang nắm chặt tay nắm ngăn kéo.\n(D) Cô ấy đang ghim một thông báo lên tường."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "7932ff4e-79c5-4547-a9bf-e22530c9988a",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "4e9fa688-7716-4cd2-9285-b37b180831fb",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-33a06047a5ad402eb430af65e3eae0b3.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "M-Au Have the machines on the factory floor been cleaned?\nW-Am (A) No, not yet. (B) It\u0027s in the shipping container. (C) I just put it in the trash bin.",
+                        "groupExplanationText":  "M-Au Máy móc trên sàn nhà xưởng đã được vệ sinh chưa?\nw-Am (A) Chưa, chưa làm. (B) Nó ở trong thùng vận chuyển. (C) Tôi vừa bỏ nó vào thùng rác."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "dd0c8c30-d7db-4ceb-95ec-b1aab270e87d",
+                        "questionNumber":  1,
+                        "questionText":  "Where does the conversation most likely take place?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "4e95d693-f967-4903-b1d3-5a50f5e28ced",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-edead948072a4d24a415db617cc5a3d7.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "On a train",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "On a boat",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a factory",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At an airport",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "On a boat",
+                        "audioTranscriptText":  "M-Cn Good morning, captain. We\u0027ll be docking at the port in Kolkata this evening, right?\nW-Am Actually, we had to change course overnight to avoid a storm, so we\u0027re running behind schedule. But we should arrive early tomorrow.\nM-Cn Well, that\u0027s not too bad.\nW-Am Oh, Hector has the day off today, so I\u0027ll need you to do the morning rounds-starting with checking the machinery in the engine room.\nM-Cn Of course-I\u0027ll head there now.",
+                        "groupExplanationText":  "M-Cn (32) Chào buổi sáng, đội trưởng. Tối nay chúng ta sẽ cập cảng ở Kolkata phải không?\nW-Am (33) Thật ra, chúng tôi phải đổi hướng trong đêm để tránh bão nên đã chậm tiến độ. Nhưng ngày mai chúng ta sẽ đến sớm.\nM-Cn Chà, điều đó cũng không tệ lắm.\nW-Am Ồ, hôm nay Hector được nghỉ nên (34) Tôi cần bạn làm công việc buổi sáng— bắt đầu bằng việc kiểm tra máy móc trong phòng máy.\nM-Cn (34)Tất nhiên—tôi sẽ đến đó ngay bây giờ"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  68,
+                        "questionId":  "e1cabfd2-e7a1-4b00-ba74-9ee0845c5b16",
+                        "questionNumber":  1,
+                        "questionText":  "Where does the conversation most likely take place?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "524027de-fcb5-40dd-90a0-fca3d371f926",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/68-bd69972a9ae143318c269877a0c62c71.mp3"
+                                           },
+                                           {
+                                               "id":  "b0cf4964-a59e-4542-8793-7fcc16f55b8d",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-d05a89a6832b4b9b9ac0e94c049bb37d.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "At a café",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "At an electronics shop",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a stationery store",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At a clothing store",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "At a café",
+                        "audioTranscriptText":  "M-Cn Hi, I\u0027d like a large black coffee and an egg-and-cheese croissant, please.\nW-Am Sure. That\u0027ll be eight dollars. Are you a Shelby\u0027s preferred customer?\nM-Cn Uh, no I\u0027m not. But I do have an EZ-Cash card.\nW-Am Great. Let me ring that up for you.\nM-Cn By the way, I\u0027d like to order breakfast for my team tomorrow morning. Can I place that order ahead of time?\nW-Am Sure. Would you like to do that now?\nM-Cn No, I\u0027ll call you later today when I know what everyone wants. Thanks for the information.",
+                        "groupExplanationText":  "M-Cn Xin chào, (68)Tôi muốn một cốc cà phê đen cỡ lớn và một chiếc bánh sừng bò trứng và phô mai.\nW-Am Chắc chắn rồi. Đó sẽ là tám đô la. Bạn có phải là khách hàng ưa thích của Shelby không?\nM-Cn Uh, không, tôi không. Nhưng (69) Tôi có thẻ EZ-Cash.\nW-Am (69)Tuyệt vời. Hãy để tôi gọi cho bạn.\nM-Cn Nhân tiện, tôi muốn đặt bữa sáng cho đội của mình vào sáng mai. Tôi có thể đặt hàng trước thời hạn được không?\nW-Am Chắc chắn rồi. Bạn có muốn làm điều đó bây giờ không?\nM-Cn Không, (70) Hôm nay tôi sẽ gọi cho bạn sau khi tôi biết mọi người muốn gì. Cảm ơn vì thông tin."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "be8bd937-9f33-4f09-b06e-e7bd6bdffdb4",
+                        "questionNumber":  1,
+                        "questionText":  "Before operating your handheld device, please ------- the enclosed cable to charge it.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "plan",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "remain",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "use",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "finish",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "use",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Trước khi vận hành thiết bị cầm tay của bạn, vui lòng ------- cáp kèm theo để sạc thiết bị.\n(A) kế hoạch\n(B) vẫn còn\n(C) sử dụng\n(D) kết thúc\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (C)"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "8f345ba8-a0e3-444a-a967-330dbbcb54f6",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "754900c6-43c5-4350-a77a-e10ba714a0e6",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-1b1eeee11cd44bc695f5794fa7fa3e4e.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "specially",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "specialize",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "special",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "specializing",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "special",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "(131) (A) một cách đặc biệt\n(B) chuyên\n(C) đặc biệt\n(D) chuyên\nCâu đứng trước danh từ order (đơn hàng) nên chỗ trống cần điền là một tính từ, do đó special (đặc biệt) là đáp án đúng.\n=\u003e Đáp án (C)\n(132) (A) nội thất\n(B) thiết bị\n(C) hoàn lại tiền\n(D) công cụ\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (A)\n(133) (A) nói\n(B) nói\n(C) đang nói\n(D) để nói\nCấu trúc: ask to V = yêu cầu làm việc gì\nDo đó to speak là đáp án đúng, ask to speak = yêu cầu được nói chuyện với…\n=\u003e Đáp án (D)\n(134) (A) Anh ấy có thể sắp xếp thời gian thuận tiện.\n(B) Anh ấy bắt đầu làm việc ở đây ngày hôm qua.\n(C) Anh ấy có thể gặp bạn lúc 11 giờ sáng.\n(D) Gần đây anh ấy đã chuyển đến Dellwyn.\nTrước chỗ trống cần điền, tác giả nói rằng anh ấy muốn chuẩn bị cho việc giao hàng và yêu cầu được nói chuyện với người quản lý giao hàng, Coleman Cobb (Please call us at 517-555-0188 and ask to speak to Coleman Cobb, our delivery manager). Trong ngữ cảnh, việc đưa thông tin cần xử lý qua điện thoại là phù hợp, vì vậy đáp án (A), gọi cho Coleman Cobb và đề cập rằng anh ấy sẽ sắp xếp thời gian thuận tiện, là câu trả lời đúng.\n=\u003e Đáp án (A)\nDịch nghĩa:\nGửi: Myung Hee Hahn\nTừ: Cửa hàng gia đình Dellwyn\nNgày: 15 tháng 1\nChủ đề: Cập nhật đơn hàng\nThưa cô Hahn,\nĐơn đặt hàng (131) của bạn, một bàn ăn bằng gỗ sồi đỏ và sáu chiếc ghế phù hợp đã đến cửa hàng của chúng tôi sáng nay. Bây giờ chúng tôi muốn sắp xếp việc giao (132). Vui lòng gọi cho chúng tôi theo số 517-555-0188 và yêu cầu (133) với Coleman Cobb, quản lý giao hàng của chúng tôi. (134).\nDịch vụ khách hàng, Cửa hàng gia dụng Dellwy"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "421a5d5f-c8b2-440b-a746-e28f08b53c51",
+                        "questionNumber":  1,
+                        "questionText":  "What is true about the Savan Business Center?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "b4507d3c-41e6-4331-b904-335978ad90c0",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-508d83c4622f4bf89c31d07c06ebed16.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "It works with small businesses.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "It publishes a weekly newsletter.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "It recently launched a new Web site.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "It is seeking suggestions for webinar topics.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "It works with small businesses.",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "(147) Điều gì đúng về Trung tâm Kinh doanh Savan?\n(A) Nó hoạt động với các doanh nghiệp nhỏ.\n(B) Nó xuất bản một bản tin hàng tuần.\n(C) Gần đây nó đã tung ra một trang web mới.\n(D) Nó đang tìm kiếm gợi ý cho chủ đề hội thảo trực tuyến.\n(148) Những gì được chỉ ra về hội thảo trên web?\n(A) Nó bắt đầu lúc 11 giờ sáng.\n(B) Nó đưa ra lời khuyên về cách tạo nội dung quảng cáo.\n(C) Nó được cung cấp hàng tháng.\n(D) Cần một khoản phí nhỏ để tham dự.\nDịch nghĩa:\nTập trung sự hiện diện trên mạng xã hội của bạn\nĐối với các chủ doanh nghiệp nhỏ, việc nổi bật trong môi trường truyền thông xã hội cạnh tranh có thể là một thách thức. Tiếp cận thành công thị trường mục tiêu của bạn bao gồm việc biết cách thức và địa điểm để quảng bá sản phẩm của bạn theo cách hiệu quả và đáng nhớ. Trung tâm Kinh doanh Savan cung cấp hỗ trợ cho các chủ doanh nghiệp cần tăng cường thực hiện điều đó. Trong hơn 50 năm, chúng tôi đã giúp các doanh nhân tăng doanh số bán hàng thông qua hiểu biết sâu sắc về các xu hướng hiện tại của ngành và hiểu biết về nhu cầu riêng của khách hàng.\nHãy để chúng tôi giúp bạn tổ chức tốt hơn trong việc tạo nội dung truyền thông xã hội hiệu quả và sâu rộng. Hội thảo trực tuyến mới nhất của chúng tôi, Tập trung vào sự hiện diện trên mạng xã hội, sẽ đề cập đến các chủ đề liên quan đến việc làm cho doanh nghiệp của bạn trở nên nổi bật. Bạn có thể đăng ký trên trang web sự kiện của chúng tôi.\nNgày: ngày 5 tháng 2\nThời gian: 10:00 sáng đến 11 giờ sáng\nTrang web sự kiện: https://www.savanbusinesscenter.com/socialmedia"
+                    }
+                ]
+}

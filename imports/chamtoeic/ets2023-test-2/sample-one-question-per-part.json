@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS2023 TEST 2",
+    "generatedAt":  "2026-07-09T20:50:04Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "fa85ba66-a659-46c2-a8cd-caab8a52d0cc",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "ed9f7d3e-0b0e-4ea8-9257-0b61d2388a87",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-707abbc64a3e41d0bbd6a2645dcd3a24.png"
+                                           },
+                                           {
+                                               "id":  "9de69284-9384-4342-95d5-f60ec4b8d65d",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-4d4f8a2a55e2448a8a02da02a8b3f2f0.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) A woman is holding a power tool.\n(B) A woman is opening a drawer.\n(C) A printer is being unplugged.\n(D) Office supplies are being put into a box.",
+                        "groupExplanationText":  "(A) Một người phụ nữ đang cầm một dụng cụ điện.\n(B) Một người phụ nữ đang mở ngăn kéo.\n(C) Một máy in đang được rút phích cắm.\n(D) Các đồ dùng văn phòng đang được cho vào hộp."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "34702552-2d6a-4a8c-b1ae-f5b2eb877242",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "3ab43f82-540b-449e-8fb8-2f60752c2c5d",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-27ba4f47b89e49b3be90177f7b965c4f.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Who\u0027s responsible for hiring at our fitness center?\n(A) Mr. Gonzalez is going to get a membership. (B) I forgot to sign in at reception. (C) Mr. Lin and Ms. Weiss are.",
+                        "groupExplanationText":  "Ai chịu trách nhiệm tuyển dụng tại trung tâm thể dục của chúng ta?\n(A) Ông Gonzalez sẽ đăng ký thành viên. (B) Tôi quên đăng ký tại quầy lễ tân. (C) Ông Lin và cô Weiss sẽ đăng ký."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "dc0d5e46-a40b-42db-91ba-a46a93cd27d1",
+                        "questionNumber":  1,
+                        "questionText":  "Why is the man calling?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "07679906-552b-4375-a0e9-6199fe6cac60",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-fe2c4b2977724c3d8aae0fcb6a092eff.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "To rent a facility",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "To hire a photographer",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "To request a price list",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "To schedule a repair",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "To hire a photographer",
+                        "audioTranscriptText":  "W-Am Hello, Forest Grove Photography Services. How can I help you?\nM-Cn Hi, I\u0027d like to get a photographer to cover our event. It\u0027s a charity basketball game next Tuesday night. I was hoping to get Thomas Zukowski. He works for you, right?\nW-Am Yes, but unfortunately, Thomas doesn\u0027t usually work evenings.\nM-Cn Oh, too bad. Could you recommend somebody else?\nW-Am Before I do that, let me talk to him. He might make an exception. Tom does love basketball.",
+                        "groupExplanationText":  "W-Am (32) Xin chào, Dịch vụ chụp ảnh Forest Grove xin nghe. Tôi có thể giúp gì cho bạn?\nM-Cn Chào bạn, (32) Tôi muốn thuê một nhiếp ảnh gia chụp cho sự kiện của chúng tôi. (33) Một trận đấu bóng rổ từ thiện sẽ diễn ra vào tối thứ Ba tới. Tôi mong muốn thuê anh Thomas Zukowski. Anh ấy làm việc cho bên bạn, phải không?\nM-Cn Vâng, nhưng không may là (33) Thomas thường không làm việc vào buổi tối.\nM-Cn Ồ, buồn quá. (34) Bạn có thể giới thiệu người khác cho tôi với không?\nW-Am (34) Trước khi hỏi người khác, để tôi nói chuyện với anh ấy xem. Anh ấy có thể có ngoại lệ. Tom rất thích bóng rổ luôn ấy.\nTóm tắt: Một người đàn ông muốn 1 thuê nhiếp ảnh gia cụ thể nhưng chưa biết anh thợ ảnh ấy có thể đi được không"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "d6bcb591-ea56-4813-9493-d6551675ccb9",
+                        "questionNumber":  1,
+                        "questionText":  "What is being advertised?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "6e071e19-54c5-49bc-9be7-26faf55ab034",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-293cb64c4a6348a4b8d4758c91b5ce0f.wav"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A trip to Mexico",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A city tour",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A farm visit",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A botanical garden",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A botanical garden",
+                        "audioTranscriptText":  "W-Br Looking for an interesting activity to celebrate the coming of spring? Winford Gardens offers an escape filled with calm, peace, and quiet just a few miles from the downtown area. Winford Gardens has acres of outdoor gardens filled with plants you won\u0027t typically find anywhere near here. This weekend we will have an exhibition of Mexican blue palms. If you have never seen these striking and unique plants, now is your chance! Winford\u0027s café is a converted building that used to be a greenhouse. The surrounding tropical plants and flowers help make dining there a pleasure.",
+                        "groupExplanationText":  "W-Br Bạn đang tìm một hoạt động thú vị để chào mừng mùa xuân đang đến? (71) Winford Gardens mang đến một cách trốn thoát tràn ngập sự nhẹ nhàng, thanh bình và yên tĩnh chỉ cách khu vực trung tâm thành phố vài dặm. Winford Gardens có những khu vườn ngoài trời rộng hàng mẫu mà bạn thường không tìm thấy ở bất kỳ đâu gần đây.(72) Cuối tuần này chúng tôi sẽ có một cuộc triển lãm về cọ xanh Mexico. Nếu bạn chưa bao giờ nhìn thấy những loài thực vật nổi bật và độc đáo này, thì bây giờ là cơ hội của bạn! (73) Quán cà phê của Winford là một tòa nhà được chuyển đổi từng là nhà kính. Các loại cây và hoa nhiệt đới xung quanh giúp cho việc ăn uống ở đó trở nên thú vị."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "3375b957-f5f7-415d-8db8-70ab110af96b",
+                        "questionNumber":  1,
+                        "questionText":  "Last week, three staff members ------- at the local library\u0027s book sale.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "volunteer",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "voluntary",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "volunteered",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "volunteering",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "volunteered",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Chỗ trống cần điền một động từ chính cho câu.\n- volunteer (N): tình nguyện viên\n- voluntary (Adj): tự ý; tự nguyện\n- volunteered (V-ed): tình nguyện\n- volunteering (V-ing)\nDịch: Tuần trước, ba nhân viên ĐÃ TÌNH NGUYỆN tham gia buổi bán sách của thư viện địa phương."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "251df526-11be-4909-8d25-8e433e6a657f",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "83353437-3203-4754-b68b-cb202c08ed67",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-a033add53eb840a6b91e3a97c05f3a80.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "due to",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "so that",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "although",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "thereby",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "thereby",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "(131) Đây là một câu từ vựng nên cần dựa vào nghĩa để chọn đáp án đúng.\n- due to: bởi vì, do (+ N/Ving)\n- so that: để mà (+ SVO)\n- although: mặc dù (+ SVO)\n- thereby: do đó, bằng cách đó\n(132) Đây là một câu từ vựng nên cần dựa vào nghĩa để chọn đáp án đúng.\n- mysterious: thần bí, khó hiểu\n- flexible: linh động, dễ uốn\n- skillful: tài giỏi, khéo tay\n- limited: có giới hạn\n(133) Chỗ trống cần điền một trạng từ bổ nghĩa cho động từ “placed”\n- exact (Adj): chính xác\n- exacting (Adj): đòi hỏi cao\n- exactly (Adv): chính xác\n- exacted (Ved): ép, đòi hỏi\n(134) Điền câu phù hợp vào đoạn nên cần dịch nghĩa câu trước, câu sau để chọn đáp án đúng.\n(A) Giống như tất cả các sản phẩm của Sanberg Industries, nó cũng được bảo hành 5 năm.\n(B) Yêu cầu của bạn về sản phẩm Sanberg sẽ được giải quyết trong vòng hai ngày làm việc.\n(C) Chúng tôi rất biết ơn vì bạn đã làm việc cho Sanberg Industries trong nhiều năm.\n(D) Tivi độ phân giải cao mang lại trải nghiệm xem được cải thiện.\nDịch nghĩa\nSanberg Industries: Giá Tivi treo tường góc rộng\nGiá Tivi treo tường góc rộng hoàn hảo để gắn tivi có kích thước từ 40 inch đến 75 inch được đo theo đường chéo của màn hình. Giá đỡ kết nối dễ dàng với tường của bạn, (131) DO ĐÓ giải phóng mặt bàn của bạn và tiết kiệm không gian. Giá treo (132) LINH ĐỘNG đi kèm với một tay đòn 25 inch có thể uốn cong theo nhiều hướng để bạn có thể xem tivi từ mọi nơi trong phòng. Thêm vào đó, nó có khả năng nghiêng theo chiều dọc và chiều ngang, vì vậy tivi của bạn có thể được đặt (133) ở vị trí CHÍNH XÁC mà bạn thích.\n(134) GIỐNG NHƯ TẤT CẢ CÁC SẢN PHẨM CỦA SANBERG INDUSTRIES, NÓ CŨNG ĐƯỢC BẢO HÀNH 5 NĂM."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "b96dba7e-9285-4f81-984f-69614e95739a",
+                        "questionNumber":  1,
+                        "questionText":  "What is being advertised?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d993ae21-65ad-4b1f-9301-bbcef0762d5c",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-812ec0cea77c4e68b6f9feefe1a2c697.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A lake cruise",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A puppet show",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A string quartet",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "An adventure park",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "A puppet show",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "147. Cái gì đang được quảng cáo?\n(A) Du thuyền trên hồ\n(B) Một buổi biểu diễn múa rối\n(C) Một tứ tấu đàn dây (một loại nhạc cụ)\n(D) Một công viên phiêu lưu\n148. Phiên bản Moose Lake của Uncle Pete dựa trên cái gì?\n(A) Một cuốn sách thiếu nhi cổ điển\n(B) Một bộ phim nổi tiếng\n(C) Một trò chơi điện tử\n(D) Một buổi biểu diễn khiêu vũ\nDịch nghĩa:\nNhà hát múa rối của Uncle Pete trình diễn\nVở Moose Lake\nThời gian ngày 27/3 đến ngày 7/5\nKể từ khi thành lập Nhà hát múa rối Uncle Pete, vở diễn chuyển thể từ vở múa ballet Moose Lake nổi tiếng đã trở thành một trong những buổi biểu diễn được yêu thích nhất của chúng tôi. 100 con rối thủ công của chúng tôi sẽ đưa bạn đến một cuộc phiêu lưu ly kỳ vào thế giới của Moose Lake.\nKhi những nghệ sĩ múa rối lành nghề của chúng tôi kéo dây và làm cho những con rối di chuyển, bạn sẽ cổ vũ cho Maria và Hoàng tử Moose. Bạn có thể không hài lòng với Vua Thằn Lằn và tay sai của hắn. Bạn sẽ bị mê hoặc bởi nhân vật Chuồn chuồn trôi!\nPhiên bản Moose Lake của Uncle Pete đã làm hài lòng người xem ở mọi lứa tuổi trong hơn 30 năm qua. Các buổi biểu diễn luôn cháy vé hàng năm, vì vậy hãy mua vé ngay hôm nay.\nVé có sẵn tại quầy bán vé, địa chỉ 521 Perry Avenue, Fenton."
+                    }
+                ]
+}

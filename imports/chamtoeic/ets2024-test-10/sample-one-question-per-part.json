@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS2024 TEST 10",
+    "generatedAt":  "2026-07-09T20:40:52Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "4b638760-ac02-4bb5-bb59-04dbf8e849a0",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "aaf55420-361c-4f62-987b-464fee3e9140",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-df281dbccde44da4ad7a541f6e052aa5.mp3"
+                                           },
+                                           {
+                                               "id":  "255d523d-b598-41f1-8697-169f498ade44",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-c1bcdf5f68e6432e8458a281d982ddba.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) The man is reaching above a shelf.\n(B) The man is adjusting his glasses\n(C) The man is paying for an item\n(D) The man is trying on gloves.",
+                        "groupExplanationText":  "(A) Người đàn ông đang với tay lên kệ.\n(B) Người đàn ông đang chỉnh lại kính\n(C) Người đàn ông đang trả tiền cho một món đồ\n(D) Người đàn ông đang thử găng tay."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "7df8ad7c-fee1-4edd-bef9-c8e06969a0e0",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "631668a6-2747-4fe3-9eab-1722f5f3f644",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-2004133e6de344b2a1850bff13a23cdf.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "W-Am When will you deliver the furniture I ordered? M-Au\n(A) By Tuesday at the latest.\n(B) To several clients.\n(C) I bought a trailer.",
+                        "groupExplanationText":  "W-Am Khi nào bạn sẽ giao đồ nội thất tôi đã đặt? M-Au\n(A) Muộn nhất là thứ Ba.\n(B) Cho một số khách hàng.\n(C) Tôi đã mua một chiếc xe kéo."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "7163d530-2896-436d-a94f-a5efd851e94a",
+                        "questionNumber":  1,
+                        "questionText":  "What did the woman forget to do?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "5f8459c6-4385-4372-8050-107b5e0865a3",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-41bd92b8c6f54e6ea8a4c4ba05a3ccc1.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Ask about menu choices",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Reserve a table",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Invite a colleague",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Bring a parking permit",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "Reserve a table",
+                        "audioTranscriptText":  "M-Cn Welcome to the Firelamp Bistro. How many for dinner?\nW-Br There\u0027ll be five of us, but I\u0027m afraid I forgot to make a reservation.\nM-Cn No problem. But I should mention that we\u0027ll be closing earlier than usual this evening for a private event. If you\u0027d like to sit outdoors on the patio while you wait, I\u0027ll send a server to get you started with drinks and appetizers. We\u0027ll get you seated as soon as possible.\nW-Br That sounds fine. Thank you. And if possible, we\u0027d like to sit in a quieter part of the restaurant. We have some business to discuss.",
+                        "groupExplanationText":  "M-Cn Chào mừng đến với Firelamp Bistro. Bữa tối có bao nhiêu người?\nT-Br Chúng tôi sẽ có năm người, nhưng tôi e rằng tôi quên đặt chỗ.\nM-Cn Không vấn đề gì. Nhưng tôi xin thông báo rằng tối nay chúng tôi sẽ đóng cửa sớm hơn thường lệ vì có một sự kiện riêng. Nếu quý khách muốn ngồi ngoài hiên trong lúc chờ đợi, tôi sẽ cử nhân viên phục vụ đến phục vụ đồ uống và món khai vị. Chúng tôi sẽ sắp xếp chỗ ngồi cho quý khách sớm nhất có thể.\nT-Br Nghe có vẻ ổn. Cảm ơn quý khách. Và nếu có thể, chúng tôi muốn ngồi ở một góc yên tĩnh hơn của nhà hàng. Chúng tôi có vài việc cần bàn."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "d0aa7703-a3a2-473c-bacd-517f2b8fb3b7",
+                        "questionNumber":  1,
+                        "questionText":  "What is the purpose of a meeting?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "bd4ae36c-ad3c-4cec-8eb7-f17599350262",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-bfb8974256d44d3b8db022143d5a90c3.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "To prepare staff for a special event",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "To review some closing procedures",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "To introduce some staff members",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "To resolve an issue with inventory",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "To review some closing procedures",
+                        "audioTranscriptText":  "M-Cn Some of you have been accidentally skipping some of your closing duties, so I\u0027ve called this meeting to clarify what is expected. After you\u0027ve sanitized all the food preparation areas in the kitchen, make sure the pantry and walk-in refrigerator doors are shut and locked. There are a few other tasks to complete before you leave. I know the current checklist isn\u0027t up-to-date, so I\u0027ll make the necessary revisions to it.",
+                        "groupExplanationText":  "M-Cn Một số bạn đã vô tình bỏ sót một số nhiệm vụ đóng cửa, vì vậy tôi triệu tập cuộc họp này để làm rõ những việc cần làm. Sau khi khử trùng tất cả các khu vực chuẩn bị thực phẩm trong bếp, hãy đảm bảo cửa tủ đựng thức ăn và tủ lạnh đã được đóng và khóa. Có một vài việc khác cần hoàn thành trước khi rời đi. Tôi biết danh sách kiểm tra hiện tại chưa được cập nhật, vì vậy tôi sẽ thực hiện các điều chỉnh cần thiết."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "0e2b8488-01e1-42e3-884d-1359758f2458",
+                        "questionNumber":  1,
+                        "questionText":  "According to the department head, _______ are ready to begin work on the Arborney Bridge project.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "us",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "we",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "our",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "ours",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "we",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Theo người đứng đầu bộ phận, ------- đã sẵn sàng bắt đầu công việc tại dự án cầu Arborney.\n(A) chúng tôi\n(B) chúng tôi\n(C) của chúng tôi\n(D) của chúng tôi\nCó thể thấy câu thiếu chủ ngữ, vậy ta cần một danh từ hoặc đại từ đóng vai trò chủ ngữ cho câu. Nếu “us” và “our” muốn làm chủ ngữ, theo sau phải có danh từ; “ours” cũng không phù hợp, vì với ngữ cảnh của câu thì chưa rõ nó thay thế cho danh từ gì. “We” là đáp án phù hợp nhất.\n=\u003e Đáp án (B)"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "b9edab22-6ba9-45ef-b383-d6763ed6001a",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "19b0f36c-16ad-4986-b9bc-715cf0bccd00",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-6d6da9b380cd41028327ab20a7e04e6d.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "This year\u0027s celebrations are part of a weeklong national campaign.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Results of the survey will be presented at 6:00 P.M.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Programs will be distributed at the next meeting.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Admission is free, but a donation is suggested.",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "Admission is free, but a donation is suggested.",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch nghĩa:\nBảo tàng biệt thự Kray mừng khai trương\nDEERFIELD (ngày 2 tháng 5)-Lễ khai trương chính thức của Bảo tàng Biệt thự Kray sẽ diễn ra vào lúc 10 giờ sáng ngày 29 tháng 5. Để đánh dấu sự kiện này, nhiều lễ hội khác nhau sẽ được tổ chức suốt cả ngày. (131). Hãy truy cập www.krayvillamuseum.org để biết thêm chi tiết.\nBảo tàng nằm trong công trình kiến trúc hùng vĩ (132) là nơi sinh sống của gia đình Kray có ảnh hưởng một thời bắt đầu từ cuối những năm 1800. Bị bỏ hoang trong 30 năm qua, tài sản này đã được Hiệp hội Lịch sử Deerfield mua cách đây 2 năm. Sau đó, những khu vườn đã được khôi phục để trông giống như khi thế hệ Krays đầu tiên chuyển đến biệt thự. (133), đồ nội thất thuộc loại mà gia đình thường sử dụng nhất đang được trưng bày.\nTrong lễ hội khai trương bảo tàng, một ban nhạc sống (134) loại nhạc đã phổ biến vào cuối thế kỷ 19.\n131.Dịch đáp án:\n(A) Lễ kỷ niệm năm nay là một phần của chiến dịch quốc gia kéo dài một tuần.\n(B) Kết quả khảo sát sẽ được trình bày lúc 6 giờ chiều.\n(C) Các chương trình sẽ được phân phát tại cuộc họp tiếp theo.\n(D) Vào cửa miễn phí nhưng nên quyên góp.\nTa dựa vào câu trước và câu sau chỗ trống để điền câu tạo thành mạch logic hoàn chỉnh.\nCâu trước chỗ trống cho biết các hoạt động ăn mừng sẽ được tổ chức nhân dịp bảo tàng chính thức mở cửa. Câu sau chỗ trống cung cấp địa chỉ trang web có chứa thông tin chi tiết.\n=\u003e Chỗ trống cần điền câu liên quan đến hoạt động trong dịp khai trương bảo tàng.\n=\u003e Loại B và C\nA có vẻ hợp lý, nhưng nếu phân tích kĩ, ta sẽ thấy cụm \"this year\u0027s celebrations\" chứng tỏ những năm khác cũng có \"celebrations\", trong khi việc ăn mừng lại chỉ diễn ra nhân dịp khai trương bảo tàng mà thôi =\u003e loại A\n=\u003e Đáp án (D)\n132 Dịch đáp án:\n(A) như là\n(B) cái mà\n(C) cái gì\n(D) tất cả\nCần một đại từ quan hệ để làm chủ ngữ cho mệnh đề “... was home to the once-influential…”\n=\u003e Đáp án (B)\n133 Dịch đáp án:\n(A) Ngược lại\n(B) Ngoài ra\n(C) Trong lúc đó\n(D) Vì mục đích này\nDựa vào nghĩa của từ để chọn đáp án đúng.\n=\u003e Đáp án (B)\n134 Dịch đáp án:\n(A) sẽ biểu diễn\n(B) phải biểu diễn\n(C) đang biểu diễn\n(D) có thể đã biểu diễn\nCác festivities này chưa xảy ra =\u003e động từ phải chia ở thời tương lai.\n=\u003e Đáp án (A)"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "73bc85b0-c0e3-4d43-af47-1bfd9dd3aa06",
+                        "questionNumber":  1,
+                        "questionText":  "Where would the sign most likely be found?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "e9628f69-44dc-4943-b271-7e230bffa840",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-921cf2caee9745798cfd42128c39961e.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "On an office desk",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "In a hospital waiting room",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "In the lobby of a real estate agency",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Near the entrance of an office complex",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "Near the entrance of an office complex",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch nghĩa:\nKhu Văn phòng Galloway\nHarris Toddman, Bác sĩ y khoa\nPhòng thí nghiệm chẩn đoán Lansin\nNha khoa Smiley\nTòa nhà 2\nBác sĩ chăm sóc chính Freel\nHiệp hội Vật lý trị liệu Rally Star\nTòa nhà 3\nLee và cộng sự, bác sĩ nội khoa\nDịch vụ y tế Kare\nTòa nhà 4\nDược phẩm Lurie\nKhông cho xe tải vào\nKhông chào mời\nKhông xâm phạm\n147 Dịch đáp án:\nBiển báo có nhiều khả năng được tìm thấy ở đâu nhất?\n(A) Trên bàn văn phòng\n(B) Trong phòng chờ của bệnh viện\n(C) Tại sảnh của một đại lý bất động sản\n(D) Gần lối vào của một khu phức hợp văn phòng\n148 Dịch đáp án:\nNhững loại hình doanh nghiệp nào được liệt kê trên bảng hiệu?\n(A) Chăm sóc sức khỏe\n(B) Dịch vụ pháp lý\n(C) Sản xuất\n(D) Tài chính"
+                    }
+                ]
+}

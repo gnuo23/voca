@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2026 TEST 10",
+    "generatedAt":  "2026-07-09T20:30:03Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "9974e098-97be-4bdd-a6dc-152dd77324cc",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "9caa5365-0c0a-4688-b675-b07ce2c862eb",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-8dd6b0d05dc94be4ac16b3c5e5dc63f3.png"
+                                           },
+                                           {
+                                               "id":  "59468347-c595-4a8a-9715-164632bf6c8a",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t10-01-872702b04eda4b7eb068eca96363fab7.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "A. He\u0027s reaching for the ceiling.\nB. He\u0027s carrying a bucket of paint.\nC. He\u0027s fixing a doorway.\nD. He\u0027s climbing down a ladder. ✔",
+                        "groupExplanationText":  "A. Nam giới đang với tay lên trần nhà.\nB. Nam giới đang xách một thùng sơn.\nC. Nam giới đang sửa cửa ra vào.\nD. Nam giới đang leo xuống cầu thang. ✔"
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "ce3f427a-45ad-4a26-90ac-b423e6709e11",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "67d794bc-eb32-4f55-a270-d8ac3824716d",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t10-07-16ca5e6cba33484e80c9948eb527e1a5.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Would you like me to order some more business cards for you?\nA. Sure, that\u0027d be great. ✔\nB. They\u0027ll be busy at that time.\nC. No, it wasn\u0027t.",
+                        "groupExplanationText":  "Tôi có nên đặt thêm danh thiếp cho bạn không?\nA. Chắc chắn rồi, điều đó thật tuyệt. ✔\nB. Họ sẽ bận vào thời gian đó.\nC. Không, nó đã không phải như vậy."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "ee34960e-3c55-4203-90d8-2e79cabf21d6",
+                        "questionNumber":  1,
+                        "questionText":  "What is the speakers\u0027 business planning to do in June?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "24e99ff6-a0da-4fd4-8217-cfaf90afa1d6",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t10-32-34-04e6608236dc4470976f717d2923bcc3.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Expand a space",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Take product inventory",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Plan an annual sale",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Change a window display",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "Expand a space",
+                        "audioTranscriptText":  "M-Au: Bianca, [32] the retail space next door to us will become available in June. That means we can begin the store expansion we\u0027ve been planning.\nW-Br: That\u0027s great news! After we increase our space, [33] we can finally do more than just sell musical instruments.\nM-Au: I knew you\u0027d be happy to hear the news. [34] We\u0027ll be able to add practice rooms so we can offer private music lessons by the end of the year.",
+                        "groupExplanationText":  "Nam: Bianca này, [32] mặt bằng bán lẻ ngay bên cạnh chúng ta sẽ trống vào tháng Sáu. Điều đó có nghĩa là chúng ta có thể bắt đầu việc mở rộng cửa hàng mà chúng ta đã lên kế hoạch bấy lâu nay.\nNữ: Thật là một tin tuyệt vời! Sau khi chúng ta mở rộng không gian, [33] cuối cùng chúng ta có thể làm nhiều việc hơn là chỉ bán nhạc cụ.\nNam: Tôi biết là cô sẽ rất vui khi nghe tin này mà. [34] Chúng ta sẽ có thể thêm các phòng tập để có thể cung cấp các bài học âm nhạc cá nhân vào cuối năm nay.\n[32] Doanh nghiệp của những người nói dự định làm gì vào tháng Sáu?\nA. Mở rộng không gian ✔\nB. Kiểm kê sản phẩm\nC. Lên kế hoạch cho đợt giảm giá hàng năm\nD. Thay đổi cách trưng bày cửa sổ\n[33] Những người nói có khả năng làm việc ở đâu nhất?\nA. Tại một xưởng khiêu vũ\nB. Tại một trường dạy nấu ăn\nC. Tại một cửa hàng âm nhạc ✔\nD. Tại một cửa hàng thủ công mỹ nghệ\n[34] Người đàn ông nói anh ấy muốn làm gì trước cuối năm?\nA. Quảng cáo một cuộc thi\nB. Cung cấp các bài học cá nhân ✔\nC. Tăng giờ hoạt động\nD. Cung cấp dịch vụ sửa chữa"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "f715587b-7c6e-498b-8938-688bd69834be",
+                        "questionNumber":  1,
+                        "questionText":  "What does Schneider Technology produce?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "6629b451-3d55-4388-957d-a50b8b28f2a9",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t10-71-73-9736fd3c285e4ff89123ab03a35dd34f.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Automobile engines",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Audio equipment",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Navigation devices",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Medical equipment",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "Navigation devices",
+                        "audioTranscriptText":  "M-Au: Welcome to your first day of work at Schneider Technology. [71] Our navigation devices enable vehicles to direct drivers to their destination by taking into consideration a variety of factors such as distance, weather, and traffic conditions. [72] Moritz Schneider, the president of the company, will be here in person at ten o\u0027clock to welcome you and tell you all about the company\u0027s history. [73] But first, I\u0027ll help you set up your computer accounts. Cybersecurity is very important to us, so we\u0027ve added extra steps to verify your identity.",
+                        "groupExplanationText":  "Nam: Chào mừng các bạn đến với ngày làm việc đầu tiên tại Schneider Technology. [71] Các thiết bị định vị của chúng tôi cho phép các phương tiện dẫn đường cho tài xế đến đích bằng cách xem xét nhiều yếu tố khác nhau như khoảng cách, thời tiết và tình trạng giao thông. [72] Ông Moritz Schneider, chủ tịch công ty, sẽ trực tiếp có mặt tại đây vào lúc mười giờ để chào đón các bạn và kể cho các bạn nghe về lịch sử của công ty. [73] Nhưng trước tiên, tôi sẽ giúp các bạn thiết lập tài khoản máy tính của mình. An ninh mạng rất quan trọng đối với chúng tôi, vì vậy chúng tôi đã thêm các bước bổ sung để xác minh danh tính của các bạn.\n[71] Schneider Technology sản xuất cái gì?\nA. Động cơ ô tô\nB. Thiết bị âm thanh\nC. Thiết bị định vị ✔\nD. Thiết bị y tế\n[72] Các thính giả sẽ gặp ai vào lúc mười giờ?\nA. Một khách hàng quan trọng\nB. Chủ tịch công ty ✔\nC. Trưởng ban an ninh\nD. Một quan chức chính phủ\n[73] Các thính giả sẽ làm gì tiếp theo?\nA. Thiết lập tài khoản máy tính của họ ✔\nB. Nhận thẻ an ninh\nC. Tham quan cơ sở vật chất\nD. Xem một buổi trình diễn sản phẩm"
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "c78aa6c4-4c1b-484d-87db-e9ffbd6aa001",
+                        "questionNumber":  1,
+                        "questionText":  "Sophia Hollinger was commended for ------- work on the Kala account.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "her",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "she",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "hers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "herself",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "her",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch câu: Sophia Hollinger đã được khen ngợi vì công việc của cô ấy đối với tài khoản Kala.\nDịch đáp án:\nA. her: của cô ấy ✔\nB. she: cô ấy\nC. hers: cái của cô ấy\nD. herself: chính cô ấy\nGiải thích: Cần một tính từ sở hữu đứng trước danh từ \"work\"."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "6af0a30f-ee45-42a3-b984-f2349c1cf5a7",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d8515355-73ad-45a3-815a-378739d1a5fa",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-b0b8686da8e245a297e3873304bb95ab.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "desks",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "programs",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "agencies",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "containers",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "containers",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[131]\nA. bàn làm việc\nB. chương trình\nC. đại lý\nD. thùng chứa ✔\nTừ \"crates\" (thùng) ở câu trước được thay thế bằng từ đồng nghĩa \"containers\" để tránh lặp từ.\n[132]\nA. Chúng tôi sẽ cần thêm chúng trong những tháng tới.\nB. Nhiều thùng hơn đã được nông dân và người bán buôn mua.\nC. Theo đó, có thể xếp nhiều thùng hơn lên xe tải khi chúng trống. ✔\nD. Sớm thôi, nhiều thùng hơn sẽ có sẵn trên trang web của chúng tôi.\nVì các thùng này có thể gấp gọn (collapsible) nên ưu điểm trực tiếp là tiết kiệm diện tích khi vận chuyển thùng trống.\n[133]\nA. đến\nB. cho ✔\nC. giữa\nD. bên cạnh\nCấu trúc \"need for something\" (nhu cầu cho cái gì đó). Ở đây là nhu cầu thay thế thùng thường xuyên.\n[134] A. giảm bớt ✔\nB. giảm\nC. đã giảm\nD. bộ giảm\nSau trạng từ \"thereby\" thường là một V-ing để chỉ kết quả của hành động trước đó (giảm nguy cơ chấn thương).\nDịch nghĩa: Gửi toàn thể nhân viên kho. Bắt đầu từ ngày 1 tháng 4, Windquest Farms sẽ sử dụng thùng Flexmerge để vận chuyển trái cây và rau củ của chúng tôi. Những [131] thùng chứa này sẽ đơn giản hóa công việc và cắt giảm chi phí vận hành. Thùng Flexmerge có thể gấp gọn, nghĩa là chúng dễ dàng xếp chồng và tiết kiệm không gian. [132] Theo đó, có thể xếp nhiều thùng hơn lên xe tải khi chúng trống. Chúng cũng có độ bền cao. Đặc điểm này giúp giảm thiểu nhu cầu [133] thay thế thùng thường xuyên. Cuối cùng, chúng được thiết kế với các tính năng công thái học, từ đó [134] giảm bớt nguy cơ chấn thương. An toàn là ưu tiên hàng đầu của chúng tôi tại Windquest Farms."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "d07c4030-7c44-4596-b8dd-91f6cc54b02c",
+                        "questionNumber":  1,
+                        "questionText":  "What type of building did Crystal Brothers clean?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d0939e53-9fd8-4e3c-ae00-72208a6148d2",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-490ecfd1ec9043108cd6cdb29d602bc2.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A hotel",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A warehouse",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "An office building",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A home",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A home",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[147] Crystal Brothers đã dọn dẹp loại tòa nhà nào?\n(A) Một khách sạn(B) Một nhà kho(C) Một tòa nhà văn phòng(D) Một ngôi nhà ✔[148] Bà Hwang ít hài lòng nhất với phần nào của dịch vụ dọn dẹp?\n(A) Giá cả(B) Việc lên lịch ✔(C) Việc tùy chỉnh theo yêu cầu(D) Sự đúng giờ của nhân viên\nDịch đoạn văn: Crystal Brothers - Khảo sát mức độ hài lòng Cảm ơn bạn đã thuê Crystal Brothers để dọn dẹp tòa nhà của bạn. Vui lòng khoanh tròn các con số tương ứng, từ 5 (Xuất sắc) đến 1 (Kém). Khoanh \"NP\" cho loại phòng không có tại địa điểm đã được dọn dẹp. Khách hàng: Geraldine Hwang. Ngày: 22 tháng 2. Dịch vụ dọn dẹp:\n[147] Phòng khách: 5; Nhà bếp: 5; Phòng ăn: 5; (Các) Phòng ngủ: 4.[147] Sảnh đợi: NP; (Các) Phòng họp: NP. (Vì có phòng khách, phòng ngủ và không có sảnh hay phòng họp nên đây là một ngôi nhà riêng).Thông tin khác:\n[148] Việc đặt lịch hẹn có dễ dàng không? (Số 1 được khoanh) (Đây là điểm thấp nhất - mức \"Kém\").Nhân viên có làm theo hướng dẫn cụ thể của bạn không? 5.Nhân viên có cung cấp thông tin trước chuyến thăm không? 2.Chi phí dịch vụ có như bạn mong đợi không? 4."
+                    }
+                ]
+}

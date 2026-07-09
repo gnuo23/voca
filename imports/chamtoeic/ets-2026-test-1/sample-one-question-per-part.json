@@ -1,0 +1,353 @@
+﻿{
+    "testName":  "ETS 2026 TEST 1",
+    "generatedAt":  "2026-07-09T19:59:22Z",
+    "note":  "One sample question per TOEIC part, using questions-with-answer-key.json.",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "cb17d334-eade-43ab-aa5a-3931c783f50d",
+                        "questionNumber":  1,
+                        "hasQuestionText":  false,
+                        "questionText":  "",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  2,
+                        "files":  [
+                                      {
+                                          "type":  "AUDIO",
+                                          "url":  "https://chamtoeic.edu.vn/media/audio/e26-t01-01-5af2ea8db6404f39896e15be3074c7df.mp3"
+                                      },
+                                      {
+                                          "type":  "IMAGE",
+                                          "url":  "https://chamtoeic.edu.vn/media/images/image-db5101552f144690a646417e9350fedf.png"
+                                      }
+                                  ],
+                        "answerCount":  4,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerOrder":  2,
+                        "correctAnswerContent":  "",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "0ec3d690-a258-4fe1-a6a5-b8b535903c4d",
+                                         "tagName":  "[Part 1] Tranh tả một người"
+                                     }
+                                 ]
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "3c65fd18-131d-4493-ad1e-c2097cc7c165",
+                        "questionNumber":  1,
+                        "hasQuestionText":  false,
+                        "questionText":  "",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  1,
+                        "files":  [
+                                      {
+                                          "type":  "AUDIO",
+                                          "url":  "https://chamtoeic.edu.vn/media/audio/e26-t01-07-94fa3bfce84c4ca4989fe17da6711dc8.mp3"
+                                      }
+                                  ],
+                        "answerCount":  3,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerOrder":  2,
+                        "correctAnswerContent":  "",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "2ff732c4-8b8c-4bb3-ba66-4ee98d490a2d",
+                                         "tagName":  "[Part 2] Câu hỏi WHERE"
+                                     }
+                                 ]
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "8d186828-d712-4dd8-b13d-7434d843e468",
+                        "questionNumber":  1,
+                        "hasQuestionText":  true,
+                        "questionText":  "What type of food product does the speakers\u0027 company sell?",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  1,
+                        "files":  [
+                                      {
+                                          "type":  "AUDIO",
+                                          "url":  "https://chamtoeic.edu.vn/media/audio/e26-t01-32-34-b9a59675e3bc4c17a2a8ad5700ba08a2.mp3"
+                                      }
+                                  ],
+                        "answerCount":  4,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Candy",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Cheese",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Bread",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Pasta",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerOrder":  2,
+                        "correctAnswerContent":  "Cheese",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "c1e3c150-0d08-4552-b354-33aecc660a26",
+                                         "tagName":  "[Part 3] Câu hỏi ý chính"
+                                     }
+                                 ]
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "4abecd9f-d969-4c4c-ab45-dd3f97b70fbe",
+                        "questionNumber":  1,
+                        "hasQuestionText":  true,
+                        "questionText":  "What type of products does the business repair?",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  1,
+                        "files":  [
+                                      {
+                                          "type":  "AUDIO",
+                                          "url":  "https://chamtoeic.edu.vn/media/audio/e26-t01-71-73-78c9f692a42f4b8ba607ec5513daa5a7.mp3"
+                                      }
+                                  ],
+                        "answerCount":  4,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Computers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Vehicles",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Light fixtures",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Kitchen appliances",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerOrder":  2,
+                        "correctAnswerContent":  "Vehicles",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "25731db2-e895-4a13-95a8-3958db139c31",
+                                         "tagName":  "[Part 4] Câu hỏi về chủ đề, mục đích"
+                                     }
+                                 ]
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "e97e0ef0-c4a8-4cee-876e-58a32c75800f",
+                        "questionNumber":  1,
+                        "hasQuestionText":  true,
+                        "questionText":  "The lecture will take place at 6:00P.M., ------- which attendees may ask questions.",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  0,
+                        "files":  [
+
+                                  ],
+                        "answerCount":  4,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "across",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "after",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "inside",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "among",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerOrder":  2,
+                        "correctAnswerContent":  "after",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "31fe0ad0-6f6f-4025-b90d-5949f6571f9c",
+                                         "tagName":  "[Part 5] Câu hỏi giới từ"
+                                     }
+                                 ]
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "98c67370-020b-4f0b-abf6-40e95e284b22",
+                        "questionNumber":  1,
+                        "hasQuestionText":  false,
+                        "questionText":  "",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  1,
+                        "files":  [
+                                      {
+                                          "type":  "IMAGE",
+                                          "url":  "https://chamtoeic.edu.vn/media/images/image-7e9c53be4c104f91a96728dca6dfed48.png"
+                                      }
+                                  ],
+                        "answerCount":  4,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Staff members have written articles for the local newspaper.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Installing lights can enhance the effect of a well-designed garden.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Local competitors cannot beat the prices we charge.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Riessler Landscaping\u0027s goal is to make your vision a reality.",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerOrder":  4,
+                        "correctAnswerContent":  "Riessler Landscaping\u0027s goal is to make your vision a reality.",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "eb41eb37-ff57-40fd-9d51-dd2fcad298da",
+                                         "tagName":  "[Part 6] Câu hỏi điền câu vào đoạn văn"
+                                     }
+                                 ]
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "0c78d730-4efc-4ea9-b761-cfdb228040ab",
+                        "questionNumber":  1,
+                        "hasQuestionText":  true,
+                        "questionText":  "What is the purpose of the notice?",
+                        "hasPassage":  false,
+                        "passagePreview":  null,
+                        "fileCount":  1,
+                        "files":  [
+                                      {
+                                          "type":  "IMAGE",
+                                          "url":  "https://chamtoeic.edu.vn/media/images/image-f7e6ed7076ca4fc2b16e5c8b796c130c.png"
+                                      }
+                                  ],
+                        "answerCount":  4,
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "To invite residents to a meeting on May 3",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "To request feedback about parking facilities",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "To inform residents of an upcoming project",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "To announce an increase in parking fees",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerOrder":  3,
+                        "correctAnswerContent":  "To inform residents of an upcoming project",
+                        "hasExplanation":  false,
+                        "tags":  [
+                                     {
+                                         "id":  "6ee83e98-f15f-419c-80b6-cbf7b9df4608",
+                                         "tagName":  "[Part 7] Câu hỏi về chủ đề, mục đích"
+                                     }
+                                 ]
+                    }
+                ]
+}

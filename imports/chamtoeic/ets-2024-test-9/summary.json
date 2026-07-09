@@ -1,0 +1,76 @@
+﻿{
+  "source": {
+    "page": "https://chamtoeic.edu.vn/tests/ets-2024-test-9",
+    "overviewApi": "https://chamtoeic.edu.vn/api/v1/question-bank-service/test-sets/accessible/ets-2024-test-9/overview",
+    "questionsApi": "https://chamtoeic.edu.vn/api/v1/question-bank-service/test-sets/accessible/ets-2024-test-9/questions",
+    "fetchedAt": "2026-07-09T20:38:04Z"
+  },
+  "test": {
+    "id": "44559dba-6e5e-4d9d-b2bf-0c0ab9162d07",
+    "testName": "ETS 2024 TEST 9",
+    "slug": "ets-2024-test-9",
+    "testNumber": 9,
+    "description": null,
+    "collectionName": "ETS 2024",
+    "totalQuestions": 200,
+    "duration": 120,
+    "isTaken": false,
+    "attemptCount": 1245,
+    "commentCount": 15,
+    "partQuestionCount": {
+      "PART_1": 6,
+      "PART_2": 25,
+      "PART_3": 39,
+      "PART_4": 30,
+      "PART_5": 30,
+      "PART_6": 16,
+      "PART_7": 54
+    },
+    "customName": null
+  },
+  "counts": {
+    "questionGroups": 103,
+    "questions": 200,
+    "answers": 775,
+    "files": 89,
+    "correctFlagsNonNull": 0,
+    "explanationsNonNull": 0
+  },
+  "parts": [
+    {
+      "part": "PART_1",
+      "groups": 6,
+      "questions": 6
+    },
+    {
+      "part": "PART_2",
+      "groups": 25,
+      "questions": 25
+    },
+    {
+      "part": "PART_3",
+      "groups": 13,
+      "questions": 39
+    },
+    {
+      "part": "PART_4",
+      "groups": 10,
+      "questions": 30
+    },
+    {
+      "part": "PART_5",
+      "groups": 30,
+      "questions": 30
+    },
+    {
+      "part": "PART_6",
+      "groups": 4,
+      "questions": 16
+    },
+    {
+      "part": "PART_7",
+      "groups": 15,
+      "questions": 54
+    }
+  ]
+}

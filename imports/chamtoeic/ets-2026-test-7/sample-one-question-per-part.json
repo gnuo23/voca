@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2026 TEST 7",
+    "generatedAt":  "2026-07-09T20:22:59Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "301ad83e-1a6b-43f6-be3c-c1790fceb414",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "3a602090-16cb-41e1-a58f-3c6d9d5114b3",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-6cc669e4c8e64dea8c0781915c97922f.png"
+                                           },
+                                           {
+                                               "id":  "0aaa305a-9c00-44e7-b8a7-b115101f2174",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t07-01-b4a28e7932ca448d8f55e3e8536eda38.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "A. She\u0027s holding a water bottle.\nB. She\u0027s looking at a newspaper. ✔\nC. She\u0027s reaching for a book.\nD. She\u0027s standing next to a copier.",
+                        "groupExplanationText":  "A. Người phụ nữ đang cầm một chai nước.\nB. Người phụ nữ đang nhìn vào một tờ báo. ✔\nC. Người phụ nữ đang với tay lấy một cuốn sách.\nD. Người phụ nữ đang đứng cạnh một máy photocopy."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "aa3439ba-c700-4275-9816-88c85c811328",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "c8becaa2-0c5c-49f0-9a63-68d1582ffc96",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t07-07-3db0a3686b70458fb83ae37ee34e95f5.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Where do I sign this contract?\nA. A large account.\nB. Here at the bottom. ✔\nC. Hang it on the wall.",
+                        "groupExplanationText":  "Tôi ký hợp đồng này ở đâu?\nA. Một khách hàng lớn.\nB. Ở đây, dưới cùng. ✔\nC. Hãy treo nó lên tường."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "f8d93473-24ce-41d7-88a2-20083f6eab6b",
+                        "questionNumber":  1,
+                        "questionText":  "What complaint does the man make?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "1850ab39-7c97-47db-b226-df012323edfc",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t07-32-34-1fdbee1d3fc645618446414a04110398.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A room is too small.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A noise is distracting.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Some software is slow.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A printer is broken.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "A noise is distracting.",
+                        "audioTranscriptText":  "M-Cn: Carmen, I don\u0027t know if you realize it, but [32] your office chair makes a squeaking sound every time you move. It\u0027s a little distracting when the office is so quiet.\nW-Am: Oh! I had my headset on, so I didn\u0027t realize that. [33] I\u0027ll go swap this chair with one from the conference room.\nM-Cn: Thanks for understanding. And [34] don\u0027t forget that our team is ordering takeout from a Thai restaurant for lunch. Do you want anything?\nW-Am: Sure. I\u0027d love some spring rolls!",
+                        "groupExplanationText":  "Nam: Carmen, tôi không biết liệu cô có nhận ra không, nhưng [32] chiếc ghế văn phòng của cô phát ra tiếng kêu kẽo kẹt mỗi khi cô di chuyển. Nó hơi gây xao nhãng khi văn phòng quá yên tĩnh.\nNữ: Ồ! Tôi đang đeo tai nghe nên không nhận ra điều đó. [33] Tôi sẽ đi đổi chiếc ghế này với một chiếc từ phòng hội nghị.\nNam: Cảm ơn cô đã thông cảm. Và [34] đừng quên là nhóm chúng ta sẽ đặt đồ ăn mang về từ một nhà hàng Thái cho bữa trưa nhé. Cô có muốn ăn gì không?\nNữ: Chắc chắn rồi. Tôi muốn một ít chả giò!\n[32] Người đàn ông đưa ra lời phàn nàn gì?\nA. Một căn phòng quá nhỏ\nB. Tiếng ồn gây xao nhãng ✔\nC. Một số phần mềm bị chậm\nD. Máy in bị hỏng\n[33] Người phụ nữ nói cô ấy sẽ làm gì?\nA. Thay đổi chiếc ghế của mình ✔\nB. Mượn một chiếc máy tính xách tay\nC. Liên hệ với bàn trợ giúp\nD. Làm việc tại nhà\n[34] Người phụ nữ nói cô ấy sẽ làm gì?\nA. Gửi một bản cập nhật lịch trình\nB. Liên lạc với quản lý sản xuất ✔\nC. Đến thăm trụ sở chính của công ty\nD. Lên kế hoạch cho một chiến dịch quảng cáo"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "7bf4605f-edd2-49bb-a470-b0fc975a35f2",
+                        "questionNumber":  1,
+                        "questionText":  "Why does the speaker thank the listeners?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "2d02f442-fd24-4907-8dd1-2b64d7da4d6d",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t07-71-73-4764fcf828bd4eaea7d29437782b9b4a.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "For responding to an employee survey",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "For arriving early for a shift",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "For agreeing to work overtime",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "For planning a holiday party",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "For arriving early for a shift",
+                        "audioTranscriptText":  "W-Am: Good morning, everyone. [71] Thank you for coming in a little bit early for your shift today.[72] While production was closed down for the holiday, management took the opportunity to install a new type of safety equipment on all the machines on the assembly lines. A special sensor called a light curtain automatically turns off the machines if an object gets too close during operation. [73] I\u0027d like to show you how it works. Let\u0027s go look at a machine now.",
+                        "groupExplanationText":  "Nữ: Chào buổi sáng mọi người. [71] Cảm ơn các bạn đã đến sớm hơn một chút cho ca làm việc của mình ngày hôm nay. [72] Trong khi việc sản xuất tạm dừng vì kỳ nghỉ, ban quản lý đã tận dụng cơ hội để lắp đặt một loại thiết bị an toàn mới trên tất cả các máy móc trong dây chuyền lắp ráp. Một bộ cảm biến đặc biệt gọi là \"màn ánh sáng\" sẽ tự động tắt máy nếu có vật thể tiến quá gần trong quá trình vận hành. [73] Tôi muốn chỉ cho các bạn thấy nó hoạt động như thế nào. Bây giờ chúng ta hãy cùng đi xem một chiếc máy nhé.\n[71] Tại sao người nói lại cảm ơn những người nghe?\nA. Vì đã trả lời một cuộc khảo sát nhân viên\nB. Vì đã đến sớm cho một ca làm việc ✔\nC. Vì đã đồng ý làm thêm giờ\nD. Vì đã lên kế hoạch cho một bữa tiệc ngày lễ\n[72] Những người nghe có khả năng làm việc ở đâu nhất?\nA. Tại một cửa hàng thiết bị điện máy\nB. Tại một khách sạn\nC. Tại một nhà máy ✔\nD. Tại một bệnh viện\n[73] Người nói sẽ làm gì tiếp theo?\nA. Thực hiện một buổi trình diễn/siêu mẫu ✔\nB. Phân phát một số tài liệu\nC. Phê duyệt một giao dịch mua hàng\nD. Tiến hành một số cuộc phỏng vấn\nTAG CÂU HỎI:\nCâu 71 - [Part 4] Câu hỏi về chi tiết\nCâu 72 - [Part 4] Câu hỏi về chủ đề, mục đích\nCâu 73 - [Part 4] Câu hỏi về chi tiết"
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "df834379-8b91-4dd6-88da-2f33971b79ad",
+                        "questionNumber":  1,
+                        "questionText":  "After Ms. Takido finishes ------- presentation, the audience will be permitted to ask questions.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "her",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "she",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "hers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "herself",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "her",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch câu: Sau khi bà Takido kết thúc bài thuyết trình của mình, khán giả sẽ được phép đặt câu hỏi.\nDịch đáp án:\nA. her: của cô ấy ✔\nB. she: cô ấy\nC. hers: cái của cô ấy\nD. herself: chính cô ấy\nGiải thích: Cần một tính từ sở hữu đứng trước danh từ \"presentation\".\nLưu ý: Phân biệt tính từ sở hữu (her + N) và đại từ sở hữu (hers)."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "d04c4a1b-2103-4741-9f6c-d999e81e671c",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "a5c4edb7-a53f-43ee-8de6-f1c7acc0d8d5",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-4157be887fb44b0888d712099d779606.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "cash",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "exercise",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "laughter",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "lessons",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "laughter",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[131]\nA. tiền mặt (cash)\nB. tập thể dục (exercise)\nC. tiếng cười (laughter) ✔\nD. bài học (lessons)\nDựa vào ngữ cảnh một nơi chơi board game và giải trí, \"laughter\" (tiếng cười) là từ phù hợp nhất để đi cùng với \"fun\" (vui vẻ).\n[132]\nA. Hoặc mang theo đồ riêng của bạn nếu bạn muốn. ✔\nB. Bình chọn cho diễn viên hài yêu thích của bạn.\nC. Thức uống phổ biến nhất là caramel latte.\nD. Chúng tôi cũng có một vài vị trí tuyển dụng bồi bàn.\nCâu trước đó nhắc đến việc chọn trò chơi từ bộ sưu tập của quán, nên câu này bổ sung lựa chọn khách tự mang đồ chơi đến là logic nhất.\n[133]\nA. trái ngược với (in contrast to)\nB. hơn nữa (furthermore)\nC. để mà (so that)\nD. cũng như (as well as) ✔\nCấu trúc \"as well as\" dùng để nối các danh từ cùng loại trong danh sách đồ uống và đồ ăn.\n[134]\nA. is relaxing (đang thư giãn)\nB. to relax (để thư giãn) ✔\nC. relaxes (thư giãn - số ít)\nD. relaxation (sự thư giãn)\nSau danh từ \"opportunity\" thường là cấu trúc \"to + động từ nguyên mẫu\" để chỉ mục đích.\nDịch nghĩa:\nBạn có thích chơi trò chơi với bạn bè không? Bạn có thích trà và đồ ăn nhẹ ngon miệng không? Nếu có, bạn sẽ không muốn bỏ lỡ Đêm Trò chơi tại Chez Tournoi. Thứ Sáu hàng tuần từ 6 đến 10 giờ tới, Chez Tournoi chào đón bạn đến địa điểm số 44 Đại lộ Broad, Kingston để tận hưởng niềm vui và tiếng cười. Hãy chọn từ bộ sưu tập trò chơi bàn cờ, trò chơi bài, trò chơi đố vui và nhiều trò chơi khác của chúng tôi. Hoặc mang theo đồ riêng của bạn nếu bạn muốn. Trong khi chơi, bạn có thể thưởng thức trà, cà phê và sô cô la nóng mới pha cũng như những chiếc bánh ngọt thơm ngon của chúng tôi. Đêm Trò chơi tại Chez Tournoi là cơ hội hoàn hảo để thư giãn và giao lưu."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "af268ece-deb6-4951-99f7-88f80ca9173f",
+                        "questionNumber":  1,
+                        "questionText":  "What is indicated about boxes of Truli crackers?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "70db02a0-05c7-43e1-b114-2f61696fbc4e",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-7c31b98187e845ffabcf58448ed30740.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "They come in various sizes.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "They are available in several flavors.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "They are sold exclusively at Truli Cafés.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "They cost $2.00 more than a package of Truli cheese.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "They come in various sizes.",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[147] Điều gì được chỉ ra về các hộp bánh quy Truli?\n(A) Chúng có nhiều kích cỡ khác nhau. ✔(B) Chúng có sẵn với nhiều hương vị khác nhau.(C) Chúng được bán độc quyền tại các quán cà phê Truli.(D) Chúng có giá cao hơn 2,00$ so với một gói phô mai Truli.[148] Điều gì được chỉ ra về phiếu giảm giá?\n(A) Nó có thể được sử dụng nhiều hơn một lần.(B) Nó yêu cầu phải mua thêm một sản phẩm khác. ✔(C) Nó có thể được sử dụng để mua đồ uống nóng.(D) Nó phải được sử dụng trước ngày 1 tháng 7.PHIẾU GIẢM GIÁ Nếu bạn yêu thích món phô mai và bánh quy thơm ngon được phục vụ tại các quán cà phê Truli, giờ đây bạn có thể thưởng thức món ăn nhẹ phổ biến này tại nhà! Bánh quy và phô mai Truli hiện đã có mặt tại các siêu thị lớn. Tiết kiệm 2,00$ khi mua [147] MỘT hộp bánh quy Truli (bất kỳ kích cỡ nào) [148] khi bạn mua bất kỳ HAI gói phô mai Truli nào. Giới hạn một phiếu giảm giá cho mỗi khách hàng. Phiếu giảm giá này không được kết hợp với các ưu đãi đặc biệt khác. Hết hạn ngày 31 tháng 7."
+                    }
+                ]
+}

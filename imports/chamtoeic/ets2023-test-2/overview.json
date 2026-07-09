@@ -1,0 +1,27 @@
+﻿{
+  "status": 200,
+  "message": "Success",
+  "data": {
+    "id": "77bed53b-5e15-40dc-b625-e2e89d247406",
+    "testName": "ETS2023 TEST 2",
+    "slug": "ets2023-test-2",
+    "testNumber": 2,
+    "description": null,
+    "collectionName": "ETS 2023",
+    "totalQuestions": 200,
+    "duration": 120,
+    "isTaken": false,
+    "attemptCount": 2091,
+    "commentCount": 2,
+    "partQuestionCount": {
+      "PART_1": 6,
+      "PART_2": 25,
+      "PART_3": 39,
+      "PART_4": 30,
+      "PART_5": 30,
+      "PART_6": 16,
+      "PART_7": 54
+    },
+    "customName": null
+  }
+}

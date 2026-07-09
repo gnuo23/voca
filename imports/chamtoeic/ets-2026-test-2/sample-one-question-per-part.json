@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2026 TEST 2",
+    "generatedAt":  "2026-07-09T20:10:28Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "f581396a-5595-4088-a413-bf43a96f5949",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "9d3d38d2-e672-470e-8a6a-6adc229fa6ae",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t02-01-e46e04567e94456ba047a1812dbf6f97.mp3"
+                                           },
+                                           {
+                                               "id":  "34ea1c55-98e0-4f68-9c21-aa53cf5a70dc",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-5fbd7effc13f47c2842aab1878333ba6.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "A. A man is closing a metal gate.\n✔B. A man is walking down a stone path.\nC. Some potted plants line a walkway.\nD. Some flags are hanging from balconies.",
+                        "groupExplanationText":  "A. Một người đàn ông đang đóng cổng kim loại.\n✔B. Một người đàn ông đang đi bộ xuống một con đường đá.\nC. Một số chậu cây xếp dọc lối đi.\nD. Một số lá cờ đang treo trên ban công."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "d63063ce-ea9c-44ff-b2e1-eb8e2c0acdc4",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "b3143983-4be2-4dfc-83ae-c8be11061fb4",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t02-07-74bbbb03253c4d45940a8a85ccb97e2c.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Will you order the pasta or the chicken?\n✔A. I\u0027ll have the pasta.\nB. Yes, I studied Italian.\nC. I think we should paint the kitchen.",
+                        "groupExplanationText":  "Bạn sẽ gọi món mì Ý hay món gà?\n✔A. Tôi sẽ dùng món mì Ý.\nB. Vâng, tôi đã học tiếng Ý.\nC. Tôi nghĩ chúng ta nên sơn lại nhà bếp."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "b3d9cca6-8254-47ed-8685-7dd471722c72",
+                        "questionNumber":  1,
+                        "questionText":  "What kind of work does the man do?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "7aaa18db-ea52-41c1-8362-bfc4b7e6aaa9",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t02-32-34-da374eb7cd024af589b254b624bcf712.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "He is a tour guide.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "He is a landlord.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "He repairs appliances.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "He delivers food.",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "He delivers food.",
+                        "audioTranscriptText":  "W-Am: [32] How were your deliveries?\nM-Cn: Not bad, except at that new residential building on South Street. [32] I had to call them on my phone to come pick up their food. At first, [33] I tried to call on the building intercom, but it\u0027s still broken.\nW-Am: You\u0027re not the first to say that. Last week, a customer called to complain that their food was cold by the time they found it.\nM-Cn: Maybe we just can\u0027t make deliveries there until the landlord fixes the intercom system.\nW-Am: [34] I\u0027m going to update the instructions on our mobile app telling customers to meet us at the building\u0027s front door. Let\u0027s see if that helps.",
+                        "groupExplanationText":  "Nữ: [32] Việc giao hàng của anh thế nào rồi?\nNam: Không tệ, ngoại trừ ở tòa nhà dân cư mới trên phố South. [32] Tôi đã phải gọi điện thoại bảo họ xuống lấy đồ ăn. Lúc đầu, [33] tôi đã thử gọi qua hệ thống liên lạc nội bộ của tòa nhà, nhưng nó vẫn bị hỏng.\nNữ: Anh không phải là người đầu tiên nói vậy đâu. Tuần trước, một khách hàng đã gọi điện phàn nàn rằng thức ăn của họ đã bị nguội khi họ nhận được.\nNam: Có lẽ chúng ta không nên giao hàng ở đó cho đến khi chủ nhà sửa xong hệ thống liên lạc.\nNữ: [34] Tôi sẽ cập nhật hướng dẫn trên ứng dụng di động của chúng ta, yêu cầu khách hàng gặp chúng ta tại cửa trước của tòa nhà. Để xem liệu việc đó có giúp ích gì không.\n32. Người đàn ông làm công việc gì?\nA. Hướng dẫn viên du lịch\nB. Chủ nhà\nC. Sửa chữa thiết bị\nD. Giao đồ ăn ✔\n33. Điều gì đã gây ra vấn đề cho công việc kinh doanh của người nói?\nA. Công trình đường xá\nB. Thời tiết lạnh\nC. Giấy phép hết hạn\nD. Hệ thống liên lạc nội bộ bị hỏng ✔\n34. Người phụ nữ sẽ cập nhật gì trên ứng dụng di động?\nA. Hướng dẫn ✔\nB. Giá cả\nC. Hình ảnh\nD. Giờ hoạt động"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "9a8dfcb0-9b80-469a-b6ca-8b99a2178b5b",
+                        "questionNumber":  1,
+                        "questionText":  "Where do the listeners most likely work?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "97657c79-afd0-40aa-ad48-c82fd83b9f20",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t02-71-73-e2648e9675534a27822953caece70afc.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "At a taxi service",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "At a car repair shop",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a shipping company",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At a driving school",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "At a car repair shop",
+                        "audioTranscriptText":  "M-Cn: Crew, [71] please stop working on that truck repair for a second. Many of you complained about how slow and hard it is to use the car lift, so I purchased a new one and it was delivered this morning! It can lift much heavier vehicles, and it\u0027s faster. [72] The only problem is we\u0027re missing the bottles of hydraulic fluid that were supposed to be included in the shipment. So, we\u0027re stuck using the old car lift for a few more days. Oh, and one more thing—when talking to customers, please remember to mention that [73] we\u0027re now offering a discount on oil changes if they schedule a vehicle inspection with us.",
+                        "groupExplanationText":  "Nam: Các nhân viên, [71] vui lòng dừng công việc sửa chữa xe tải đó một lát. Nhiều người trong số các bạn đã phàn nàn về việc sử dụng kích nâng ô tô chậm và khó khăn như thế nào, vì vậy tôi đã mua một chiếc mới và nó đã được giao vào sáng nay! Nó có thể nâng các phương tiện nặng hơn nhiều và nhanh hơn. [72] Vấn đề duy nhất là chúng ta đang thiếu các chai chất lỏng thủy lực lẽ ra phải có trong lô hàng. Vì vậy, chúng ta đành phải tiếp tục sử dụng kích nâng cũ thêm vài ngày nữa. Ồ, và còn một điều nữa—khi nói chuyện với khách hàng, hãy nhớ đề cập rằng [73] chúng ta hiện đang giảm giá thay dầu nếu họ lên lịch kiểm tra xe với chúng ta.\n71. Những người nghe có khả năng làm việc ở đâu nhất?\nA. Tại một dịch vụ taxi\nB. Tại một cửa hàng sửa chữa ô tô ✔\nC. Tại một công ty vận chuyển\nD. Tại một trường dạy lái xe\n72. Người nói đề cập đến vấn đề gì?\nA. Sách hướng dẫn đào tạo cần được cập nhật.\nB. Hóa đơn không chính xác.\nC. Cần bảo trì thường xuyên.\nD. Thiếu một số vật dụng. ✔\n73. Những người nghe nên nhắc nhở khách hàng về điều gì?\nA. Một số thay đổi về lịch trình\nB. Một cuộc khảo sát trực tuyến\nC. Một ưu đãi quảng cáo ✔\nD. Chính sách an toàn"
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "f9b46c78-c0be-4926-bcb9-f70c7492f654",
+                        "questionNumber":  1,
+                        "questionText":  "The all-new Amore sports sedan is engineered for maximum reliability ------- gas mileage.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "so",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "but",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "and",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "nor",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "and",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch câu: Mẫu xe sedan thể thao Amore hoàn toàn mới được thiết kế để đạt độ tin cậy và mức tiêu thụ nhiên liệu tối đa.\nDịch đáp án:\nA. so: vì vậyB. but: nhưngC. and: và ✔D. nor: cũng khôngGiải thích: Cần liên từ nối hai danh từ tương đương là \"reliability\" và \"gas mileage\"."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "1dba8fcd-09b9-42c6-80bb-72eea4fcecc7",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "112b05fd-0bae-48c9-963b-4947cc0f4120",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-e15549bd760d4cc2a5d2899295b0bea7.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Now that",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "After all",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Otherwise",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Before long",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "Before long",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[131] (A) Now that: bởi vì\n(B) After all: sau tất cả\n(C) Otherwise: nếu không thì\n(D) Before long: chẳng bao lâu sau ✔\nGiải thích: Xét nghĩa vế trước \"bắt đầu chia sẻ bánh\" và vế sau \"trở nên nổi tiếng\", trạng từ chỉ thời gian \"chẳng bao lâu sau\" là hợp lý nhất.\n[132] (A) Với nhiều lựa chọn mặn, muffin không còn chỉ dành cho bữa sáng nữa.\n(B) Mỗi tuần, cô ấy lại nướng một loại mới để giao cho những người đang háo hức chờ đợi. ✔\n(C) Cô ấy thường đi bộ hàng ngày với bạn bè.\n(D) Thật không may, phải mất gần ba giờ để chuẩn bị một mẻ bánh.\nGiải thích: Câu trước nói về việc chia sẻ bánh cho bất kỳ ai muốn, câu (B) tiếp nối ý này một cách cụ thể về tần suất và đối tượng nhận bánh.\n[133] (A) using: sử dụng ✔\n(B) used: đã dùng\n(C) use: dùng\n(D) to use: để dùng\nGiải thích: Dùng phân từ V-ing đóng vai trò như một cụm trạng ngữ rút gọn để chỉ phương thức (làm bằng tay bằng cách sử dụng công thức...).\n[134] (A) creates: tạo ra (V)\n(B) created: đã tạo (V-ed)\n(C) creatively: một cách sáng tạo (Adv)\n(D) creations: những tác phẩm/sản phẩm sáng tạo ✔\nGiải thích: Sau tính từ \"delicious\" cần một danh từ làm tân ngữ.\nDịch nghĩa:\nGần 160 năm trước, Arianna Sweeney mang bánh muffin tự làm ra quảng trường thị trấn để tặng bạn bè. Mọi người đều yêu thích chúng! Cô Sweeney bắt đầu chia sẻ bánh cho bất kỳ ai muốn. [131]. Chẳng bao lâu sau, cô trở nên nổi tiếng khắp thị trấn với biệt danh Muffin Lady. [132]. Mỗi tuần, cô nướng một loại mới để giao cho những người đang háo hức chờ đợi. Ngày nay, bánh Muffin Lady được làm thủ công [133] bằng cách sử dụng chính những công thức gốc do Arianna Sweeney phát triển. Chúng tôi cam kết nướng bánh một cách đích thực chỉ với những nguyên liệu tốt nhất. Chúng tôi hy vọng bạn sẽ thích thú với [134] những sản phẩm thơm ngon của chúng tôi!"
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "88158b1b-bd8e-4d9e-96ec-02648e1e2a8a",
+                        "questionNumber":  1,
+                        "questionText":  "What is NOT offered to Radial Tunes subscribers?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "dc5b013d-dbab-4c44-8828-6eb802a60f18",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-8eb50696a785471b88282c99d8d4a35f.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Access to a large library of songs",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Music playlists posted by subscribers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Music videos",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Audio interviews with popular musicians",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "Audio interviews with popular musicians",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[147] Điều gì KHÔNG được cung cấp cho những người đăng ký Radial Tunes?\n(A) Quyền truy cập vào thư viện bài hát lớn\n(B) Danh sách phát nhạc được đăng bởi người đăng ký\n(C) Video âm nhạc\n(D) Các cuộc phỏng vấn âm thanh với các nhạc sĩ nổi tiếng ✔\n[148] Điều gì được chỉ ra về ông Furuta?\n(A) Ông ấy mới chuyển đến Canada gần đây.\n(B) Ông ấy không thể kích hoạt một dịch vụ đặc biệt.\n(C) Ông ấy vừa mua một chiếc điện thoại Gregerson Pro Phone 13. ✔\n(D) Ông ấy là nhân viên của PNE Retailers.\nThưởng thức Radial Tunes miễn phí!\nChúc mừng bạn đã mua điện thoại Gregerson Pro Phone 13. Như một món quà đặc biệt, chúng tôi tặng bạn gói đăng ký miễn phí ba tháng cho Radial Tunes, một thư viện nhạc số khổng lồ. Với tư cách là người đăng ký Radial Tunes, bạn có thể truy cập hàng trăm bài hát, video âm nhạc và danh sách phát được tuyển chọn đặc biệt bởi những người dùng khác. Để đăng ký, chỉ cần điền vào mẫu sau. Bạn sẽ nhận được mã giảm giá qua email. Để đổi mã, hãy truy cập www.radialtunes.com/signup và nhập mã. Mã chỉ có hiệu lực một lần và hết hạn sau 24 giờ kể từ khi được gửi.\nTên: Terrence Furuta\nEmail: tfuruta@silkmail.com\nBạn đã mua sản phẩm Gregerson ở đâu? PNE Retailers, Winnipeg, Canada"
+                    }
+                ]
+}

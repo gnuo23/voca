@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2023 TEST 10",
+    "generatedAt":  "2026-07-09T20:50:43Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "5422928c-386a-4e1d-8a43-b09743d3d314",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "f4e6c2a7-3438-4366-9b5a-6abec8d74536",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-a2deb3151f934bff82da3ce9bcb8cc6a.png"
+                                           },
+                                           {
+                                               "id":  "1a7f0a77-11be-4c96-90cc-85358d0f5d98",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/1-e296e0d26c44405d92e2f31dcb6ab133.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "(A) Người đàn ông đang leo thang. (B) Người đàn ông đeo ba lô. (C) Người đàn ông đang nằm dài trong một khu vực có bóng râm. (D) Người đàn ông đang nhặt một hòn đá.",
+                        "groupExplanationText":  null
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "0a6f2bab-cf39-4758-bc10-2ac9153c0d7c",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "f9f49289-78a6-4299-b07a-f643a7d78a50",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/7-dea6fdc2aca1498ab00fa32d5efb8ce9.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "M-Au: Bạn đã đến rạp chiếu phim nào? W-Am\n(A) Không, không phải.\n(B) Cái trên đường Oak Ridge.\n(C) Lúc sáu giờ.",
+                        "groupExplanationText":  "M-Au: Bạn đã đến rạp chiếu phim nào? W-Am\n(A) Không, không phải.\n(B) Cái trên đường Oak Ridge.\n(C) Lúc sáu giờ."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "076a764c-b2c1-4b91-a9f4-6b584d32f483",
+                        "questionNumber":  1,
+                        "questionText":  "Who most likely are the speakers?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "55419e40-abc1-463e-b91d-06964f5ba503",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/32-ff6d9cae5b23488e951137dde31a0b18.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Chefs",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Florists",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "Bank tellers",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Fashion designers",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "Florists",
+                        "audioTranscriptText":  "W-Br Richard, we haven\u0027t received the shipment of roses yet. M-Au Oh no! We need them for the floral arrangements that we\u0027re supposed to create for the Korkle Hotel. W-Br I know. We\u0027ll have to come up with an alternative solution. M-Au Right. I\u0027ll find another source for the flowers. Can you start the arrangements with what we have? W-Br Yes, of course. But, I will need to leave early today to go to the doctor. Maria will cover the end of my shift.",
+                        "groupExplanationText":  "W-Br Richard, [32] chúng tôi vẫn chưa nhận được lô hoa hồng.\nM-Au Ôi không! [32] Chúng tôi cần chúng để làm hoa cho Khách sạn Korkle.\nW-Br Tôi biết rồi. Chúng ta phải nghĩ ra giải pháp thay thế thôi.\nM-Au Được rồi. [33] Tôi sẽ tìm nguồn hoa khác. Anh có thể bắt đầu với những gì chúng ta đang có được không?\nW-Br Vâng, tất nhiên rồi.[34] Nhưng hôm nay tôi phải về sớm để đi khám bác sĩ. Maria sẽ thay tôi làm việc vào cuối ca."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "fd9ef0f0-e512-4a54-a200-93bed9c4cb9f",
+                        "questionNumber":  1,
+                        "questionText":  "Where does the tour take place?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "3c7eeb3f-205f-41e6-b49c-c4ec8ddfe142",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/71-81ed1873a6b1473abd014f42bbbd2be3.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "At an art museum",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "At an amusement park",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a zoo",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At a nature park",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "At a nature park",
+                        "audioTranscriptText":  "W-Am (68) thật tuyệt vời khi lượng du lịch đã tăng lên ở thành phố của chúng tôi trong năm nay. Rất nhiều du khách đến khu vực này để hỏi chúng tôi về những điều cần làm ở đây!\nM-Au: Chắc chắn rồi. (69)Kể từ khi chương trình nấu ăn đó được công chiếu trên truyền hình vào năm ngoái, khách du lịch đã hỏi chúng tôi tìm các nhà hàng địa phương trong chương trình ở đâu. Bản đồ ẩm thực mà chúng tôi đang thực hiện về khu vực trung tâm thành phố sẽ thực sự phổ biến.\nW-Am Vâng, và nó gần như đã sẵn sàng để đi đến máy in. Nhưng—tôi nhận thấy một lỗi. (70)Địa điểm ở góc đường Second và Fielding Streets đã chuyển đến một vị trí lớn hơn ở phía bắc thành phố.\nM-Au Ồ, quá tệ. (70)OK, tôi sẽ cởi nó ra.",
+                        "groupExplanationText":  "W-Am Chào mừng mọi người đến với Công viên Thiên nhiên Watanabe. Tôi rất vui vì tất cả mọi người đã cùng tham gia chuyến đi bộ đường dài buổi sáng. Tôi khuyên bạn nên dừng lại trên đỉnh núi để ngắm chim. Biết đâu chúng ta còn có thể nhìn thấy vài chú diều hâu hoặc đại bàng bay lượn trên cao. Bạn có thể tự do quay lại Trung tâm Du khách, nhưng vui lòng quay lại trước 12 giờ trưa để chúng ta có thể cùng nhau dùng bữa trưa tại bàn ăn dã ngoại."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "52c5e261-6c7f-415f-b30c-d68ba4a15a47",
+                        "questionNumber":  1,
+                        "questionText":  "\nAberdeen Bank offers a range of financial services ------- the needs of its customers.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "\nmeet\n",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "to meet",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "is meeting",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "meetings",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "to meet",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Giải thích: Chỗ trống cần điền một động từ có dạng phù hợp để hoàn thành cụm cố định\n- meet (V): gặp/đáp ứng\n- to meet (to-V): để gặp/ đáp ứng\n- is meeting (V-ing): đang gặp\n- meetings (N): buổi gặp mặt\n*Cấu trúc:\noffer to V: đề nghị/đưa ra ... để làm gì đó\nDịch: Ngân hàng Aberdeen đưa ra một loạt các dịch vụ tài chính ĐỂ ĐÁP ỨNG nhu cầu của khách hàng"
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "c767b23e-4de8-4026-86f8-4a94948a6eb2",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "e78f2487-752d-4136-91ca-7666339ab484",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-a1cea4ae65744ae0a9aa0162d6f2756a.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "now",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "likewise",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "there",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "instead",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "now",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "HÃY THAM GIA VÀO CÔNG TY Ô TÔ RGBS\nHãng xe RGBS (131) HIỆN TẠI đang tuyển công nhân bán thời gian và toàn thời gian. Hãy ứng tuyển ngay hôm nay! (132) BẠN có thể trở thành một phần của đội sản xuất của chúng tôi! Chúng tôi tạo ra những sản phẩm công nghệ cao (133) ĐƯỢC TÌM THẤY trên tất cả các dòng ô tô và xe tải.\nLương tại RGBS luôn hậu hĩnh, và chúng tôi còn cung cấp những buổi đào tạo cùng những cơ hội thăng tiến, (134) NGOÀI RA CÒN MỘT SỐ LƯỢNG LỚN NGÀY NGHỈ PHÉP. Truy cập trang web www.rgbsautomotive.com để biết thêm thông tin chi tiết và về việc điền đơn ứng tuyển."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "57a8faf7-7252-4bc7-985d-ffade88791ab",
+                        "questionNumber":  1,
+                        "questionText":  "What is a purpose of the notice?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "c27708d6-24d5-4b1a-9bb4-20b146c56238",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-d8d069e57a8e464c80b5b1e1514bdf99.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "To report a change in weather patterns",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "To announce a new detour route",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "To explain a change in road construction plans",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "To highlight causes of road deterioration",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "To explain a change in road construction plans",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dự án đường Cardinal - Cập nhật\nDo điều kiện thời tiết lạnh và ẩm ướt bất thường, [147] việc chặn đường trên Phố Cardinal giữa Lee Drive và Đường Petunia sẽ được kéo dài cho đến cuối mùa xuân. Việc xây dựng sẽ tiếp tục; tuy nhiên, việc lát đá cuối cùng trên Phố Cardinal không thể diễn ra cho đến khi điều kiện thời tiết được cải thiện. [148] Các công nhân sẽ bắt đầu công việc lát vỉa hè sau khi việc xây dựng cây cầu trên đường Cardinal được hoàn thành. Nếu bạn có thắc mắc hoặc nhận xét, vui lòng liên hệ với Vy Nguyễn tại văn phòng kế hoạch thành phố theo số 615-555-0184."
+                    }
+                ]
+}

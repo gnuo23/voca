@@ -1,0 +1,27 @@
+﻿{
+  "status": 200,
+  "message": "Success",
+  "data": {
+    "id": "5e50b925-95e8-47ce-8307-463eb63962c8",
+    "testName": "ETS 2024 TEST 5",
+    "slug": "ets-2024-test-5",
+    "testNumber": 5,
+    "description": null,
+    "collectionName": "ETS 2024",
+    "totalQuestions": 200,
+    "duration": 120,
+    "isTaken": false,
+    "attemptCount": 1756,
+    "commentCount": 3,
+    "partQuestionCount": {
+      "PART_1": 6,
+      "PART_2": 25,
+      "PART_3": 39,
+      "PART_4": 30,
+      "PART_5": 30,
+      "PART_6": 16,
+      "PART_7": 54
+    },
+    "customName": null
+  }
+}

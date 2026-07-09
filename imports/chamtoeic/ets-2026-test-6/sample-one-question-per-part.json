@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2026 TEST 6 ",
+    "generatedAt":  "2026-07-09T20:20:28Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "6aa8a655-3b63-49f0-8636-a056da8a4be8",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "e075cbde-dec7-44ad-8934-325ec24ce92c",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-d253eb2db5e541269d21b008a0b0585c.png"
+                                           },
+                                           {
+                                               "id":  "df3fa2d0-f540-4daa-b98d-88d29ffe7d0a",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t06-01-b7e057c587aa4f4caebc78ce2d86e56d.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "A. A restaurant buffet is filled with food.\nB. Cups are sitting in a sink.\nC. A dining area is empty. ✔\nD. Some candles have been lit.",
+                        "groupExplanationText":  "A. Quầy buffet của nhà hàng đầy ắp thức ăn.\nB. Những chiếc cốc đang nằm trong bồn rửa.\nC. Khu vực ăn uống đang trống không. ✔\nD. Một vài cây nến đã được thắp sáng."
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "db92ffb8-9539-4418-b6f4-b154ac3d6286",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "e0c8f39a-555b-4194-b940-10f8e0636a34",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t06-07-7668b2bd96e24758b1f10335170b8f17.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "How long will the renovations take?\nA. About a month. ✔\nB. Mostly the roof.\nC. I finished that book.",
+                        "groupExplanationText":  "Việc cải tạo sẽ mất bao lâu?\nA. Khoảng một tháng. ✔\nB. Chủ yếu là phần mái nhà.\nC. Tôi đã đọc xong cuốn sách đó."
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "5d22d459-d007-488e-bf08-ec2dcf3b7830",
+                        "questionNumber":  1,
+                        "questionText":  "According to the woman, what happened last week?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "c5719d03-189e-4b01-8a67-764fac17a2b2",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t06-32-34-bc9bb9bf37e54b099e1e7e0d1cce93ec.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A new product was launched.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A new location opened.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "An advertising campaign started.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A budget was approved.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "An advertising campaign started.",
+                        "audioTranscriptText":  "W-Br: [32] I saw one of the new commercials about our business on television last week. I guess the advertising campaign has already launched.\nM-Cn: This ad campaign\u0027s coming out at a great time for us. It\u0027s our busy season-[33] people are starting to book our tours for their vacations.\nW-Br: There\u0027s still some money in the budget. We should use it to advertise our most recent package-a guided exploration of the theater district, including tickets to a performance.\nM-Cn: That\u0027s a good idea. [34] Let me check how much it would cost to add that information to our current commercials.",
+                        "groupExplanationText":  "Nữ: [32] Tôi đã xem một trong những mẩu quảng cáo mới về doanh nghiệp của chúng ta trên truyền hình vào tuần trước. Tôi đoán chiến dịch quảng cáo đã được bắt đầu rồi.\nNam: Chiến dịch quảng cáo này ra mắt vào thời điểm rất tuyệt vời đối với chúng ta. Đây là mùa bận rộn - [33] mọi người đang bắt đầu đặt các chuyến tham quan của chúng ta cho kỳ nghỉ của họ.\nNữ: Vẫn còn một ít tiền trong ngân sách. Chúng ta nên sử dụng nó để quảng cáo cho gói dịch vụ gần đây nhất của mình - một chuyến khám phá khu nhà hát có hướng dẫn viên, bao gồm cả vé xem biểu diễn.\nNam: Đó là một ý kiến hay. [34] Để tôi kiểm tra xem sẽ tốn bao nhiêu chi phí để thêm thông tin đó vào các mẩu quảng cáo hiện tại của chúng ta."
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "77feb50c-81ab-459f-a997-d163919ddcca",
+                        "questionNumber":  1,
+                        "questionText":  "Where most likely is the announcement being made?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "7d3d7098-733c-4287-8241-c18b804a830c",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t06-71-73-d5c37dc00bff46d89c1051f094dc2b49.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "At an art gallery",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "At a trade show",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "At a shopping mall",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "At a sporting event",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "At a trade show",
+                        "audioTranscriptText":  "M-Cn: Good morning, and [71] welcome to the Third Annual Robotics Trade Show. Please note that in order to accommodate the large number of guests who signed up for the afternoon panel discussion, [72] that event has been moved to Exhibit Hall B. That\u0027s on the lower level, to the left of the elevators. And [73] will the person who left a backpack at the information desk please return to the desk to claim your item? It\u0027s a silver Rugged Hiker model with a blue strap.",
+                        "groupExplanationText":  "Nam: Chào buổi sáng, và [71] chào mừng bạn đến với Triển lãm Thương mại Robot Thường niên lần thứ ba. Xin lưu ý rằng để đáp ứng số lượng lớn khách đã đăng ký tham gia buổi thảo luận nhóm chiều nay, [72] sự kiện đó đã được chuyển đến Phòng triển lãm B. Nó nằm ở tầng dưới, bên trái thang máy. Và [73] người đã để quên một chiếc ba lô tại quầy thông tin vui lòng quay lại quầy để nhận lại món đồ của mình? Đó là một mẫu Rugged Hiker màu bạc với dây đeo màu xanh."
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "7245ee06-58a0-490e-af61-8e4535edcbfc",
+                        "questionNumber":  1,
+                        "questionText":  "On Saturday, the Edbridge Orchestra will ------- a new work by local composer Nina Borstein.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "make",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "operate",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "perform",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "fulfill",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "perform",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch câu: Vào thứ Bảy, dàn nhạc Edbridge sẽ biểu diễn một tác phẩm mới của nhà soạn nhạc địa phương Nina Borstein.\nDịch đáp án:\nA. make: chế tạo/làmB. operate: vận hành✔C. perform: biểu diễnD. fulfill: hoàn thành/đáp ứngGiải thích: Căn cứ vào chủ ngữ \"Orchestra\" (dàn nhạc) và tân ngữ \"new work\" (tác phẩm mới), động từ \"perform\" là phù hợp nhất về ngữ nghĩa.\nLưu ý: \"Work\" ở đây là danh từ đếm được, nghĩa là \"tác phẩm nghệ thuật/âm nhạc\"."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "03bb6401-68cc-47e2-86bb-585bd8905aa9",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d13ebafd-6bac-42dc-85c7-804892f3d861",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-40a86f9726d946d1a030fe54740eea99.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "furniture",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "exhibition",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "equipment",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "application",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "equipment",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[131]\nA. đồ nội thất\nB. triển lãm\nC. thiết bị ✔\nD. ứng dụng\nChỗ trống ám chỉ \"giá đỡ xe đạp\" (bicycle racks) đã đề cập ở câu trước, vì vậy \"thiết bị\" là từ phù hợp nhất.\n[132]\nA. Không tính thêm phí khi mang theo xe đạp. ✔\nB. Luôn đảm bảo xuống đúng trạm dừng xe buýt.\nC. Làn đường đặc biệt cho xe đạp hiện có trên hầu hết các xa lộ.\nD. Một số hành khách đủ điều kiện để được giảm giá vé xe buýt.\nCâu trước nhắc đến chương trình \"Xe đạp trên xe buýt\", câu sau nói về thông tin chi tiết của chương trình miễn phí, nên câu về phí là hợp lý.\n[133]\nA. hiệu quả\nB. phổ biến\nC. linh hoạt\nD. được cho phép ✔\nDựa vào nghĩa của câu: xe đạp điện không \"được cho phép\" (trong khi xe đạp thường thì có giá đỡ).\n[134]\nA. đã (quá khứ)\nB. có thể được ✔\nC. đã phải\nD. sẽ đã hoàn thành\nCấu trúc bị động \"can be accessed\" (có thể được truy cập/tiếp cận) dùng để chỉ khả năng của các tuyến đường.\nDịch nghĩa: Chương trình Xe đạp trên Xe buýt. Tất cả xe buýt Travelbee hiện đã được trang bị giá đỡ xe đạp bên ngoài. Thiết bị này nhằm khuyến khích hành khách kết hợp đi xe đạp vào cuộc sống để di chuyển, tập thể dục và giải trí. Tuy nhiên, xin lưu ý rằng xe đạp điện không được cho phép. Để biết thêm thông tin về chương trình Xe đạp trên Xe buýt miễn phí của chúng tôi, vui lòng truy cập www.travelbee.com/bicyclesonbuses. Tại đó, bạn cũng có thể tìm hiểu về các tuyến đường xe đạp tuyệt vời có thể tiếp cận từ các tuyến xe buýt của chúng tôi."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "33493b36-4226-458d-bfca-f1b7f2d0cfbe",
+                        "questionNumber":  1,
+                        "questionText":  "What is indicated about Bumbleberry Farm?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "6d0f45d8-f652-4056-9606-a9ec22a3719b",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-758b25d1b0c44c0fb2495dc82a8d2368.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "It is open seven days a week.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "It is family-friendly.",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "It operates a bakery.",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "It offers group discounts.",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "It is family-friendly.",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[147] Điều gì được chỉ ra về Trang trại Bumbleberry?\n(A) Nó mở cửa bảy ngày một tuần.\n(B) Nó thân thiện với gia đình. ✔\n(C) Nó điều hành một tiệm bánh.\n(D) Nó cung cấp giảm giá cho nhóm.\n[148] Điều gì KHÔNG được đề cập như một cách để thưởng thức quả việt quất?\n(A) Trong mứt\n(B) Trong các món nướng\n(C) Ăn cùng ngũ cốc ăn sáng\n(D) Ăn cùng kem ✔\nHãy tự hái việt quất của riêng bạn! Trang trại Bumbleberry 8715 Đường 71 NW, Stanfurt, Oregon 97074 - (971) 555-0144. Trang trại Bumbleberry nổi tiếng với những quả việt quất ngọt và mọng nước. Hãy đến và tận hưởng một buổi chiều trong những cánh đồng việt quất để tự tay hái chúng. [147] Chúng tôi phục vụ các gia đình, nhưng tất cả mọi người đều được chào đón!. Hãy thưởng thức việt quất tươi như một món ăn nhẹ lành mạnh, hoặc sử dụng chúng trong [148] mứt tự làm và các món nướng. [148] Chúng cũng rất tuyệt khi thêm vào loại ngũ cốc yêu thích của bạn vào buổi sáng. Mùa hái quả năm nay dự kiến diễn ra từ ngày 1 tháng 7 đến ngày 15 tháng 9. Cánh đồng của chúng tôi mở cửa từ thứ Ba đến Chủ nhật, từ 10:00 sáng đến 3:00 chiều. Phí vào cửa là 2,00 đô la mỗi người, với chi phí 2,50 đô la cho mỗi nửa lít quả hái được. Các nhóm tối đa 8 người được chào đón. Giới hạn 1 lít mỗi người. Để biết thêm thông tin, hãy truy cập trang web của chúng tôi tại www.bumbleberryfarm.com."
+                    }
+                ]
+}

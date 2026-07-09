@@ -1,0 +1,289 @@
+﻿{
+    "testName":  "ETS 2026 TEST 8",
+    "generatedAt":  "2026-07-09T20:24:48Z",
+    "samples":  [
+                    {
+                        "part":  "PART_1",
+                        "groupOrder":  1,
+                        "questionId":  "34f636c1-09e3-49f0-82f0-0f25a11d079e",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "d5fd1874-5729-4727-9344-00b459e349bf",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-4712357f8ca94f68b346aed3965c97e2.png"
+                                           },
+                                           {
+                                               "id":  "72656a9d-3e47-47c8-94d2-e193ef6def1d",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  2,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t08-01-bdb4c8562b43436d9130f8af66167224.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "A. A wooden post is being painted.\nB. Flowerpots have been placed under some chairs.\nC. A rug has been spread out on the ground.\nD. Some furniture has been placed on a covered patio. ✔",
+                        "groupExplanationText":  "A. Một chiếc cột gỗ đang được sơn.\nB. Những chậu hoa đã được đặt dưới một vài chiếc ghế.\nC. Một tấm thảm đã được trải ra trên mặt đất.\nD. Một số đồ nội thất đã được đặt trên một hiên nhà có mái che. ✔"
+                    },
+                    {
+                        "part":  "PART_2",
+                        "groupOrder":  7,
+                        "questionId":  "18830b9c-ee93-4f99-a642-cfed05b8609f",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "512daf0a-b9b7-4479-9402-37c3d09f8e92",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t08-07-50d5fa35e54a4b078587f28085e41a6a.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "",
+                        "audioTranscriptText":  "Can I pick up my prescription glasses here?\nA. It\u0027s a new magazine subscription.\nB. The window glass needs to be repaired.\nC. Yes, they\u0027ll be ready soon. ✔",
+                        "groupExplanationText":  "Tôi có thể lấy kính theo đơn thuốc ở đây không?\nA. Đó là một bản đăng ký tạp chí mới.\nB. Kính cửa sổ cần được sửa chữa.\nC. Có, chúng sẽ sớm sẵn sàng thôi. ✔"
+                    },
+                    {
+                        "part":  "PART_3",
+                        "groupOrder":  32,
+                        "questionId":  "de231fbb-1d13-4139-9bd7-e7a94d38bb10",
+                        "questionNumber":  1,
+                        "questionText":  "Who most likely are the speakers?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "f0c36f1b-1461-4c9d-af1c-f0317f5a9f94",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t08-32-34-c6a8e0868fd64f14834f88918b6b8205.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "Electricians",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "Real estate agents",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "House painters",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "Decorators",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "A",
+                        "correctAnswerContent":  "Electricians",
+                        "audioTranscriptText":  "W-Am: Luca, [32] after we finish rewiring the electricity in this room, the client asked if we could also fix the ceiling light in the kitchen. It flickers off and on sometimes.\nM-Cn: Hmm. I know which light you\u0027re talking about, and that fixture\u0027s really old. [33] It\u0027d be better to replace it.\nW-Am: [33] I agree-it wouldn\u0027t be worth repairing. [34] I have a catalog of fixtures in my truck. Let me go get it so we can show the client.",
+                        "groupExplanationText":  "Nữ: Luca, [32] sau khi chúng ta hoàn thành việc đi lại dây điện trong phòng này, khách hàng đã hỏi liệu chúng ta có thể sửa cả đèn trần trong bếp không. Thỉnh thoảng nó cứ nhấp nháy.\nNam: Hừm. Tôi biết bạn đang nói đến chiếc đèn nào rồi, và thiết bị đó thực sự đã rất cũ. [33] Sẽ tốt hơn nếu thay thế nó.\nNữ: [33] Tôi đồng ý-nó sẽ không đáng để sửa chữa. [34] Tôi có một danh mục các thiết bị trong xe tải của mình. Để tôi đi lấy nó để chúng ta có thể cho khách hàng xem.\n[32] Ai có khả năng là những người đang nói nhất?\nA. Thợ điện ✔\nB. Nhân viên bất động sản\nC. Thợ sơn nhà\nD. Chuyên gia trang trí\n[33] Những người nói đồng ý làm gì?\nA. Quay lại vào ngày khác\nB. Thay thế một món đồ ✔\nC. Áp dụng giảm giá\nD. Thử một kỹ thuật mới\n[34] Người phụ nữ sẽ làm gì tiếp theo?\nA. Đi đến xe tải của cô ấy ✔\nB. Gọi cho người quản lý của cô ấy\nC. Tính toán hóa đơn\nD. Xem lại lịch trình"
+                    },
+                    {
+                        "part":  "PART_4",
+                        "groupOrder":  71,
+                        "questionId":  "fce7c3c3-9e76-4e7f-9ca5-8d678b07d48a",
+                        "questionNumber":  1,
+                        "questionText":  "Who most likely is the speaker?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "1ab03e13-ecdd-48c2-b8e2-70fe678c27f0",
+                                               "type":  "AUDIO",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/audio/e26-t08-71-73-e837f3f2b7f442dc8d8b904ca01a2db8.mp3"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "A geologist",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "A boat captain",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "A maintenance supervisor",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "A city official",
+                                            "isCorrect":  true
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "D",
+                        "correctAnswerContent":  "A city official",
+                        "audioTranscriptText":  "W-Am: Thank you for attending Port Jefferson\u0027s city council meeting. We have a lot on our agenda today. [71] The first topic up for discussion is[72] a request from the head of the city\u0027s water system. He wants to buy two UAVs-or underwater autonomous vehicles. These remotely operated vehicles can be used to inspect, maintain, and repair equipment underwater. Now, each UAV costs 30,000 dollars, so this is a big decision for us. But for perspective, the city spends more than that every year to hire divers to repair broken equipment. [73] Let\u0027s hear more about it from the chief engineer. He\u0027s going to give us some details about the vehicles.",
+                        "groupExplanationText":  "Nữ: Cảm ơn quý vị đã tham dự cuộc họp hội đồng thành phố Port Jefferson. Chúng ta có nhiều việc trong chương trình nghị sự hôm nay. [71] Chủ đề thảo luận đầu tiên là[72] một yêu cầu từ người đứng đầu hệ thống nước của thành phố. Ông ấy muốn mua hai chiếc UAV - hay còn gọi là phương tiện tự hành dưới nước. Những phương tiện điều khiển từ xa này có thể được sử dụng để kiểm tra, bảo trì và sửa chữa thiết bị dưới nước. Hiện tại, mỗi chiếc UAV có giá 30.000 đô la, vì vậy đây là một quyết định lớn đối với chúng ta. Nhưng xét về góc độ so sánh, thành phố chi nhiều hơn số tiền đó mỗi năm để thuê thợ lặn sửa chữa các thiết bị bị hỏng. [73] Chúng ta hãy nghe thêm về vấn đề này từ kỹ sư trưởng. Ông ấy sẽ cung cấp cho chúng ta một số thông tin chi tiết về các phương tiện này.\n﻿[71] Ai có khả năng là người đang nói nhất?\nA. Nhà địa chất\nB. Thuyền trưởng\nC. Người giám sát bảo trì\nD. Quan chức thành phố ✔\n[72] Người nói chủ yếu thảo luận về vấn đề gì?\nA. Tiến hành kiểm tra an toàn\nB. Mua một số thiết bị mới ✔\nC. Xây dựng một cơ sở mới\nD. Tuyển dụng nhân viên có trình độ\n[73] Điều gì sẽ xảy ra tiếp theo?\nA. Một cuộc khảo sát sẽ được thực hiện\nB. Một video sẽ được trình chiếu\nC. Một chuyên gia sẽ phát biểu ✔\nD. Một quy trình sẽ được trình diễn"
+                    },
+                    {
+                        "part":  "PART_5",
+                        "groupOrder":  101,
+                        "questionId":  "f01adbaa-af5e-4f1a-8381-64480505d83c",
+                        "questionNumber":  1,
+                        "questionText":  "Sydney Fashion Week drew thousands of ------- visitors to the city last week.",
+                        "mediaFiles":  [
+
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "excite",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "excited",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "excites",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "excitement",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "excited",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "Dịch câu: Tuần lễ Thời trang Sydney đã thu hút hàng ngàn du khách hào hứng đến thành phố vào tuần trước.\nDịch đáp án:\nA. excite: làm hào hứng (v)\nB. excited: hào hứng ✔\nC. excites: làm hào hứng (v-s)\nD. excitement: sự hào hứng (n)\nGiải thích: Cần một tính từ đứng trước danh từ \"visitors\" để miêu tả cảm xúc của con người.\nLưu ý: Tính từ đuôi \"-ed\" dùng cho người (cảm xúc), đuôi \"-ing\" dùng cho vật/tính chất."
+                    },
+                    {
+                        "part":  "PART_6",
+                        "groupOrder":  131,
+                        "questionId":  "b10b2ec9-0d26-40b9-9280-9975c1498984",
+                        "questionNumber":  1,
+                        "questionText":  "",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "9f3d1781-1702-46d7-b85b-d2bff393d143",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-b71ce9f4514c4caeae5d1e49a09049a2.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "secure",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "security",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "securely",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "securing",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "B",
+                        "correctAnswerContent":  "security",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[131]\nA. an toàn\nB. an ninh ✔\nC. một cách an toàn\nD. đang bảo vệ\nCụm từ \"security elevator\" (thang máy khu vực an ninh/bảo vệ) phù hợp ngữ cảnh phải đăng ký với bảo vệ trước khi dùng.\n[132]\nA. Hoặc là / Ngoài ra ✔\nB. Hậu quả là\nC. Hơn nữa\nD. Tuy nhiên\nCâu trước hướng dẫn đi thang máy, câu sau hướng dẫn đi cầu thang bộ (lựa chọn thay thế) nên dùng \"Alternatively\".\n[133]\nA. tạm thời\nB. có trách nhiệm\nC. kiên nhẫn\nD. ngay lập tức ✔\nĐây là câu mệnh lệnh hướng dẫn chỉ đường, \"tiến ngay qua cửa\" là hợp lý nhất để hành động diễn ra liền mạch.\n[134]\nA. Phòng thí nghiệm là cửa tiếp theo bên phải. ✔\nB. Khu vực đỗ xe của khách thường đầy vào các ngày trong tuần.\nC. Chuỗi diễn giả của phòng thí nghiệm mở cửa cho công chúng.\nD. Năm nay đánh dấu kỷ niệm 35 năm thành lập phòng thí nghiệm.\nĐoạn văn đang chỉ đường, sau khi đi qua phòng chờ thì cần chỉ ra đích đến cuối cùng là phòng thí nghiệm.\nDịch nghĩa:\nChỉ dẫn đến Phòng thí nghiệm Carrill\nHãy đi vào qua cửa chính tại số 3017 Phố Bowman và ký tên đăng ký với bảo vệ. Đi [131] thang máy an ninh lên tầng hai. [132] Hoặc là, bạn có thể sử dụng cầu thang bộ bên trái thang máy. Khi bạn đến tầng hai, rẽ trái sau đó đi thẳng cho đến khi bạn gặp cánh cửa đôi. [133] Hãy đi ngay qua cánh cửa và đi qua phòng chờ của khách. [134] Phòng thí nghiệm là cửa tiếp theo bên phải."
+                    },
+                    {
+                        "part":  "PART_7",
+                        "groupOrder":  147,
+                        "questionId":  "3c6d899b-8e72-46e1-b2e5-810bdfffedbe",
+                        "questionNumber":  1,
+                        "questionText":  "What is the purpose of the e-mail?",
+                        "mediaFiles":  [
+                                           {
+                                               "id":  "cf168928-3004-4fff-bb73-d298c817ed79",
+                                               "type":  "IMAGE",
+                                               "displayOrder":  1,
+                                               "url":  "https://chamtoeic.edu.vn/media/images/image-45ebd762eea34bebb0d1f69c197a4281.png"
+                                           }
+                                       ],
+                        "answers":  [
+                                        {
+                                            "order":  1,
+                                            "content":  "To ask for help in planning a conference",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  2,
+                                            "content":  "To introduce a new employee",
+                                            "isCorrect":  false
+                                        },
+                                        {
+                                            "order":  3,
+                                            "content":  "To invite staff to a social event",
+                                            "isCorrect":  true
+                                        },
+                                        {
+                                            "order":  4,
+                                            "content":  "To announce the opening of the Seoul office",
+                                            "isCorrect":  false
+                                        }
+                                    ],
+                        "correctAnswerLabel":  "C",
+                        "correctAnswerContent":  "To invite staff to a social event",
+                        "audioTranscriptText":  null,
+                        "groupExplanationText":  "[147] Mục đích của email là gì?\n(A) Để yêu cầu trợ giúp lập kế hoạch cho một hội nghị(B) Để giới thiệu một nhân viên mới(C) Để mời nhân viên tham gia một sự kiện xã hội ✔(D) Để thông báo về việc khai trương văn phòng Seoul[148] Theo email, các nhân viên nên làm gì trước ngày 16 tháng 2?\n(A) Đưa ra yêu cầu chuyển công tác(B) Gửi email cho cô Rybak ✔(C) Ký vào một tấm thiệp(D) Gửi đơn đặt hàng ăn uốngDịch đoạn văn: Gửi: Toàn thể nhân viên Từ: Karina Rybak, Phòng Tiếp thị Ngày: 2 tháng 2 Chủ đề: Thông tin Như một số bạn đã biết, Sun-Yi Pak sẽ chuyển đến văn phòng Seoul của chúng ta. [147] Bữa tiệc chia tay của cô ấy sẽ diễn ra vào lúc 3:00 chiều ngày 21 tháng 2 tại phòng họp tầng hai. [148] Vui lòng phản hồi email này trước ngày 16 tháng 2 để cho tôi biết nếu bạn dự định tham dự. Công ty sẽ cung cấp bánh pizza và bánh ngọt, và chúng tôi muốn đảm bảo rằng có đủ thức ăn cho tất cả mọi người. Tôi hy vọng sẽ gặp bạn ở đó để chúc mừng Sun-Yi!"
+                    }
+                ]
+}
