@@ -5178,3 +5178,233 @@ html[data-theme="light"] .weekly-bar-item strong {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ===== TOEIC ===== */
+.eyebrow { margin: 0 0 4px; font-size: 12px; letter-spacing: .12em; font-weight: 800; color: var(--primary); }
+.toeic-dashboard-hero { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin: 16px 0; padding: 30px 34px; border-radius: 18px; color: #fff; overflow: hidden; background: linear-gradient(115deg, #0f3d9e, #0757c9 62%, #0c75d6); }
+.toeic-dashboard-hero h2 { margin: 10px 0 8px; font-size: clamp(25px, 4vw, 42px); color: #fff; }
+.toeic-dashboard-hero p { max-width: 650px; margin: 0 0 20px; color: rgba(255,255,255,.85); }
+.toeic-hero-kicker { display: flex; align-items: center; gap: 7px; font-weight: 700; color: #bcd7ff; }
+.toeic-hero-button { background: #ff9418; border-color: #ff9418; color: #fff; }
+.toeic-hero-button:hover { background: #ffab3b; }
+.toeic-hero-visual { display: grid; place-items: center; min-width: 160px; color: rgba(255,255,255,.28); }
+.toeic-dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.toeic-card-heading { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; color: var(--primary); }
+.toeic-card-heading h2 { margin: 0; color: var(--text); font-size: 18px; }
+.toeic-goals-card, .toeic-progress-card, .toeic-part-progress-card, .toeic-recent-card { display: flex; flex-direction: column; gap: 3px; }
+.toeic-goal-row, .toeic-metric-row { display: grid; grid-template-columns: 24px 1fr auto 25px; align-items: center; gap: 9px; min-height: 48px; padding: 8px 10px; border: 1px solid var(--glass-border); border-radius: 10px; }
+.toeic-goal-row svg, .toeic-metric-icon { width: 20px; height: 20px; }
+.toeic-goal-row strong, .toeic-metric-row strong { font-size: 14px; white-space: nowrap; }
+.toeic-goal-check { display: grid; place-items: center; width: 21px; height: 21px; border: 1px solid var(--text-secondary); border-radius: 50%; color: #fff; background: var(--success); font-size: 12px; }
+.blue { color: #1769df; } .green { color: #22a353; } .orange { color: #f28718; }
+.toeic-metric-row { grid-template-columns: 28px 1fr auto; position: relative; }
+.toeic-metric-row em { grid-column: 2 / -1; color: var(--text-secondary); font-size: 12px; font-style: normal; }
+.toeic-metric-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--primary-soft); }
+.toeic-metric-icon.orange { background: #fff1df; } .toeic-metric-icon.green { background: #e7f8eb; }
+.toeic-progress-track { height: 7px; overflow: hidden; border-radius: 99px; background: var(--surface); }
+.toeic-metric-row .toeic-progress-track { grid-column: 2 / -1; }
+.toeic-progress-track i { display: block; height: 100%; border-radius: inherit; background: var(--primary); }
+.toeic-sample-card { margin: 16px 0; }
+.toeic-sample-badge { margin-left: auto; padding: 4px 9px; border-radius: 99px; background: var(--primary-soft); color: var(--primary); font-size: 12px; }
+.toeic-sample-prompt { margin: 4px 0 14px; font-size: 16px; }
+.toeic-sample-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.toeic-sample-options span { padding: 11px 12px; border: 1px solid var(--glass-border); border-radius: 9px; }
+.toeic-sample-options b { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 7px; border: 1px solid var(--primary); border-radius: 50%; color: var(--primary); }
+.toeic-sample-hint { margin: 14px 0 0; color: var(--text-secondary); font-size: 13px; }
+.toeic-lower-grid { align-items: stretch; }
+.toeic-part-progress-list { display: flex; flex-direction: column; gap: 10px; }
+.toeic-part-progress { display: grid; grid-template-columns: 55px 1fr 48px; align-items: center; gap: 10px; font-size: 13px; }
+.toeic-part-progress strong { text-align: right; font-size: 12px; }
+.toeic-part-progress .toeic-progress-track i.good { background: #22a353; } .toeic-part-progress .toeic-progress-track i.medium { background: #f28718; } .toeic-part-progress .toeic-progress-track i.low { background: #e14e4e; }
+.toeic-recent-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--glass-border); color: var(--text); text-decoration: none; }
+.toeic-recent-row:last-child { border-bottom: 0; }
+.toeic-recent-row span { display: flex; flex-direction: column; gap: 3px; min-width: 0; } .toeic-recent-row strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .toeic-recent-row small { color: var(--text-secondary); }
+.toeic-recent-row > b { color: var(--primary); white-space: nowrap; }
+.muted { color: var(--text-secondary); }
+.toeic-featured-section { margin: 18px 0 40px; }
+.toeic-section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; } .toeic-section-title h2 { margin: 0; font-size: 19px; } .toeic-section-title a { display: flex; align-items: center; gap: 4px; color: var(--primary); font-size: 13px; }
+.toeic-featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.toeic-featured-card { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 16px; border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text); text-decoration: none; } .toeic-featured-card > div:nth-child(2) { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; } .toeic-featured-card strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .toeic-featured-card span, .toeic-featured-card small { color: var(--text-secondary); font-size: 12px; } .toeic-featured-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 11px; background: #e7efff; color: var(--primary); } .tone-1 { background: #fff8eb; } .tone-1 .toeic-featured-icon { background: #ffedd1; color: #e87912; } .tone-2 { background: #fff0f0; } .tone-2 .toeic-featured-icon { background: #ffe0e0; color: #dc3e4f; }
+
+.toeic-test-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.toeic-test-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toeic-test-card .toeic-test-parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.toeic-test-part-chip {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+.toeic-start-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.toeic-part-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.toeic-part-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  color: var(--text);
+}
+.toeic-part-name { font-weight: 600; }
+.toeic-part-count { color: var(--text-secondary); font-size: 13px; }
+
+.toeic-runner { display: flex; flex-direction: column; gap: 16px; }
+.toeic-runner-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+}
+.toeic-timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.toeic-timer.urgent { background: var(--danger-soft); color: var(--danger); }
+.toeic-groups { display: flex; flex-direction: column; gap: 16px; }
+.toeic-group { display: flex; flex-direction: column; gap: 12px; }
+.toeic-group-part { font-weight: 700; color: var(--primary); }
+.toeic-audio { display: flex; flex-direction: column; gap: 6px; }
+.toeic-audio-el { width: 100%; }
+.toeic-image { max-width: 640px; border-radius: var(--radius); overflow: hidden; }
+.toeic-group-body.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.toeic-passage {
+  background: var(--surface);
+  padding: 16px;
+  border-radius: var(--radius);
+  line-height: 1.6;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.toeic-questions { display: flex; flex-direction: column; gap: 16px; }
+.toeic-question { display: flex; flex-direction: column; gap: 8px; }
+.toeic-question-number { font-weight: 600; }
+.toeic-options { display: flex; flex-direction: column; gap: 6px; }
+.toeic-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+.toeic-option:hover { background: var(--surface-hover); }
+.toeic-option.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+.toeic-option-label {
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+}
+.toeic-runner-footer { display: flex; justify-content: center; padding: 16px 0 40px; }
+
+.toeic-result-score {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.toeic-scaled { display: flex; align-items: baseline; gap: 6px; }
+.toeic-scaled-value { font-size: 48px; font-weight: 800; color: var(--primary); }
+.toeic-scaled-max { color: var(--text-secondary); }
+.toeic-score-detail { display: flex; gap: 16px; flex-wrap: wrap; color: var(--text-secondary); }
+.toeic-breakdown { display: flex; flex-direction: column; gap: 10px; }
+.toeic-breakdown-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 120px;
+  align-items: center;
+  gap: 12px;
+}
+.toeic-breakdown-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.toeic-breakdown-fill { height: 100%; background: var(--primary); }
+.toeic-review { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.toeic-review-item { display: flex; flex-direction: column; gap: 8px; }
+.toeic-review-item.correct { border-left: 3px solid var(--success); }
+.toeic-review-item.wrong { border-left: 3px solid var(--danger); }
+.toeic-review-head { display: flex; justify-content: space-between; align-items: center; }
+.toeic-review-labels { display: flex; gap: 16px; color: var(--text-secondary); font-size: 14px; }
+.toeic-explanation summary { cursor: pointer; color: var(--primary); }
+.toeic-explanation > div { margin-top: 8px; line-height: 1.6; }
+
+.toeic-explain-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.toeic-explain-trigger { align-self: flex-start; margin-top: 4px; }
+.toeic-explain-title { display: flex; align-items: center; gap: 8px; color: var(--primary); }
+.toeic-chat-log { display: flex; flex-direction: column; gap: 8px; max-height: 320px; overflow-y: auto; }
+.toeic-chat-msg { display: flex; align-items: flex-start; gap: 7px; max-width: 88%; padding: 8px 12px; border-radius: var(--radius-sm); line-height: 1.5; white-space: pre-wrap; }
+.toeic-chat-msg svg { flex: 0 0 auto; margin-top: 3px; }
+.toeic-chat-msg.user { background: var(--primary-soft); align-self: flex-end; }
+.toeic-chat-msg.assistant { background: var(--bg-elevated); align-self: flex-start; }
+.toeic-chat-thinking { color: var(--text-secondary); font-size: 13px; }
+.toeic-chat-input-row { display: flex; gap: 8px; }
+.toeic-chat-input-row input { flex: 1; min-width: 0; }
+
+@media (max-width: 720px) {
+  .toeic-dashboard-grid, .toeic-featured-grid { grid-template-columns: 1fr; }
+  .toeic-dashboard-hero { padding: 24px 20px; } .toeic-hero-visual { display: none; }
+  .toeic-sample-options { grid-template-columns: repeat(2, 1fr); }
+  .toeic-group-body.two-col { grid-template-columns: 1fr; }
+  .toeic-breakdown-row { grid-template-columns: 60px 1fr 90px; }
+}

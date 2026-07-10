@@ -1106,3 +1106,213 @@ async function apiRequest<T>(path: string, options: ApiRequestOptions = {}): Pro
 
   return response.json();
 }
+
+// ---- TOEIC ----
+
+export type ToeicPartCount = Record<string, number>;
+
+export type ToeicTestSummary = {
+  id: number;
+  slug: string;
+  testName: string;
+  collectionName: string | null;
+  testNumber: number | null;
+  totalQuestions: number;
+  durationMinutes: number;
+  partQuestionCount: ToeicPartCount;
+};
+
+export type ToeicAnswerOption = {
+  label: string;
+  content: string | null;
+  answerOrder: number;
+};
+
+export type ToeicQuestion = {
+  id: number;
+  questionNumber: number;
+  questionPart: string;
+  questionText: string | null;
+  options: ToeicAnswerOption[];
+};
+
+export type ToeicMedia = {
+  url: string;
+  fileType: string;
+  displayOrder: number;
+};
+
+export type ToeicGroup = {
+  id: number;
+  questionPart: string;
+  groupOrder: number;
+  passageText: string | null;
+  media: ToeicMedia[];
+  questions: ToeicQuestion[];
+};
+
+export type ToeicAttempt = {
+  id: number;
+  testId: number;
+  testSlug: string;
+  testName: string;
+  mode: string;
+  partFilter: string | null;
+  totalQuestions: number;
+  answeredCount: number;
+  status: string;
+  startedAt: string;
+  expiresAt: string | null;
+  groups: ToeicGroup[];
+};
+
+export type ToeicAnswerAck = {
+  questionId: number;
+  selectedLabel: string | null;
+  answeredCount: number;
+  totalQuestions: number;
+};
+
+export type ToeicPartBreakdown = {
+  part: string;
+  total: number;
+  correct: number;
+  accuracyPercent: number;
+};
+
+export type ToeicResultAnswer = {
+  questionId: number;
+  questionNumber: number;
+  questionPart: string;
+  questionText: string | null;
+  selectedLabel: string | null;
+  correctAnswerLabel: string;
+  correct: boolean;
+  answered: boolean;
+  options: ToeicAnswerOption[];
+  audioTranscript: string | null;
+  explanationHtml: string | null;
+};
+
+export type ToeicResult = {
+  attemptId: number;
+  testId: number;
+  testSlug: string;
+  testName: string;
+  mode: string;
+  partFilter: string | null;
+  totalQuestions: number;
+  answeredCount: number;
+  correctCount: number;
+  listeningCorrect: number;
+  readingCorrect: number;
+  listeningScore: number | null;
+  readingScore: number | null;
+  scaledScore: number | null;
+  completed: boolean;
+  startedAt: string;
+  completedAt: string | null;
+  partBreakdown: ToeicPartBreakdown[];
+  answers: ToeicResultAnswer[];
+};
+
+export type ToeicExplanation = {
+  questionId: number;
+  answer: string;
+};
+
+export type ToeicPartProgress = {
+  part: string;
+  answered: number;
+  correct: number;
+  accuracyPercent: number;
+};
+
+export type ToeicRecentAttempt = {
+  attemptId: number;
+  testSlug: string;
+  testName: string;
+  mode: string;
+  partFilter: string | null;
+  totalQuestions: number;
+  correctCount: number;
+  scaledScore: number | null;
+  completedAt: string | null;
+};
+
+export type ToeicDashboard = {
+  accuracyPercent: number;
+  streakDays: number;
+  completedAttempts: number;
+  totalAnswered: number;
+  totalCorrect: number;
+  answeredToday: number;
+  completedToday: number;
+  incorrectToday: number;
+  partProgress: ToeicPartProgress[];
+  recentAttempts: ToeicRecentAttempt[];
+};
+
+export async function listToeicTests(token: string): Promise<ToeicTestSummary[]> {
+  return apiRequest<ToeicTestSummary[]>("/api/toeic/tests", { token });
+}
+
+export async function getToeicDashboard(token: string): Promise<ToeicDashboard> {
+  return apiRequest<ToeicDashboard>("/api/toeic/dashboard", { token });
+}
+
+export async function getToeicTest(token: string, slug: string): Promise<ToeicTestSummary> {
+  return apiRequest<ToeicTestSummary>(`/api/toeic/tests/${slug}`, { token });
+}
+
+export async function startToeicAttempt(
+  token: string,
+  slug: string,
+  payload: { mode: string; partFilter?: string | null }
+): Promise<ToeicAttempt> {
+  return apiRequest<ToeicAttempt>(`/api/toeic/tests/${slug}/attempts`, {
+    method: "POST",
+    token,
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function getToeicAttempt(token: string, attemptId: number): Promise<ToeicAttempt> {
+  return apiRequest<ToeicAttempt>(`/api/toeic/attempts/${attemptId}`, { token });
+}
+
+export async function answerToeicQuestion(
+  token: string,
+  attemptId: number,
+  questionId: number,
+  selectedLabel: string | null
+): Promise<ToeicAnswerAck> {
+  return apiRequest<ToeicAnswerAck>(`/api/toeic/attempts/${attemptId}/answer`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ questionId, selectedLabel })
+  });
+}
+
+export async function submitToeicAttempt(token: string, attemptId: number): Promise<ToeicResult> {
+  return apiRequest<ToeicResult>(`/api/toeic/attempts/${attemptId}/submit`, {
+    method: "POST",
+    token
+  });
+}
+
+export async function getToeicResult(token: string, attemptId: number): Promise<ToeicResult> {
+  return apiRequest<ToeicResult>(`/api/toeic/attempts/${attemptId}/result`, { token });
+}
+
+export async function explainToeicQuestion(
+  token: string,
+  questionId: number,
+  userQuestion?: string
+): Promise<ToeicExplanation> {
+  return apiRequest<ToeicExplanation>(`/api/toeic/questions/${questionId}/explain`, {
+    method: "POST",
+    token,
+    body: JSON.stringify({ userQuestion: userQuestion?.trim() || null })
+  });
+}

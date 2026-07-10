@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { AlertTriangle, CalendarClock, Flame, Home, Layers, LogOut, Menu, Moon, Repeat2, Sun, UserRound, UsersRound, X } from "lucide-react";
+import { AlertTriangle, CalendarClock, Flame, GraduationCap, Home, Layers, LogOut, Menu, Moon, Repeat2, Sun, UserRound, UsersRound, X } from "lucide-react";
 import { clearToken, getDashboardMetrics, getStoredToken, type StreakDay } from "@/lib/api";
 
 const DEFAULT_STREAK_WEEK: StreakDay[] = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"].map((label) => ({
@@ -85,6 +85,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const navItems = [
     { href: "/dashboard", label: "Dashboard", icon: Home },
     { href: "/decks", label: "My Decks", icon: Layers },
+    { href: "/toeic", label: "TOEIC", icon: GraduationCap },
     { href: "/classes", label: "Classes", icon: UsersRound },
     { href: "/review", label: "Review", icon: Repeat2, exact: true },
     { href: "/difficult", label: "Difficult", icon: AlertTriangle, exact: true },
