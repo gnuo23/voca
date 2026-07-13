@@ -223,8 +223,15 @@ export default function ReviewPage() {
                 <input
                   ref={answerInputRef}
                   id="review-answer"
+                  name={`voca-review-answer-${currentCard.vocabId}`}
                   value={answer}
                   onChange={(event) => setAnswer(event.target.value)}
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  data-lpignore="true"
+                  data-form-type="other"
                   autoFocus
                 />
               </div>

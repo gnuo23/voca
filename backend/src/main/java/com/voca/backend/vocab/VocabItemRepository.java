@@ -1,6 +1,7 @@
 package com.voca.backend.vocab;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.EntityGraph;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,6 +17,7 @@ public interface VocabItemRepository extends JpaRepository<VocabItem, Long> {
 
     List<VocabItem> findAllByDeckIdOrderByCreatedAtAsc(Long deckId);
 
+    @EntityGraph(attributePaths = "deck")
     List<VocabItem> findAllByDeckIdIn(Collection<Long> deckIds);
 
     List<VocabItem> findAllByDeckIdAndDeckOwnerIdOrderByCreatedAtAsc(Long deckId, Long ownerId);

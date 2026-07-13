@@ -301,12 +301,23 @@ export function LearnQuestion({
     [feedback, question.sessionItemId, pickedQuality, onQuality, onNext]
   );
 
+  const shortcutAudioText = question.word || null;
+
+  const playCurrentAudio = useCallback(() => {
+    if (!shortcutAudioText) return;
+    void playPronunciation(shortcutAudioText, questionAudio).catch(() => undefined);
+  }, [questionAudio, shortcutAudioText]);
+
   // Keyboard handler
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't capture if user is typing in an input
       const target = e.target as HTMLElement;
       const isInput = target.tagName === "INPUT" || target.tagName === "TEXTAREA";
+
+      if (e.code === "ShiftLeft" && !e.repeat && shortcutAudioText) {
+        playCurrentAudio();
+      }
 
       if (e.key === "Enter") {
         if (feedback) {
@@ -353,7 +364,7 @@ export function LearnQuestion({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [feedback, question, question.questionType, question.options, answer, handleAdvance, handleSubmit, handleDontKnow, handleOverride, onOverride]);
+  }, [feedback, question, question.questionType, question.options, answer, handleAdvance, handleSubmit, handleDontKnow, handleOverride, onOverride, playCurrentAudio, shortcutAudioText]);
 
   const cardClass = feedbackCardClass(feedback);
   const verdict: LearnVerdict | null = feedback
@@ -535,7 +546,7 @@ export function LearnQuestion({
                 </button>
               </div>
               <div className="learn-kbd-hint">
-                <kbd>Enter</kbd> gửi · <kbd>Ctrl+Enter</kbd> không biết
+                <kbd>Enter</kbd> gửi · <kbd>Ctrl+Enter</kbd> không biết · <kbd>Left Shift</kbd> nghe
               </div>
             </div>
           )}

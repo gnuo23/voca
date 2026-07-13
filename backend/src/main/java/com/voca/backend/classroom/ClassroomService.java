@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -88,10 +87,7 @@ public class ClassroomService {
     @Transactional(readOnly = true)
     public List<ClassroomResponse> list(Authentication authentication) {
         User user = userService.currentUser(authentication);
-        return memberRepository.findAllByUserIdOrderByJoinedAtDesc(user.getId())
-                .stream()
-                .map(member -> toResponse(member.getClassroom(), member, false))
-                .toList();
+        return toResponses(memberRepository.findAllByUserIdOrderByJoinedAtDesc(user.getId()), false);
     }
 
     @Transactional(readOnly = true)
@@ -212,89 +208,124 @@ public class ClassroomService {
     }
 
     private ClassroomResponse toResponse(Classroom classroom, ClassroomMember viewerMembership, boolean includeDetails) {
-        List<ClassroomDeck> classroomDecks = classroomDeckRepository.findAllByClassroomIdOrderByAddedAtDesc(classroom.getId());
-        List<Deck> decks = classroomDecks.stream().map(ClassroomDeck::getDeck).toList();
-        List<Long> deckIds = decks.stream().map(Deck::getId).toList();
-        List<VocabItem> vocabItems = deckIds.isEmpty()
-                ? List.of()
-                : vocabItemRepository.findAllByDeckIdIn(deckIds);
-        List<Long> vocabIds = vocabItems.stream().map(VocabItem::getId).toList();
+        return toResponses(List.of(viewerMembership), includeDetails).getFirst();
+    }
 
-        long totalWords = vocabItems.size();
-        long memberCount = memberRepository.findAllByClassroomIdOrderByJoinedAtAsc(classroom.getId()).size();
-        long learnedWords = learnedWordsFor(viewerMembership.getUser().getId(), vocabIds);
+    private List<ClassroomResponse> toResponses(List<ClassroomMember> viewerMemberships, boolean includeDetails) {
+        if (viewerMemberships.isEmpty()) {
+            return List.of();
+        }
+
+        List<Long> classroomIds = viewerMemberships.stream().map(member -> member.getClassroom().getId()).toList();
+        List<ClassroomDeck> classroomDecks = classroomDeckRepository.findAllByClassroomIdInOrderByAddedAtDesc(classroomIds);
+        Map<Long, List<ClassroomDeck>> decksByClassroom = classroomDecks.stream()
+                .collect(Collectors.groupingBy(deck -> deck.getClassroom().getId()));
+        List<Long> deckIds = classroomDecks.stream().map(deck -> deck.getDeck().getId()).toList();
+        List<VocabItem> vocabItems = deckIds.isEmpty() ? List.of() : vocabItemRepository.findAllByDeckIdIn(deckIds);
+        Map<Long, List<VocabItem>> vocabByDeck = vocabItems.stream()
+                .collect(Collectors.groupingBy(item -> item.getDeck().getId()));
+        List<Long> allVocabIds = vocabItems.stream().map(VocabItem::getId).toList();
+
+        List<ClassroomMember> members = memberRepository.findAllByClassroomIdInOrderByJoinedAtAsc(classroomIds);
+        Map<Long, List<ClassroomMember>> membersByClassroom = members.stream()
+                .collect(Collectors.groupingBy(member -> member.getClassroom().getId()));
+        Long viewerUserId = viewerMemberships.getFirst().getUser().getId();
+        List<UserProgress> viewerProgress = allVocabIds.isEmpty()
+                ? List.of()
+                : progressRepository.findAllByUserIdAndVocabItemIdIn(viewerUserId, allVocabIds);
+        Map<Long, List<UserProgress>> viewerProgressByVocab = viewerProgress.stream()
+                .collect(Collectors.groupingBy(progress -> progress.getVocabItem().getId()));
+
+        boolean needsMemberProgress = includeDetails && viewerMemberships.stream()
+                .anyMatch(membership -> membership.getRole() == ClassroomRole.OWNER);
+        Map<Long, List<UserProgress>> progressByUser = needsMemberProgress && !allVocabIds.isEmpty()
+                ? progressRepository.findAllByUserIdInAndVocabItemIdIn(
+                                members.stream().map(member -> member.getUser().getId()).distinct().toList(), allVocabIds)
+                        .stream()
+                        .collect(Collectors.groupingBy(progress -> progress.getUser().getId()))
+                : Map.of();
+
+        return viewerMemberships.stream()
+                .map(viewerMembership -> toResponse(
+                        viewerMembership,
+                        includeDetails,
+                        decksByClassroom.getOrDefault(viewerMembership.getClassroom().getId(), List.of()),
+                        membersByClassroom.getOrDefault(viewerMembership.getClassroom().getId(), List.of()),
+                        vocabByDeck,
+                        viewerProgressByVocab,
+                        progressByUser))
+                .toList();
+    }
+
+    private ClassroomResponse toResponse(
+            ClassroomMember viewerMembership,
+            boolean includeDetails,
+            List<ClassroomDeck> classroomDecks,
+            List<ClassroomMember> members,
+            Map<Long, List<VocabItem>> vocabByDeck,
+            Map<Long, List<UserProgress>> viewerProgressByVocab,
+            Map<Long, List<UserProgress>> progressByUser
+    ) {
+        Classroom classroom = viewerMembership.getClassroom();
+        List<VocabItem> vocabItems = classroomDecks.stream()
+                .flatMap(deck -> vocabByDeck.getOrDefault(deck.getDeck().getId(), List.of()).stream())
+                .toList();
+        List<Long> vocabIds = vocabItems.stream().map(VocabItem::getId).toList();
+        List<UserProgress> viewerProgress = vocabIds.stream()
+                .flatMap(vocabId -> viewerProgressByVocab.getOrDefault(vocabId, List.of()).stream())
+                .toList();
 
         List<ClassroomDeckResponse> deckResponses = includeDetails
-                ? toDeckResponses(classroomDecks, vocabItems, viewerMembership.getUser().getId())
+                ? toDeckResponses(classroomDecks, vocabByDeck, viewerProgressByVocab)
                 : List.of();
         List<ClassroomMemberProgressResponse> memberResponses = includeDetails && viewerMembership.getRole() == ClassroomRole.OWNER
-                ? toMemberResponses(classroom, vocabIds)
+                ? members.stream().map(member -> progressForMember(
+                        member,
+                        vocabIds,
+                        progressForVocabIds(progressByUser.getOrDefault(member.getUser().getId(), List.of()), vocabIds)))
+                        .toList()
                 : List.of();
 
-        return new ClassroomResponse(
-                classroom.getId(),
-                classroom.getName(),
-                classroom.getDescription(),
-                classroom.getInviteCode(),
-                viewerMembership.getRole(),
-                classroomDecks.size(),
-                memberCount,
-                totalWords,
-                learnedWords,
-                deckResponses,
-                memberResponses,
-                classroom.getCreatedAt(),
-                classroom.getUpdatedAt()
-        );
+        return new ClassroomResponse(classroom.getId(), classroom.getName(), classroom.getDescription(),
+                classroom.getInviteCode(), viewerMembership.getRole(), classroomDecks.size(), members.size(),
+                vocabItems.size(), learnedWords(viewerProgress), deckResponses, memberResponses,
+                classroom.getCreatedAt(), classroom.getUpdatedAt());
     }
 
-    private List<ClassroomDeckResponse> toDeckResponses(List<ClassroomDeck> classroomDecks, List<VocabItem> vocabItems, Long viewerUserId) {
-        Map<Long, Long> totalByDeck = vocabItems.stream()
-                .collect(Collectors.groupingBy(item -> item.getDeck().getId(), Collectors.counting()));
-        Map<Long, List<VocabItem>> itemsByDeck = vocabItems.stream()
-                .collect(Collectors.groupingBy(item -> item.getDeck().getId()));
-        return classroomDecks.stream()
-                .map(classroomDeck -> {
-                    Long deckId = classroomDeck.getDeck().getId();
-                    List<VocabItem> deckItems = itemsByDeck.getOrDefault(deckId, List.of());
-                    List<Long> vocabIds = deckItems.stream().map(VocabItem::getId).toList();
-                    List<UserProgress> progress = vocabIds.isEmpty()
-                            ? List.of()
-                            : progressRepository.findAllByUserIdAndVocabItemIdIn(viewerUserId, vocabIds);
-                    long learned = progress.stream().filter(item -> LEARNED_STATUSES.contains(item.getStatus())).count();
-                    long dueToday = progress.stream()
-                            .filter(item -> item.getStatus() != VocabProgressStatus.NEW)
-                            .filter(item -> item.getNextReviewAt() != null)
-                            .filter(item -> !item.getNextReviewAt().isAfter(LocalDateTime.now()))
-                            .count();
-                    long total = totalByDeck.getOrDefault(deckId, 0L);
-                    return new ClassroomDeckResponse(
-                            deckId,
-                            classroomDeck.getDeck().getName(),
-                            classroomDeck.getDeck().getDescription(),
-                            total,
-                            learned,
-                            Math.max(0, total - learned),
-                            dueToday,
-                            classroomDeck.getAddedAt()
-                    );
-                })
-                .toList();
+    private List<ClassroomDeckResponse> toDeckResponses(
+            List<ClassroomDeck> classroomDecks,
+            Map<Long, List<VocabItem>> vocabByDeck,
+            Map<Long, List<UserProgress>> viewerProgressByVocab
+    ) {
+        return classroomDecks.stream().map(classroomDeck -> {
+            Deck deck = classroomDeck.getDeck();
+            List<VocabItem> deckItems = vocabByDeck.getOrDefault(deck.getId(), List.of());
+            List<UserProgress> progress = deckItems.stream()
+                    .flatMap(item -> viewerProgressByVocab.getOrDefault(item.getId(), List.of()).stream())
+                    .toList();
+            long learned = learnedWords(progress);
+            long dueToday = progress.stream()
+                    .filter(item -> item.getStatus() != VocabProgressStatus.NEW)
+                    .filter(item -> item.getNextReviewAt() != null)
+                    .filter(item -> !item.getNextReviewAt().isAfter(LocalDateTime.now()))
+                    .count();
+            long total = deckItems.size();
+            return new ClassroomDeckResponse(deck.getId(), deck.getName(), deck.getDescription(), total, learned,
+                    Math.max(0, total - learned), dueToday, classroomDeck.getAddedAt());
+        }).toList();
     }
 
-    private List<ClassroomMemberProgressResponse> toMemberResponses(Classroom classroom, List<Long> vocabIds) {
-        List<ClassroomMember> members = memberRepository.findAllByClassroomIdOrderByJoinedAtAsc(classroom.getId());
-        return members.stream()
-                .map(member -> progressForMember(member, vocabIds))
-                .toList();
+    private List<UserProgress> progressForVocabIds(List<UserProgress> progress, List<Long> vocabIds) {
+        Set<Long> vocabIdSet = Set.copyOf(vocabIds);
+        return progress.stream().filter(item -> vocabIdSet.contains(item.getVocabItem().getId())).toList();
     }
 
-    private ClassroomMemberProgressResponse progressForMember(ClassroomMember member, List<Long> vocabIds) {
-        List<UserProgress> progress = vocabIds.isEmpty()
-                ? List.of()
-                : progressRepository.findAllByUserIdAndVocabItemIdIn(member.getUser().getId(), vocabIds);
-        Map<Long, UserProgress> progressByVocabId = progress.stream()
-                .collect(Collectors.toMap(item -> item.getVocabItem().getId(), Function.identity()));
+    private ClassroomMemberProgressResponse progressForMember(
+            ClassroomMember member,
+            List<Long> vocabIds,
+            List<UserProgress> progress
+    ) {
+        long touched = progress.size();
 
         long learned = progress.stream().filter(item -> LEARNED_STATUSES.contains(item.getStatus())).count();
         long mastered = progress.stream().filter(item -> item.getStatus() == VocabProgressStatus.MASTERED).count();
@@ -309,8 +340,6 @@ public class ClassroomService {
                 .filter(value -> value != null)
                 .max(LocalDateTime::compareTo)
                 .orElse(null);
-
-        long touched = vocabIds.stream().filter(progressByVocabId::containsKey).count();
 
         return new ClassroomMemberProgressResponse(
                 member.getUser().getId(),
@@ -331,13 +360,10 @@ public class ClassroomService {
         );
     }
 
-    private long learnedWordsFor(Long userId, List<Long> vocabIds) {
-        if (vocabIds.isEmpty()) {
-            return 0;
-        }
-        return progressRepository.findAllByUserIdAndVocabItemIdIn(userId, vocabIds)
+    private long learnedWords(List<UserProgress> progress) {
+        return progress
                 .stream()
-                .filter(progress -> LEARNED_STATUSES.contains(progress.getStatus()))
+                .filter(item -> LEARNED_STATUSES.contains(item.getStatus()))
                 .count();
     }
 

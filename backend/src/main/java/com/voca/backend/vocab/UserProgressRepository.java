@@ -13,6 +13,8 @@ public interface UserProgressRepository extends JpaRepository<UserProgress, Long
 
     List<UserProgress> findAllByUserIdAndVocabItemIdIn(Long userId, Collection<Long> vocabItemIds);
 
+    List<UserProgress> findAllByUserIdInAndVocabItemIdIn(Collection<Long> userIds, Collection<Long> vocabItemIds);
+
     long countByUserIdAndVocabItemDeckIdAndStatus(Long userId, Long deckId, VocabProgressStatus status);
 
     long countByUserIdAndStatusIn(Long userId, Collection<VocabProgressStatus> statuses);

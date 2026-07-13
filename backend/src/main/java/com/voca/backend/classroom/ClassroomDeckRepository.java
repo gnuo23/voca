@@ -4,13 +4,19 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface ClassroomDeckRepository extends JpaRepository<ClassroomDeck, Long> {
 
+    @EntityGraph(attributePaths = "deck")
     List<ClassroomDeck> findAllByClassroomIdOrderByAddedAtDesc(Long classroomId);
 
+    @EntityGraph(attributePaths = "deck")
+    List<ClassroomDeck> findAllByClassroomIdInOrderByAddedAtDesc(List<Long> classroomIds);
+
+    @EntityGraph(attributePaths = "deck")
     Optional<ClassroomDeck> findByClassroomIdAndDeckId(Long classroomId, Long deckId);
 
     @Query("""
