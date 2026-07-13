@@ -108,7 +108,7 @@ class ReviewIntegrationTest {
                 .andExpect(jsonPath("$.vocabId").value(vocabId))
                 .andExpect(jsonPath("$.status").value("REVIEW"))
                 .andExpect(jsonPath("$.quality").value("GOOD"))
-                .andExpect(jsonPath("$.intervalDays").value(1))
+                .andExpect(jsonPath("$.intervalDays").value(2))
                 .andExpect(jsonPath("$.nextReviewAt", startsWith("2026-")));
     }
 

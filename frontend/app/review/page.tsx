@@ -3,13 +3,53 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CalendarClock, Check, RotateCcw, Send, X } from "lucide-react";
+import { CalendarClock, Check, RotateCcw, Send, Volume2, X } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { getStoredToken, getTodayReview, ReviewItem, submitReviewAnswer, submitReviewResult } from "@/lib/api";
+import { getStoredToken, getTodayReview, getVocabAudio, ReviewItem, submitReviewAnswer, submitReviewResult, VocabAudio } from "@/lib/api";
 
 type ReviewFeedback = "correct" | "pendingIncorrect" | "incorrect";
 
 const CORRECT_AUTO_ADVANCE_MS = 700;
+
+function pickAudioUrl(audio: VocabAudio | null) {
+  return audio?.audioUrl ?? audio?.audioUsUrl ?? audio?.audioUkUrl ?? null;
+}
+
+async function playAudioUrl(audioUrl: string) {
+  const audio = new Audio(audioUrl);
+  await audio.play();
+}
+
+async function playEnglishPronunciation(text: string) {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+    throw new Error("Browser speech is not available");
+  }
+
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.92;
+
+  await new Promise<void>((resolve, reject) => {
+    utterance.onend = () => resolve();
+    utterance.onerror = (event) => reject(new Error(event.error || "Browser speech failed"));
+    window.speechSynthesis.speak(utterance);
+  });
+}
+
+async function playPronunciation(text: string, audio: VocabAudio | null) {
+  const audioUrl = pickAudioUrl(audio);
+  if (audioUrl) {
+    try {
+      await playAudioUrl(audioUrl);
+      return;
+    } catch {
+      // Fall back to browser speech below.
+    }
+  }
+
+  await playEnglishPronunciation(text);
+}
 
 export default function ReviewPage() {
   const router = useRouter();
@@ -21,6 +61,7 @@ export default function ReviewPage() {
   const [reviewed, setReviewed] = useState(0);
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState<ReviewFeedback | null>(null);
+  const [currentAudio, setCurrentAudio] = useState<VocabAudio | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const answerInputRef = useRef<HTMLInputElement | null>(null);
@@ -43,6 +84,33 @@ export default function ReviewPage() {
   }, [router]);
 
   const currentCard = useMemo(() => items[currentIndex] ?? null, [items, currentIndex]);
+
+  useEffect(() => {
+    let cancelled = false;
+    setCurrentAudio(null);
+
+    if (!token || !currentCard) {
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    getVocabAudio(token, currentCard.vocabId)
+      .then((audio) => {
+        if (!cancelled) {
+          setCurrentAudio(audio);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setCurrentAudio(null);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [currentCard?.vocabId, token]);
 
   const clearAutoAdvance = useCallback(() => {
     if (autoAdvanceTimer.current) {
@@ -111,6 +179,13 @@ export default function ReviewPage() {
     setFeedback("pendingIncorrect");
   }, [currentCard, startedAt]);
 
+  const playCurrentAudio = useCallback(() => {
+    if (!currentCard) {
+      return;
+    }
+    void playPronunciation(currentCard.word, currentAudio).catch(() => undefined);
+  }, [currentAudio, currentCard]);
+
   const markPending = useCallback(async (correct: boolean) => {
     if (!currentCard) {
       return;
@@ -148,6 +223,12 @@ export default function ReviewPage() {
         return;
       }
 
+      if (event.code === "ShiftLeft" && !event.repeat) {
+        event.preventDefault();
+        playCurrentAudio();
+        return;
+      }
+
       if (event.key === "Enter") {
         event.preventDefault();
         if (feedback === null) {
@@ -173,7 +254,7 @@ export default function ReviewPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentCard, feedback, isLoading, markPending, nextCard, reveal, submit]);
+  }, [currentCard, feedback, isLoading, markPending, nextCard, playCurrentAudio, reveal, submit]);
 
   const complete = !isLoading && currentIndex >= items.length;
 
@@ -215,7 +296,18 @@ export default function ReviewPage() {
         <section className="review-stage">
           <article className="review-card">
             <span className="status-pill neutral">{currentCard.status}</span>
-            <h2>{currentCard.word}</h2>
+            <div className="review-word-row">
+              <h2>{currentCard.word}</h2>
+              <button
+                type="button"
+                className="learn-audio-btn review-audio-btn"
+                onClick={playCurrentAudio}
+                aria-label={`Nghe phát âm ${currentCard.word}`}
+                title={`Nghe phát âm ${currentCard.word} (Left Shift)`}
+              >
+                <Volume2 size={18} aria-hidden="true" />
+              </button>
+            </div>
             <p>{currentCard.partOfSpeech || "Vocabulary"}</p>
             {feedback === null ? (
               <div className="field review-answer-field">

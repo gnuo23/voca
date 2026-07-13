@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 @Service
 public class ReviewSchedulingService {
 
-    private static final int AGAIN_REVIEW_MINUTES = 10;
-    private static final int GOOD_FIRST_REVIEW_DAYS = 1;
-    private static final int GOOD_SECOND_REVIEW_DAYS = 3;
+    private static final int AGAIN_REVIEW_MINUTES = 30;
+    private static final int HARD_MIN_REVIEW_DAYS = 2;
+    private static final int GOOD_FIRST_REVIEW_DAYS = 2;
+    private static final int GOOD_SECOND_REVIEW_DAYS = 4;
     private static final int GOOD_THIRD_REVIEW_DAYS = 7;
-    private static final int EASY_FIRST_REVIEW_DAYS = 4;
+    private static final int EASY_FIRST_REVIEW_DAYS = 5;
     private static final int MASTERED_INTERVAL_DAYS = 21;
 
     public UserProgress apply(UserProgress progress, ReviewQuality quality, Integer responseTimeMs, LocalDateTime now) {
@@ -66,7 +67,7 @@ public class ReviewSchedulingService {
         progress.setRepetitionCount(progress.getRepetitionCount() + 1);
         progress.setEaseFactor(Math.max(1.3, progress.getEaseFactor() - 0.15));
         int baseInterval = Math.max(1, progress.getIntervalDays());
-        int nextInterval = Math.max(1, (int) Math.round(baseInterval * 0.5));
+        int nextInterval = Math.max(HARD_MIN_REVIEW_DAYS, (int) Math.round(baseInterval * 0.5));
         progress.setIntervalDays(nextInterval);
         progress.setNextReviewAt(now.plusDays(nextInterval));
         progress.setStatus(VocabProgressStatus.REVIEW);

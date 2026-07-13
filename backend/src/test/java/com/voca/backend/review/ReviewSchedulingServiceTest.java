@@ -14,12 +14,12 @@ class ReviewSchedulingServiceTest {
     private final LocalDateTime now = LocalDateTime.of(2026, 6, 29, 20, 15);
 
     @Test
-    void againSchedulesNextReviewInTenMinutes() {
+    void againSchedulesNextReviewInThirtyMinutes() {
         UserProgress progress = progress();
 
         service.apply(progress, ReviewQuality.AGAIN, 9000, now);
 
-        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusMinutes(10));
+        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusMinutes(30));
         assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.DIFFICULT);
     }
 
@@ -34,25 +34,36 @@ class ReviewSchedulingServiceTest {
     }
 
     @Test
-    void hardReducesEaseFactorAndSchedulesTomorrow() {
+    void hardReducesEaseFactorAndSchedulesInTwoDaysForNearReviews() {
         UserProgress progress = progress();
 
         service.apply(progress, ReviewQuality.HARD, 9000, now);
 
         assertThat(progress.getEaseFactor()).isEqualTo(2.35);
-        assertThat(progress.getIntervalDays()).isEqualTo(1);
-        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(1));
+        assertThat(progress.getIntervalDays()).isEqualTo(2);
+        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(2));
         assertThat(progress.getStatus()).isEqualTo(VocabProgressStatus.REVIEW);
     }
 
     @Test
-    void goodFirstRepetitionSchedulesOneDay() {
+    void hardKeepsFarReviewHalvingRule() {
+        UserProgress progress = progress();
+        progress.setIntervalDays(20);
+
+        service.apply(progress, ReviewQuality.HARD, 9000, now);
+
+        assertThat(progress.getIntervalDays()).isEqualTo(10);
+        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(10));
+    }
+
+    @Test
+    void goodFirstRepetitionSchedulesTwoDays() {
         UserProgress progress = progress();
 
         service.apply(progress, ReviewQuality.GOOD, 4200, now);
 
-        assertThat(progress.getIntervalDays()).isEqualTo(1);
-        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(1));
+        assertThat(progress.getIntervalDays()).isEqualTo(2);
+        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(2));
     }
 
     @Test
@@ -66,14 +77,14 @@ class ReviewSchedulingServiceTest {
     }
 
     @Test
-    void goodSecondRepetitionSchedulesThreeDays() {
+    void goodSecondRepetitionSchedulesFourDays() {
         UserProgress progress = progress();
         progress.setRepetitionCount(1);
 
         service.apply(progress, ReviewQuality.GOOD, 4200, now);
 
-        assertThat(progress.getIntervalDays()).isEqualTo(3);
-        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(3));
+        assertThat(progress.getIntervalDays()).isEqualTo(4);
+        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(4));
     }
 
     @Test
@@ -110,13 +121,13 @@ class ReviewSchedulingServiceTest {
     }
 
     @Test
-    void easyFirstRepetitionSchedulesFourDays() {
+    void easyFirstRepetitionSchedulesFiveDays() {
         UserProgress progress = progress();
 
         service.apply(progress, ReviewQuality.EASY, 1000, now);
 
-        assertThat(progress.getIntervalDays()).isEqualTo(4);
-        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(4));
+        assertThat(progress.getIntervalDays()).isEqualTo(5);
+        assertThat(progress.getNextReviewAt()).isEqualTo(now.plusDays(5));
     }
 
     @Test

@@ -2566,6 +2566,21 @@ html[data-theme="light"] .weekly-bar-item strong {
   background-clip: text;
 }
 
+.review-word-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.review-word-row h2 {
+  min-width: 0;
+}
+
+.review-audio-btn {
+  margin-top: 3px;
+}
+
 .review-card p {
   margin: 0;
   color: var(--text-muted);
