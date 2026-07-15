@@ -1,7 +1,12 @@
+const DEFAULT_API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.52-220-241-27.sslip.io"
+    : "http://localhost:8080";
+
 const API_BASE_URL =
   process.env.API_BASE_URL ??
   process.env.NEXT_PUBLIC_API_BASE_URL ??
-  "http://localhost:8080";
+  DEFAULT_API_BASE_URL;
 
 export const TOKEN_STORAGE_KEY = "voca.auth.token";
 
