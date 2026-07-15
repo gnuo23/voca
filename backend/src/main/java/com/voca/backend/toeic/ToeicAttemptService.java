@@ -140,6 +140,9 @@ public class ToeicAttemptService {
     public ToeicResultResponse result(Authentication authentication, Long attemptId) {
         User user = userService.currentUser(authentication);
         ToeicAttempt attempt = findOwnedAttempt(user, attemptId);
+        if (!STATUS_COMPLETED.equals(attempt.getStatus())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Submit the attempt before viewing its result");
+        }
         return buildResult(attempt);
     }
 
