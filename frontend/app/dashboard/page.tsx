@@ -17,7 +17,7 @@ import {
   Zap
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { DashboardMetrics, getCurrentUser, getDashboardMetrics, getHealth, getStoredToken, UserProfile } from "@/lib/api";
+import { DashboardMetrics, getCurrentUser, getDashboardMetrics, getStoredToken, UserProfile } from "@/lib/api";
 
 function getGreeting(): string {
   const hour = new Date().getHours();
@@ -43,13 +43,15 @@ export default function DashboardPage() {
       return;
     }
 
-    getHealth()
-      .then((response) => setHealth(response.status))
-      .catch(() => setHealth("Offline"));
-
     getCurrentUser(token)
-      .then(setUser)
-      .catch(() => router.push("/login"));
+      .then((profile) => {
+        setUser(profile);
+        setHealth("UP");
+      })
+      .catch(() => {
+        setHealth("Offline");
+        router.push("/login");
+      });
 
     getDashboardMetrics(token)
       .then(setMetrics)

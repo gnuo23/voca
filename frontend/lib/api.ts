@@ -563,6 +563,13 @@ export type DashboardMetrics = {
   deckProgress: DeckProgress[];
 };
 
+const DASHBOARD_CACHE_TTL_MS = 15_000;
+let dashboardMetricsCache: {
+  token: string;
+  expiresAt: number;
+  promise: Promise<DashboardMetrics>;
+} | null = null;
+
 export async function getHealth(): Promise<HealthResponse> {
   const response = await fetch(`${API_BASE_URL}/health`, {
     cache: "no-store"
@@ -584,10 +591,12 @@ export function getStoredToken(): string | null {
 }
 
 export function storeToken(token: string) {
+  dashboardMetricsCache = null;
   window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
 }
 
 export function clearToken() {
+  dashboardMetricsCache = null;
   window.localStorage.removeItem(TOKEN_STORAGE_KEY);
 }
 
@@ -1019,9 +1028,30 @@ export async function overrideLearnAnswer(
 }
 
 export async function getDashboardMetrics(token: string): Promise<DashboardMetrics> {
-  return apiRequest<DashboardMetrics>("/api/dashboard", {
+  const now = Date.now();
+  if (
+    dashboardMetricsCache?.token === token &&
+    dashboardMetricsCache.expiresAt > now
+  ) {
+    return dashboardMetricsCache.promise;
+  }
+
+  const promise = apiRequest<DashboardMetrics>("/api/dashboard", {
     token
   });
+  dashboardMetricsCache = {
+    token,
+    expiresAt: now + DASHBOARD_CACHE_TTL_MS,
+    promise
+  };
+
+  promise.catch(() => {
+    if (dashboardMetricsCache?.promise === promise) {
+      dashboardMetricsCache = null;
+    }
+  });
+
+  return promise;
 }
 
 export async function getTodayReview(token: string): Promise<ReviewTodayResponse> {
