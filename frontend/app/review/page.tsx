@@ -337,7 +337,7 @@ export default function ReviewPage() {
         </div>
         <p className="review-mode-note">
           {direction === "VI_TO_EN"
-            ? "Luyện theo các từ đang đến hạn, không thay đổi lịch hay chỉ số ôn tập."
+            ? "Luyện theo các từ đang đến hạn, không làm thay đổi lịch hay chỉ số ôn tập."
             : "Kết quả trả lời sẽ cập nhật lịch ôn tập."}
         </p>
       </section>
