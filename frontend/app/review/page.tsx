@@ -9,6 +9,11 @@ import { getStoredToken, getTodayReview, getVocabAudio, ReviewItem, submitReview
 
 type ReviewFeedback = "correct" | "pendingIncorrect" | "incorrect";
 type ReviewDirection = "EN_TO_VI" | "VI_TO_EN";
+type ReviewMode = "EN_TO_VI" | "BOTH";
+type FirstPassResult = {
+  correct: boolean;
+  responseTimeMs: number;
+};
 
 const CORRECT_AUTO_ADVANCE_MS = 700;
 
@@ -60,7 +65,9 @@ export default function ReviewPage() {
   const [startedAt, setStartedAt] = useState(Date.now());
   const [responseTimeMs, setResponseTimeMs] = useState<number | null>(null);
   const [reviewed, setReviewed] = useState(0);
-  const [direction, setDirection] = useState<ReviewDirection>("EN_TO_VI");
+  const [mode, setMode] = useState<ReviewMode>("EN_TO_VI");
+  const [phase, setPhase] = useState<ReviewDirection>("EN_TO_VI");
+  const [firstPassResults, setFirstPassResults] = useState<Record<number, FirstPassResult>>({});
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState<ReviewFeedback | null>(null);
   const [currentAudio, setCurrentAudio] = useState<VocabAudio | null>(null);
@@ -86,6 +93,7 @@ export default function ReviewPage() {
   }, [router]);
 
   const currentCard = useMemo(() => items[currentIndex] ?? null, [items, currentIndex]);
+  const direction: ReviewDirection = mode === "BOTH" ? phase : "EN_TO_VI";
 
   useEffect(() => {
     let cancelled = false;
@@ -123,17 +131,29 @@ export default function ReviewPage() {
 
   const nextCard = useCallback(() => {
     clearAutoAdvance();
-    setReviewed((value) => value + 1);
-    setCurrentIndex((index) => index + 1);
+    const completedFirstPass = mode === "BOTH"
+      && phase === "EN_TO_VI"
+      && currentIndex + 1 >= items.length;
+    if (completedFirstPass) {
+      setPhase("VI_TO_EN");
+      setCurrentIndex(0);
+    } else {
+      if (mode === "EN_TO_VI" || phase === "VI_TO_EN") {
+        setReviewed((value) => value + 1);
+      }
+      setCurrentIndex((index) => index + 1);
+    }
     setStartedAt(Date.now());
     setResponseTimeMs(null);
     setAnswer("");
     setFeedback(null);
-  }, [clearAutoAdvance]);
+  }, [clearAutoAdvance, currentIndex, items.length, mode, phase]);
 
-  const restart = useCallback((nextDirection = direction) => {
+  const restart = useCallback((nextMode = mode) => {
     clearAutoAdvance();
-    setDirection(nextDirection);
+    setMode(nextMode);
+    setPhase("EN_TO_VI");
+    setFirstPassResults({});
     setCurrentIndex(0);
     setReviewed(0);
     setStartedAt(Date.now());
@@ -141,7 +161,7 @@ export default function ReviewPage() {
     setAnswer("");
     setFeedback(null);
     setError("");
-  }, [clearAutoAdvance, direction]);
+  }, [clearAutoAdvance, mode]);
 
   useEffect(() => {
     return () => clearAutoAdvance();
@@ -153,6 +173,70 @@ export default function ReviewPage() {
     }
     answerInputRef.current?.focus();
   }, [currentCard?.vocabId, feedback, isLoading]);
+
+  const resolveAnswer = useCallback(async (
+    currentDirectionCorrect: boolean,
+    elapsedMs: number,
+    manuallyConfirmed: boolean
+  ) => {
+    if (!currentCard) {
+      return;
+    }
+
+    if (mode === "BOTH" && phase === "EN_TO_VI") {
+      setFirstPassResults((results) => ({
+        ...results,
+        [currentCard.vocabId]: {
+          correct: currentDirectionCorrect,
+          responseTimeMs: elapsedMs,
+        },
+      }));
+      setFeedback(currentDirectionCorrect ? "correct" : "incorrect");
+      clearAutoAdvance();
+      if (currentDirectionCorrect) {
+        autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
+      }
+      return;
+    }
+
+    const firstPass = firstPassResults[currentCard.vocabId];
+    const combinedCorrect = mode === "BOTH"
+      ? Boolean(firstPass?.correct && currentDirectionCorrect)
+      : currentDirectionCorrect;
+    const combinedResponseTimeMs = mode === "BOTH"
+      ? Math.max(elapsedMs, firstPass?.responseTimeMs ?? 0)
+      : elapsedMs;
+
+    setIsLoading(true);
+    try {
+      if (manuallyConfirmed || !combinedCorrect) {
+        await submitReviewResult(
+          token,
+          currentCard.vocabId,
+          combinedCorrect ? "GOOD" : "AGAIN",
+          combinedResponseTimeMs,
+          "FLASHCARD"
+        );
+      } else {
+        await submitReviewAnswer(
+          token,
+          currentCard.vocabId,
+          true,
+          combinedResponseTimeMs,
+          "FLASHCARD"
+        );
+      }
+      setFeedback(combinedCorrect ? "correct" : "incorrect");
+      clearAutoAdvance();
+      if (combinedCorrect) {
+        autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not submit review");
+    } finally {
+      setIsLoading(false);
+    }
+  }, [clearAutoAdvance, currentCard, firstPassResults, mode, nextCard, phase, token]);
 
   const submit = useCallback(async () => {
     if (!currentCard) {
@@ -173,24 +257,8 @@ export default function ReviewPage() {
       setFeedback("pendingIncorrect");
       return;
     }
-    setIsLoading(true);
-    try {
-      await submitReviewAnswer(
-        token,
-        currentCard.vocabId,
-        true,
-        elapsedMs,
-        direction === "VI_TO_EN" ? "VIETNAMESE_TO_ENGLISH" : "FLASHCARD"
-      );
-      setFeedback("correct");
-      clearAutoAdvance();
-      autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not submit review");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [answer, clearAutoAdvance, currentCard, direction, nextCard, startedAt, token]);
+    await resolveAnswer(true, elapsedMs, false);
+  }, [answer, currentCard, direction, resolveAnswer, startedAt]);
 
   const reveal = useCallback(async () => {
     if (!currentCard) {
@@ -212,26 +280,12 @@ export default function ReviewPage() {
     if (!currentCard) {
       return;
     }
-    setIsLoading(true);
-    try {
-      await submitReviewResult(
-        token,
-        currentCard.vocabId,
-        correct ? "GOOD" : "AGAIN",
-        responseTimeMs ?? Date.now() - startedAt,
-        direction === "VI_TO_EN" ? "VIETNAMESE_TO_ENGLISH" : "FLASHCARD"
-      );
-      setFeedback(correct ? "correct" : "incorrect");
-      clearAutoAdvance();
-      if (correct) {
-        autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not submit review");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [clearAutoAdvance, currentCard, direction, nextCard, responseTimeMs, startedAt, token]);
+    await resolveAnswer(
+      correct,
+      responseTimeMs ?? Date.now() - startedAt,
+      true
+    );
+  }, [currentCard, resolveAnswer, responseTimeMs, startedAt]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -284,7 +338,9 @@ export default function ReviewPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentCard, feedback, isLoading, markPending, nextCard, playCurrentAudio, reveal, submit]);
 
-  const complete = !isLoading && currentIndex >= items.length;
+  const complete = !isLoading
+    && currentIndex >= items.length
+    && (mode === "EN_TO_VI" || phase === "VI_TO_EN");
 
   return (
     <AppShell>
@@ -294,7 +350,7 @@ export default function ReviewPage() {
           <p>
             {items.length === 0 && isLoading
               ? "Loading cards"
-              : `${direction === "VI_TO_EN" ? "Việt → Anh" : "Anh → Việt"} · ${Math.min(currentIndex + 1, items.length)} / ${items.length || 0}`}
+              : `${mode === "BOTH" ? `Cả hai chiều · Lượt ${phase === "EN_TO_VI" ? "1/2 Anh → Việt" : "2/2 Việt → Anh"}` : "Anh → Việt"} · ${Math.min(currentIndex + 1, items.length)} / ${items.length || 0}`}
           </p>
         </div>
         <div className="button-row">
@@ -321,7 +377,7 @@ export default function ReviewPage() {
           <button
             className="button secondary-button"
             type="button"
-            aria-pressed={direction === "EN_TO_VI"}
+            aria-pressed={mode === "EN_TO_VI"}
             onClick={() => restart("EN_TO_VI")}
           >
             Anh → Việt
@@ -329,16 +385,16 @@ export default function ReviewPage() {
           <button
             className="button secondary-button"
             type="button"
-            aria-pressed={direction === "VI_TO_EN"}
-            onClick={() => restart("VI_TO_EN")}
+            aria-pressed={mode === "BOTH"}
+            onClick={() => restart("BOTH")}
           >
-            Việt → Anh
+            Cả hai chiều
           </button>
         </div>
         <p className="review-mode-note">
-          {direction === "VI_TO_EN"
-            ? "Luyện theo các từ đang đến hạn, không làm thay đổi lịch hay chỉ số ôn tập."
-            : "Kết quả trả lời sẽ cập nhật lịch ôn tập."}
+          {mode === "BOTH"
+            ? "Học hết Anh → Việt rồi đến Việt → Anh. Mỗi từ chỉ được tính đúng khi đúng cả hai chiều và chỉ cập nhật schedule một lần."
+            : "Giữ nguyên cách ôn Anh → Việt; kết quả trả lời sẽ cập nhật lịch ôn tập."}
         </p>
       </section>
 
@@ -394,6 +450,9 @@ export default function ReviewPage() {
                   Correct answer: {direction === "VI_TO_EN" ? currentCard.word : currentCard.meaningVi || "-"}
                 </p>
                 {direction === "VI_TO_EN" && <p>Meaning: {currentCard.meaningVi || "-"}</p>}
+                {mode === "BOTH" && phase === "VI_TO_EN" && feedback === "incorrect" && (
+                  <p>Một trong hai chiều chưa đúng nên từ này được tính là sai.</p>
+                )}
                 {currentCard.exampleEn && <p>{currentCard.exampleEn}</p>}
                 {currentCard.exampleVi && <p>{currentCard.exampleVi}</p>}
               </div>
