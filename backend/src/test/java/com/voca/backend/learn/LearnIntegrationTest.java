@@ -260,6 +260,39 @@ class LearnIntegrationTest {
     }
 
     @Test
+    void vietnameseToEnglishWrittenRecallStartsAfterFiveToEightLearnAnswers() throws Exception {
+        String token = register("learn-delayed-vi-en@example.com");
+        long deckId = createDeck(token, "Delayed Reverse Recall Deck");
+        importItems(token, deckId, """
+                absent ; vang mat
+                eager ; hao huc
+                careful ; can than
+                """);
+
+        StartLearnSessionRequest startRequest = new StartLearnSessionRequest(
+                deckId,
+                LearnSessionScope.ALL,
+                LearnGoal.MASTER_ALL,
+                LearnAnswerDirection.BOTH,
+                LearnGradingMode.EXACT,
+                List.of(LearnQuestionType.MCQ, LearnQuestionType.WRITTEN)
+        );
+        long sessionId = startSession(token, startRequest);
+
+        int answersBeforeVietnameseToEnglish = 0;
+        while (answersBeforeVietnameseToEnglish <= 8) {
+            JsonNode question = nextQuestion(token, sessionId);
+            if (isVietnameseToEnglishWritten(question)) {
+                break;
+            }
+            answerQuestion(token, sessionId, question, correctAnswerFor(question));
+            answersBeforeVietnameseToEnglish++;
+        }
+
+        org.assertj.core.api.Assertions.assertThat(answersBeforeVietnameseToEnglish).isBetween(5, 8);
+    }
+
+    @Test
     void learnMasteryUpdatesReviewAndSeparateLearnProgress() throws Exception {
         String token = register("learn-hard-result@example.com");
         long deckId = createDeck(token, "Hard Learn Deck");
@@ -298,11 +331,10 @@ class LearnIntegrationTest {
         question = nextQuestion(token, sessionId);
         org.assertj.core.api.Assertions.assertThat(question.get("sessionItemId").asLong()).isEqualTo(sessionItemId);
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10 && userProgressRepository.findAllByVocabItemId(vocabId).isEmpty(); i++) {
             answerQuestion(token, sessionId, question, correctAnswerFor(question));
-            if (i < 2) {
+            if (userProgressRepository.findAllByVocabItemId(vocabId).isEmpty()) {
                 question = nextQuestion(token, sessionId);
-                org.assertj.core.api.Assertions.assertThat(question.get("sessionItemId").asLong()).isEqualTo(sessionItemId);
             }
         }
 
@@ -318,7 +350,7 @@ class LearnIntegrationTest {
                 vocabId
         ).orElseThrow();
         org.assertj.core.api.Assertions.assertThat(progress.isMastered()).isTrue();
-        org.assertj.core.api.Assertions.assertThat(progress.getCorrectAttempts()).isEqualTo(3);
+        org.assertj.core.api.Assertions.assertThat(progress.getCorrectAttempts()).isGreaterThanOrEqualTo(3);
         org.assertj.core.api.Assertions.assertThat(progress.getIncorrectAttempts()).isEqualTo(2);
         org.assertj.core.api.Assertions.assertThat(progress.getMasteredAt()).isNotNull();
     }
@@ -589,7 +621,8 @@ class LearnIntegrationTest {
             }
             if (word.equals(question.get("word").asText())
                     && stage.equals(question.get("stage").asText())
-                    && "WRITTEN".equals(question.get("questionType").asText())) {
+                    && "WRITTEN".equals(question.get("questionType").asText())
+                    && (!"FAMILIAR".equals(stage) || isVietnameseToEnglishWritten(question))) {
                 return question;
             }
             answerQuestion(token, sessionId, question, correctAnswerFor(question));
@@ -598,10 +631,17 @@ class LearnIntegrationTest {
     }
 
     private String correctAnswerFor(JsonNode question) {
-        if (question.get("stage").asText().equals("FAMILIAR")) {
+        String prompt = question.get("prompt").asText();
+        if (prompt.startsWith("Type the word for this meaning:")
+                || prompt.startsWith("Choose the word for this meaning:")) {
             return question.get("word").asText();
         }
         return question.get("vocab").get("meaningVi").asText();
+    }
+
+    private boolean isVietnameseToEnglishWritten(JsonNode question) {
+        return "WRITTEN".equals(question.get("questionType").asText())
+                && question.get("prompt").asText().startsWith("Type the word for this meaning:");
     }
 
     private String bearer(String token) {

@@ -65,7 +65,7 @@ export function LearnSetup({
       <p className="learn-setup-subtitle">
         {tooFewTerms
           ? "Not enough terms to start a learn session (minimum 2)"
-          : `${termsToStudy} terms to study`}
+          : `${termsToStudy} terms to study · Vietnamese → English starts after 5–8 warm-up answers`}
       </p>
 
       <button

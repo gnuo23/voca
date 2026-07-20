@@ -39,6 +39,8 @@ import com.voca.backend.vocab.VocabProgressStatus;
 public class LearnService {
 
     private static final int INTRO_BATCH_SIZE = 8;
+    private static final int MIN_ANSWERS_BEFORE_MEANING_TO_WORD = 5;
+    private static final int MEANING_TO_WORD_DELAY_RANGE = 4;
     private static final String DEFAULT_QUESTION_TYPES = "MCQ,TRUE_FALSE,WRITTEN";
 
     private final LearnSessionRepository sessionRepo;
@@ -267,7 +269,7 @@ public class LearnService {
         if (correct) {
             item.incrementCorrectAttempts();
             item.setCorrectStreak(item.getCorrectStreak() + 1);
-            item.setStage(nextCorrectStage(session, item, generated.type()));
+            item.setStage(nextCorrectStage(item, generated.direction()));
             item.setPriority(Math.max(0, item.getPriority() - 2));
         } else {
             item.incrementIncorrectAttempts();
@@ -336,7 +338,7 @@ public class LearnService {
         item.incrementCorrectAttempts();
         item.setIncorrectAttempts(Math.max(0, item.getIncorrectAttempts() - 1));
         item.setCorrectStreak(item.getCorrectStreak() + 1);
-        item.setStage(nextCorrectStage(session, item, answer.getQuestionType()));
+        item.setStage(nextCorrectStage(item, answerDirectionFor(answer)));
         item.setPriority(Math.max(0, item.getPriority() - 7));
         sessionItemRepo.save(item);
         applyLearnProgress(user, item);
@@ -549,12 +551,19 @@ public class LearnService {
     }
 
     private LearnAnswerDirection selectAnswerDirection(LearnSession session, LearnSessionItem item) {
-        // The Learn path always starts from English, then confirms recall from Vietnamese.
+        // Start from English and delay active Vietnamese-to-English recall until the
+        // learner has completed a short 5-8 answer warm-up in this session.
         LearnItemStage stage = normalizeStage(item.getStage());
-        if (stage == LearnItemStage.FAMILIAR) {
+        if (stage == LearnItemStage.FAMILIAR
+                && session.getTotalAnswers() >= meaningToWordStartAfter(session)) {
             return LearnAnswerDirection.MEANING_TO_WORD;
         }
         return LearnAnswerDirection.WORD_TO_MEANING;
+    }
+
+    private int meaningToWordStartAfter(LearnSession session) {
+        return MIN_ANSWERS_BEFORE_MEANING_TO_WORD
+                + Math.floorMod(Long.hashCode(session.getId()), MEANING_TO_WORD_DELAY_RANGE);
     }
 
     private TrueFalseQuestion buildTrueFalseQuestion(
@@ -585,16 +594,25 @@ public class LearnService {
         return new TrueFalseQuestion(statement, "False");
     }
 
-    private LearnItemStage nextCorrectStage(LearnSession session, LearnSessionItem item, LearnQuestionType answeredType) {
+    private LearnItemStage nextCorrectStage(LearnSessionItem item, LearnAnswerDirection answeredDirection) {
         LearnItemStage stage = normalizeStage(item.getStage());
         // 3-step progression: MCQ → Written EN→VI → Written VI→EN → Pass
         return switch (stage) {
             case NEW, SEEN -> LearnItemStage.LEARNING;      // Step 1 done → Step 2
             case LEARNING -> LearnItemStage.FAMILIAR;       // Step 2 done → Step 3
-            case FAMILIAR -> LearnItemStage.MASTERED;       // Step 3 done → Pass!
+            case FAMILIAR -> answeredDirection == LearnAnswerDirection.MEANING_TO_WORD
+                    ? LearnItemStage.MASTERED               // Step 3 done → Pass!
+                    : LearnItemStage.FAMILIAR;               // Warm-up until VI→EN unlocks
             case MASTERED -> LearnItemStage.MASTERED;
             case NOT_STUDIED, STILL_LEARNING -> LearnItemStage.LEARNING;
         };
+    }
+
+    private LearnAnswerDirection answerDirectionFor(LearnAnswer answer) {
+        String word = answer.getSessionItem().getVocabItem().getWord();
+        return normalizeExact(answer.getCorrectAnswer()).equals(normalizeExact(word))
+                ? LearnAnswerDirection.MEANING_TO_WORD
+                : LearnAnswerDirection.WORD_TO_MEANING;
     }
 
     private LearnItemStage nextIncorrectStage(LearnItemStage currentStage) {
