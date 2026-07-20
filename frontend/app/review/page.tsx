@@ -8,6 +8,7 @@ import { AppShell } from "@/components/AppShell";
 import { getStoredToken, getTodayReview, getVocabAudio, ReviewItem, submitReviewAnswer, submitReviewResult, VocabAudio } from "@/lib/api";
 
 type ReviewFeedback = "correct" | "pendingIncorrect" | "incorrect";
+type ReviewDirection = "EN_TO_VI" | "VI_TO_EN";
 
 const CORRECT_AUTO_ADVANCE_MS = 700;
 
@@ -59,6 +60,7 @@ export default function ReviewPage() {
   const [startedAt, setStartedAt] = useState(Date.now());
   const [responseTimeMs, setResponseTimeMs] = useState<number | null>(null);
   const [reviewed, setReviewed] = useState(0);
+  const [direction, setDirection] = useState<ReviewDirection>("EN_TO_VI");
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState<ReviewFeedback | null>(null);
   const [currentAudio, setCurrentAudio] = useState<VocabAudio | null>(null);
@@ -129,6 +131,18 @@ export default function ReviewPage() {
     setFeedback(null);
   }, [clearAutoAdvance]);
 
+  const restart = useCallback((nextDirection = direction) => {
+    clearAutoAdvance();
+    setDirection(nextDirection);
+    setCurrentIndex(0);
+    setReviewed(0);
+    setStartedAt(Date.now());
+    setResponseTimeMs(null);
+    setAnswer("");
+    setFeedback(null);
+    setError("");
+  }, [clearAutoAdvance, direction]);
+
   useEffect(() => {
     return () => clearAutoAdvance();
   }, [clearAutoAdvance]);
@@ -146,10 +160,12 @@ export default function ReviewPage() {
     }
     const submitted = answer.trim();
     if (!submitted) {
-      setError("Enter the meaning first");
+      setError(direction === "VI_TO_EN" ? "Enter the English word first" : "Enter the meaning first");
       return;
     }
-    const correct = isMeaningCorrect(submitted, currentCard.meaningVi ?? "");
+    const correct = direction === "VI_TO_EN"
+      ? isEnglishWordCorrect(submitted, currentCard.word)
+      : isMeaningCorrect(submitted, currentCard.meaningVi ?? "");
     const elapsedMs = Date.now() - startedAt;
     setResponseTimeMs(elapsedMs);
     setError("");
@@ -159,7 +175,13 @@ export default function ReviewPage() {
     }
     setIsLoading(true);
     try {
-      await submitReviewAnswer(token, currentCard.vocabId, true, elapsedMs);
+      await submitReviewAnswer(
+        token,
+        currentCard.vocabId,
+        true,
+        elapsedMs,
+        direction === "VI_TO_EN" ? "VIETNAMESE_TO_ENGLISH" : "FLASHCARD"
+      );
       setFeedback("correct");
       clearAutoAdvance();
       autoAdvanceTimer.current = setTimeout(nextCard, CORRECT_AUTO_ADVANCE_MS);
@@ -168,7 +190,7 @@ export default function ReviewPage() {
     } finally {
       setIsLoading(false);
     }
-  }, [answer, clearAutoAdvance, currentCard, nextCard, startedAt, token]);
+  }, [answer, clearAutoAdvance, currentCard, direction, nextCard, startedAt, token]);
 
   const reveal = useCallback(async () => {
     if (!currentCard) {
@@ -180,11 +202,11 @@ export default function ReviewPage() {
   }, [currentCard, startedAt]);
 
   const playCurrentAudio = useCallback(() => {
-    if (!currentCard) {
+    if (!currentCard || (direction === "VI_TO_EN" && feedback === null)) {
       return;
     }
     void playPronunciation(currentCard.word, currentAudio).catch(() => undefined);
-  }, [currentAudio, currentCard]);
+  }, [currentAudio, currentCard, direction, feedback]);
 
   const markPending = useCallback(async (correct: boolean) => {
     if (!currentCard) {
@@ -192,7 +214,13 @@ export default function ReviewPage() {
     }
     setIsLoading(true);
     try {
-      await submitReviewResult(token, currentCard.vocabId, correct ? "GOOD" : "AGAIN", responseTimeMs ?? Date.now() - startedAt);
+      await submitReviewResult(
+        token,
+        currentCard.vocabId,
+        correct ? "GOOD" : "AGAIN",
+        responseTimeMs ?? Date.now() - startedAt,
+        direction === "VI_TO_EN" ? "VIETNAMESE_TO_ENGLISH" : "FLASHCARD"
+      );
       setFeedback(correct ? "correct" : "incorrect");
       clearAutoAdvance();
       if (correct) {
@@ -203,7 +231,7 @@ export default function ReviewPage() {
     } finally {
       setIsLoading(false);
     }
-  }, [clearAutoAdvance, currentCard, nextCard, responseTimeMs, startedAt, token]);
+  }, [clearAutoAdvance, currentCard, direction, nextCard, responseTimeMs, startedAt, token]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -263,7 +291,11 @@ export default function ReviewPage() {
       <header className="topbar">
         <div>
           <h1>Review</h1>
-          <p>{items.length === 0 && isLoading ? "Loading cards" : `${Math.min(currentIndex + 1, items.length)} / ${items.length || 0}`}</p>
+          <p>
+            {items.length === 0 && isLoading
+              ? "Loading cards"
+              : `${direction === "VI_TO_EN" ? "Việt → Anh" : "Anh → Việt"} · ${Math.min(currentIndex + 1, items.length)} / ${items.length || 0}`}
+          </p>
         </div>
         <div className="button-row">
           <Link className="button secondary-button" href="/review/schedule">
@@ -273,15 +305,7 @@ export default function ReviewPage() {
           <button
             className="button secondary-button"
             type="button"
-            onClick={() => {
-              clearAutoAdvance();
-              setCurrentIndex(0);
-              setReviewed(0);
-              setStartedAt(Date.now());
-              setResponseTimeMs(null);
-              setAnswer("");
-              setFeedback(null);
-            }}
+            onClick={() => restart()}
             disabled={items.length === 0}
           >
             <RotateCcw size={18} aria-hidden="true" />
@@ -292,26 +316,56 @@ export default function ReviewPage() {
 
       {error && <p className="form-error">{error}</p>}
 
+      <section className="card review-mode-picker" aria-label="Review direction">
+        <div className="review-mode-switch" role="group" aria-label="Chọn chiều ôn tập">
+          <button
+            className="button secondary-button"
+            type="button"
+            aria-pressed={direction === "EN_TO_VI"}
+            onClick={() => restart("EN_TO_VI")}
+          >
+            Anh → Việt
+          </button>
+          <button
+            className="button secondary-button"
+            type="button"
+            aria-pressed={direction === "VI_TO_EN"}
+            onClick={() => restart("VI_TO_EN")}
+          >
+            Việt → Anh
+          </button>
+        </div>
+        <p className="review-mode-note">
+          {direction === "VI_TO_EN"
+            ? "Luyện theo các từ đang đến hạn, không thay đổi lịch hay chỉ số ôn tập."
+            : "Kết quả trả lời sẽ cập nhật lịch ôn tập."}
+        </p>
+      </section>
+
       {currentCard && (
         <section className="review-stage">
           <article className="review-card">
             <span className="status-pill neutral">{currentCard.status}</span>
             <div className="review-word-row">
-              <h2>{currentCard.word}</h2>
-              <button
-                type="button"
-                className="learn-audio-btn review-audio-btn"
-                onClick={playCurrentAudio}
-                aria-label={`Nghe phát âm ${currentCard.word}`}
-                title={`Nghe phát âm ${currentCard.word} (Left Shift)`}
-              >
-                <Volume2 size={18} aria-hidden="true" />
-              </button>
+              <h2>{direction === "VI_TO_EN" ? currentCard.meaningVi || "-" : currentCard.word}</h2>
+              {(direction === "EN_TO_VI" || feedback !== null) && (
+                <button
+                  type="button"
+                  className="learn-audio-btn review-audio-btn"
+                  onClick={playCurrentAudio}
+                  aria-label={`Nghe phát âm ${currentCard.word}`}
+                  title={`Nghe phát âm ${currentCard.word} (Left Shift)`}
+                >
+                  <Volume2 size={18} aria-hidden="true" />
+                </button>
+              )}
             </div>
             <p>{currentCard.partOfSpeech || "Vocabulary"}</p>
             {feedback === null ? (
               <div className="field review-answer-field">
-                <label htmlFor="review-answer">Meaning</label>
+                <label htmlFor="review-answer">
+                  {direction === "VI_TO_EN" ? "English word" : "Meaning"}
+                </label>
                 <input
                   ref={answerInputRef}
                   id="review-answer"
@@ -336,7 +390,10 @@ export default function ReviewPage() {
                   {feedback === "correct" ? "Correct" : feedback === "pendingIncorrect" ? "Check your answer" : "Needs review"}
                 </strong>
                 {feedback === "pendingIncorrect" && answer.trim() && <p>Your answer: {answer.trim()}</p>}
-                <p>Correct answer: {currentCard.meaningVi || "-"}</p>
+                <p>
+                  Correct answer: {direction === "VI_TO_EN" ? currentCard.word : currentCard.meaningVi || "-"}
+                </p>
+                {direction === "VI_TO_EN" && <p>Meaning: {currentCard.meaningVi || "-"}</p>}
                 {currentCard.exampleEn && <p>{currentCard.exampleEn}</p>}
                 {currentCard.exampleVi && <p>{currentCard.exampleVi}</p>}
               </div>
@@ -393,6 +450,10 @@ function isMeaningCorrect(answer: string, meaning: string) {
     .map(normalizeAnswer)
     .filter(Boolean);
   return normalizeAnswer(meaning) === normalizedAnswer || accepted.includes(normalizedAnswer);
+}
+
+function isEnglishWordCorrect(answer: string, word: string) {
+  return normalizeAnswer(answer) === normalizeAnswer(word);
 }
 
 function normalizeAnswer(value: string) {

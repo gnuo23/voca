@@ -144,8 +144,21 @@ public class ReviewService {
                 : request.quality();
 
         UserProgress progress = userProgressRepository.findByUserIdAndVocabItemId(user.getId(), item.getId())
-                .orElseGet(() -> createProgress(user, item));
+                .orElse(null);
 
+        if (request.source() == ReviewSource.VIETNAMESE_TO_ENGLISH) {
+            if (progress == null || !isReviewable(progress)) {
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST,
+                        "Vietnamese-to-English practice requires a scheduled vocabulary item"
+                );
+            }
+            return ReviewProgressResponse.from(progress, quality);
+        }
+
+        if (progress == null) {
+            progress = createProgress(user, item);
+        }
         reviewSchedulingService.apply(progress, quality, request.responseTimeMs(), LocalDateTime.now());
         UserProgress saved = userProgressRepository.save(progress);
         return ReviewProgressResponse.from(saved, quality);

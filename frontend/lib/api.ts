@@ -315,7 +315,7 @@ export type QuizResult = {
 };
 
 export type ReviewQuality = "AGAIN" | "HARD" | "GOOD" | "EASY";
-export type ReviewSource = "FLASHCARD" | "QUIZ" | "LEARN";
+export type ReviewSource = "FLASHCARD" | "QUIZ" | "LEARN" | "VIETNAMESE_TO_ENGLISH";
 
 export type LearnSessionScope = "ALL" | "NOT_MASTERED" | "DIFFICULT_ONLY" | "NEW_ONLY";
 export type LearnGoal = "QUICK_REVIEW" | "LEARN_ALL" | "MASTER_ALL";
@@ -1084,12 +1084,13 @@ export async function submitReviewResult(
   token: string,
   vocabId: number,
   quality: ReviewQuality,
-  responseTimeMs?: number
+  responseTimeMs?: number,
+  source: ReviewSource = "FLASHCARD"
 ): Promise<ReviewProgress> {
   return apiRequest<ReviewProgress>(`/api/review/${vocabId}/result`, {
     method: "POST",
     token,
-    body: JSON.stringify({ quality, responseTimeMs, source: "FLASHCARD" })
+    body: JSON.stringify({ quality, responseTimeMs, source })
   });
 }
 
@@ -1097,12 +1098,13 @@ export async function submitReviewAnswer(
   token: string,
   vocabId: number,
   isCorrect: boolean,
-  responseTimeMs?: number
+  responseTimeMs?: number,
+  source: ReviewSource = "FLASHCARD"
 ): Promise<ReviewProgress> {
   return apiRequest<ReviewProgress>(`/api/review/${vocabId}/result`, {
     method: "POST",
     token,
-    body: JSON.stringify({ isCorrect, responseTimeMs, source: "FLASHCARD" })
+    body: JSON.stringify({ isCorrect, responseTimeMs, source })
   });
 }
 

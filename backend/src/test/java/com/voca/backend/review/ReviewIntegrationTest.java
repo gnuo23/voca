@@ -10,6 +10,7 @@ import com.voca.backend.quiz.QuizAnswerRepository;
 import com.voca.backend.quiz.QuizAttemptRepository;
 import com.voca.backend.user.EnglishLevel;
 import com.voca.backend.user.UserRepository;
+import com.voca.backend.vocab.UserProgress;
 import com.voca.backend.vocab.UserProgressRepository;
 import com.voca.backend.vocab.VocabImportRequest;
 import com.voca.backend.vocab.VocabItemRepository;
@@ -129,6 +130,51 @@ class ReviewIntegrationTest {
                 .andExpect(jsonPath("$.quality").value("AGAIN"))
                 .andExpect(jsonPath("$.wrongCount").value(1))
                 .andExpect(jsonPath("$.lapseCount").value(1));
+    }
+
+    @Test
+    void vietnameseToEnglishReviewUsesScheduledItemWithoutChangingItsProgress() throws Exception {
+        String token = register("review-vi-to-en@example.com");
+        long deckId = createDeck(token, "Reverse Review Deck");
+        importItems(token, deckId, "absent ; (adj) vang mat");
+        long vocabId = listVocab(token, deckId).get(0).get("id").asLong();
+
+        submitReview(token, vocabId, new ReviewResultRequest(ReviewQuality.GOOD, null, 4200, ReviewSource.FLASHCARD));
+        UserProgress before = userProgressRepository.findAllByVocabItemId(vocabId).getFirst();
+        var nextReviewAt = before.getNextReviewAt();
+        var lastReviewedAt = before.getLastReviewedAt();
+        int correctCount = before.getCorrectCount();
+        int wrongCount = before.getWrongCount();
+        int repetitionCount = before.getRepetitionCount();
+        int lapseCount = before.getLapseCount();
+        int intervalDays = before.getIntervalDays();
+        double easeFactor = before.getEaseFactor();
+
+        mockMvc.perform(post("/api/review/{vocabId}/result", vocabId)
+                        .header("Authorization", bearer(token))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new ReviewResultRequest(
+                                ReviewQuality.AGAIN,
+                                null,
+                                9000,
+                                ReviewSource.VIETNAMESE_TO_ENGLISH
+                        ))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.quality").value("AGAIN"))
+                .andExpect(jsonPath("$.status").value("REVIEW"))
+                .andExpect(jsonPath("$.correctCount").value(correctCount))
+                .andExpect(jsonPath("$.wrongCount").value(wrongCount))
+                .andExpect(jsonPath("$.nextReviewAt", startsWith("2026-")));
+
+        UserProgress after = userProgressRepository.findAllByVocabItemId(vocabId).getFirst();
+        assertThat(after.getNextReviewAt()).isEqualTo(nextReviewAt);
+        assertThat(after.getLastReviewedAt()).isEqualTo(lastReviewedAt);
+        assertThat(after.getCorrectCount()).isEqualTo(correctCount);
+        assertThat(after.getWrongCount()).isEqualTo(wrongCount);
+        assertThat(after.getRepetitionCount()).isEqualTo(repetitionCount);
+        assertThat(after.getLapseCount()).isEqualTo(lapseCount);
+        assertThat(after.getIntervalDays()).isEqualTo(intervalDays);
+        assertThat(after.getEaseFactor()).isEqualTo(easeFactor);
     }
 
     @Test

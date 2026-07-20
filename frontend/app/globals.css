@@ -2531,6 +2531,31 @@ html[data-theme="light"] .weekly-bar-item strong {
   max-width: 760px;
 }
 
+.review-mode-picker {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+
+.review-mode-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.review-mode-switch .button[aria-pressed="true"] {
+  border-color: rgba(139, 92, 246, 0.7);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+
+.review-mode-note {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
 .review-card {
   display: grid;
   gap: 14px;
@@ -2929,6 +2954,7 @@ html[data-theme="light"] .weekly-bar-item strong {
   .schedule-controls,
   .schedule-summary,
   .review-actions,
+  .review-mode-switch,
   .difficult-options {
     grid-template-columns: 1fr;
   }
